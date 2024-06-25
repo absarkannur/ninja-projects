@@ -1,0 +1,328 @@
+
+/* Header */
+
+.ak-header{
+    clear: both;
+}
+
+.ak-header .topbar{
+    height: 54px;
+    background-color: var(--color-white);
+    border-bottom: solid 1px var(--color-border);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.ak-header .topbar .topbar-list li{
+    float: left;
+    height: 54px;
+    background-color: var(--color-white);
+    position: relative;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.ak-header .topbar .topbar-list li.separator:after{
+    position: absolute;
+    content: '';
+    height: 20px;
+    width: 2px;
+    background-color: var(--color-border);
+    top: 0;
+    bottom: 0;
+    right: 0px;
+    margin: auto;
+}
+
+.ak-header .topbar .topbar-list li img{
+    margin-right: 5px;
+}
+
+.ak-header .topbar .topbar-list li .time-icon{
+    background: linear-gradient(270deg, #1FAA4A 0%, #0095DA 100%);
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.ak-header .topbar .topbar-list li.topbar-time{
+    background-color: var(--color-blue);
+    color: var(--color-white);
+}
+
+.ak-header .topbar .topbar-list li.topbar-time::before{
+    position: absolute;
+    content: '';
+    background-color: var(--color-blue);
+    top: 0px;
+    left: -32px;
+    width: 32px;
+    height: 54px;
+}
+
+.ak-header .topbar .topbar-list li.topbar-time::after{
+    position: absolute;
+    content: '';
+    top: -1px;
+    right: -51px;
+    width: 32px;
+    height: 54px;
+    border-top: solid 26px transparent;
+    border-left: solid 26px var(--color-blue);
+    border-right: solid 26px transparent;
+    border-bottom: solid 29px var(--color-blue);
+}
+
+.ak-header .navbar{
+    padding: 10px 0;
+}
+
+.ak-header .navbar .navbar-nav{
+    align-items: center;
+}
+
+.ak-header .navbar .navbar-nav .nav-link{
+    font-weight: 500;
+    font-size: 16px;
+    padding: 0 10px;
+}
+
+.ak-header .navbar .navbar-nav .nav-link .social-link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    width: 45px;
+    background-color: var(--social-button-color);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+@media ( max-width: 1300px ) {
+    .ak-header .topbar{
+        height: auto;
+    }
+    .ak-header .topbar .topbar-list li{
+        font-size: 13px;
+    }
+}
+
+@media ( max-width: 768px ) {
+    .ak-header .topbar{
+        display: none;
+    }
+
+    .ak-header .navbar .navbar-nav .nav-link{
+        width: 100%;
+        padding: 10px 30px;
+    }
+
+    .ak-header .navbar .navbar-nav .nav-link.social{
+        display: none;
+    }
+
+}
+
+/* Footer */
+
+.ak-footer{
+    background-color: var(--color-blue);
+    color: var(--color-white);
+}
+
+.ak-footer .first-footer{
+    padding: 20px 0;
+}
+
+.ak-footer .first-footer .footer-navbar{
+    overflow: hidden;
+}
+
+.ak-footer .first-footer .footer-navbar li{
+    height: 45px;
+    line-height: 45px;
+    color: var(--color-white);
+    float: left;
+    padding: 0 10px;
+}
+
+.ak-footer .first-footer .footer-navbar li .social-link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    width: 45px;
+    background-color: var(--social-button-color);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.ak-footer .second-footer{
+    border-top: solid 1px #fff;
+    padding: 20px 0;
+}
+
+.ak-footer .second-footer .copyright{
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+}
+
+.ak-footer .bottombar-list li{
+    float: left;
+    height: 40px;
+    position: relative;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.ak-footer .bottombar-list li.separator:after{
+    position: absolute;
+    content: '';
+    height: 20px;
+    width: 2px;
+    background-color: var(--color-border);
+    top: 0;
+    bottom: 0;
+    right: 0px;
+    margin: auto;
+}
+
+.ak-footer .bottombar-list li img{
+    margin-right: 5px;
+}
+
+@media ( max-width: 1300px ) {
+    
+
+    .ak-footer .second-footer .copyright,
+    .ak-footer .bottombar-list li{
+        font-size: 13px;
+    }
+
+
+}
+
+@media ( max-width: 768px ) {
+
+    .ak-footer .first-footer .footer-navbar li{
+        width: 50%;
+    }
+
+    .ak-footer .first-footer{
+        text-align: center;
+    }
+
+    .ak-footer .flex-end{
+        justify-content: center;
+    }
+
+    .ak-footer .second-footer .copyright{
+        text-align: center;
+    }
+
+    .ak-footer .bottombar-list li{
+        width: 100%;
+        justify-content: center;
+    }
+
+    .ak-footer .bottombar-list li span{
+        text-align: center;
+    }
+
+    .ak-footer .bottombar-list li.separator:after{
+        content: none;   
+    }
+
+}
+
+/* Banner */
+
+.ak-banner{
+    background-color: #1FAA4A;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 600px;
+    display: flex;
+}
+
+.ak-banner .row,
+.ak-banner .row .flex-center{
+    height: 100%;
+}
+
+.ak-banner .banner-content{
+    min-height: 100px;
+}
+
+.ak-banner .banner-content h4{
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--color-green);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.ak-banner .banner-content h1{
+    font-weight: 500;
+    font-size: 56px;
+    color: var(--color-blue);
+    margin-bottom: 20px;
+}
+
+.ak-banner .banner-content p{
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--color-gray);
+    margin-bottom: 20px;
+}
+
+.ak-banner .banner-content .button-group div{
+    float: left;
+    margin-right: 10px;
+}
+
+@media ( max-width: 1200px ) {
+    .ak-banner{
+        background-position: right;
+    }
+}
+
+@media ( max-width: 768px ) {
+
+    .ak-banner{
+        background-position: center right 14%;
+    }
+    
+    .ak-banner .banner-content{
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.6);
+        padding: 30px 10px;
+        border-radius: 10px;
+    }
+
+    .ak-banner .banner-content h1{
+        font-size:42px;
+    }
+
+    .ak-banner .banner-content h4{
+        font-size: 18px;
+    }
+
+    .ak-banner .banner-content p{
+        color: #555555;
+    }
+
+    .ak-banner .banner-content .ak-dft-btn,
+    .ak-banner .banner-content .ak-invr-btn{
+        font-size: 11px;
+    }
+
+
+}
