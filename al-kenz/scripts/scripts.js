@@ -1,0 +1,82 @@
+
+var controller = new ScrollMagic.Controller();
+
+new ScrollMagic.Scene({
+    triggerElement: "#triggerCountAnim"
+})
+.on('start', function () {
+    animateCount();
+})
+.addTo( controller );
+
+function animateCount() {
+
+    var count1 = new ClientPlus( '#num1', 22, 1000 );
+    var count2 = new ClientPlus( '#num2', 35, 1000 );
+    var count3 = new ClientPlus( '#num3', 100, 1000 );
+    var count4 = new ClientPlus( '#num4', 24, 1000 );
+
+}
+
+// Other
+new ScrollMagic.Scene({
+    triggerElement: "#heritage"
+})
+.on('start', function () {
+    animateHeritageCount();
+})
+.addTo( controller );
+
+function animateHeritageCount() {
+    var count1 = new ClientPlus( '#num-heritage', 22, 1500 );
+} 
+
+var countWidget = false;
+
+class ClientPlus {
+
+    constructor( selectPlus, maxNum, duration ){
+        this.clientNum  = document.querySelector( selectPlus );
+        this.maxNum = maxNum
+        this.time   = duration/maxNum
+        this.timer = setInterval( ()=> { this.clientPlus( selectPlus ) }, this.time );
+    }
+
+    clientPlus( selectPlus ){
+
+        if( this.clientNum != null ){
+
+            this.clientNum.innerHTML++;
+            if(this.clientNum.innerHTML>=this.maxNum){
+                clearInterval(this.timer);
+                countWidget = true;
+            }
+
+        }
+
+    }
+
+}
+
+// Accordion Desktop
+
+$('.js_accordion_desk li').click(function(e){
+
+    $('.js_accordion_desk li').removeClass('active');
+    $('.js_accordion_details_desk li').removeClass('active');
+    $(this).addClass('active');
+
+    $('.js_accordion_details_desk li').eq($(this).index()).addClass('active');
+
+});
+
+
+$('.js_accordion_mobile li').click(function(){
+    var index = $(this).index();
+
+    $('.js_accordion_mobile li .content').removeClass('active');
+
+    $('.js_accordion_mobile li').eq( index ).find('.content').addClass('active');
+
+});
+
