@@ -875,7 +875,7 @@
 .ak-insigts .insight-list .item{
     position: relative;
     border-radius: 10px 10px 0 0;
-    width: 32.32%;
+    width: 100%;
 }
 
 .ak-insigts .insight-list .item .date{
@@ -943,4 +943,140 @@
     width: 15px;
     height: 15px;
     margin: 0 10px;
+}
+
+.ak-insigts .nav-group{
+    display: flex;
+    justify-content: end;
+}
+
+.ak-insigts .nav-group .prev,
+.ak-insigts .nav-group .next{
+    display: block;
+    cursor: pointer;
+}
+
+.ak-insigts .nav-group .prev{
+    margin-right: 5px;
+}
+.ak-insigts .nav-group .next{
+    margin-left: 5px;
+}
+
+/*  */
+
+.ak-markets{
+    padding: 70px 0;
+}
+
+.ak-markets h2 {
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--color-light-blue);
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.ak-markets h2::after {
+    position: absolute;
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #1FAA4A 0%, #0095DA 100%);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+.ak-markets p{
+    width: 30%;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.ak-markets .markets-list{
+    width: 100%;
+    clear: both;
+    margin-bottom: 20px;
+}
+
+.ak-markets .markets-list .item{
+    padding: 8px 20px;
+    border-radius: 50px;
+    border: solid 1px var(--color-green);
+    float: left;
+    background: linear-gradient(90deg, #002B5C 0%, #1FAA4A 100%);
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.ak-markets .market-pic{
+    width: 100%;
+    margin-top: 50px;
+}
+
+@media ( max-width: 768px ) {
+    .ak-markets p{
+        width: 100%;
+    }
+
+    .ak-markets .markets-list .item{
+        padding: 6px 15px;
+        font-size: 15px;
+    }
+
+}
+
+/* Inner Banner ------------------------------------------ */
+
+.ak-inner-banner{
+    position: relative;
+    height: 190px;
+    background-color: #136ed6;
+    background-position: top left;
+    background-repeat: no-repeat;
+}
+
+.ak-inner-banner .innerLayer{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #002B5C;
+    opacity: 0.5;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.ak-inner-banner h1{
+    position: relative;
+    color: var(--color-white);
+    font-weight: 500;
+    font-size: 56px;
+    height: 190px;
+    line-height: 190px;
+    z-index: 999;
+}
+
+.ak-inner-banner ul{
+    position: absolute;
+    z-index: 999;
+    clear: both;
+    bottom: 15px;
+}
+
+.ak-inner-banner ul li{
+    float: left;
+    color: var(--color-white);
+    margin-right: 5px;
 }

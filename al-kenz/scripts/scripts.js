@@ -80,3 +80,34 @@ $('.js_accordion_mobile li').click(function(){
 
 });
 
+
+// Home Page Blog
+
+var owl_insight = $('.insight-list').owlCarousel({
+    loop: true,
+    margin: 15,
+    nav: false,
+    dots: false,
+    autoplay:false,
+    autoplayTimeout:3000,
+    autoplayHoverPause:false,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:1
+        },
+        1000:{
+            items:3
+        }
+    }
+});
+
+$('.js_prev').click(function(){
+    owl_insight.trigger('prev.owl.carousel');
+});
+
+$('.js_next').click(function(){
+    owl_insight.trigger('next.owl.carousel');
+});

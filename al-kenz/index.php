@@ -11,6 +11,8 @@
 
     <link rel="stylesheet" href="./styles/animate.min.css" />
     <link href="./styles/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/owl.carousel.min.css" />
+    <link rel="stylesheet" href="./styles/owl.theme.default.min.css" />
     <link rel="stylesheet" href="./styles/init.css" />
     <link rel="stylesheet" href="./styles/common.css" />
     <link rel="stylesheet" href="./styles/site.css" />
@@ -401,11 +403,18 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                     <h2>NEWS & INSIGHTS</h2>
                 </div>
-                <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                    nav
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <div class="nav-group">
+                        <span class="prev js_prev">
+                            <img src="./assets/icons/prev.svg" alt="">
+                        </span>
+                        <span class="next js_next">
+                            <img src="./assets/icons/next.svg" alt="">
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -413,7 +422,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <ul class="insight-list">
+                    <ul class="insight-list owl-carousel owl-theme">
                         <li class="item">
                             <span class="date">09-June-2024</span>
                             <img class="pic" src="./assets/images/image-13-740x600.png" alt="">
@@ -430,6 +439,7 @@
                             </div>
 
                         </li>
+
                         <li class="item">
                             <span class="date">09-June-2024</span>
                             <img class="pic" src="./assets/images/image-7-740x600.png" alt="">
@@ -446,6 +456,7 @@
                             </div>
 
                         </li>
+
                         <li class="item">
                             <span class="date">09-June-2024</span>
                             <img class="pic" src="./assets/images/image-about-740x600.png" alt="">
@@ -470,9 +481,56 @@
 
     </section>
 
+    <section class="ak-container ak-markets">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>MARKETS AND DISTRIBUTION</h2>
+                    <p>Dedicated professionals committed to your health and wellbeing</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <ul class="markets-list">
+                        <li class="item">USA</li>
+                        <li class="item">Canada</li>
+                        <li class="item">Saudi Arabia</li>
+                        <li class="item">India</li>
+                        <li class="item">UAE</li>
+                        <li class="item">Italy</li>
+                        <li class="item">Lativa</li>
+                        <li class="item">China</li>
+                        <li class="item">Iraq</li>
+                        <li class="item">Pakistan</li>
+                        <li class="item">Kuwait</li>
+                        <li class="item">Morocco</li>
+                        <li class="item">Libya</li>
+                        <li class="item">Oman</li>
+                        <li class="item">Yemen</li>
+                        <li class="item">Russia</li>
+                        <li class="item">Armenia</li>
+                        <li class="item">Azerbaijan</li>
+                        <li class="item">Belarus</li>
+                        <li class="item">Kazakhstan</li>
+                        <li class="item">Kyrgyzstan</li>
+                        <li class="item">Moldova</li>
+                        <li class="item">Tajikistan</li>
+                        <li class="item">Uzbekistan</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <img class="market-pic" src="./assets/images/market.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <?php include_once('./inc/footer.inc') ?>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./scripts/owl.carousel.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>

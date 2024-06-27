@@ -36,7 +36,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
         
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="index.php">
                     <img src="./assets/h-logo.svg" alt="Al Kenz Pharmaceutical">
                 </a>
                 
@@ -46,7 +46,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="justify-content: end;">
                     <div class="navbar-nav">
-                        <a class="nav-link active" aria-current="page" href="#">About Us</a>
+                        <a class="nav-link active" aria-current="page" href="about-us.php">About Us</a>
                         <a class="nav-link" href="#">Our Team</a>
                         <a class="nav-link" href="#">Partners</a>
                         <a class="nav-link" href="#">Products</a>
