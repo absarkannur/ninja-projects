@@ -140,6 +140,25 @@ ul{
 }
 
 input[type=text],
-input[type=number]{
+input[type=number],
+textarea{
+    outline: none;
     width: 100%;
+    border-radius: 10px;
+    border: solid 1px var(--color-border);
+    box-shadow: 0px 8px 40px 0px #002B5C1A;
+
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 20px;
 }
+
+input[type=text]:focus,
+input[type=number]:focus,
+textarea:focus{
+    box-shadow: 0px 8px 40px 0px #0095DA33;
+}
+
+
+

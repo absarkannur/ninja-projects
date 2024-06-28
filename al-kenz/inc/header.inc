@@ -46,10 +46,10 @@
 
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="justify-content: end;">
                     <div class="navbar-nav">
-                        <a class="nav-link active" aria-current="page" href="about-us.php">About Us</a>
-                        <a class="nav-link" href="#">Our Team</a>
-                        <a class="nav-link" href="#">Partners</a>
-                        <a class="nav-link" href="#">Products</a>
+                        <a class="nav-link" aria-current="page" href="about-us.php">About Us</a>
+                        <a class="nav-link" href="index.php#teams">Our Team</a>
+                        <a class="nav-link" href="index.php#partners">Partners</a>
+                        <a class="nav-link" href="index.php#products">Products</a>
                         <a class="nav-link" href="#">Insights</a>
                         <a class="nav-link" href="#">Services</a>
                         <a class="nav-link social" href="#">

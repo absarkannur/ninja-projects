@@ -1037,50 +1037,6 @@
 
 }
 
-/* Inner Banner ------------------------------------------ */
-
-.ak-inner-banner{
-    position: relative;
-    height: 190px;
-    background-color: #136ed6;
-    background-position: top left;
-    background-repeat: no-repeat;
-}
-
-.ak-inner-banner .innerLayer{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: #002B5C;
-    opacity: 0.5;
-    left: 0;
-    top: 0;
-    z-index: 1;
-}
-
-.ak-inner-banner h1{
-    position: relative;
-    color: var(--color-white);
-    font-weight: 500;
-    font-size: 56px;
-    height: 190px;
-    line-height: 190px;
-    z-index: 999;
-}
-
-.ak-inner-banner ul{
-    position: absolute;
-    z-index: 999;
-    clear: both;
-    bottom: 15px;
-}
-
-.ak-inner-banner ul li{
-    float: left;
-    color: var(--color-white);
-    margin-right: 5px;
-}
-
 /* About Us */
 
 .ak-aboutus-banner{
@@ -1271,6 +1227,58 @@
     color: rgba(255, 255, 255, 1);
 }
 
+@media ( max-width: 768px ) {
+
+    .ak-aboutus-banner{
+        padding: 50px 0 0 0;
+    }
+
+    .ak-aboutus-content{
+        padding: 50px 0;
+    }
+
+    .ak-aboutus-view img{
+        width: 100%;
+    }
+
+    .ak-aboutus-view.flex-center{
+        display: block;
+        padding: 0;
+    }
+
+    .ak-aboutus-view .box{
+        left: 0;
+        border-radius: 0;
+        padding: 50px 50px 100px 50px;
+    }
+
+    .ak-aboutus-view .box::after{
+        display: none;
+    }
+
+    .ak-aboutus-view .box p{
+        font-size: 18px;
+    }
+
+    .ak-aboutus-values .value-list{
+        /* padding-top: 0; */
+    }
+
+    .ak-aboutus-values .value-list.pdr,
+    .ak-aboutus-values .value-list.pdl{
+        margin: 0;
+    }
+
+    .ak-aboutus-values .logo{
+        position: relative;
+        top: 10px;
+    }
+
+    .ak-aboutus-values .value-list.br-m{
+        border-bottom: solid 1px rgba(210, 210, 210, 1);
+    }
+
+}
 
 
 /* Contact */
@@ -1284,4 +1292,32 @@
     font-weight: 500;
     font-size: 32px;
     color: var(--color-blue);
+    margin-bottom: 70px;
+}
+
+#map{
+    height: 550px;
+    width: 100%;
+}
+
+@media ( max-width: 768px ) {
+
+    .ak-inner-contact{
+        padding: 50px 0;
+    }
+
+    .ak-inner-contact h2{
+        font-size: 26px;
+        margin-bottom: 50px;
+    }
+
+    .ak-inner-contact .ak-dft-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    #map{
+        height: 300px;
+    }
+
 }

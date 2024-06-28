@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./styles/animate.min.css" />
-    <link href="./styles/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="./styles/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles/owl.carousel.min.css" />
     <link rel="stylesheet" href="./styles/owl.theme.default.min.css" />
     <link rel="stylesheet" href="./styles/init.css" />
@@ -117,13 +117,13 @@
             </div>
             <div class="row">
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                    <div class="value-list fr pdr" style="text-align: right;color: white;">
+                    <div class="value-list fr br-m pdr" style="text-align: right;color: white;">
                         <h4>Innovation</h4>
                         <p>Fostering a culture of continuous improvement, creativity, and forward-thinking to drive positive change.</p>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                    <div class="value-list fl pdl" style="text-align: left;color: white;">
+                    <div class="value-list fl br-m pdl" style="text-align: left;color: white;">
                         <h4>Excellence</h4>
                         <p>Striving for the highest standards of quality, reliability, and efficiency ensuring the best outcomes for our stakeholders.</p>
                     </div>
@@ -142,7 +142,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
 
-    <script src="./scripts/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="./scripts/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="./scripts/scripts.js"></script>
 
 </body>

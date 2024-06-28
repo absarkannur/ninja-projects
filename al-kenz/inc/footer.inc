@@ -1,5 +1,7 @@
     <footer class="ak-container ak-footer">
 
+        <span class="scroll-top">&and;</span>
+
         <div class="first-footer">
 
             <div class="container-fluid">
@@ -12,12 +14,12 @@
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 flex-center">
                         <ul class="footer-navbar">
-                            <li>About Us</li>
-                            <li>Our Team</li>
-                            <li>Partners</li>
-                            <li>Products</li>
-                            <li>Insights</li>
-                            <li>Services</li>
+                            <li><a href="about-us.php">About Us</a></li>
+                            <li><a href="index.php#teams">Our Team</a></li>
+                            <li><a href="index.php#partners">Partners</a></li>
+                            <li><a href="index.php#products">Products</a></li>
+                            <li><a href="#">Insights</a></li>
+                            <li><a href="#">Services</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 flex-end">

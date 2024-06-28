@@ -30,7 +30,7 @@
     position: absolute;
     content: '';
     height: 20px;
-    width: 2px;
+    width: 1px;
     background-color: var(--color-border);
     top: 0;
     bottom: 0;
@@ -66,7 +66,7 @@
 .ak-header .topbar .topbar-list li.topbar-time::after{
     position: absolute;
     content: '';
-    top: -1px;
+    top: 0px;
     right: -51px;
     width: 32px;
     height: 54px;
@@ -133,6 +133,23 @@
     color: var(--color-white);
 }
 
+.ak-footer .scroll-top{
+    display: none;
+    position: fixed;
+    height: 40px;
+    line-height: 40px;
+    width: 40px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #1678e8;
+    color: var(--color-white);
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 6px #0526cb;
+    z-index: 99999;
+}
+
 .ak-footer .first-footer{
     padding: 20px 0;
 }
@@ -185,7 +202,7 @@
     position: absolute;
     content: '';
     height: 20px;
-    width: 2px;
+    width: 1px;
     background-color: var(--color-border);
     top: 0;
     bottom: 0;
@@ -209,6 +226,10 @@
 }
 
 @media ( max-width: 768px ) {
+
+    .ak-footer .first-footer .footer-navbar{
+        margin-top: 20px;
+    }
 
     .ak-footer .first-footer .footer-navbar li{
         width: 50%;
@@ -239,4 +260,57 @@
         content: none;   
     }
 
+}
+
+
+/* Inner Banner ------------------------------------------ */
+
+.ak-inner-banner{
+    position: relative;
+    height: 190px;
+    background-color: #136ed6;
+    background-position: center left;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.ak-inner-banner .innerLayer{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #002B5C;
+    opacity: 0.5;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.ak-inner-banner h1{
+    position: relative;
+    color: var(--color-white);
+    font-weight: 500;
+    font-size: 56px;
+    height: 190px;
+    line-height: 190px;
+    z-index: 999;
+}
+
+.ak-inner-banner ul{
+    position: absolute;
+    z-index: 999;
+    clear: both;
+    bottom: 15px;
+}
+
+.ak-inner-banner ul li{
+    float: left;
+    color: var(--color-white);
+    margin-right: 5px;
+}
+
+
+@media ( max-width: 768px ) {
+    .ak-inner-banner h1{
+        font-size: 40px;
+    }
 }

@@ -123,13 +123,13 @@ var owl_about_slider = $('.js_about_slider').owlCarousel({
     dots: false,
     responsive:{
         0:{
-            items:1
+            items:2
         },
         600:{
-            items:1
+            items:2
         },
         1000:{
-            items:3
+            items:1
         }
     }
 });
@@ -141,3 +141,49 @@ $('.js_prev').click(function(){
 $('.js_next').click(function(){
     owl_about_slider.trigger('next.owl.carousel');
 });
+
+
+// Map
+
+let map;
+
+async function initMap() {
+    
+    const { Map } = await google.maps.importLibrary("maps");
+
+    const myLatLng = { lat: 25.29679741164399, lng: 55.388527161824726 };
+
+    map = new Map(document.getElementById("map"), {
+        center: myLatLng,
+        zoom: 16,
+    });
+
+    new google.maps.Marker({
+        position: myLatLng,
+        map,
+        title: "Al Kenz Pharmaceutical",
+    });
+
+}
+
+initMap();
+
+
+// Scroll Top
+
+window.addEventListener("scroll", function(event) {
+    var top = this.scrollY;
+
+
+    if( top > 1000 ) {
+        $( '.scroll-top' ).show();
+    } else {
+        $( '.scroll-top' ).hide();
+    }
+
+}, false);
+
+
+$('.scroll-top').click(function(){
+    $(window).scrollTop(0);
+})
