@@ -1202,7 +1202,7 @@
 
 .ak-aboutus-values .value-list{
     padding: 45px 0;
-    width: 90%;
+    width: 80%;
     position: relative;
 }
 
@@ -1222,7 +1222,18 @@
 }
 
 .ak-aboutus-values .logo::after{
-
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: solid 1px var(--color-white);
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    margin: auto;
+    z-index: 1;
+    transform: scale(1.05);
 }
 
 .ak-aboutus-values .logo img{
