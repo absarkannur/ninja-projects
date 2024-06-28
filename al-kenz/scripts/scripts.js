@@ -111,3 +111,33 @@ $('.js_prev').click(function(){
 $('.js_next').click(function(){
     owl_insight.trigger('next.owl.carousel');
 });
+
+
+// About Slider
+var owl_about_slider = $('.js_about_slider').owlCarousel({
+    autoWidth: true,
+    center: true,
+    loop: true,
+    margin: 0,
+    nav: false,
+    dots: false,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:1
+        },
+        1000:{
+            items:3
+        }
+    }
+});
+
+$('.js_prev').click(function(){
+    owl_about_slider.trigger('prev.owl.carousel');
+});
+
+$('.js_next').click(function(){
+    owl_about_slider.trigger('next.owl.carousel');
+});
