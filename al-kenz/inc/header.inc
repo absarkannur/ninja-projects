@@ -62,7 +62,7 @@
                                 <img src="./assets/icons/insta.svg" alt="">
                             </div>
                         </a>
-                        <a class="nav-link no-padding" href="#">
+                        <a class="nav-link no-padding" href="contact.php">
                             <button class="ak-dft-btn p-l-10 center">
                                 <img src="./assets/icons/mail-w.svg" alt="">
                                 Contact Us

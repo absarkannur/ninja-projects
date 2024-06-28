@@ -78,7 +78,6 @@
         </div>
     </section>
 
-
     <section class="ak-container ak-aboutus-view flex-center">
 
         <img class="banner" src="./assets/images/abt-content-bg.png" alt="">
@@ -132,8 +131,6 @@
             </div>
         </div>
     </section>
-
-
 
     <?php include_once('./inc/footer.inc') ?>
 
