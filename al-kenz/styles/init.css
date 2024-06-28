@@ -138,3 +138,8 @@ ul{
     .desktop{ display: none; }
     .mobile{ display: block; }
 }
+
+input[type=text],
+input[type=number]{
+    width: 100%;
+}

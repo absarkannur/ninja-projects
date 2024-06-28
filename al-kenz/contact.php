@@ -49,10 +49,19 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    
-                    Hello
-
+                <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <input type="text" name="name" placeholder="Your Name" />
+                </div>
+                <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <input type="text" name="phone" placeholder="Your Phone" />
+                </div>
+                <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <input type="text" name="email" placeholder="Your Email" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <textarea name="message" placeholder="Message"></textarea>
                 </div>
             </div>
         </div>
