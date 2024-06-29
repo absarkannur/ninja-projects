@@ -245,6 +245,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    
                     <ul class="service-list js_accordion_desk">
                         <li class="item"><span>Market Research</span></li>
                         <li class="item"><span>Registration of Factory & Products</span></li>
@@ -254,10 +255,12 @@
                         <li class="item"><span>Marketing</span></li>
                     </ul>
 
-                    <button class="ak-dft-btn p-l-10 center service_link">
-                        OUR SERVICES
-                        <img src="./assets/icons/arrow-w.svg" alt="">
-                    </button>
+                    <a href="services.php">
+                        <button class="ak-dft-btn p-l-10 center service_link">
+                            OUR SERVICES
+                            <img src="./assets/icons/arrow-w.svg" alt="">
+                        </button>
+                    </a>
 
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">

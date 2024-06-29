@@ -55,7 +55,7 @@
                         <a class="nav-link" href="<?php echo $actual_link; ?>index.php#partners">Partners</a>
                         <a class="nav-link" href="<?php echo $actual_link; ?>index.php#products">Products</a>
                         <a class="nav-link" href="#">Insights</a>
-                        <a class="nav-link" href="#">Services</a>
+                        <a class="nav-link" href="<?php echo $actual_link; ?>services.php">Services</a>
                         <a class="nav-link social" href="#">
                             <div class="social-link">
                                 <img src="<?php echo $actual_link; ?>/assets/icons/fb.svg" alt="">
@@ -66,7 +66,7 @@
                                 <img src="<?php echo $actual_link; ?>/assets/icons/insta.svg" alt="">
                             </div>
                         </a>
-                        <a class="nav-link no-padding" href="contact.php">
+                        <a class="nav-link no-padding" href="<?php echo $actual_link; ?>contact.php">
                             <button class="ak-dft-btn p-l-10 center">
                                 <img src="<?php echo $actual_link; ?>/assets/icons/mail-w.svg" alt="">
                                 Contact Us

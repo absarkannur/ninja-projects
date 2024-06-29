@@ -42,63 +42,124 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <ul class="product-category">
-                        <li class="item">CARDIOVASCULAR DRUGS</li>
-                        <li class="item">EYE DROPS</li>
-                        <li class="item active">ANTIBIOTIC</li>
-                        <li class="item">NEUROLOGICAL AND PSYCHOLOGICAL DRUGS</li>
-                        <li class="item">ANTICOAGULANTS</li>
-                    </ul>
+
+                    <div class="category-nav-group">
+
+                        <?php  $product = isset( $_GET['product'] ) ? $_GET['product'] : 'ANTIBIOTIC'; ?>
+
+                        <ul class="product-category owl-carousel owl-theme">
+                            <li class="item <?php if( $product == 'CARDIOVASCULAR DRUGS' ) { echo 'active'; } ?>">CARDIOVASCULAR DRUGS</li>
+                            <li class="item <?php if( $product == 'EYE DROPS' ) { echo 'active'; }  ?>">EYE DROPS</li>
+                            <li class="item <?php if( $product == 'ANTIBIOTIC' ) { echo 'active'; } ?>">ANTIBIOTIC</li>
+                            <li class="item <?php if( $product == 'NEUROLOGICAL AND PSYCHOLOGICAL DRUGS' ) { echo 'active'; } ?>">NEUROLOGICAL AND PSYCHOLOGICAL DRUGS</li>
+                            <li class="item <?php if( $product == 'ANTICOAGULANTS' ) { echo 'active'; } ?>">ANTICOAGULANTS</li>
+                        </ul>
+                        <div class="nav-group">
+                            <span class="prev js_prev">
+                                <img src="./../assets/icons/prev.svg" alt="">
+                            </span>
+                            <span class="next js_next">
+                                <img src="./../assets/icons/next.svg" alt="">
+                            </span>
+                        </div>
+
+                    </div>
+
+
                 </div>
             </div>
+
+            <?php
+
+                $list = array(
+                    "ANTIBIOTIC" => array(
+                        array(
+                            "name" => "Ampicillin",
+                            "desc" => "Not Found"
+                        ),
+                        array(
+                            "name" => "Ampicillin Trihydrate",
+                            "desc" => "Not Found"
+                        ),
+                        array(
+                            "name" => "Clarithromycin",
+                            "desc" => "Not Found"
+                        ),
+                        array(
+                            "name" => "Azithromycin",
+                            "desc" => "Not Found"
+                        ),
+                        array(
+                            "name" => "Biotaksim",
+                            "desc" => "Not Found"
+                        ),
+                        array(
+                            "name" => "Cefazolin",
+                            "desc" => "Not Found"
+                        ),
+                        array(
+                            "name" => "Cefoperazone",
+                            "desc" => "Not Found"
+                        ),
+                        array(
+                            "name" => "Cefotaxime",
+                            "desc" => "Not Found"
+                        ),
+                        array(
+                            "name" => "Ceftazidime",
+                            "desc" => "Not Found"
+                        ),
+                        array(
+                            "name" => "Ceftriaxone",
+                            "desc" => "Not Found"
+                        ),
+                        array(
+                            "name" => "Cefuroxime",
+                            "desc" => "Not Found"
+                        ),
+                    ),
+                    "EYE DROPS" => array(
+                        array(
+                            "name" => "EYE DROPS",
+                            "desc" => "Not Found"
+                        ),
+                    ),
+                    "CARDIOVASCULAR DRUGS" => array(
+                        array(
+                            "name" => "CARDIOVASCULAR DRUGS",
+                            "desc" => "Not Found"
+                        ),
+                    ),
+                    "NEUROLOGICAL AND PSYCHOLOGICAL DRUGS" => array(
+                        array(
+                            "name" => "PSYCHOLOGICAL",
+                            "desc" => "Not Found"
+                        ),
+                    ),
+                    "ANTICOAGULANTS" => array(
+                        array(
+                            "name" => "Test Ampicillin",
+                            "desc" => "Not Found"
+                        ),
+                    ),
+                );
+
+            
+            ?>
 
             <div class="row">
                 <div class="col-12">
                     <ul class="product-list-item">
-                        <li class="item">
-                            <h4>Ampicillin</h4>
-                            <p>Not Found</p>
-                        </li>
-                        <li class="item">
-                            <h4>Ampicillin Trihydrate</h4>
-                            <p>Powder For Solution For Introvenous And Intromuscular Injection 1,0 G.</p>
-                        </li>
-                        <li class="item active">
-                            <h4>Clarithromycin</h4>
-                            <p>Powder For Solution For Introvenous And Intromuscular Injection 1,0 G.</p>
-                        </li>
-                        <li class="item">
-                            <h4>Azithromycin</h4>
-                            <p>Powder For Solution For Introvenous And Intromuscular Injection 1,0 G.</p>
-                        </li>
-                        <li class="item">
-                            <h4>Biotaksim</h4>
-                            <p>Powder For Solution For Introvenous And Intromuscular Injection 1,0 G.</p>
-                        </li>
-                        <li class="item">
-                            <h4>Cefazolin</h4>
-                            <p>Powder For Solution For Introvenous And Intromuscular Injection 1,0 G.</p>
-                        </li>
-                        <li class="item">
-                            <h4>Cefoperazone</h4>
-                            <p>Powder For Solution For Introvenous And Intromuscular Injection 1,0 G.</p>
-                        </li>
-                        <li class="item">
-                            <h4>Cefotaxime</h4>
-                            <p>Powder For Solution For Introvenous And Intromuscular Injection 1,0 G.</p>
-                        </li>
-                        <li class="item">
-                            <h4>Ceftazidime</h4>
-                            <p>Powder For Solution For Introvenous And Intromuscular Injection 1,0 G.</p>
-                        </li>
-                        <li class="item">
-                            <h4>Ceftriaxone</h4>
-                            <p>Powder For Solution For Introvenous And Intromuscular Injection 1,0 G.</p>
-                        </li>
-                        <li class="item">
-                            <h4>Cefuroxime</h4>
-                            <p>Powder For Solution For Introvenous And Intromuscular Injection 1,0 G.</p>
-                        </li>
+
+                        <?php foreach ( $list[ $product ] as $key => $value ) { ?>
+
+                            <li class="item">
+                                <h4><?php echo $value['name']; ?></h4>
+                                <p><?php echo $value['desc'] ?></p>
+                            </li>
+
+                        <?php } ?>
+
                     </ul>
                 </div>
             </div>

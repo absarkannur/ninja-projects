@@ -1,5 +1,6 @@
 
 var controller = new ScrollMagic.Controller();
+var countWidget = false;
 
 new ScrollMagic.Scene({
     triggerElement: "#triggerCountAnim"
@@ -10,15 +11,18 @@ new ScrollMagic.Scene({
 .addTo( controller );
 
 function animateCount() {
-
-    var count1 = new ClientPlus( '#num1', 22, 1000 );
-    var count2 = new ClientPlus( '#num2', 35, 1000 );
-    var count3 = new ClientPlus( '#num3', 100, 1000 );
-    var count4 = new ClientPlus( '#num4', 24, 1000 );
+    if( countWidget == false ) { 
+        var count1 = new ClientPlus( '#num1', 22, 1000 );
+        var count2 = new ClientPlus( '#num2', 35, 1000 );
+        var count3 = new ClientPlus( '#num3', 100, 1000 );
+        var count4 = new ClientPlus( '#num4', 24, 1000 );
+    }
 
 }
 
+
 // Other
+
 new ScrollMagic.Scene({
     triggerElement: "#heritage"
 })
@@ -28,10 +32,13 @@ new ScrollMagic.Scene({
 .addTo( controller );
 
 function animateHeritageCount() {
-    var count1 = new ClientPlus( '#num-heritage', 22, 1500 );
-} 
 
-var countWidget = false;
+    var nu = $('#num-heritage').text();
+    if( nu == 0 ){
+        var count1 = new ClientPlus( '#num-heritage', 22, 1500 );
+    }
+
+} 
 
 class ClientPlus {
 
@@ -190,11 +197,42 @@ $('.scroll-top').click(function(){
 
 // Products
 
-$('.product-list-item .item').click(function(){
-    
-    $('.product-list-item .item').removeClass('active');
+$('.product-category .item').click(function(){
+    $('.product-category .item').removeClass('active');
+    $(this).addClass('active');
 
+    var product = $(this).text();
+
+    var url = new URL(window.location.href);
+    url.searchParams.set( 'product', product );
+    window.history.pushState({ path: url.href }, '', url.href);
+
+    window.location.reload();
+
+});
+
+$('.product-list-item .item').click(function(){
+    $('.product-list-item .item').removeClass('active');
     $(this).addClass('active');
 
 
+});
+
+// Slider
+
+var owlPRoduct = $('.product-category').owlCarousel({
+    margin: 15,
+    nav: false,
+    dots: false,
+    items: 5,
+    autoWidth: true,
+    // center: true,
+});
+
+$('.js_prev').click(function(){
+    owlPRoduct.trigger('prev.owl.carousel');
+});
+
+$('.js_next').click(function(){
+    owlPRoduct.trigger('next.owl.carousel');
 });
