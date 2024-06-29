@@ -187,3 +187,14 @@ window.addEventListener("scroll", function(event) {
 $('.scroll-top').click(function(){
     $(window).scrollTop(0);
 })
+
+// Products
+
+$('.product-list-item .item').click(function(){
+    
+    $('.product-list-item .item').removeClass('active');
+
+    $(this).addClass('active');
+
+
+});

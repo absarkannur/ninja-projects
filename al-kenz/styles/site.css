@@ -323,6 +323,7 @@
 .ak-products{
     clear: both;
     padding: 70px 0;
+    background-color: var(--color-white);
 }
 
 .ak-products h2{
@@ -1320,4 +1321,118 @@
         height: 300px;
     }
 
+}
+
+
+/* Product List */
+
+.ak-inner-product-list{
+    padding: 70px 0;
+    clear: both;
+    background-color: var(--color-white);
+}
+
+.ak-inner-product-list .product-category{
+    overflow: hidden;
+    border-bottom: solid 1px var(--color-border);
+    height: 60px;
+}
+
+.ak-inner-product-list .product-category .item{
+    height: 60px;
+    line-height: 60px;
+    font-size: 16px;
+    font-weight: 700;
+    color: rgba(0, 43, 92, 0.5);
+    float: left;
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+.ak-inner-product-list .product-category .item.active{
+    color: var(--color-blue);
+}
+
+/* - - - - - */
+
+.ak-inner-product-list .product-list-item{
+    margin-top: 70px;
+}
+
+.ak-inner-product-list .product-list-item .item{
+    position: relative;
+    height: 100px;
+    width: 274px;
+    padding: 0 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    float: left;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    border: solid 1px rgba(0, 43, 92, 0.2);
+    box-shadow: 0px 8px 40px 0px rgba(0, 43, 92, 0.1);
+    background-color: var(--color-white);
+}
+
+.ak-inner-product-list .product-list-item .item.active{
+    position: relative;
+    background-color: var(--color-blue);
+    box-shadow: 0px 0px 10px 0px rgba(0, 149, 218, 0.25);
+    border: none;
+}
+
+.ak-inner-product-list .product-list-item .item::after{
+    content: '+';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    line-height: 22px;
+    border-radius: 50%;
+    background-color: var(--color-white);
+    top: 35px;
+    right: 10px;
+    margin: auto;
+    text-align: center;
+    font-weight: 500;
+    border: solid 1px var(--color-border);
+}
+
+.ak-inner-product-list .product-list-item .item.active::after{
+    content: '-';
+}
+
+.ak-inner-product-list .product-list-item .item h4{
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--color-blue);
+    padding: 35px 0;
+}
+
+.ak-inner-product-list .product-list-item .item p{
+    display: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-blue);
+}
+
+.ak-inner-product-list .product-list-item .item.active h4{
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--color-white);
+}
+
+.ak-inner-product-list .product-list-item .item.active p{
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-white);
+    position: absolute;
+    bottom: -100px;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-blue);
+    padding: 20px 10px;
+    border-radius: 0 0 10px 10px;
+    z-index: 999;
 }

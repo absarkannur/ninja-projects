@@ -130,15 +130,21 @@
                     <ul class="products-list">
                         <li class="item">
                             <img src="./assets/images/p-item-1.png" alt="" srcset="">
-                            <span class="text">Medication</span>
+                            <a href="products/medication.php">
+                                <span class="text">Medication</span>
+                            </a>
                         </li>
                         <li class="item">
                             <img src="./assets/images/p-item-2.png" alt="" srcset="">
-                            <span class="text">Food Supplement</span>
+                            <a href="">
+                                <span class="text">Food Supplement</span>
+                            </a>
                         </li>
                         <li class="item">
                             <img src="./assets/images/p-item-3.png" alt="" srcset="">
-                            <span class="text">Medical Equipment</span>
+                            <a href="">
+                                <span class="text">Medical Equipment</span>
+                            </a>
                         </li>
                     </ul>
 
