@@ -1420,7 +1420,7 @@
 }
 
 .ak-inner-product-list .product-list-item .item h4{
-    font-size: 20px;
+    font-size: 14px;
     font-weight: 500;
     color: var(--color-blue);
     padding: 35px 0;
@@ -1434,23 +1434,23 @@
 }
 
 .ak-inner-product-list .product-list-item .item.active h4{
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 500;
     color: var(--color-white);
 }
 
 .ak-inner-product-list .product-list-item .item.active p{
-    height:154px;
+    min-height:154px;
     display: block;
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 500;
     color: var(--color-white);
     position: absolute;
-    top: 65px;
+    top: 100px;
     left: 0;
     width: 100%;
     background-color: var(--color-blue);
-    padding: 20px 10px;
+    padding: 35px 10px;
     border-radius: 0 0 10px 10px;
     z-index: 999;
 }
