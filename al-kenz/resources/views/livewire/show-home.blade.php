@@ -1,5 +1,4 @@
 <div>
-    
     <section class="ak-container ak-banner" 
         style="background-image: url('{{ asset( 'kenz-assets/assets/images/banner-1.png' )  }}')">
         <div class="container">
@@ -77,7 +76,11 @@
                         id="news"
                         class="news-list" 
                         scrollamount="10" behavior="scroll" 
-                        direction="left">As proud partners with world-leading manufacturers, we ensure access to essential, high-quality medicines</marquee>
+                        direction="left">
+                        @foreach( $news as $n )
+                        {{ $n->news }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        @endforeach
+                    </marquee>
 
                 </div>
             </div>
@@ -179,50 +182,56 @@
 
                     <div>&nbsp;</div>
 
+                    @if( $teams_a->isNotEmpty() )
                     <ul class="teams-list">
+                        @foreach( $teams_a as $team )
                         <li class="item">
-                            <img src={{ asset("kenz-assets/assets/teams/aa.png") }} class="pic" alt="" />
-                            <span class="name">Dr. Mustafa Khalaf</span>
-                            <span class="designation">CEO</span>
+                            <img src={{ asset("storage/" . $team->image ) }} class="pic" alt="" />
+                            <span class="name">{{ $team->name }}</span>
+                            <span class="designation">{{ $team->designation }}</span>
                         </li>
+                        @endforeach
                     </ul>
+                    @endif
 
-
+                    @if( $teams_b->isNotEmpty() )
                     <ul class="teams-list mob">
+                        @foreach( $teams_b as $team )
                         <li class="item">
-                            <img src={{ asset("kenz-assets/assets/teams/41.png")}} class="pic" alt="" />
-                            <span class="name">Dr. Victoria Kurzanteseva</span>
-                            <span class="designation">Regulatory Affairs and Drugs Safety Manager</span>
+                            <img src={{ asset("storage/" . $team->image ) }} class="pic" alt="" />
+                            <span class="name">{{ $team->name }}</span>
+                            <span class="designation">{{ $team->designation }}</span>
                         </li>
-                        <li class="item">
-                            <img src={{ asset("kenz-assets/assets/teams/42.png") }} class="pic" alt="" />
-                            <span class="name">Dr. Margarita Khalaf</span>
-                            <span class="designation">Business Development Manager</span>
-                        </li>
-                        <li class="item">
-                            <img src={{ asset("kenz-assets/assets/teams/43.png") }} class="pic" alt="" />
-                            <span class="name">Dr. Krishna Priya Ashok</span>
-                            <span class="designation">Regulatory Affairs and Drugs Safety Officer</span>
-                        </li>
-                        <li class="item">
-                            <img src={{ asset("kenz-assets/assets/teams/44.png") }} class="pic" alt="" />
-                            <span class="name">Dr. Ali Al Houri</span>
-                            <span class="designation">Pharmacist & Sales Manager</span>
-                        </li>
+                        @endforeach
                     </ul>
+                    @endif
 
+                    @if( $teams_c->isNotEmpty() )
                     <ul class="teams-list mob">
+                        @foreach( $teams_c as $team )
                         <li class="item">
-                            <img src={{ asset("kenz-assets/assets/teams/45.png") }} class="pic" alt="" />
-                            <span class="name">Reem Hassan</span>
-                            <span class="designation">Finance Manager</span>
+                            <img src={{ asset("storage/" . $team->image ) }} class="pic" alt="" />
+                            <span class="name">{{ $team->name }}</span>
+                            <span class="designation">{{ $team->designation }}</span>
                         </li>
-                        <li class="item">
-                            <img src={{ asset("kenz-assets/assets/teams/46.png") }} class="pic" alt="" />
-                            <span class="name">Aya Al Khatib</span>
-                            <span class="designation">Strategy Manager</span>
-                        </li>
+                        @endforeach
                     </ul>
+                    @endif
+
+                    @if( $teams_d->isNotEmpty() )
+                    <ul class="teams-list mob">
+                        @foreach( $teams_d as $team )
+                        <li class="item">
+
+                            @if( $team->image != '' )
+                            <img src={{ asset("storage/" . $team->image ) }} class="pic" alt="" />
+                            @endif
+                            <span class="name">{{ $team->name }}</span>
+                            <span class="designation">{{ $team->designation }}</span>
+                        </li>
+                        @endforeach
+                    </ul>
+                    @endif
 
                 </div>
             </div>
@@ -233,14 +242,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                    
+
                     <ul class="service-list js_accordion_desk">
-                        <li class="item active"><span>Market Research</span></li>
-                        <li class="item"><span>Registration of Products</span></li>
-                        <li class="item"><span>Third party manufacturing</span></li>
-                        <li class="item"><span>Import export</span></li>
-                        <li class="item"><span>Distribution</span></li>
-                        <li class="item"><span>Marketing</span></li>
+                        @foreach( $services as $service )
+                        <li class="item active"><span>{{ $service->title }}</span></li>
+                        @endforeach
                     </ul>
 
                     <a href="{{route('services')}}">
@@ -253,36 +259,13 @@
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
                     <ul class="service-details js_accordion_details_desk">
-                        <li class="item active">
-                            <h2 class="animate__animated animate__fadeIn">OUR SERVICES</h2>
-                            <h3 class="animate__animated animate__fadeIn">We provide comprehensive market research to ensure informed decision-making and success in the U.A.E. market.</h3>
-                            <img rel="prefetch" class="animate__animated animate__fadeIn" src={{ asset("kenz-assets/assets/services/banner-market-research.jpeg") }} alt="">
-                        </li>
+                        @foreach( $services as $service )
                         <li class="item">
                             <h2 class="animate__animated animate__fadeIn">OUR SERVICES</h2>
-                            <h3 class="animate__animated animate__fadeIn">We ensure seamless registration and regulatory compliance for a wide range of essential healthcare products.</h3>
-                            <img rel="prefetch" class="animate__animated animate__fadeIn" src={{ asset("kenz-assets/assets/services/banner-registration-of-products.jpeg") }} alt="">
+                            <h3 class="animate__animated animate__fadeIn">{{ $service->short_description }}</h3>
+                            <img rel="prefetch" class="animate__animated animate__fadeIn" src={{ asset( "storage/" . $service->thumbnail ) }} alt="">
                         </li>
-                        <li class="item">
-                            <h2 class="animate__animated animate__fadeIn">OUR SERVICES</h2>
-                            <h3 class="animate__animated animate__fadeIn">We specialize in custom manufacturing and strategic collaborations to bring high-quality pharmaceutical products to the MENA region</h3>
-                            <img rel="prefetch" class="animate__animated animate__fadeIn" src={{ asset("kenz-assets/assets/services/banner-third-party-manufacturing.jpeg") }} alt="">
-                        </li>
-                        <li class="item">
-                            <h2 class="animate__animated animate__fadeIn">OUR SERVICES</h2>
-                            <h3 class="animate__animated animate__fadeIn">We expertly manage the entire import and export process to ensure seamless and efficient delivery of pharmaceutical products.</h3>
-                            <img rel="prefetch" class="animate__animated animate__fadeIn" src={{ asset("kenz-assets/assets/services/banner-import-export.jpeg") }} alt="">
-                        </li>
-                        <li class="item">
-                            <h2 class="animate__animated animate__fadeIn">OUR SERVICES</h2>
-                            <h3 class="animate__animated animate__fadeIn">We serve diverse healthcare customers, ensuring comprehensive pharmaceutical care across communities.</h3>
-                            <img rel="prefetch" class="animate__animated animate__fadeIn" src={{ asset("kenz-assets/assets/services/banner-distribution.jpeg") }} alt="">
-                        </li>
-                        <li class="item">
-                            <h2 class="animate__animated animate__fadeIn">OUR SERVICES</h2>
-                            <h3 class="animate__animated animate__fadeIn">We are one of the very few scientific offices licensed in the U.A.E. to perform custom manufacturing.</h3>
-                            <img rel="prefetch" class="animate__animated animate__fadeIn" src={{ asset("kenz-assets/assets/services/banner-marketing.jpeg") }} alt="">
-                        </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
