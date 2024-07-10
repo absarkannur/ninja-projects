@@ -2,11 +2,11 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\UserResource\Pages;
-use App\Filament\Resources\UserResource\RelationManagers;
-use App\Models\User;
+use App\Filament\Resources\NewsResource\Pages;
+use App\Filament\Resources\NewsResource\RelationManagers;
+use App\Models\News;
 use Filament\Forms;
-use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -15,22 +15,18 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class UserResource extends Resource
+class NewsResource extends Resource
 {
-    protected static ?string $model = User::class;
+    protected static ?string $model = News::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-users';
-    protected static ?string $navigationGroup = 'Admin';
-
-    protected static ?int $navigationSort = 3;
+    protected static ?string $navigationIcon = 'heroicon-o-newspaper';
+    protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                TextInput:: make('name')->required(),
-                TextInput:: make('email')->required()->email(),
-                TextInput:: make('password')->required()->password()
+                Textarea::make('news')->required()->columnSpanFull()
             ]);
     }
 
@@ -38,9 +34,7 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('id'),
-                TextColumn::make('name'),
-                TextColumn::make('email'),
+                TextColumn::make('news')
             ])
             ->filters([
                 //
@@ -65,9 +59,9 @@ class UserResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListUsers::route('/'),
-            'create' => Pages\CreateUser::route('/create'),
-            'edit' => Pages\EditUser::route('/{record}/edit'),
+            'index' => Pages\ListNews::route('/'),
+            'create' => Pages\CreateNews::route('/create'),
+            'edit' => Pages\EditNews::route('/{record}/edit'),
         ];
     }
 }

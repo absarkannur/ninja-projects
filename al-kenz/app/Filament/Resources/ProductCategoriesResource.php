@@ -2,35 +2,40 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\UserResource\Pages;
-use App\Filament\Resources\UserResource\RelationManagers;
-use App\Models\User;
+use App\Filament\Resources\ProductCategoriesResource\Pages;
+use App\Filament\Resources\ProductCategoriesResource\RelationManagers;
+use App\Models\ProductCategories;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class UserResource extends Resource
+class ProductCategoriesResource extends Resource
 {
-    protected static ?string $model = User::class;
+    protected static ?string $model = ProductCategories::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-users';
-    protected static ?string $navigationGroup = 'Admin';
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Products';
 
-    protected static ?int $navigationSort = 3;
+    protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                TextInput:: make('name')->required(),
-                TextInput:: make('email')->required()->email(),
-                TextInput:: make('password')->required()->password()
+                Section::make('')
+                    ->schema([
+                        TextInput::make('name')->required()->columns("full")->columnSpanFull(),
+                        FileUpload::make('banner_image')->columnSpanFull(),
+                    ])->columnSpan(1)->columns(1),
             ]);
     }
 
@@ -38,9 +43,8 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('id'),
                 TextColumn::make('name'),
-                TextColumn::make('email'),
+                ImageColumn::make('banner_image')
             ])
             ->filters([
                 //
@@ -65,9 +69,9 @@ class UserResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListUsers::route('/'),
-            'create' => Pages\CreateUser::route('/create'),
-            'edit' => Pages\EditUser::route('/{record}/edit'),
+            'index' => Pages\ListProductCategories::route('/'),
+            'create' => Pages\CreateProductCategories::route('/create'),
+            'edit' => Pages\EditProductCategories::route('/{record}/edit'),
         ];
     }
 }

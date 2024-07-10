@@ -2,10 +2,12 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\UserResource\Pages;
-use App\Filament\Resources\UserResource\RelationManagers;
-use App\Models\User;
+use App\Filament\Resources\DrugClassesResource\Pages;
+use App\Filament\Resources\DrugClassesResource\RelationManagers;
+use App\Models\DrugClasses;
+use App\Models\ProductCategories;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -15,22 +17,25 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class UserResource extends Resource
+class DrugClassesResource extends Resource
 {
-    protected static ?string $model = User::class;
+    protected static ?string $model = DrugClasses::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-users';
-    protected static ?string $navigationGroup = 'Admin';
-
-    protected static ?int $navigationSort = 3;
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Products';
+    protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                TextInput:: make('name')->required(),
-                TextInput:: make('email')->required()->email(),
-                TextInput:: make('password')->required()->password()
+                TextInput::make('name')->required(),
+                Select::make('product_categories_id')
+                    ->label('Category')
+                    // ->options(ProductCategories::all()->pluck('name','id')),
+                    ->relationship( 'product_categories', 'name' )
+                    ->preload()
+                    ->required()
             ]);
     }
 
@@ -38,9 +43,8 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('id'),
                 TextColumn::make('name'),
-                TextColumn::make('email'),
+                TextColumn::make('product_categories.name'),
             ])
             ->filters([
                 //
@@ -65,9 +69,9 @@ class UserResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListUsers::route('/'),
-            'create' => Pages\CreateUser::route('/create'),
-            'edit' => Pages\EditUser::route('/{record}/edit'),
+            'index' => Pages\ListDrugClasses::route('/'),
+            'create' => Pages\CreateDrugClasses::route('/create'),
+            'edit' => Pages\EditDrugClasses::route('/{record}/edit'),
         ];
     }
 }
