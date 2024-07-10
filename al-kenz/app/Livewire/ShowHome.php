@@ -8,6 +8,7 @@ use App\Models\Teams;
 use App\Models\Services;
 use App\Models\Partner;
 use App\Models\ProductCategories;
+use App\Models\Posts;
 
 class ShowHome extends Component {
 
@@ -23,6 +24,8 @@ class ShowHome extends Component {
         $services = Services::get();
         $partners = Partner::get();
         $products = ProductCategories::get();
+        $posts = Posts::orderBy( 'created_at', 'DESC' )->get();
+        
 
         return view('livewire.show-home', [
             'news' => $news,
@@ -32,7 +35,8 @@ class ShowHome extends Component {
             'teams_d' => $teams_d,
             'services' => $services,
             'partners' => $partners,
-            'products' => $products
+            'products' => $products,
+            'posts' => $posts
         ]);
 
     }

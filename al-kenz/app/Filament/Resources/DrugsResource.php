@@ -46,7 +46,7 @@ class DrugsResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('name'),
+                TextColumn::make('name')->sortable()->searchable(),
                 TextColumn::make('drug_classes.name')
             ])
             ->filters([
