@@ -23,24 +23,15 @@
                     <h2>FIND YOUR PRODUCT</h2>
 
                     <ul class="products-list">
+                        @foreach( $products as $product )
                         <li class="item">
-                            <img src={{asset("kenz-assets/assets/images/p-item-1.png" )}} alt="" srcset="">
-                            <a href="products/medication.php">
-                                <span class="text">Medication</span>
+                            <img src={{ asset( "storage/" . $product->banner_image ) }} rel="prefetch" alt="">
+                            <a href="{{ route( 'product', ['id'=>$product->id] ) }}">
+                                <span class="text">{{ $product->name }}</span>
                             </a>
                         </li>
-                        <li class="item">
-                            <img src={{asset("kenz-assets/assets/images/p-item-2.png" )}} alt="" srcset="">
-                            <a href="products/food-supplements.php">
-                                <span class="text">Food Supplement</span>
-                            </a>
-                        </li>
-                        <li class="item">
-                            <img src={{asset("kenz-assets/assets/images/p-item-3.png" )}} alt="" srcset="">
-                            <a href="products/medical-equipment.php">
-                                <span class="text">Medical Equipment</span>
-                            </a>
-                        </li>
+                        @endforeach
+                        
                     </ul>
 
 

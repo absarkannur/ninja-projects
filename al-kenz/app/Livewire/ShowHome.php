@@ -6,6 +6,8 @@ use Livewire\Component;
 use App\Models\News;
 use App\Models\Teams;
 use App\Models\Services;
+use App\Models\Partner;
+use App\Models\ProductCategories;
 
 class ShowHome extends Component {
 
@@ -19,6 +21,8 @@ class ShowHome extends Component {
         $teams_d = Teams::where('hierarchy','d')->get();
 
         $services = Services::get();
+        $partners = Partner::get();
+        $products = ProductCategories::get();
 
         return view('livewire.show-home', [
             'news' => $news,
@@ -26,7 +30,9 @@ class ShowHome extends Component {
             'teams_b' => $teams_b,
             'teams_c' => $teams_c,
             'teams_d' => $teams_d,
-            'services' => $services
+            'services' => $services,
+            'partners' => $partners,
+            'products' => $products
         ]);
 
     }

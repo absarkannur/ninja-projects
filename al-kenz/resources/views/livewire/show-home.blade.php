@@ -114,24 +114,16 @@
                     <h2>FIND YOUR PRODUCT</h2>
 
                     <ul class="products-list">
+
+                        @foreach( $products as $product )
                         <li class="item">
-                            <img src={{ asset("kenz-assets/assets/images/p-item-1.png") }} rel="prefetch" alt="">
-                            <a href="products/medication.php">
-                                <span class="text">Medication</span>
+                            <img src={{ asset( "storage/" . $product->banner_image ) }} rel="prefetch" alt="">
+                            <a href="{{ route( 'product', ['id'=>$product->id] ) }}">
+                                <span class="text">{{ $product->name }}</span>
                             </a>
                         </li>
-                        <li class="item">
-                            <img src={{ asset("kenz-assets/assets/images/p-item-2.png") }} rel="prefetch" alt="">
-                            <a href="products/food-supplements.php">
-                                <span class="text">Food Supplement</span>
-                            </a>
-                        </li>
-                        <li class="item">
-                            <img src={{ asset("kenz-assets/assets/images/p-item-3.png") }} rel="prefetch" alt="">
-                            <a href="products/medical-equipment.php">
-                                <span class="text">Medical Equipment</span>
-                            </a>
-                        </li>
+                        @endforeach
+                        
                     </ul>
 
 
@@ -244,8 +236,12 @@
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
 
                     <ul class="service-list js_accordion_desk">
-                        @foreach( $services as $service )
+                        @foreach( $services as $key => $service )
+                        @if( $key == 0 )
                         <li class="item active"><span>{{ $service->title }}</span></li>
+                        @else
+                        <li class="item"><span>{{ $service->title }}</span></li>
+                        @endif
                         @endforeach
                     </ul>
 
@@ -259,12 +255,20 @@
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
                     <ul class="service-details js_accordion_details_desk">
-                        @foreach( $services as $service )
+                        @foreach( $services as $key => $service )
+                        @if( $key == 0 )
+                        <li class="item active">
+                            <h2 class="animate__animated animate__fadeIn">OUR SERVICES</h2>
+                            <h3 class="animate__animated animate__fadeIn">{{ $service->short_description }}</h3>
+                            <img rel="prefetch" class="animate__animated animate__fadeIn" src={{ asset( "storage/" . $service->thumbnail ) }} alt="">
+                        </li>
+                        @else
                         <li class="item">
                             <h2 class="animate__animated animate__fadeIn">OUR SERVICES</h2>
                             <h3 class="animate__animated animate__fadeIn">{{ $service->short_description }}</h3>
                             <img rel="prefetch" class="animate__animated animate__fadeIn" src={{ asset( "storage/" . $service->thumbnail ) }} alt="">
                         </li>
+                        @endif
                         @endforeach
                     </ul>
                 </div>
@@ -280,61 +284,26 @@
                     <h2 class="animate__animated animate__fadeIn">OUR SERVICES</h2>
 
                     <ul class="service-list js_accordion_mobile">
+                        @foreach( $services as $key => $service )
+                        @if( $key == 0 )
                         <li class="item">
-                            <div class="header">Market Research</div>
-                            <div class="content">
-
-                                
-                                <h3 class="animate__animated animate__fadeIn">We provide comprehensive market research to ensure informed decision-making and success in the U.A.E. market.</h3>
-                                <img rel="prefetch" class="animate__animated animate__fadeIn" src={{asset("kenz-assets/assets/services/banner-market-research.jpeg")}} alt="">
-
-                            </div>
-                        </li>
-                        <li class="item">
-                            <div class="header">Registration of Products</div>
-                            <div class="content">
-
-                                <h3 class="animate__animated animate__fadeIn">We ensure seamless registration and regulatory compliance for a wide range of essential healthcare products.</h3>
-                                <img rel="prefetch" class="animate__animated animate__fadeIn" src={{asset("kenz-assets/assets/services/banner-registration-of-products.jpeg")}} alt="">
-
-                            </div>
-                        </li>
-                        <li class="item">
-                            <div class="header">Third party manufacturing</div>
-                            <div class="content">
-
-                                <h3 class="animate__animated animate__fadeIn">We specialize in custom manufacturing and strategic collaborations to bring high-quality pharmaceutical products to the MENA region</h3>
-                                <img rel="prefetch" class="animate__animated animate__fadeIn" src={{ asset("kenz-assets/assets/services/banner-third-party-manufacturing.jpeg") }} alt="">
-
-                            </div>
-                        </li>
-                        <li class="item">
-                            <div class="header">Import export</div>
+                            <div class="header">{{ $service->title }}</div>
                             <div class="content active">
-
-                                <h3 class="animate__animated animate__fadeIn">We expertly manage the entire import and export process to ensure seamless and efficient delivery of pharmaceutical products.</h3>
-                                <img rel="prefetch" class="animate__animated animate__fadeIn" src={{asset("kenz-assets/assets/services/banner-import-export.jpeg")}} alt="">
-
+                                <h3 class="animate__animated animate__fadeIn">{{ $service->short_description }}</h3>
+                                <img rel="prefetch" class="animate__animated animate__fadeIn" src={{ asset( "storage/" . $service->thumbnail ) }} alt="">
                             </div>
                         </li>
+                        @else
                         <li class="item">
-                            <div class="header">distribution</div>
+                            <div class="header">{{ $service->title }}</div>
                             <div class="content">
-
-                                <h3 class="animate__animated animate__fadeIn">We serve diverse healthcare customers, ensuring comprehensive pharmaceutical care across communities.</h3>
-                                <img rel="prefetch" class="animate__animated animate__fadeIn" src={{asset("kenz-assets/assets/services/banner-distribution.jpeg")}} alt="">
-
+                                <h3 class="animate__animated animate__fadeIn">{{ $service->short_description }}</h3>
+                                <img rel="prefetch" class="animate__animated animate__fadeIn" src={{ asset( "storage/" . $service->thumbnail ) }} alt="">
                             </div>
                         </li>
-                        <li class="item">
-                            <div class="header">Marketing</div>
-                            <div class="content">
-
-                                <h3 class="animate__animated animate__fadeIn">We are one of the very few scientific offices licensed in the U.A.E. to perform custom manufacturing.</h3>
-                                <img rel="prefetch" class="animate__animated animate__fadeIn" src={{asset("kenz-assets/assets/services/banner-marketing.jpeg")}} alt="">
-
-                            </div>
-                        </li>
+                        @endif
+                        @endforeach
+                        
                     </ul>
 
                     <a href="{{route('services')}}"></a>
@@ -357,41 +326,14 @@
                         <h2>OUR PARTNERS</h2>
                     </div>
 
+
+
                     <ul class="partners-list owl-carousel owl-theme js_partners">
+                        @foreach( $partners as $partner )
                         <li class="item">
-                            <img src={{ asset("kenz-assets/assets/partners/Group-18.png") }} alt="1"/>
+                            <img src={{ asset("storage/" . $partner->partner_image ) }} alt="1"/>
                         </li>
-                        <li class="item">
-                            <img src={{ asset("kenz-assets/assets/partners/Group-19.png") }} alt="2"/>
-                        </li>
-                        <li class="item">
-                            <img src={{ asset("kenz-assets/assets/partners/Group-20.png") }} alt="3"/>
-                        </li>
-                        <li class="item">
-                            <img src={{ asset("kenz-assets/assets/partners/Group-21.png") }} alt="4"/>
-                        </li>
-                        <li class="item">
-                            <img src={{ asset("kenz-assets/assets/partners/Group-22.png") }} alt="5"/>
-                        </li>
-                        <li class="item">
-                            <img src={{ asset("kenz-assets/assets/partners/Group-95.png") }} alt="6"/>
-                        </li>
-                        <li class="item">
-                            <img src ={{asset("kenz-assets/assets/partners/Group-100.png") }} alt="7"/>
-                        </li>
-                        <li class="item">
-                            <img src={{ asset("kenz-assets/assets/partners/Group-99.png") }} alt="8"/>
-                        </li>
-                        <li class="item">
-                            <img src={{ asset("kenz-assets/assets/partners/Group-98.png") }} alt="9"/>
-                        </li>
-                        <li class="item">
-                            <img src={{ asset("kenz-assets/assets/partners/Group-97.png") }} alt="10"/>
-                        </li>
-                        <li class="item">
-                            <img src={{ asset("kenz-assets/assets/partners/Group-96.png") }} alt="11"/>
-                        </li>
-                        
+                        @endforeach
                     </ul>
 
                 </div>
