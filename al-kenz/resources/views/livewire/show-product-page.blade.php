@@ -24,19 +24,19 @@
 
                     <ul class="products-list">
                         <li class="item">
-                            <img src="./assets/images/p-item-1.png" alt="" srcset="">
+                            <img src={{asset("kenz-assets/assets/images/p-item-1.png" )}} alt="" srcset="">
                             <a href="products/medication.php">
                                 <span class="text">Medication</span>
                             </a>
                         </li>
                         <li class="item">
-                            <img src="./assets/images/p-item-2.png" alt="" srcset="">
+                            <img src={{asset("kenz-assets/assets/images/p-item-2.png" )}} alt="" srcset="">
                             <a href="products/food-supplements.php">
                                 <span class="text">Food Supplement</span>
                             </a>
                         </li>
                         <li class="item">
-                            <img src="./assets/images/p-item-3.png" alt="" srcset="">
+                            <img src={{asset("kenz-assets/assets/images/p-item-3.png" )}} alt="" srcset="">
                             <a href="products/medical-equipment.php">
                                 <span class="text">Medical Equipment</span>
                             </a>

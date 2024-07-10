@@ -290,9 +290,10 @@
     color: var(--color-white);
     font-weight: 500;
     font-size: 56px;
-    height: 190px;
-    line-height: 190px;
+    /* height: 190px;
+    line-height: 190px; */
     z-index: 999;
+    padding-top: 5%;
 }
 
 .ak-inner-banner ul{
@@ -311,6 +312,7 @@
 
 @media ( max-width: 768px ) {
     .ak-inner-banner h1{
-        font-size: 40px;
+        font-size: 38px;
+        padding-top: 15%;
     }
 }
