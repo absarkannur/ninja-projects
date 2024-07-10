@@ -1,43 +1,44 @@
 <div>
-<section class="ak-container ak-banner" 
-    style="background-image: url('{{ asset( 'kenz-assets/assets/images/banner-1.png' )  }}')">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 flex-center">
-                
-                <div class="banner-content">
-                    <h4>Al Kenz Pharmaceuticals</h4>
-                    <h1>A Renowned Pharmaceutical Enterprise</h1>
-                    <p id="triggerCountAnim">Dedicated to advancing global healthcare. With a legacy spanning over two decades, we boast a distinguished team committed to excellence.</p>
+    
+    <section class="ak-container ak-banner" 
+        style="background-image: url('{{ asset( 'kenz-assets/assets/images/banner-1.png' )  }}')">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 flex-center">
+                    
+                    <div class="banner-content">
+                        <h4>Al Kenz Pharmaceuticals</h4>
+                        <h1>A Renowned Pharmaceutical Enterprise</h1>
+                        <p id="triggerCountAnim">Dedicated to advancing global healthcare. With a legacy spanning over two decades, we boast a distinguished team committed to excellence.</p>
 
-                    <div class="button-group">
-                        <div>
-                            <a href="{{route('about')}}">
-                                <button class="ak-invr-btn p-l-10 center">
-                                    LEARN MORE
-                                    <img src={{asset("kenz-assets/assets/icons/arrow.svg")}} alt="">
-                                </button>
-                            </a>
+                        <div class="button-group">
+                            <div>
+                                <a href="{{route('about')}}">
+                                    <button class="ak-invr-btn p-l-10 center">
+                                        LEARN MORE
+                                        <img src={{asset("kenz-assets/assets/icons/arrow.svg")}} alt="">
+                                    </button>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="{{route('products')}}">
+                                    <button class="ak-dft-btn p-l-10 center">
+                                        OUR PRODUCTS
+                                        <img src={{asset("kenz-assets/assets/icons/arrow-w.svg")}} alt="">
+                                    </button>
+                                </a>
+                            </div>
                         </div>
-                        <div>
-                            <a href="{{route('products')}}">
-                                <button class="ak-dft-btn p-l-10 center">
-                                    OUR PRODUCTS
-                                    <img src={{asset("kenz-assets/assets/icons/arrow-w.svg")}} alt="">
-                                </button>
-                            </a>
-                        </div>
+                    
                     </div>
-                
+
                 </div>
-
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">&nbsp;</div>
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">&nbsp;</div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="ak-container ak-counter">
+    <section class="ak-container ak-counter">
         <div class="container">
             <div class="row">
                 <div class="col-12">

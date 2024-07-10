@@ -36,12 +36,14 @@
                         <ul class="service-list">
                             @if( $services_list->isNotEmpty() )
                             @foreach( $services_list as $list )
+                                @if( $service->title != $list->title )
                                 <a href="{{ route('service', ['id'=>$list->id] ) }}">
                                     <li class="item">
                                         <span>{{ $list->title }}</span>
                                         <img src={{asset("kenz-assets/assets/icons/arrow-right.svg")}} alt="">
                                     </li>
                                 </a>
+                                @endif
                             @endforeach
                             @endif
 
@@ -54,22 +56,9 @@
         </div>
     </section>
 
-    <section class="ak-container ak-inner-market-research-content">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    {!! $service->content !!}
-                </div>
-            </div>
-        </div>
-    </section>
+    {!! $service->content !!}
 
-    @if( $service->component == 'x-market-research-process' )
-    <x-market-research-process/>
-    @elseif( $service->component == 'x-regulatory-affairs' )
-    <x-regulatory-affairs/>
-    @elseif( $service->component == 'x-contract-manufacturing')
-    <x-contract-manufacturing/>
-    @endif
+    {!! $service->component !!}
 
-</x-contract-manufacturing>
+
+</div>

@@ -28,7 +28,7 @@ class PartnerResource extends Resource
     {
         return $form
             ->schema([
-                FileUpload::make('partner_image')
+                FileUpload::make('partner_image')->required()
             ]);
     }
 

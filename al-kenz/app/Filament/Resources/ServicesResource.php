@@ -28,12 +28,12 @@ class ServicesResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('title'),
-                Textarea::make('short_description'),
-                Textarea::make('description'),
+                TextInput::make('title')->required(),
+                Textarea::make('short_description')->required(),
+                Textarea::make('description')->required(),
                 MarkdownEditor::make('content')->columnSpanFull(),
-                TextInput::make('component'),
-                FileUpload::make('thumbnail')
+                MarkdownEditor::make('component')->columnSpanFull(),
+                FileUpload::make('thumbnail')->required()
             ]);
     }
 
