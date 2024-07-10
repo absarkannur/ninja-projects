@@ -73,9 +73,9 @@
                         <a class="nav-link" aria-current="page" href="{{ route('about') }}">About Us</a>
                         <a class="nav-link" href="{{ route('home') }}#teams">Our Team</a>
                         <a class="nav-link" href="{{ route('home') }}#partners">Partners</a>
-                        <a class="nav-link" href="{{route('prodcts')}}">Products</a>
+                        <a class="nav-link" href="{{route('products')}}">Products</a>
                         <a class="nav-link" href="{{ route('insights') }}">Insights</a>
-                        <a class="nav-link" href="{{ route('serives') }}">Services</a>
+                        <a class="nav-link" href="{{ route('services') }}">Services</a>
 
                         <a class="nav-link social" href="https://www.facebook.com/alkenzpharma0" target="_blank">
                             <div class="social-link">
@@ -122,9 +122,9 @@
                             <li><a href="{{route('about')}}">About Us</a></li>
                             <li><a href="{{route('home')}}#teams">Our Team</a></li>
                             <li><a href="{{route('home')}}index.php#partners">Partners</a></li>
-                            <li><a href="{{route('prodcts')}}">Products</a></li>
+                            <li><a href="{{route('products')}}">Products</a></li>
                             <li><a href="{{ route('insights') }}">Insights</a></li>
-                            <li><a href="{{ route('serives') }}">Services</a></li>
+                            <li><a href="{{ route('services') }}">Services</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 flex-end">

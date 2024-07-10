@@ -33,10 +33,10 @@ class TeamsResource extends Resource
                 TextInput::make('designation'),
                 Select::make('hierarchy')
                 ->options([
-                    'a' => 'A',
-                    'b' => 'B',
-                    'c' => 'C',
-                    'd' => 'D'
+                    'a' => 'A Level',
+                    'b' => 'B Level',
+                    'c' => 'C Level',
+                    'd' => 'D Level'
                 ]),
                 FileUpload::make('image')->disk('public')->directory('teams'),
             ]);

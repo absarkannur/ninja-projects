@@ -10,9 +10,7 @@ use App\Livewire\ShowServicesPage;
 
 Route::get('/', ShowHome::class )->name('home');
 Route::get('/about', ShowAboutPage::class )->name('about');
-Route::get('/products', ShowProductPage::class )->name('prodcts');
-
+Route::get('/products', ShowProductPage::class )->name('products');
 Route::get('/insights', ShowInsightPage::class )->name('insights');
-
-Route::get('/serives', ShowServicesPage::class )->name('serives');
+Route::get('/services', ShowServicesPage::class )->name('services');
 

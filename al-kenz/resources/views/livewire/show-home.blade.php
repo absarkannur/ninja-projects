@@ -12,18 +12,18 @@
 
                     <div class="button-group">
                         <div>
-                            <a href="./about-us.php">
+                            <a href="{{route('about')}}">
                                 <button class="ak-invr-btn p-l-10 center">
                                     LEARN MORE
-                                    <img src="./assets/icons/arrow.svg" alt="">
+                                    <img src={{asset("kenz-assets/assets/icons/arrow.svg")}} alt="">
                                 </button>
                             </a>
                         </div>
                         <div>
-                            <a href="./products.php">
+                            <a href="{{route('products')}}">
                                 <button class="ak-dft-btn p-l-10 center">
                                     OUR PRODUCTS
-                                    <img src="./assets/icons/arrow-w.svg" alt="">
+                                    <img src={{asset("kenz-assets/assets/icons/arrow-w.svg")}} alt="">
                                 </button>
                             </a>
                         </div>
@@ -85,15 +85,15 @@
 
     <section class="ak-container ak-aboutus flex-center" id="aboutus">
 
-        <img class="banner" src="./assets/images/whoarewe.png" alt="">
+        <img class="banner" src={{ asset("kenz-assets/assets/images/whoarewe.png") }} alt="">
         
         <div class="box">
             <h3>WHO ARE WE</h3>
             <p>As proud partners with world-leading manufacturers, we ensure access to essential, high-quality medicines, contributing to the betterment of human health worldwide.</p>
-            <a href="./about-us.php">
+            <a href="{{route('about')}}">
                 <button class="ak-dft-btn">
                     LEARN MORE
-                    <img src="./assets/icons/arrow-w.svg" rel="prefetch" alt="">
+                    <img src={{ asset( "kenz-assets/assets/icons/arrow-w.svg" ) }} rel="prefetch" alt="">
                 </button>
             </a>
         </div>
@@ -111,19 +111,19 @@
 
                     <ul class="products-list">
                         <li class="item">
-                            <img src="./assets/images/p-item-1.png" rel="prefetch" alt="">
+                            <img src={{ asset("kenz-assets/assets/images/p-item-1.png") }} rel="prefetch" alt="">
                             <a href="products/medication.php">
                                 <span class="text">Medication</span>
                             </a>
                         </li>
                         <li class="item">
-                            <img src="./assets/images/p-item-2.png" rel="prefetch" alt="">
+                            <img src={{ asset("kenz-assets/assets/images/p-item-2.png") }} rel="prefetch" alt="">
                             <a href="products/food-supplements.php">
                                 <span class="text">Food Supplement</span>
                             </a>
                         </li>
                         <li class="item">
-                            <img src="./assets/images/p-item-3.png" rel="prefetch" alt="">
+                            <img src={{ asset("kenz-assets/assets/images/p-item-3.png") }} rel="prefetch" alt="">
                             <a href="products/medical-equipment.php">
                                 <span class="text">Medical Equipment</span>
                             </a>
@@ -151,14 +151,14 @@
 
                     <button class="ak-invr-btn p-l-10 center">
                         LEARN MORE
-                        <img src="./assets/icons/arrow.svg" alt="">
+                        <img src={{asset("kenz-assets/assets/icons/arrow.svg")}} alt="">
                     </button>
 
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
                     
                     <div class="content-box">
-                        <img rel="prefetch" src="./assets/images/heritage.png" alt="">
+                        <img rel="prefetch" src={{ asset("kenz-assets/assets/images/heritage.png") }} alt="">
                         <span class="exp-count"><span id="num-heritage">0</span>+</span>
                         <span class="exp-text">YEARS OF PRESTIGIOUS EXPERIENCE</span>
                     </div>
@@ -180,7 +180,7 @@
 
                     <ul class="teams-list">
                         <li class="item">
-                            <img src="./assets/teams/Ellipse 40.png" class="pic" alt="" />
+                            <img src={{ asset("kenz-assets/assets/teams/aa.png") }} class="pic" alt="" />
                             <span class="name">Dr. Mustafa Khalaf</span>
                             <span class="designation">CEO</span>
                         </li>
@@ -189,22 +189,22 @@
 
                     <ul class="teams-list mob">
                         <li class="item">
-                            <img src="./assets/teams/Ellipse 41.png" class="pic" alt="" />
+                            <img src={{ asset("kenz-assets/assets/teams/41.png")}} class="pic" alt="" />
                             <span class="name">Dr. Victoria Kurzanteseva</span>
                             <span class="designation">Regulatory Affairs and Drugs Safety Manager</span>
                         </li>
                         <li class="item">
-                            <img src="./assets/teams/Ellipse 42.png" class="pic" alt="" />
+                            <img src={{ asset("kenz-assets/assets/teams/42.png") }} class="pic" alt="" />
                             <span class="name">Dr. Margarita Khalaf</span>
                             <span class="designation">Business Development Manager</span>
                         </li>
                         <li class="item">
-                            <img src="./assets/teams/Ellipse 43.png" class="pic" alt="" />
+                            <img src={{ asset("kenz-assets/assets/teams/43.png") }} class="pic" alt="" />
                             <span class="name">Dr. Krishna Priya Ashok</span>
                             <span class="designation">Regulatory Affairs and Drugs Safety Officer</span>
                         </li>
                         <li class="item">
-                            <img src="./assets/teams/Ellipse 44.png" class="pic" alt="" />
+                            <img src={{ asset("kenz-assets/assets/teams/44.png") }} class="pic" alt="" />
                             <span class="name">Dr. Ali Al Houri</span>
                             <span class="designation">Pharmacist & Sales Manager</span>
                         </li>
@@ -212,12 +212,12 @@
 
                     <ul class="teams-list mob">
                         <li class="item">
-                            <img src="./assets/teams/Ellipse 45.png" class="pic" alt="" />
+                            <img src={{ asset("kenz-assets/assets/teams/45.png") }} class="pic" alt="" />
                             <span class="name">Reem Hassan</span>
                             <span class="designation">Finance Manager</span>
                         </li>
                         <li class="item">
-                            <img src="./assets/teams/Ellipse 46.png" class="pic" alt="" />
+                            <img src={{ asset("kenz-assets/assets/teams/46.png") }} class="pic" alt="" />
                             <span class="name">Aya Al Khatib</span>
                             <span class="designation">Strategy Manager</span>
                         </li>
@@ -242,10 +242,10 @@
                         <li class="item"><span>Marketing</span></li>
                     </ul>
 
-                    <a href="services.php">
+                    <a href="{{route('services')}}">
                         <button class="ak-dft-btn p-l-10 center service_link">
                             OUR SERVICES
-                            <img src="./assets/icons/arrow-w.svg" alt="">
+                            <img src={{ asset("kenz-assets/assets/icons/arrow-w.svg") }} alt="">
                         </button>
                     </a>
 
@@ -255,32 +255,32 @@
                         <li class="item active">
                             <h2 class="animate__animated animate__fadeIn">OUR SERVICES</h2>
                             <h3 class="animate__animated animate__fadeIn">We provide comprehensive market research to ensure informed decision-making and success in the U.A.E. market.</h3>
-                            <img rel="prefetch" class="animate__animated animate__fadeIn" src="./assets/services/banner-market-research.jpeg" alt="">
+                            <img rel="prefetch" class="animate__animated animate__fadeIn" src={{ asset("kenz-assets/assets/services/banner-market-research.jpeg") }} alt="">
                         </li>
                         <li class="item">
                             <h2 class="animate__animated animate__fadeIn">OUR SERVICES</h2>
                             <h3 class="animate__animated animate__fadeIn">We ensure seamless registration and regulatory compliance for a wide range of essential healthcare products.</h3>
-                            <img rel="prefetch" class="animate__animated animate__fadeIn" src="./assets/services/banner-registration-of-products.jpeg" alt="">
+                            <img rel="prefetch" class="animate__animated animate__fadeIn" src={{ asset("kenz-assets/assets/services/banner-registration-of-products.jpeg") }} alt="">
                         </li>
                         <li class="item">
                             <h2 class="animate__animated animate__fadeIn">OUR SERVICES</h2>
                             <h3 class="animate__animated animate__fadeIn">We specialize in custom manufacturing and strategic collaborations to bring high-quality pharmaceutical products to the MENA region</h3>
-                            <img rel="prefetch" class="animate__animated animate__fadeIn" src="./assets/services/banner-third-party-manufacturing.jpeg" alt="">
+                            <img rel="prefetch" class="animate__animated animate__fadeIn" src={{ asset("kenz-assets/assets/services/banner-third-party-manufacturing.jpeg") }} alt="">
                         </li>
                         <li class="item">
                             <h2 class="animate__animated animate__fadeIn">OUR SERVICES</h2>
                             <h3 class="animate__animated animate__fadeIn">We expertly manage the entire import and export process to ensure seamless and efficient delivery of pharmaceutical products.</h3>
-                            <img rel="prefetch" class="animate__animated animate__fadeIn" src="./assets/services/banner-import-export.jpeg" alt="">
+                            <img rel="prefetch" class="animate__animated animate__fadeIn" src={{ asset("kenz-assets/assets/services/banner-import-export.jpeg") }} alt="">
                         </li>
                         <li class="item">
                             <h2 class="animate__animated animate__fadeIn">OUR SERVICES</h2>
                             <h3 class="animate__animated animate__fadeIn">We serve diverse healthcare customers, ensuring comprehensive pharmaceutical care across communities.</h3>
-                            <img rel="prefetch" class="animate__animated animate__fadeIn" src="./assets/services/banner-distribution.jpeg" alt="">
+                            <img rel="prefetch" class="animate__animated animate__fadeIn" src={{ asset("kenz-assets/assets/services/banner-distribution.jpeg") }} alt="">
                         </li>
                         <li class="item">
                             <h2 class="animate__animated animate__fadeIn">OUR SERVICES</h2>
                             <h3 class="animate__animated animate__fadeIn">We are one of the very few scientific offices licensed in the U.A.E. to perform custom manufacturing.</h3>
-                            <img rel="prefetch" class="animate__animated animate__fadeIn" src="./assets/services/banner-marketing.jpeg" alt="">
+                            <img rel="prefetch" class="animate__animated animate__fadeIn" src={{ asset("kenz-assets/assets/services/banner-marketing.jpeg") }} alt="">
                         </li>
                     </ul>
                 </div>
@@ -302,7 +302,7 @@
 
                                 
                                 <h3 class="animate__animated animate__fadeIn">We provide comprehensive market research to ensure informed decision-making and success in the U.A.E. market.</h3>
-                                <img rel="prefetch" class="animate__animated animate__fadeIn" src="./assets/services/banner-market-research.jpeg" alt="">
+                                <img rel="prefetch" class="animate__animated animate__fadeIn" src={{asset("kenz-assets/assets/services/banner-market-research.jpeg")}} alt="">
 
                             </div>
                         </li>
@@ -311,7 +311,7 @@
                             <div class="content">
 
                                 <h3 class="animate__animated animate__fadeIn">We ensure seamless registration and regulatory compliance for a wide range of essential healthcare products.</h3>
-                                <img rel="prefetch" class="animate__animated animate__fadeIn" src="./assets/services/banner-registration-of-products.jpeg" alt="">
+                                <img rel="prefetch" class="animate__animated animate__fadeIn" src={{asset("kenz-assets/assets/services/banner-registration-of-products.jpeg")}} alt="">
 
                             </div>
                         </li>
@@ -320,7 +320,7 @@
                             <div class="content">
 
                                 <h3 class="animate__animated animate__fadeIn">We specialize in custom manufacturing and strategic collaborations to bring high-quality pharmaceutical products to the MENA region</h3>
-                                <img rel="prefetch" class="animate__animated animate__fadeIn" src="./assets/services/banner-third-party-manufacturing.jpeg" alt="">
+                                <img rel="prefetch" class="animate__animated animate__fadeIn" src={{ asset("kenz-assets/assets/services/banner-third-party-manufacturing.jpeg") }} alt="">
 
                             </div>
                         </li>
@@ -329,7 +329,7 @@
                             <div class="content active">
 
                                 <h3 class="animate__animated animate__fadeIn">We expertly manage the entire import and export process to ensure seamless and efficient delivery of pharmaceutical products.</h3>
-                                <img rel="prefetch" class="animate__animated animate__fadeIn" src="./assets/services/banner-import-export.jpeg" alt="">
+                                <img rel="prefetch" class="animate__animated animate__fadeIn" src={{asset("kenz-assets/assets/services/banner-import-export.jpeg")}} alt="">
 
                             </div>
                         </li>
@@ -338,7 +338,7 @@
                             <div class="content">
 
                                 <h3 class="animate__animated animate__fadeIn">We serve diverse healthcare customers, ensuring comprehensive pharmaceutical care across communities.</h3>
-                                <img rel="prefetch" class="animate__animated animate__fadeIn" src="./assets/services/banner-distribution.jpeg" alt="">
+                                <img rel="prefetch" class="animate__animated animate__fadeIn" src={{asset("kenz-assets/assets/services/banner-distribution.jpeg")}} alt="">
 
                             </div>
                         </li>
@@ -347,16 +347,17 @@
                             <div class="content">
 
                                 <h3 class="animate__animated animate__fadeIn">We are one of the very few scientific offices licensed in the U.A.E. to perform custom manufacturing.</h3>
-                                <img rel="prefetch" class="animate__animated animate__fadeIn" src="./assets/services/banner-marketing.jpeg" alt="">
+                                <img rel="prefetch" class="animate__animated animate__fadeIn" src={{asset("kenz-assets/assets/services/banner-marketing.jpeg")}} alt="">
 
                             </div>
                         </li>
                     </ul>
 
-                    <button class="ak-dft-btn p-l-10 center service_link">
-                        OUR SERVICES
-                        <img src="./assets/icons/arrow-w.svg" alt="">
-                    </button>
+                    <a href="{{route('services')}}"></a>
+                        <button class="ak-dft-btn p-l-10 center service_link">
+                            OUR SERVICES
+                        </button>
+                    <img src="./assets/icons/arrow-w.svg" alt="">
 
                 </div>
             </div>
@@ -374,38 +375,37 @@
 
                     <ul class="partners-list owl-carousel owl-theme js_partners">
                         <li class="item">
-                            <img src="./assets/partners/Group 18.png" alt="1"/>
+                            <img src={{ asset("kenz-assets/assets/partners/Group-18.png") }} alt="1"/>
                         </li>
                         <li class="item">
-                            <img src="./assets/partners/Group 19.png" alt="2"/>
+                            <img src={{ asset("kenz-assets/assets/partners/Group-19.png") }} alt="2"/>
                         </li>
                         <li class="item">
-                            <img src="./assets/partners/Group 20.png" alt="3"/>
+                            <img src={{ asset("kenz-assets/assets/partners/Group-20.png") }} alt="3"/>
                         </li>
                         <li class="item">
-                            <img src="./assets/partners/Group 21.png" alt="4"/>
+                            <img src={{ asset("kenz-assets/assets/partners/Group-21.png") }} alt="4"/>
                         </li>
                         <li class="item">
-                            <img src="./assets/partners/Group 22.png" alt="5"/>
+                            <img src={{ asset("kenz-assets/assets/partners/Group-22.png") }} alt="5"/>
                         </li>
                         <li class="item">
-                            <img src="./assets/partners/Group 95.png" alt="6"/>
-                        </li>
-                        
-                        <li class="item">
-                            <img src="./assets/partners/Group 100.png" alt="7"/>
+                            <img src={{ asset("kenz-assets/assets/partners/Group-95.png") }} alt="6"/>
                         </li>
                         <li class="item">
-                            <img src="./assets/partners/Group 99.png" alt="8"/>
+                            <img src ={{asset("kenz-assets/assets/partners/Group-100.png") }} alt="7"/>
                         </li>
                         <li class="item">
-                            <img src="./assets/partners/Group 98.png" alt="9"/>
+                            <img src={{ asset("kenz-assets/assets/partners/Group-99.png") }} alt="8"/>
                         </li>
                         <li class="item">
-                            <img src="./assets/partners/Group 97.png" alt="10"/>
+                            <img src={{ asset("kenz-assets/assets/partners/Group-98.png") }} alt="9"/>
                         </li>
                         <li class="item">
-                            <img src="./assets/partners/Group 96.png" alt="11"/>
+                            <img src={{ asset("kenz-assets/assets/partners/Group-97.png") }} alt="10"/>
+                        </li>
+                        <li class="item">
+                            <img src={{ asset("kenz-assets/assets/partners/Group-96.png") }} alt="11"/>
                         </li>
                         
                     </ul>
@@ -425,10 +425,10 @@
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                     <div class="nav-group">
                         <span class="prev js_prev">
-                            <img src="./assets/icons/prev.svg" alt="">
+                            <img src={{asset("kenz-assets/assets/icons/prev.svg")}} alt="">
                         </span>
                         <span class="next js_next">
-                            <img src="./assets/icons/next.svg" alt="">
+                            <img src={{asset("kenz-assets/assets/icons/next.svg")}} alt="">
                         </span>
                     </div>
                 </div>
@@ -441,51 +441,51 @@
                     <ul class="insight-list owl-carousel owl-theme">
                         <li class="item">
                             <span class="date">09-June-2024</span>
-                            <img rel="prefetch" class="pic" src="./assets/images/image-13-740x600.png" alt="">
+                            <img rel="prefetch" class="pic" src={{asset("kenz-assets/assets/images/image-13-740x600.png")}} alt="">
                             <div class="text">Patient-Centered Medication Labs Start</div>
 
                             <div class="user">
-                                <img src="./assets/icons/user.svg" alt="">
+                                <img src={{asset("kenz-assets/assets/icons/user.svg")}} alt="">
                                 <span>Al Kenz Pharma</span>
                             </div>
                             
                             <div class="link">
                                 <a href="">read more</a>
-                                <img src="./assets/icons/arrow.svg" alt="">
+                                <img src={{asset("kenz-assets/assets/icons/arrow.svg")}} alt="">
                             </div>
 
                         </li>
 
                         <li class="item">
                             <span class="date">09-June-2024</span>
-                            <img rel="prefetch" class="pic" src="./assets/images/image-7-740x600.png" alt="">
+                            <img rel="prefetch" class="pic" src={{asset("kenz-assets/assets/images/image-7-740x600.png")}} alt="">
                             <div class="text">5 Nutrients To Help Manage Eczema</div>
 
                             <div class="user">
-                                <img src="./assets/icons/user.svg" alt="">
+                                <img src={{asset("kenz-assets/assets/icons/user.svg")}} alt="">
                                 <span>Al Kenz Pharma</span>
                             </div>
 
                             <div class="link">
                                 <a href="">read more</a>
-                                <img src="./assets/icons/arrow.svg" alt="">
+                                <img src={{asset("kenz-assets/assets/icons/arrow.svg")}} alt="">
                             </div>
 
                         </li>
 
                         <li class="item">
                             <span class="date">09-June-2024</span>
-                            <img rel="prefetch" class="pic" src="./assets/images/image-about-740x600.png" alt="">
+                            <img rel="prefetch" class="pic" src={{asset("kenz-assets/assets/images/image-about-740x600.png")}} alt="">
                             <div class="text">An important message from Al Kenz pharmaceuticals CEO</div>
 
                             <div class="user">
-                                <img src="./assets/icons/user.svg" alt="">
+                                <img src={{asset("kenz-assets/assets/icons/user.svg")}} alt="">
                                 <span>Al Kenz Pharma</span>
                             </div>
 
                             <div class="link">
                                 <a href="">read more</a>
-                                <img src="./assets/icons/arrow.svg" alt="">
+                                <img src={{asset("kenz-assets/assets/icons/arrow.svg")}} alt="">
                             </div>
 
                         </li>
@@ -537,7 +537,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <img class="market-pic" src="./assets/images/market.svg" alt="">
+                    <img class="market-pic" src={{ asset("kenz-assets/assets/images/market.svg") }} alt="">
                 </div>
             </div>
         </div>
