@@ -12,6 +12,9 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\Filter;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -33,6 +36,7 @@ class DrugsResource extends Resource
                     ->label('Category')
                     // ->options(ProductCategories::all()->pluck('name','id')),
                     ->relationship( 'drug_classes', 'name' )
+                    ->searchable()
                     ->preload(),
                 Textarea::make('description')->columnSpanFull()
             ]);
@@ -42,10 +46,15 @@ class DrugsResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('name'),
+                TextColumn::make('drug_classes.name')
             ])
             ->filters([
-                //
+                SelectFilter::make( 'drug_classes_id' )
+                    ->label('Category')
+                    ->relationship( 'drug_classes', 'name' )
+                    ->preload()
+                    ->multiple()
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
