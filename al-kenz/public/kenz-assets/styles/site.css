@@ -111,7 +111,7 @@
 
 .ak-counter .counter-list .item{
     position: relative;
-    width: 25%;
+    width: 33.33%;
     float: left;
     text-align: center;
 }
@@ -163,18 +163,21 @@
     }
 
     .ak-counter .counter-list .item{
-        width: 50%;
+        width: 33.33%;
     }
 
     .ak-counter .counter-list .item h3{
-        font-size: 56px;
+        font-size: 46px;
+        height: 75px;
+        line-height: 75px;
+        margin: 0;
     }
 
     .ak-counter .counter-list .item p{
         font-size: 12px;
     }
 
-    .ak-counter .counter-list .item:nth-child(1)::before{
+    /* .ak-counter .counter-list .item:nth-child(1)::before{
         position: absolute;
         content: '';
         width: 80%;
@@ -196,7 +199,7 @@
         left: 0;
         bottom: 0;
         margin: auto;
-    }
+    } */
     
 
 }

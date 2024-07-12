@@ -59,8 +59,19 @@
                                     <li class="item">
                                         <h4>{{ $value['name'] }}</h4>
                                         <span>
+                                            
                                             <h5>{{ $value['name'] }}</h5>
                                             <p>{{ $value['desc'] }}</p>
+                                            
+                                            @if( $value['attach'] != '' )
+                                            <p style="border: dashed 1px #815ef6;border-radius: 4px;color: #ffffff;padding: 3px;">
+                                                <a target="__blank" href="{{ asset( "storage/" . $value['attach'] ) }}">
+                                                    <img src={{ asset( "kenz-assets/assets/icons/file.png" ) }} width="14" height="14" />
+                                                    Attachment
+                                                </a>
+                                            </p>
+                                            @endif
+
                                         </span>
                                     </li>
                                 @endforeach

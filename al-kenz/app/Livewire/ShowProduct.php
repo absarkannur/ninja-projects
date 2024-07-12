@@ -41,7 +41,8 @@ class ShowProduct extends Component
 
                 $stack = array(
                     "name" => $drug->name,
-                    "desc" => $drug->description
+                    "desc" => $drug->description,
+                    "attach" => $drug->attachment,
                 );
 
                 array_push( $a['drug'], $stack);
@@ -58,8 +59,6 @@ class ShowProduct extends Component
     }
 
     public function render(){
-
-        
 
         return view('livewire.show-product', [
             'product' => $this->product,

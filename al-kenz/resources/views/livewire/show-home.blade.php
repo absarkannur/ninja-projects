@@ -51,10 +51,10 @@
                             <h3><span id="num2">0</span>+</h3>
                             <p>TEAM MEMBERS</p>
                         </li>
-                        <li class="item">
+                        <!-- <li class="item">
                             <h3><span id="num3">0</span>+</h3>
                             <p>PRODUCTS</p>
-                        </li>
+                        </li> -->
                         <li class="item">
                             <h3><span id="num4">0</span></h3>
                             <p>MARKETS</p>
@@ -211,6 +211,9 @@
                     @endif
 
                     @if( $teams_d->isNotEmpty() )
+                    
+                    <h1 style="text-align:center;margin-bottom: 50px;text-transform:uppercase;color: var(--color-light-blue);">Board Members</h1>
+
                     <ul class="teams-list mob">
                         @foreach( $teams_d as $team )
                         <li class="item">

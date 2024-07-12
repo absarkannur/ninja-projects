@@ -6,6 +6,7 @@ use App\Filament\Resources\DrugsResource\Pages;
 use App\Filament\Resources\DrugsResource\RelationManagers;
 use App\Models\Drugs;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -38,7 +39,8 @@ class DrugsResource extends Resource
                     ->relationship( 'drug_classes', 'name' )
                     ->searchable()
                     ->preload(),
-                Textarea::make('description')->columnSpanFull()
+                Textarea::make('description')->columnSpanFull(),
+                FileUpload::make('attachment')->disk('public')->directory('attachments')->label('Attachment')->columnSpanFull(),
             ]);
     }
 

@@ -13,7 +13,8 @@ class Drugs extends Model
     protected $fillable = [
         'name',
         'drug_classes_id',
-        'description'
+        'description',
+        'attachment'
     ];
 
     public function drug_classes(){

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->foreignId('drug_classes_id')->constrained()->cascadeOnDelete();
             $table->string('description')->nullable();
+            $table->string('attachment')->nullable();
             $table->timestamps();
         });
     }
