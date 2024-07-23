@@ -11,8 +11,8 @@ class ShowService extends Component
     public $service;
     public $services_list;
 
-    public function mount( $id ) {
-        $this->service = Services::findOrFail( $id );
+    public function mount( $slug ) {
+        $this->service = Services::where( 'slug', $slug )->orderBy( 'created_at', 'DESC' )->first();
     }
 
     public function render() {

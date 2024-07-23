@@ -17,6 +17,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Str;
 
 class ServicesResource extends Resource
 {
@@ -28,7 +29,13 @@ class ServicesResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('title')->required(),
+                TextInput::make('title')->required()
+                ->live(onBlur:true)
+                ->afterStateUpdated(function( string $operation, string $state, Forms\Set $set ){
+                    //if($operation == 'edit') return false;
+                    $set( 'slug', Str::slug($state) );
+                }),
+                TextInput::make('slug')->required(),
                 Textarea::make('short_description')->required(),
                 Textarea::make('description')->required(),
                 MarkdownEditor::make('content')->columnSpanFull(),
@@ -41,7 +48,8 @@ class ServicesResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('title')
+                TextColumn::make('title'),
+                TextColumn::make('slug'),
             ])
             ->filters([
                 //

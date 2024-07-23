@@ -40,7 +40,8 @@ class DrugsResource extends Resource
                     ->searchable()
                     ->preload(),
                 Textarea::make('description')->columnSpanFull(),
-                FileUpload::make('attachment')->disk('public')->directory('attachments')->label('Attachment')->columnSpanFull(),
+                FileUpload::make('image')->label( 'Product Image' )->columnSpan(1),
+                FileUpload::make('attachment')->disk('public')->directory('attachments')->label('Presentation')->columnSpan(1),
             ]);
     }
 

@@ -10,9 +10,13 @@ use App\Livewire\ShowService;
 use App\Livewire\ShowProduct;
 use App\Livewire\ShowInsight;
 use App\Livewire\ShowContact;
+use App\Livewire\ShowPartnersPage;
 
 Route::get('/', ShowHome::class )->name('home');
 Route::get('/about', ShowAboutPage::class )->name('about');
+
+Route::get('/partners', ShowPartnersPage::class )->name('partners');
+
 Route::get('/products', ShowProductPage::class )->name('products');
 Route::get('/product/{id}', ShowProduct::class )->name('product');
 
@@ -21,6 +25,6 @@ Route::get('/insight/{id}', ShowInsight::class )->name('insight');
 
 
 Route::get('/services', ShowServicesPage::class )->name('services');
-Route::get('/service/{id}', ShowService::class )->name('service');
+Route::get('/service/{slug}', ShowService::class )->name('service');
 
 Route::get('/contact' , ShowContact::class )->name('contact');

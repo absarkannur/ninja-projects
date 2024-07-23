@@ -322,14 +322,25 @@
 
     <section class="ak-container ak-partners" id="partners">
         <div class="container">
+
+            <div class="row">
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <h2>OUR PARTNERS</h2>
+                </div>
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <div class="nav-group">
+                        <span class="prev js_prev">
+                            <img src={{asset("kenz-assets/assets/icons/prev.svg")}} alt="">
+                        </span>
+                        <span class="next js_next">
+                            <img src={{asset("kenz-assets/assets/icons/next.svg")}} alt="">
+                        </span>
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-12">
-
-                    <div class="flex-center">
-                        <h2>OUR PARTNERS</h2>
-                    </div>
-
-
 
                     <ul class="partners-list owl-carousel owl-theme js_partners">
                         @foreach( $partners as $partner )
@@ -352,7 +363,7 @@
                     <h2>NEWS & INSIGHTS</h2>
                 </div>
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                    <div class="nav-group">
+                    <div class="nav-group fr">
                         <span class="prev js_prev">
                             <img src={{asset("kenz-assets/assets/icons/prev.svg")}} alt="">
                         </span>

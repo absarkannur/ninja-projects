@@ -15,7 +15,7 @@ class ShowServicesPage extends Component
     {
 
         // Get All services
-        $this->services = Services::select( 'id', 'title','description','thumbnail')->get();
+        $this->services = Services::select( 'id', 'title','slug','description','thumbnail')->get();
 
         return view('livewire.show-services-page', [
             'services' => $this->services

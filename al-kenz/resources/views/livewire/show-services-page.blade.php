@@ -34,13 +34,12 @@
                             <div class="content">
                                 <h4>{{ $service->title }}</h4>
                                 <p>{{ $service->description }}</p>
-                                <a href="{{ route('service', ['id'=>$service->id] ) }}">
+                                <a href="{{ route('service', ['slug'=>$service->slug] ) }}">
                                     <span class="link">
                                         READ MORE
-                                        <img src={{asset("kenz-assets/assets/icons/arrow-w.svg")}} alt="">
+                                        <img src={{ asset("kenz-assets/assets/icons/arrow-w.svg") }} alt="">
                                     </span>
                                 </a>
-                                
                             </div>
 
                         </li>

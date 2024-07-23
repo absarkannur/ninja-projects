@@ -1425,7 +1425,6 @@
 .ak-inner-product-list .product-list-item .item{
     position: relative;
     width: 31%;
-    padding: 0 30px;
     border-radius: 10px;
     cursor: pointer;
     float: left;
@@ -1439,10 +1438,8 @@
 
 .ak-inner-product-list .product-list-item .item.active{
     position: relative;
-    background-color: var(--color-blue);
-    box-shadow: 0px 8px 40px 0px #05a5ee;
-    border-radius: 10px 10px 0 0;
-
+    box-shadow: 0px 10px 40px 0px #90c9e3;
+    z-index: 9999;
 }
 
 .ak-inner-product-list .product-list-item .item::after{
@@ -1453,12 +1450,17 @@
     line-height: 22px;
     border-radius: 50%;
     background-color: var(--color-white);
-    top: 35px;
+    top: 10px;
     right: 10px;
     margin: auto;
     text-align: center;
+    font-size: 24px;
     font-weight: 500;
     border: solid 1px var(--color-border);
+}
+
+.ak-inner-product-list .product-list-item .item.active::after{
+    content: '-';
 }
 
 .ak-inner-product-list .product-list-item .item h4{
@@ -1472,23 +1474,6 @@
 .ak-inner-product-list .product-list-item .item span{
     display: none;
     color: var(--color-blue);
-}
-
-.ak-inner-product-list .product-list-item .item span::after{
-    content: '-';
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    line-height: 22px;
-    border-radius: 50%;
-    background-color: var(--color-white);
-    color: var(--color-blue);
-    top: 35px;
-    right: 10px;
-    margin: auto;
-    text-align: center;
-    font-weight: 500;
-    border: solid 1px var(--color-border);
 }
 
 .ak-inner-product-list .product-list-item .item span h5{
@@ -1522,6 +1507,85 @@
     border-radius: 10px;
     z-index: 999;
 }
+
+.ak-inner-product-list .product-list-item .item .image_wrapper{
+    width: 100%;
+    border: none;
+    border-bottom: solid 1px #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.ak-inner-product-list .product-list-item .item .image_wrapper,
+.ak-inner-product-list .product-list-item .item .image_wrapper .imagethmb,
+.ak-inner-product-list .product-list-item .item .image_wrapper .imagethmb_inner{
+    height: 220px;
+}
+
+.ak-inner-product-list .product-list-item .item .name_wrapper{
+    background-color: #fff;
+    border-radius: 0px 0px 10px 10px;
+    position: relative;
+    min-height: 50px;
+    padding: 10px;
+}
+
+.ak-inner-product-list .product-list-item .item .name_wrapper h3{
+    font-size: 18px;
+    height: 45px;
+    overflow: hidden;
+}
+
+.ak-inner-product-list .product-list-item .item.active .name_wrapper{
+    border-radius: initial;
+}
+
+.ak-inner-product-list .product-list-item .item .content_wrapper{
+    display: none;
+    padding: 0 10px;
+    position: absolute;
+    width: 100.5%;
+    top: 220px;
+    left: -1px;
+    background-color: #fff;
+    border-radius: 0px 0px 10px 10px;
+    border: none;
+    border-left: solid 1px #ddd;
+    border-right: solid 1px #ddd;
+    border-bottom: solid 1px #ddd;
+    z-index: 9999;
+}
+
+.ak-inner-product-list .product-list-item .item.active .content_wrapper{
+    display: block;
+    box-shadow: 0px 20px 40px 0px  #b9dceb;
+}
+
+.ak-inner-product-list .product-list-item .item .content_wrapper h3{
+    padding: 21px 0 0 0;
+    font-size: 18px;
+    overflow: hidden;
+}
+
+
+.ak-inner-product-list .product-list-item .item .content_wrapper p{
+    color: var(--color-gray);
+    padding: 0;
+}
+
+.ak-inner-product-list .product-list-item .item .content_wrapper hr{
+    border: none;
+    border-bottom: dashed 1px #999;
+    margin: 0;
+}
+
+.ak-inner-product-list .product-list-item .item .content_wrapper .attach{
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    color: var(--color-gray);
+}
+
+/* -------- */
 
 .category-nav-group{
     position: relative;
@@ -1711,10 +1775,10 @@
 }
 
 .ak-inner-market-research .banner-content .service-list .item{
-    height: 60px;
-    line-height: 60px;
+    height: 50px;
+    line-height: 50px;
     font-weight: 500;
-    font-size: 24px;
+    font-size: 20px;
     color: var(--color-blue);
     border: solid 1px var(--color-border);
     border-radius: 10px;

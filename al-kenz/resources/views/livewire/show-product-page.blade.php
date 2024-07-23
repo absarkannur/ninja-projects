@@ -31,9 +31,7 @@
                             </a>
                         </li>
                         @endforeach
-                        
                     </ul>
-
 
                 </div>
             </div>

@@ -37,7 +37,7 @@
                             @if( $services_list->isNotEmpty() )
                             @foreach( $services_list as $list )
                                 @if( $service->title != $list->title )
-                                <a href="{{ route('service', ['id'=>$list->id] ) }}">
+                                <a href="{{ route('service', ['slug'=>$list->slug] ) }}">
                                     <li class="item">
                                         <span>{{ $list->title }}</span>
                                         <img src={{asset("kenz-assets/assets/icons/arrow-right.svg")}} alt="">

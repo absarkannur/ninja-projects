@@ -246,11 +246,17 @@ $('.product-category .item').click(function(){
 });
 
 $('.product-list-item .item').click(function(){
-    $('.product-list-item .item').removeClass('active');
-    $(this).addClass('active');
+
+    if( $(this).attr('class') == 'item active' ) {
+        $('.product-list-item .item').removeClass('active');
+    } else {
+        $('.product-list-item .item').removeClass('active');
+        $(this).addClass('active');
+    }
 
 
 });
+
 
 // Slider
 

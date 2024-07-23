@@ -32,7 +32,7 @@
                         <ul class="topbar-list">
                             <li class="topbar-time no-padding">
                                 <img class="time-icon" src={{ asset( "kenz-assets/assets/icons/time.svg" ) }} alt="Time">
-                                <span>Mon - Sat 8:00-1800, Sun - Closed</span>
+                                <span>Mon - Sat 8:00-18:00, Sun - Closed</span>
                             </li>
                         </ul>
                     </div>
@@ -72,7 +72,7 @@
                     <div class="navbar-nav">
                         <a class="nav-link" aria-current="page" href="{{ route('about') }}">About Us</a>
                         <a class="nav-link" href="{{ route('home') }}#teams">Our Team</a>
-                        <a class="nav-link" href="{{ route('home') }}#partners">Partners</a>
+                        <a class="nav-link" href="{{ route('partners') }}">Partners</a>
                         <a class="nav-link" href="{{route('products')}}">Products</a>
                         <a class="nav-link" href="{{ route('insights') }}">Insights</a>
                         <a class="nav-link" href="{{ route('services') }}">Services</a>
@@ -121,7 +121,7 @@
                         <ul class="footer-navbar">
                             <li><a href="{{route('about')}}">About Us</a></li>
                             <li><a href="{{route('home')}}#teams">Our Team</a></li>
-                            <li><a href="{{route('home')}}index.php#partners">Partners</a></li>
+                            <li><a href="{{route('partners')}}">Partners</a></li>
                             <li><a href="{{route('products')}}">Products</a></li>
                             <li><a href="{{ route('insights') }}">Insights</a></li>
                             <li><a href="{{ route('services') }}">Services</a></li>

@@ -21,14 +21,13 @@ class ShowProduct extends Component
         $this->drug_classes = DrugClasses::where('product_categories_id' , $id )->get();
         $this->drug_list = $this->get_drug( $this->drug_classes );
         
-
     }
 
     private function get_drug( $drug_classes){
 
         $temp_drugs = array();
-        
-        foreach ( $drug_classes as $key => $classes) {
+
+        foreach ( $drug_classes as $key => $classes ) {
 
             $drugs = Drugs::where('drug_classes_id' , $classes->id )->get();
 
@@ -43,6 +42,7 @@ class ShowProduct extends Component
                     "name" => $drug->name,
                     "desc" => $drug->description,
                     "attach" => $drug->attachment,
+                    "image" => $drug->image,
                 );
 
                 array_push( $a['drug'], $stack);
@@ -59,7 +59,6 @@ class ShowProduct extends Component
     }
 
     public function render(){
-
         return view('livewire.show-product', [
             'product' => $this->product,
             'drug_classes' => $this->drug_classes,

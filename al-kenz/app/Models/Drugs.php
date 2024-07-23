@@ -14,7 +14,8 @@ class Drugs extends Model
         'name',
         'drug_classes_id',
         'description',
-        'attachment'
+        'attachment',
+        'image'
     ];
 
     public function drug_classes(){
