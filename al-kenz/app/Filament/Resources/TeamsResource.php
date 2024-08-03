@@ -38,7 +38,15 @@ class TeamsResource extends Resource
                     'c' => 'C Level',
                     'd' => 'D Level'
                 ]),
-                FileUpload::make('image')->disk('public')->directory('teams'),
+                FileUpload::make('image')
+                    ->image()
+                    ->imageEditor()
+                    ->imageEditorAspectRatios([
+                        '16:9',
+                        '4:3',
+                        '1:1',
+                    ])
+                    ->disk('public')->directory('teams'),
             ]);
     }
 

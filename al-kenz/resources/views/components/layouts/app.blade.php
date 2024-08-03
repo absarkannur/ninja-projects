@@ -73,7 +73,7 @@
                         <a class="nav-link" aria-current="page" href="{{ route('about') }}">About Us</a>
                         <a class="nav-link" href="{{ route('home') }}#teams">Our Team</a>
                         <a class="nav-link" href="{{ route('partners') }}">Partners</a>
-                        <a class="nav-link" href="{{route('products')}}">Products</a>
+                        <a class="nav-link" href="{{ route('products') }}">Products</a>
                         <a class="nav-link" href="{{ route('insights') }}">Insights</a>
                         <a class="nav-link" href="{{ route('services') }}">Services</a>
 

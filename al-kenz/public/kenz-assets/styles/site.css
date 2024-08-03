@@ -833,6 +833,12 @@
     height: 85px;
     width: 155px;
     margin-bottom: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border: solid 1px var(--color-light-gray);
 }
 
 .ak-partners .partners-list .item img{
