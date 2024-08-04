@@ -21,39 +21,47 @@
             <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
                 <ul class="info-list">
                     <li class="list">
-                        <svg width="50" height="50">
-                            <use xlink:href={{ asset('fav/images/svg-sprint.svg#car_clock-thick') }}></use>
-                        </svg>
-                        <div>
-                            <span class="title">Fast Delivery</span>
-                            <span class="sub-title">Same day shipping</span>
+                        <div class="wrap">
+                            <svg width="50" height="50">
+                                <use xlink:href={{ asset('fav/images/svg-sprint.svg#car_clock-thick') }}></use>
+                            </svg>
+                            <div>
+                                <span class="title">Fast Delivery</span>
+                                <span class="sub-title">Same day shipping</span>
+                            </div>
                         </div>
                     </li>
                     <li class="list">
-                        <svg width="50" height="50">
-                            <use xlink:href={{ asset('fav/images/svg-sprint.svg#worker-thick') }}></use>
-                        </svg>
-                        <div>
-                            <span class="title">Professional team</span>
-                            <span class="sub-title">Multilingual communication</span>
+                        <div class="wrap">
+                            <svg width="50" height="50">
+                                <use xlink:href={{ asset('fav/images/svg-sprint.svg#worker-thick') }}></use>
+                            </svg>
+                            <div>
+                                <span class="title">Professional team</span>
+                                <span class="sub-title">Multilingual communication</span>
+                            </div>
                         </div>
                     </li>
                     <li class="list">
-                        <svg width="40" height="40">
-                            <use xlink:href={{ asset('fav/images/svg-sprint.svg#shield-checkmark-shape') }}></use>
-                        </svg>
-                        <div>
-                            <span class="title">Secure Shopping</span>
-                            <span class="sub-title">Best security features</span>
+                        <div class="wrap">
+                            <svg width="40" height="40">
+                                <use xlink:href={{ asset('fav/images/svg-sprint.svg#shield-checkmark-shape') }}></use>
+                            </svg>
+                            <div>
+                                <span class="title">Secure Shopping</span>
+                                <span class="sub-title">Best security features</span>
+                            </div>
                         </div>
                     </li>
                     <li class="list">
-                        <svg width="40" height="40">
-                            <use xlink:href={{ asset('fav/images/svg-sprint.svg#layers-shape') }}></use>
-                        </svg>
-                        <div>
-                            <span class="title">Unlimited Stocks</span>
-                            <span class="sub-title">Always physical stocks</span>
+                        <div class="wrap">
+                            <svg width="40" height="40">
+                                <use xlink:href={{ asset('fav/images/svg-sprint.svg#layers-shape') }}></use>
+                            </svg>
+                            <div>
+                                <span class="title">Unlimited Stocks</span>
+                                <span class="sub-title">Always physical stocks</span>
+                            </div>
                         </div>
                     </li>
                 </ul>
@@ -105,6 +113,21 @@
         </div>
 
 
+    </section>
+
+    <section class="container-fluid home-info-block-wrapper">
+        <div class="row">
+            <div class="col-12">
+                <p>100% BRAND NEW, ORIGINAL SPARE PARTS WHOLESALE SUPPLIER</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container-fluid home-about-wrapper">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">a</div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">b</div>
+        </div>
     </section>
 
 </section>

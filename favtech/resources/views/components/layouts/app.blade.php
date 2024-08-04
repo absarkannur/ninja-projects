@@ -39,11 +39,19 @@
                         </span>
 
                         <span class="social-icon">
-                            <a href="mailto:info@favtech.ae" style="font-size: 11px;">info@favtech.ae</a>
+                            <a href="mailto:info@favtech.ae" style="font-size: 11px;">
+                                <svg width="18" height="18" class="insta">
+                                    <use xlink:href={{ asset('fav/images/svg-sprint.svg#envelope-shape') }}></use>
+                                </svg>
+                            </a>
                         </span>
 
                         <span class="social-icon">
-                            <a href="tel:+971553351001" style="font-size: 11px;">+971 55 335 1001</a>
+                            <a href="tel:+971553351001" style="font-size: 11px;">
+                                <svg width="18" height="18" class="insta">
+                                    <use xlink:href={{ asset('fav/images/svg-sprint.svg#phone-shape') }}></use>
+                                </svg>
+                            </a>
                         </span>
 
                     </span>

@@ -4,6 +4,7 @@
     --nav-color: #182f7c;
     --nav-light-color: #244ed8;
     --white: #fff;
+    --offwhite: #f1f1f1;
     --green: #46AF1E;
     --light-green: #5de327;
     --border-color: #e6e6e6;
@@ -225,7 +226,8 @@ ul{
 /* --------- */
 
 .product-list{
-  clear: both;
+    position: relative;
+    clear: both;
 }
 
 .product-list .list-item{
@@ -243,7 +245,7 @@ ul{
 
 .product-list .list-item .image-wrapper .imagethmb,
 .product-list .list-item .image-wrapper .imagethmb .imagethmb_inner{
-  height: 300px;
+    height: 300px;
 }
 
 .product-list .list-item .image-wrapper .imagethmb .imagethmb_inner img{
@@ -293,4 +295,23 @@ ul{
 
 .product-list .list-item .details-wrapper .product_enquiry .whatsapp:hover{
     background-color: var(--green);   
+}
+
+.product-list .owl-prev{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 10px;
+}
+
+.product-list .owl-next{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 10px;
+}
+
+.product-list .owl-prev span,
+.product-list .owl-next span{
+    font-size: 60px;
 }
