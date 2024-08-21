@@ -23,12 +23,12 @@ class AdminPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
-            ->default()
             ->id('admin')
             ->path('admin')
-            ->brandLogo(asset('images/logo.svg'))
-            ->brandLogoHeight('2.5rem')
+            ->brandLogo(asset('images/logo.png'))
+            ->brandLogoHeight('1.8rem')
             ->login()
+            ->registration()
             ->passwordReset()
             ->emailVerification()
             ->colors([

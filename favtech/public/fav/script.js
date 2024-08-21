@@ -5,7 +5,9 @@ $(function(){
     $('.banner_slider').owlCarousel({
         loop:true,
         nav:true,
-        items: 1
+        items: 1,
+        autoplay: true,
+        autoplayTimeout: 5000,
     })
 
     // Home Page Products
@@ -15,6 +17,9 @@ $(function(){
         nav:true,
         margin: 20,
         items: 4,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: true,
         responsive:{
             0:{
                 items:1
