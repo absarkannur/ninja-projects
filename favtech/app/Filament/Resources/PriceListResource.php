@@ -6,7 +6,9 @@ use App\Filament\Resources\PriceListResource\Pages;
 use App\Filament\Resources\PriceListResource\RelationManagers;
 use App\Models\PriceList;
 use Filament\Forms;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -25,7 +27,11 @@ class PriceListResource extends Resource
     {
         return $form
             ->schema([
-                FileUpload::make('price_list')
+                Section::make('')
+                    ->schema([
+                        TextInput::make('price_title'),
+                        FileUpload::make('price_list')
+                    ])->columnSpan(1)
             ]);
     }
 
@@ -33,6 +39,7 @@ class PriceListResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('price_title'),
                 TextColumn::make('price_list')
             ])
             ->filters([

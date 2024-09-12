@@ -73,7 +73,7 @@
                         <div class="navbar-nav">
                             <a class="nav-link" href="{{ route('home') }}">Home</a>
                             <a class="nav-link" href="{{ route('about-us') }}">About Us</a>
-                            <a class="nav-link" href="{{ route('products') }}">Products</a>
+                            <a class="nav-link" href="{{ route( 'products', ['id'=>'all'] ) }}">Products</a>
                             <a class="nav-link" href="{{ route('contact-us') }}">Contact Us</a>
                             <a class="nav-link btn" href="{{ route('price-list') }}">Price List</a>
                         </div>
@@ -120,9 +120,9 @@
                         <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
                             <ul class="footer-nav">
                                 <li class="header">Links</li>
-                                <li><a href="">About Us</a></li>
-                                <li><a href="">Products</a></li>
-                                <li><a href="">Contact Us</a></li>
+                                <li><a href="{{ route('about-us') }}">About Us</a></li>
+                                <li><a href="{{ route( 'products', ['id'=>'all'] ) }}">Products</a></li>
+                                <li><a href=href="{{ route('contact-us') }}">Contact Us</a></li>
                             </ul>
                         </div>
                         <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">

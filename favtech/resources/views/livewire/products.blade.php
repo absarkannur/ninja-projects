@@ -12,6 +12,38 @@
 
     <div class="product-page-wrapper">
         <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-12">
+                    <h2>FIND YOUR PRODUCT</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <ul class="product-brands">
+                        @if( $brands )
+
+                            @foreach( $brands as $brand )
+                            <li class="list">
+                                <a href="{{ route( 'products', ['id'=>$brand->id] ) }}">
+                                    <div class="image-wrapper">
+                                        <div class="imagethmb">
+                                            <div class="imagethmb_inner">
+                                                <img src={{ asset( 'storage/' . $brand['brand_image'] ) }} alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="title">{{ $brand['brand_name'] }}</div>
+                                </a>
+                            </li>    
+                            @endforeach
+
+                        @endif   
+                    </ul>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                     <ul class="product-list">

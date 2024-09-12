@@ -10,6 +10,7 @@ class PriceList extends Model
     use HasFactory;
 
     protected $fillable = [
+        'price_title',
         'price_list'
     ];
 
