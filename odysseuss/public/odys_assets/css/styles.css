@@ -1,0 +1,46 @@
+
+.topbar-wrapper{
+    height: 70px;
+    line-height: 70px;
+    background-color: var(--bg-color);
+    text-align: center;
+    border-bottom: solid 1px rgba(99, 200, 245, 1)
+}
+
+.topbar-wrapper .text{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.topbar-wrapper .link{
+    color: var(--font-color-blue);
+    text-decoration: underline;
+}
+
+
+@media ( max-width: 768px ) {
+
+    .topbar-wrapper{
+        line-height: normal;
+        padding: 20px 0;
+    }
+    .topbar-wrapper .text{
+        font-size: 12px;
+        margin: 0;
+    }
+    .topbar-wrapper .text .link{
+        display: block;
+    }
+
+}
+
+/* Header .... */
+
+.header-wrapper{
+    padding: 10px 0;
+    border-bottom: solid 1px var(--font-color-blue);
+}
+
+.header-wrapper .navbar-brand img{
+    height: 50px;
+}
