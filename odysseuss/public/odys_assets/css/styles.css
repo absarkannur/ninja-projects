@@ -38,9 +38,97 @@
 
 .header-wrapper{
     padding: 10px 0;
-    border-bottom: solid 1px var(--font-color-blue);
+    position: relative;
 }
 
 .header-wrapper .navbar-brand img{
     height: 50px;
+}
+
+.header-wrapper .navbar-nav{
+    align-items: center;
+}
+
+.header-wrapper .nav-link{
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 20px;
+}
+
+.header-wrapper .nav-link.social{
+    margin: 0 10px;
+    position: relative;
+}
+
+.header-wrapper .nav-link.social .fb::after{
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    background-color: var(--font-color-blue);
+    left: -10px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.header-wrapper .nav-link.social .in::after{
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    background-color: var(--font-color-blue);
+    right: -10px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+@media ( max-width: 768px ) {
+    .header-wrapper .nav-link.social{
+        display: none;
+    }
+}
+
+
+/* Home Banner .... */
+
+.banner-wrapper{
+    height: 596px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.banner-wrapper .box{
+    height: 596px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.banner-wrapper .heading-1{
+    font-size: 54px;
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: 20px;
+}
+
+.banner-wrapper .heading-2{
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.banner-wrapper .heading-3{
+    width: 70%;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.banner-wrapper .btn{
+    margin-top: 20px;
 }

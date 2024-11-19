@@ -1,6 +1,6 @@
-<section class="header-wrapper">
+<section class="container header-wrapper">
     <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid">
+        <div class="container">
 
             <a class="navbar-brand" href="#">
                 <img src={{ asset( 'odys_assets/images/logo.png' ) }} alt="Odysseus Strategies">
@@ -12,28 +12,27 @@
 
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="justify-content: end;">
                 <div class="navbar-nav">
-                    <a class="nav-link" aria-current="page" href="https://alkenzpharma.com/about">About Us</a>
-                    <a class="nav-link" href="https://alkenzpharma.com#teams">Our Team</a>
-                    <a class="nav-link" href="https://alkenzpharma.com/partners">Partners</a>
-                    <a class="nav-link" href="https://alkenzpharma.com/products">Products</a>
-                    <a class="nav-link" href="https://alkenzpharma.com/insights">Insights</a>
-                    <a class="nav-link" href="https://alkenzpharma.com/services">Services</a>
 
-                    <a class="nav-link social" href="https://www.facebook.com/alkenzpharma0" target="_blank">
-                        <div class="social-link">
-                            <img src="https://alkenzpharma.com/kenz-assets/assets/icons/fb.svg" alt="">
+                    <a class="nav-link" href="{{ route('home') }}">Home</a>
+                    <a class="nav-link" href="{{ route('home') }}">Services</a>
+                    <a class="nav-link" href="{{ route('home') }}">About</a>
+                    <a class="nav-link" href="{{ route('home') }}">Case Studies</a>
+
+                    <a class="nav-link social" href="" target="_blank">
+                        <div class="social-link fb">
+                            <img src={{ asset( 'odys_assets/images/icons/facebook.png' ) }} alt="">
                         </div>
                     </a>
-                    <a class="nav-link social" href="https://www.instagram.com/alkenzpharma/" target="_blank">
-                        <div class="social-link">
-                            <img src="https://alkenzpharma.com/kenz-assets/assets/icons/insta.svg" alt="">
+                    <a class="nav-link social" href="" target="_blank">
+                        <div class="social-link in">
+                            <img src={{ asset( 'odys_assets/images/icons/insta.png' ) }} alt="">
                         </div>
                     </a>
 
-                    <a class="nav-link no-padding" href="https://alkenzpharma.com/contact">
-                        <button class="ak-dft-btn p-l-10 center">
-                            <img src="https://alkenzpharma.com/kenz-assets/assets/icons/mail-w.svg" alt="">
+                    <a class="nav-link no-padding" href="{{ route('home') }}">
+                        <button class="odys-blue-btn">
                             Contact Us
+                            <img src={{ asset('odys_assets/images/icons/btn-arrow-dark.svg') }} alt="">
                         </button>
                     </a>
                 </div>
