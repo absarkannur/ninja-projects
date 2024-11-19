@@ -132,3 +132,46 @@
 .banner-wrapper .btn{
     margin-top: 20px;
 }
+
+@media ( max-width: 768px ) {
+
+    .banner-wrapper .box,
+    .banner-wrapper .heading-3{
+        width: 100%;
+    }
+
+    .banner-wrapper .heading-1{
+        font-size: 32px;
+    }
+
+    .banner-wrapper .heading-2{
+        font-size: 16px;
+    }
+
+}
+
+/* Why Us  .... */
+
+.whyus-wrapper{
+    padding: 50px 0;
+}
+
+.whyus-wrapper .whyus-list{
+    list-style: none;
+}
+
+.whyus-wrapper .whyus-list .list{
+    background-color: rgba(246, 246, 246, 1);
+    margin: 10px;
+    padding: 10px;
+}
+
+.whyus-wrapper .whyus-list .list .text{
+    font-size: 16px;
+    font-weight: 500;
+    display: block;
+}
+
+.whyus-wrapper .whyus-list .list .text.blue{
+    color: var(--font-color-blue);
+}
