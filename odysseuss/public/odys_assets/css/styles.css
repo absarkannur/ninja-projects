@@ -153,28 +153,151 @@
 /* Why Us  .... */
 
 .whyus-wrapper{
-    padding: 50px 0;
+    padding: 70px 0;
+}
+
+.whyus-wrapper .heading{
+    margin-bottom: 50px;
 }
 
 .whyus-wrapper .whyus-list{
+    justify-content: center;
     list-style: none;
     display: flex;
-    justify-content: center;
 }
 
 .whyus-wrapper .whyus-list .list{
-    width: 33.33%;
+    display: flex;
+    width: 32%;
+    height: 150px;
     background-color: rgba(246, 246, 246, 1);
     border-radius: 11px;
-    margin: 30px;
+    margin: 1%;
+    padding: 20px;
+    align-items: center;
 }
 
 .whyus-wrapper .whyus-list .list .text{
     font-size: 16px;
     font-weight: 500;
     display: block;
+    margin-bottom: 10px;
+}
+
+.whyus-wrapper .whyus-list .list .image-circle{
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 50%;
 }
 
 .whyus-wrapper .whyus-list .list .text.blue{
     color: var(--font-color-blue);
 }
+
+@media ( max-width: 768px ) {
+
+    .whyus-wrapper{
+        padding: 30px 0;
+    }
+
+    .whyus-wrapper .heading{
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+
+    .whyus-wrapper .whyus-list{
+        display: block;
+    }
+
+    .whyus-wrapper .whyus-list .list{
+        width: 100%;
+        height: auto;
+        margin: 0;
+        margin-bottom: 13px;
+    }
+
+}
+
+
+/* Growth .... */
+
+.growth-wrapper{
+    padding: 70px 0;
+    background-color: rgba(0, 176, 236, 0.04);
+}
+
+.growth-wrapper .growth-highlights{
+    margin-top: 30px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.growth-wrapper .growth-highlights .list{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 32%;
+    padding: 10px;
+    border: solid 1px var(--font-color-black);
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.growth-wrapper .growth-wheel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0;
+}
+
+@media ( max-width: 768px ) {
+
+    .growth-wrapper{
+        padding: 30px 0;
+    }
+
+    .growth-wrapper .sub-heading{
+        font-size: 20px;
+    }
+
+    .growth-wrapper .heading{
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+
+    .growth-wrapper .growth-highlights{
+        display: block;
+    }
+
+    .growth-wrapper .growth-highlights .list{
+        display: block;
+        width: 100%;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .growth-wrapper .growth-wheel{
+        width: 100%;
+    }
+
+    .growth-wrapper .growth-wheel .growth_image_circle{
+        width: 100%;
+    }
+
+    .growth-wrapper .growth-wheel{
+        padding: 30px 0;
+    }
+
+}
+
+
+/* We Believe .... */
+
+.webelieve-wrapper{
+    padding: 70px 0;
+    background-color: rgba(0, 176, 236, 0.04);
+}
+
