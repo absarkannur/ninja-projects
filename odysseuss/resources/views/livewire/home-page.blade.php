@@ -339,57 +339,35 @@
                 <div class="col">
                     <ul class="team-list animate__animated visibility">
 
-                        <li class="list">
-                            <div class="image-wrap">
-                                <img src={{ asset('odys_assets/images/pic.jpeg') }} alt="" />
-                            </div>
-                            <div class="heading-wrap">
-                                <h3>Anca Beta</h3>
-                            </div>
-                            <div class="company-wrap">
-                                <ul>
-                                    <li><img src={{ asset('odys_assets/images/ce07a9ae750cdd67045e88ecbde0eece.png') }} alt=""></li>
-                                    <li><img src={{ asset('odys_assets/images/ce07a9ae750cdd67045e88ecbde0eece.png') }} alt=""></li>
-                                    <li><img src={{ asset('odys_assets/images/ce07a9ae750cdd67045e88ecbde0eece.png') }} alt=""></li>
-                                </ul>
-                            </div>
-                            <div class="info-wrap">
-                                <ul>
-                                    <li>25+ years in Global, Zone (Europe / MENA), regional (Adriatic) and country roles</li>
-                                    <li>Leadership roles in the largest FMCG &  Global Advertising Companies</li>
-                                    <li>Global role as Market Consultant</li>
-                                    <li>Business Strategy, Innovation Platforms, Margin Management, Brand Rejuvenation, Regional Marketing campaigns</li>
-                                    <li>Proven success in business turnarounds: return to growth & profit ( businesses    ranging from 20 up to 800M USD)</li>
-                                    <li>Work aside, Anca is passionate about    history, fitness and nutrition</li>
-                                </ul>
-                            </div>
-                        </li>
+                        @if( $teams )
 
-                        <li class="list">
-                            <div class="image-wrap">
-                                <img src={{ asset('odys_assets/images/pic.jpeg') }} alt="" />
-                            </div>
-                            <div class="heading-wrap">
-                                <h3>Karim Al Bitar</h3>
-                            </div>
-                            <div class="company-wrap">
-                                <ul>
-                                    <li><img src={{ asset('odys_assets/images/ce07a9ae750cdd67045e88ecbde0eece.png') }} alt=""></li>
-                                    <li><img src={{ asset('odys_assets/images/ce07a9ae750cdd67045e88ecbde0eece.png') }} alt=""></li>
-                                    <li><img src={{ asset('odys_assets/images/ce07a9ae750cdd67045e88ecbde0eece.png') }} alt=""></li>
-                                </ul>
-                            </div>
-                            <div class="info-wrap">
-                                <ul>
-                                    <li>25+ years in Global, Zone (Europe / MENA), regional (Adriatic) and country roles</li>
-                                    <li>Leadership roles in the largest FMCG &  Global Advertising Companies</li>
-                                    <li>Global role as Market Consultant</li>
-                                    <li>Business Strategy, Innovation Platforms, Margin Management, Brand Rejuvenation, Regional Marketing campaigns</li>
-                                    <li>Proven success in business turnarounds: return to growth & profit ( businesses    ranging from 20 up to 800M USD)</li>
-                                    <li>Work aside, Anca is passionate about    history, fitness and nutrition</li>
-                                </ul>
-                            </div>
-                        </li>
+                            @foreach ( $teams as $team )
+
+                                <li class="list">
+                                    <div class="image-wrap">
+                                        <img src={{ asset( 'storage/' . $team['image'] ) }} alt="" />
+                                    </div>
+                                    <div class="heading-wrap">
+                                        <h3>{{ $team['name'] }}</h3>
+                                    </div>
+                                    <div class="company-wrap">
+                                        <ul>
+                                            @if( $team['companies'] )
+                                                @foreach ( $team['companies'] as $company )
+                                                <li><img src={{ asset( 'storage/' . $company ) }} alt=""></li>
+                                                @endforeach
+                                            @endif
+                                        </ul>
+                                    </div>
+                                    <div class="info-wrap">
+                                        {!! $team['description'] !!}
+                                    </div>
+                                </li>
+
+                            @endforeach
+
+                        @endif
+
 
                     </ul>
                 </div>

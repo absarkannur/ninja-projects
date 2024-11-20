@@ -524,6 +524,7 @@
 
 .teams-wrapper .team-list .list .company-wrap{
     clear: both;
+    padding: 0 10px;
 }
 
 .teams-wrapper .team-list .list .company-wrap ul{
