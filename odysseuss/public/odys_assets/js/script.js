@@ -64,6 +64,21 @@ jQuery(document).ready(function($) {
 
     // ---------------------
 
+    new ScrollMagic.Scene({
+        triggerElement: "#js_services",
+    })
+    .on('start', function () {
+        service();
+    })
+    .addTo( controller );
+
+    function service() {
+        $('#js_services .sub-heading').removeClass('visibility').addClass('animate__fadeInDown');
+        $('#js_services .heading').removeClass('visibility').addClass('animate__fadeInDown');
+        $('.service-list').removeClass('visibility').addClass('animate__fadeIn');
+    }
+
+    // ---------------------
 
     new ScrollMagic.Scene({
         triggerElement: "#js_webelieve",
@@ -74,24 +89,33 @@ jQuery(document).ready(function($) {
     .addTo( controller );
 
     function webelieve() {
-
-
         $('#js_webelieve .sub-heading').removeClass('visibility').addClass('animate__fadeInDown');
         $('#js_webelieve .heading').removeClass('visibility').addClass('animate__fadeInDown');
-
         setTimeout(function(){
-
             var li = [ 0, 1, 2, 3 ];
-
             li.map( ( item, i ) => {
                 setTimeout(function() {
                     $('#js_webelieve .highlights .list').eq(item).removeClass('visibility').addClass('animate__fadeIn');
                 },(i*100));
             });
-
         }, 500);
-
-
     }
+
+    // ---------------------
+
+    new ScrollMagic.Scene({
+        triggerElement: "#js_teams",
+    })
+    .on('start', function () {
+        teams();
+    })
+    .addTo( controller );
+
+    function teams() {
+        $('#js_teams .sub-heading').removeClass('visibility').addClass('animate__fadeInDown');
+        $('#js_teams .heading').removeClass('visibility').addClass('animate__fadeInDown');
+        $('.team-list').removeClass('visibility').addClass('animate__fadeIn');
+    }
+
 
 });

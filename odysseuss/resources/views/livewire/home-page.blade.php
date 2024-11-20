@@ -143,6 +143,117 @@
         </div>
     </section>
 
+    <section class="container-fluid service-wrapper" id="js_services">
+        <div class="container">
+
+            <div class="row">
+                <div class="col">
+                    <h1 class="sub-heading animate__animated visibility">WHAT WE DO</h1>
+                    <h1 class="heading animate__animated visibility">Our Services</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <ul class="service-list animate__animated visibility">
+
+                        <li class="list">
+                            <div class="image-wrap" style="background-image: url({{ asset('odys_assets/images/service.jpeg') }})">
+                            </div>
+                            <div class="service-info">
+                                <h2 class="header">Brand Building</h2>
+
+                                <ul>
+                                    <li>The problem to solve</li>
+                                    <li>Mission & vision</li>
+                                    <li>Brand essence & unique selling proposition</li>
+                                    <li>Brand visual identity</li>
+                                    <li>Communication standards & architecture</li>
+                                </ul>
+
+                            </div>
+
+                        </li>
+
+                        <li class="list">
+                            <div class="image-wrap" style="background-image: url({{ asset('odys_assets/images/service.jpeg') }})">
+                            </div>
+                            <div class="service-info">
+                                <h2 class="header">Growth Hacking</h2>
+
+                                <ul>
+                                    <li>The problem to solve</li>
+                                    <li>Mission & vision</li>
+                                    <li>Brand essence & unique selling proposition</li>
+                                    <li>Brand visual identity</li>
+                                    <li>Communication standards & architecture</li>
+                                </ul>
+
+                            </div>
+
+                        </li>
+
+                        <li class="list">
+                            <div class="image-wrap" style="background-image: url({{ asset('odys_assets/images/service.jpeg') }})">
+                            </div>
+                            <div class="service-info">
+                                <h2 class="header">Growth Accelerators</h2>
+
+                                <ul>
+                                    <li>The problem to solve</li>
+                                    <li>Mission & vision</li>
+                                    <li>Brand essence & unique selling proposition</li>
+                                    <li>Brand visual identity</li>
+                                    <li>Communication standards & architecture</li>
+                                </ul>
+
+                            </div>
+
+                        </li>
+
+                        <li class="list">
+                            <div class="image-wrap" style="background-image: url({{ asset('odys_assets/images/service.jpeg') }})">
+                            </div>
+                            <div class="service-info">
+                                <h2 class="header">Cost Optimization</h2>
+
+                                <ul>
+                                    <li>The problem to solve</li>
+                                    <li>Mission & vision</li>
+                                    <li>Brand essence & unique selling proposition</li>
+                                    <li>Brand visual identity</li>
+                                    <li>Communication standards & architecture</li>
+                                </ul>
+
+                            </div>
+
+                        </li>
+
+                        <li class="list">
+                            <div class="image-wrap" style="background-image: url({{ asset('odys_assets/images/service.jpeg') }})">
+                            </div>
+                            <div class="service-info">
+                                <h2 class="header">Brand Experience</h2>
+
+                                <ul>
+                                    <li>The problem to solve</li>
+                                    <li>Mission & vision</li>
+                                    <li>Brand essence & unique selling proposition</li>
+                                    <li>Brand visual identity</li>
+                                    <li>Communication standards & architecture</li>
+                                </ul>
+
+                            </div>
+
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <section class="container-fluid webelieve-wrapper" id="js_webelieve">
         <div class="container">
 
@@ -214,9 +325,77 @@
         </div>
     </section>
 
+    <section class="container-fluid teams-wrapper" id="js_teams">
+        <div class="container">
 
-    <div style="height: 500px;background-color: rgb(193, 193, 193);">
+            <div class="row">
+                <div class="col">
+                    <h1 class="sub-heading animate__animated visibility">THE MINDS BEHIND THE MAGIC</h1>
+                    <h1 class="heading animate__animated visibility">Our Executive Team</h1>
+                </div>
+            </div>
 
-    </div>
+            <div class="row">
+                <div class="col">
+                    <ul class="team-list animate__animated visibility">
+
+                        <li class="list">
+                            <div class="image-wrap">
+                                <img src={{ asset('odys_assets/images/pic.jpeg') }} alt="" />
+                            </div>
+                            <div class="heading-wrap">
+                                <h3>Anca Beta</h3>
+                            </div>
+                            <div class="company-wrap">
+                                <ul>
+                                    <li><img src={{ asset('odys_assets/images/ce07a9ae750cdd67045e88ecbde0eece.png') }} alt=""></li>
+                                    <li><img src={{ asset('odys_assets/images/ce07a9ae750cdd67045e88ecbde0eece.png') }} alt=""></li>
+                                    <li><img src={{ asset('odys_assets/images/ce07a9ae750cdd67045e88ecbde0eece.png') }} alt=""></li>
+                                </ul>
+                            </div>
+                            <div class="info-wrap">
+                                <ul>
+                                    <li>25+ years in Global, Zone (Europe / MENA), regional (Adriatic) and country roles</li>
+                                    <li>Leadership roles in the largest FMCG &  Global Advertising Companies</li>
+                                    <li>Global role as Market Consultant</li>
+                                    <li>Business Strategy, Innovation Platforms, Margin Management, Brand Rejuvenation, Regional Marketing campaigns</li>
+                                    <li>Proven success in business turnarounds: return to growth & profit ( businesses    ranging from 20 up to 800M USD)</li>
+                                    <li>Work aside, Anca is passionate about    history, fitness and nutrition</li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="list">
+                            <div class="image-wrap">
+                                <img src={{ asset('odys_assets/images/pic.jpeg') }} alt="" />
+                            </div>
+                            <div class="heading-wrap">
+                                <h3>Karim Al Bitar</h3>
+                            </div>
+                            <div class="company-wrap">
+                                <ul>
+                                    <li><img src={{ asset('odys_assets/images/ce07a9ae750cdd67045e88ecbde0eece.png') }} alt=""></li>
+                                    <li><img src={{ asset('odys_assets/images/ce07a9ae750cdd67045e88ecbde0eece.png') }} alt=""></li>
+                                    <li><img src={{ asset('odys_assets/images/ce07a9ae750cdd67045e88ecbde0eece.png') }} alt=""></li>
+                                </ul>
+                            </div>
+                            <div class="info-wrap">
+                                <ul>
+                                    <li>25+ years in Global, Zone (Europe / MENA), regional (Adriatic) and country roles</li>
+                                    <li>Leadership roles in the largest FMCG &  Global Advertising Companies</li>
+                                    <li>Global role as Market Consultant</li>
+                                    <li>Business Strategy, Innovation Platforms, Margin Management, Brand Rejuvenation, Regional Marketing campaigns</li>
+                                    <li>Proven success in business turnarounds: return to growth & profit ( businesses    ranging from 20 up to 800M USD)</li>
+                                    <li>Work aside, Anca is passionate about    history, fitness and nutrition</li>
+                                </ul>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
 
 </main>
