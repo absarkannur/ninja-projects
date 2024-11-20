@@ -293,6 +293,9 @@
 
 }
 
+/* Services .... */
+
+
 
 /* We Believe .... */
 
@@ -301,3 +304,69 @@
     background-color: rgba(0, 176, 236, 0.04);
 }
 
+.webelieve-wrapper .highlights{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.webelieve-wrapper .highlights .list{
+    overflow: hidden;
+    width: 25%;
+}
+
+.webelieve-wrapper .highlights .list .image-wrap,
+.webelieve-wrapper .highlights .list .image-wrap .imagethmb_inner{
+    height: 200px;
+}
+
+.webelieve-wrapper .highlights .list .text-wrap{
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.webelieve-wrapper .highlights .list .text-wrap span{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+@media ( max-width: 768px ) {
+
+    .webelieve-wrapper .sub-heading{
+        font-size: 20px;
+        line-height: normal;
+        margin-bottom: 20px;
+    }
+
+    .webelieve-wrapper .heading{
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+
+    .webelieve-wrapper .highlights{
+        display: block;
+    }
+
+    .webelieve-wrapper .highlights .list{
+        width: 50%;
+        float: left;
+    }
+
+    .webelieve-wrapper .highlights .list .text-wrap span{
+        font-size: 12px;
+    }
+
+    .webelieve-wrapper .highlights .list .image-wrap,
+    .webelieve-wrapper .highlights .list .image-wrap .imagethmb_inner{
+        height: 100px;
+    }
+
+    .webelieve-wrapper .highlights .list .text-wrap{
+        margin-bottom: 10px;
+    }
+
+}

@@ -79,6 +79,17 @@ jQuery(document).ready(function($) {
         $('#js_webelieve .sub-heading').removeClass('visibility').addClass('animate__fadeInDown');
         $('#js_webelieve .heading').removeClass('visibility').addClass('animate__fadeInDown');
 
+        setTimeout(function(){
+
+            var li = [ 0, 1, 2, 3 ];
+
+            li.map( ( item, i ) => {
+                setTimeout(function() {
+                    $('#js_webelieve .highlights .list').eq(item).removeClass('visibility').addClass('animate__fadeIn');
+                },(i*100));
+            });
+
+        }, 500);
 
 
     }

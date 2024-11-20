@@ -156,22 +156,54 @@
             <div class="row">
                 <div class="col">
 
-                    <ul>
-                        <li>
-                            <div class="imagethmb">
-                                <div class="imagethmb_inner">
-                                    <img src="" alt="">
+                    <ul class="highlights">
+                        <li class="list animate__animated visibility">
+                            <div class="image-wrap">
+                                <div class="imagethmb">
+                                    <div class="imagethmb_inner">
+                                        <img src={{ asset('odys_assets/images/section-icons/webelieve-1.svg') }} alt="">
+                                    </div>
                                 </div>
                             </div>
+                            <div class="text-wrap">
+                                <span>Winning & <br/>Growing</span>
+                            </div>
                         </li>
-                        <li>
-
+                        <li class="list animate__animated visibility">
+                            <div class="image-wrap">
+                                <div class="imagethmb">
+                                    <div class="imagethmb_inner">
+                                        <img src={{ asset('odys_assets/images/section-icons/webelieve-2.svg') }} alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-wrap">
+                                <span>Problem solving & <br/>creating value</span>
+                            </div>
                         </li>
-                        <li>
-
+                        <li class="list animate__animated visibility">
+                            <div class="image-wrap">
+                                <div class="imagethmb">
+                                    <div class="imagethmb_inner">
+                                        <img src={{ asset('odys_assets/images/section-icons/webelieve-3.svg') }} alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-wrap">
+                                <span>Sustainable competitive <br/>advantage</span>
+                            </div>
                         </li>
-                        <li>
-
+                        <li class="list animate__animated visibility">
+                            <div class="image-wrap">
+                                <div class="imagethmb">
+                                    <div class="imagethmb_inner">
+                                        <img src={{ asset('odys_assets/images/section-icons/webelieve-4.svg') }} alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-wrap">
+                                <span>Long term <br/>partnership</span>
+                            </div>
                         </li>
                     </ul>
 
