@@ -158,12 +158,15 @@
 
 .whyus-wrapper .whyus-list{
     list-style: none;
+    display: flex;
+    justify-content: center;
 }
 
 .whyus-wrapper .whyus-list .list{
+    width: 33.33%;
     background-color: rgba(246, 246, 246, 1);
-    margin: 10px;
-    padding: 10px;
+    border-radius: 11px;
+    margin: 30px;
 }
 
 .whyus-wrapper .whyus-list .list .text{

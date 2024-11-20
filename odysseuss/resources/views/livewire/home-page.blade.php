@@ -28,24 +28,66 @@
 
                     <ul class="whyus-list">
                         <li class="list animate__animated visibility">
-                            <span class="text blue">Effectively performed transformative, strategic, agile</span>
-                            <span class="text">innovation / renovation for incremental growth</span>
+
+                            <div class="row">
+                                <div class="col-2">
+                                    <img src={{ asset('odys_assets/images/section-icons/whyus-1.png') }} alt="" srcset="">
+                                </div>
+                                <div class="col-8">
+                                    <span class="text blue">Effectively performed transformative, strategic, agile</span>
+                                    <span class="text">innovation / renovation for incremental growth</span>
+                                </div>
+                            </div>
+
                         </li>
                         <li class="list animate__animated visibility">
-                            <span class="text blue">Boosted relevance & sales via global or local</span>
-                            <span class="text">brand building / rejuvenation</span>
+
+                            <div class="row">
+                                <div class="col-2">
+                                    <img src={{ asset('odys_assets/images/section-icons/whyus-2.png') }} alt="" srcset="">
+                                </div>
+                                <div class="col-8">
+                                    <span class="text blue">Boosted relevance & sales via global or local</span>
+                                    <span class="text">brand building / rejuvenation</span>
+                                </div>
+                            </div>
+
                         </li>
                         <li class="list animate__animated visibility">
-                            <span class="text blue">Successfully done local, regional, European scale</span>
-                            <span class="text">business turnarounds from 20 to 800M $</span>
+                            <div class="row">
+                                <div class="col-2">
+                                    <img src={{ asset('odys_assets/images/section-icons/whyus-3.png') }} alt="" srcset="">
+                                </div>
+                                <div class="col-8">
+                                    <span class="text blue">Successfully done local, regional, European scale</span>
+                                    <span class="text">business turnarounds from 20 to 800M $</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <ul class="whyus-list">
+                        <li class="list animate__animated visibility">
+                            <div class="row">
+                                <div class="col-2">
+                                    <img src={{ asset('odys_assets/images/section-icons/whyus-4.png') }} alt="" srcset="">
+                                </div>
+                                <div class="col-8">
+                                    <span class="text blue">We’re all about results</span>
+                                    <span class="text">and have made it happen before</span>
+                                </div>
+                            </div>
                         </li>
                         <li class="list animate__animated visibility">
-                            <span class="text blue">We’re all about results</span>
-                            <span class="text">and have made it happen before</span>
-                        </li>
-                        <li class="list animate__animated visibility">
-                            <span class="text blue">We can activate a network</span>
-                            <span class="text">of high professionals task-purposed</span>
+                            <div class="row">
+                                <div class="col-2">
+                                    <img src={{ asset('odys_assets/images/section-icons/whyus-5.png') }} alt="" srcset="">
+                                </div>
+                                <div class="col-8">
+                                    <span class="text blue">We can activate a network</span>
+                                    <span class="text">of high professionals task-purposed</span>
+                                </div>
+                            </div>
                         </li>
                     </ul>
 
