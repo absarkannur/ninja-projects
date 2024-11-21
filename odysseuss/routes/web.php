@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Livewire\HomePage;
+use App\Livewire\ServicePage;
+use App\Livewire\ServicesPage;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +17,8 @@ use App\Livewire\HomePage;
 */
 
 Route::get( '/', HomePage::class )->name('home');
+Route::get( 'services', ServicesPage::class )->name('services');
+Route::get( 'service', ServicePage::class )->name('service');
 
 // Route::get('/', function () {
 //     return view('welcome');

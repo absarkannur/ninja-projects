@@ -152,6 +152,15 @@ input::placeholder {
     text-align: center;
 }
 
+.heading-inner{
+    color: var(--font-color-blue);
+    font-size: 44px;
+    font-weight: 700;
+    height: 60px;
+    line-height: 60px;
+    text-align: left;
+}
+
 
 /* buttons */
 

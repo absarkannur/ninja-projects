@@ -39,6 +39,7 @@
 .header-wrapper{
     padding: 10px 0;
     position: relative;
+    border-bottom: solid 1px rgba(47, 47, 47, 0.5);
 }
 
 .header-wrapper .navbar-brand img{
@@ -705,6 +706,44 @@ footer .footer-navbar .nav-link.social{
         display: block;
     }
 
+}
 
 
+/* Services */
+
+.services-wrapper{
+    /* background-color: rgba(0, 176, 236, 0.04); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.services-wrapper .heading-inner{
+    height: 80px;
+    line-height: 80px;
+    margin: 30px 0;
+}
+
+.services-wrapper .service-list{
+    list-style: none;
+}
+
+.services-wrapper .service-list .list{
+    margin-bottom: 20px;
+    background-color: black;
+    border-radius: 10px;
+    padding: 40px;
+}
+
+.services-wrapper .service-list .list .header{
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: 30px;
+}
+
+.services-wrapper .service-list .list .text{
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-white);
 }

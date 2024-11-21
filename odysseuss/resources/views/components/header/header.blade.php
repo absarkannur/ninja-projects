@@ -1,4 +1,4 @@
-<section class="container header-wrapper">
+<section class="container-fluid header-wrapper">
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
 
@@ -14,7 +14,7 @@
                 <div class="navbar-nav">
 
                     <a class="nav-link" href="{{ route('home') }}">Home</a>
-                    <a class="nav-link" href="{{ route('home') }}">Services</a>
+                    <a class="nav-link" href="{{ route('services') }}">Services</a>
                     <a class="nav-link" href="{{ route('home') }}">About</a>
                     <a class="nav-link" href="{{ route('home') }}">Case Studies</a>
 
