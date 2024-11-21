@@ -157,95 +157,19 @@
                 <div class="col">
                     <ul class="service-list animate__animated visibility">
 
-                        <li class="list">
-                            <div class="image-wrap" style="background-image: url({{ asset('odys_assets/images/service.jpeg') }})">
-                            </div>
-                            <div class="service-info">
-                                <h2 class="header">Brand Building</h2>
+                        @if($services)
+                            @foreach ($services as $service)
+                                <li class="list">
+                                    <div class="image-wrap" style="background-image: url({{ asset( 'storage/' . $service['service_list_image'] ) }})">
+                                    </div>
+                                    <div class="service-info">
+                                        <h2 class="header">{{ $service['service_list_header'] }}</h2>
+                                        {!! $service['service_list_description'] !!}
+                                    </div>
 
-                                <ul>
-                                    <li>The problem to solve</li>
-                                    <li>Mission & vision</li>
-                                    <li>Brand essence & unique selling proposition</li>
-                                    <li>Brand visual identity</li>
-                                    <li>Communication standards & architecture</li>
-                                </ul>
-
-                            </div>
-
-                        </li>
-
-                        <li class="list">
-                            <div class="image-wrap" style="background-image: url({{ asset('odys_assets/images/service.jpeg') }})">
-                            </div>
-                            <div class="service-info">
-                                <h2 class="header">Growth Hacking</h2>
-
-                                <ul>
-                                    <li>The problem to solve</li>
-                                    <li>Mission & vision</li>
-                                    <li>Brand essence & unique selling proposition</li>
-                                    <li>Brand visual identity</li>
-                                    <li>Communication standards & architecture</li>
-                                </ul>
-
-                            </div>
-
-                        </li>
-
-                        <li class="list">
-                            <div class="image-wrap" style="background-image: url({{ asset('odys_assets/images/service.jpeg') }})">
-                            </div>
-                            <div class="service-info">
-                                <h2 class="header">Growth Accelerators</h2>
-
-                                <ul>
-                                    <li>The problem to solve</li>
-                                    <li>Mission & vision</li>
-                                    <li>Brand essence & unique selling proposition</li>
-                                    <li>Brand visual identity</li>
-                                    <li>Communication standards & architecture</li>
-                                </ul>
-
-                            </div>
-
-                        </li>
-
-                        <li class="list">
-                            <div class="image-wrap" style="background-image: url({{ asset('odys_assets/images/service.jpeg') }})">
-                            </div>
-                            <div class="service-info">
-                                <h2 class="header">Cost Optimization</h2>
-
-                                <ul>
-                                    <li>The problem to solve</li>
-                                    <li>Mission & vision</li>
-                                    <li>Brand essence & unique selling proposition</li>
-                                    <li>Brand visual identity</li>
-                                    <li>Communication standards & architecture</li>
-                                </ul>
-
-                            </div>
-
-                        </li>
-
-                        <li class="list">
-                            <div class="image-wrap" style="background-image: url({{ asset('odys_assets/images/service.jpeg') }})">
-                            </div>
-                            <div class="service-info">
-                                <h2 class="header">Brand Experience</h2>
-
-                                <ul>
-                                    <li>The problem to solve</li>
-                                    <li>Mission & vision</li>
-                                    <li>Brand essence & unique selling proposition</li>
-                                    <li>Brand visual identity</li>
-                                    <li>Communication standards & architecture</li>
-                                </ul>
-
-                            </div>
-
-                        </li>
+                                </li>
+                            @endforeach
+                        @endif
 
                     </ul>
                 </div>
