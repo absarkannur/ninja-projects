@@ -18,7 +18,7 @@ use App\Livewire\ServicesPage;
 
 Route::get( '/', HomePage::class )->name('home');
 Route::get( 'services', ServicesPage::class )->name('services');
-Route::get( 'service', ServicePage::class )->name('service');
+Route::get( 'service/{slug}', ServicePage::class )->name('service');
 
 // Route::get('/', function () {
 //     return view('welcome');

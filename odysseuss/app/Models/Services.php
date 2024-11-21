@@ -15,7 +15,8 @@ class Services extends Model
         'service_list_image',
         'service_list_description',
         'service_short_image',
-        'service_short_description'
+        'service_short_description',
+        'service_inner_page'
     ];
 
 }

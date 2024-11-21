@@ -44,8 +44,10 @@ class ServicesResource extends Resource
                 Section::make('Inner Page')
                     ->schema([
                         FileUpload::make('service_short_image')->label("Short Image"),
-                        Textarea::make('service_short_description')->label("Short Description")
+                        Textarea::make('service_short_description')->label("Short Description"),
+                        RichEditor::make('service_inner_page')->label('Contents')
                     ])
+
             ]);
     }
 

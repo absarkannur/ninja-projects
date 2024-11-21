@@ -20,7 +20,7 @@
                                         <p class="text">{{ $service['service_short_description'] }}</p>
                                     </div>
                                     <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 flex-center">
-                                        <a class="nav-link no-padding" href="{{ route( 'service', [ $service->service_slug ] ) }}">
+                                        <a class="nav-link no-padding" href="{{ route( 'service', [ 'slug' => $service->service_slug ] ) }}">
                                             <button class="odys-blue-btn">
                                                 Learn More
                                                 <img src={{ asset('odys_assets/images/icons/btn-arrow-dark.svg') }} alt="">
