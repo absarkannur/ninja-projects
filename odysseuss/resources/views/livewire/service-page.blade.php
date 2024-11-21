@@ -15,6 +15,14 @@
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col">
+                    @foreach ( $service_cat as $service )
+                        <h1>{{ $service['service_category_name'] }}</h1>
+                    @endforeach
+                </div>
+            </div>
+
         </div>
     </section>
 </main>
