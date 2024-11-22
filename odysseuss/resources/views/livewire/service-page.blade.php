@@ -17,9 +17,21 @@
 
             <div class="row">
                 <div class="col">
-                    @foreach ( $service_cat as $service )
-                        <h1>{{ $service['service_category_name'] }}</h1>
-                    @endforeach
+                    @if($service_list)
+                    <ul>
+                        @foreach ( $service_list as $service )
+                        <li>
+                            <h4>$service</h4>
+                            <ul>
+                                @foreach ( $service['service_contents'] as $contents )
+                                <li></li>
+                                @endforeach)
+                            </ul>
+                        </li>
+                        @endforeach
+                    </ul>
+
+                    @endif
                 </div>
             </div>
 
