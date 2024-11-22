@@ -14,27 +14,29 @@
                     {!! $service['service_inner_page'] !!}
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="row">
-                <div class="col">
-                    @if($service_list)
+    @if($service_list)
+        <ul class="service_list">
+            @foreach ( $service_list as $service )
+            <li class="list">
+                <div class="container">
+                    <h4>{{ $service['service_category_name'] }}</h4>
                     <ul>
-                        @foreach ( $service_list as $service )
+                        @foreach ( $service['service_contents'] as $content )
                         <li>
-                            <h4>$service</h4>
-                            <ul>
-                                @foreach ( $service['service_contents'] as $contents )
-                                <li></li>
-                                @endforeach)
-                            </ul>
+                            <img src={{ asset( 'storage/'. $content['service_category_contect_image'] ) }} alt="">
+                            <div>
+                                {!! $content['service_category_contect_description'] !!}
+                            </div>
                         </li>
                         @endforeach
                     </ul>
-
-                    @endif
                 </div>
-            </div>
+            </li>
+            @endforeach
+        </ul>
+    @endif
 
-        </div>
-    </section>
 </main>

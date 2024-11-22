@@ -777,3 +777,11 @@ footer .footer-navbar .nav-link.social{
     color: var(--font-color-black);
     margin-bottom: 20px;
 }
+
+.service_list{
+    clear: both;
+}
+
+.service_list .list:nth-child(odd){
+    background-color: red;
+}
