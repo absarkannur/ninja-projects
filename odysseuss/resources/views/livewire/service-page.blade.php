@@ -23,12 +23,20 @@
             <li class="list">
                 <div class="container">
                     <h4>{{ $service['service_category_name'] }}</h4>
-                    <ul>
+                    <ul class="contents-list">
                         @foreach ( $service['service_contents'] as $content )
-                        <li>
-                            <img src={{ asset( 'storage/'. $content['service_category_contect_image'] ) }} alt="">
-                            <div>
-                                {!! $content['service_category_contect_description'] !!}
+                        <li class="content">
+                            <div class="wrap">
+                                <div class="image-wrap">
+                                    <div class="imagethmb">
+                                        <div class="imagethmb_inner">
+                                            <img src={{ asset( 'storage/'. $content['service_category_contect_image'] ) }} alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="content-wrap">
+                                    {!! $content['service_category_contect_description'] !!}
+                                </div>
                             </div>
                         </li>
                         @endforeach
