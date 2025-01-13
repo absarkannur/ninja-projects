@@ -128,7 +128,7 @@ body{
 
 .banner-wrapper{
     clear: both;
-    padding: 60px 0;
+    padding: 50px 0;
 }
 
 .banner-wrapper .header{
@@ -149,6 +149,54 @@ body{
     align-items: center;
 }
 
+.banner-wrapper .banner-box-one{
+    background-image: url('../images/banner-1.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 310px;
+    width: 100%;
+    padding: 30px;
+}
+
+.banner-wrapper .banner-box-one .header{
+    color: var(--color-lightblue);
+    font-size: 30px;
+}
+
+.banner-wrapper .banner-box-one .content-text{
+    color: var(--color-white);
+    font-size: 16px;
+    margin: 0;
+}
+
+.banner-wrapper .banner-box-one button{
+    margin-top: 80px;
+}
+
+.banner-wrapper .banner-box-two{
+    clear: both;
+    display: flex;
+    justify-content: space-between;
+    height: 310px;
+}
+
+.banner-wrapper .banner-box-two .box-1{
+    background-color: var(--color-darkblue);
+    width: 23%;
+    height: 100%;
+    border-radius: 30px;
+    padding: 30px;
+}
+
+.banner-wrapper .banner-box-two .box-2{
+    background-color: red;
+    background-image: url('../images/banner-3.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 73%;
+}
 
 /* Footer */
 
@@ -204,4 +252,12 @@ footer .footer-links .social-list{
 footer .footer-links .social-list .list,
 footer .footer-links .social-list .list a{
     color: var(--color-white);
+}
+
+
+/* facilities */
+
+.facilities-wrapper{
+    clear: both;
+    padding: 50px 0;
 }

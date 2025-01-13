@@ -7,6 +7,7 @@
     --color-lightblue: #98EFFF;
     --color-darkblue: #0D83A7;
     --color-sperator: #d2d2d2;
+    --border-color: #78787885;
 }
 
 *{
@@ -126,21 +127,21 @@ h1,h2,h3,h4,h5,h5,span,a,em{
 } */
 
 .heading{
-    color: var(--color-black);
-    font-size: 44px;
-    font-weight: 700;
+    color: var(--color-darkblue);
+    font-size: 32px;
+    font-weight: 400;
     height: 60px;
     line-height: 60px;
-    text-align: center;
+    text-align: left;
+    border-bottom: solid 1px var(--border-color);
+    margin-bottom: 20px;
 }
 
 .sub-heading{
     color: var(--color-black);
-    font-size: 20px;
-    font-weight: 700;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
+    font-size: 40px;
+    font-weight: 400;
+    text-align: left;
 }
 
 .heading-inner{
@@ -172,6 +173,17 @@ h1,h2,h3,h4,h5,h5,span,a,em{
     font-size: 16px;
 }
 
+.oz-button-lightblue{
+    height: 49px;
+    min-width: 49px;
+    padding: 0 30px;
+    border-radius: 30px;
+    border: solid 1px var(--color-black);
+    background-color: var(--color-lightblue);
+    color: var(--color-black);
+    font-size: 16px;
+}
+
 .oz-button-primery{
     height: 49px;
     min-width: 49px;
@@ -181,4 +193,14 @@ h1,h2,h3,h4,h5,h5,span,a,em{
     background-color: var(--color-darkblue);
     font-size: 16px;
     color: var(--color-white);
+}
+
+.carousel-button-group{
+    width: 110px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.carousel-button-group button{
+    border-color: #C0C0C0 !important;
 }
