@@ -107,10 +107,14 @@ h1,h2,h3,h4,h5,h5,span,a,em{
     justify-content: end;
 }
 
-.owl-theme .owl-nav [class*=owl-]:hover{
+/* .owl-theme .owl-nav [class*=owl-]:hover{
   background-color: transparent !important;
   color: #666;
-}
+} */
+
+/* .owl-carousel .owl-stage-outer{
+    overflow: visible;
+} */
 
 /* Wrappers */
 
@@ -193,6 +197,16 @@ h1,h2,h3,h4,h5,h5,span,a,em{
     background-color: var(--color-darkblue);
     font-size: 16px;
     color: var(--color-white);
+}
+
+.oz-button-link{
+    height: 49px;
+    min-width: 49px;
+    border-radius: 30px;
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    color: var(--color-black);
 }
 
 .carousel-button-group{

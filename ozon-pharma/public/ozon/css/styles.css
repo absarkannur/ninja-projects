@@ -126,76 +126,138 @@ body{
 
 /* Banner Wrapper */
 
-.banner-wrapper{
+.home-banner-wrapper{
     clear: both;
     padding: 50px 0;
 }
 
-.banner-wrapper .header{
+.home-banner-wrapper .separator{
+    height: 80px;
+}
+
+.home-banner-wrapper .header{
     color: var(--text-color);
     font-weight: 400;
     font-size: 54px;
 }
 
-.banner-wrapper .content-text{
+.home-banner-wrapper .content-text{
     color: var(--text-color-light);
     font-size: 20px;
     padding-bottom: 30px;
 }
 
-.banner-wrapper .button-group{
+.home-banner-wrapper .button-group{
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
-.banner-wrapper .banner-box-one{
-    background-image: url('../images/banner-1.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 310px;
+.home-banner-wrapper .banner-box-one{
+    position: relative;
+    height: 318px;
     width: 100%;
     padding: 30px;
+    background-color: #333;
+    border-radius: 30px;
 }
 
-.banner-wrapper .banner-box-one .header{
+.home-banner-wrapper .banner-box-one img{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.home-banner-wrapper .banner-box-one .header{
+    position: relative;
     color: var(--color-lightblue);
     font-size: 30px;
+    z-index: 99;
 }
 
-.banner-wrapper .banner-box-one .content-text{
+.home-banner-wrapper .banner-box-one .content-text{
+    position: relative;
     color: var(--color-white);
     font-size: 16px;
     margin: 0;
+    z-index: 99;
 }
 
-.banner-wrapper .banner-box-one button{
-    margin-top: 80px;
+.home-banner-wrapper .banner-box-one button{
+    position: relative;
+    margin-top: 79px;
+    z-index: 99;
 }
 
-.banner-wrapper .banner-box-two{
+.home-banner-wrapper .banner-box-two{
     clear: both;
     display: flex;
     justify-content: space-between;
-    height: 310px;
+    height: 318px;
 }
 
-.banner-wrapper .banner-box-two .box-1{
+.home-banner-wrapper .banner-box-two .header{
+    position: relative;
+    color: var(--color-white);
+    font-size: 30px;
+    z-index: 99;
+    margin: 0;
+}
+
+.home-banner-wrapper .banner-box-two .content-text{
+    position: relative;
+    color: var(--color-white);
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    z-index: 99;
+}
+
+
+.home-banner-wrapper .banner-box-two .box-1{
     background-color: var(--color-darkblue);
-    width: 23%;
+    width: 25%;
     height: 100%;
-    border-radius: 30px;
+    border-radius: 30px 30px 0 30px;
+    padding: 30px;
+    position: relative;
+}
+
+.home-banner-wrapper .banner-box-two .box-1 .sec{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: var(--color-darkblue);
+    height: 125px;
+    width: 175px;
+    bottom: 0;
+    right: -175px;
+    border-radius: 0 30px 30px 0;
+}
+
+.home-banner-wrapper .banner-box-two .box-1 .sec .left-sticky-corner{
+    position: absolute;
+    top: -35px;
+    left: -1px;
+}
+
+.home-banner-wrapper .banner-box-two .box-2{
+    position: relative;
+    width: 75%;
     padding: 30px;
 }
 
-.banner-wrapper .banner-box-two .box-2{
-    background-color: red;
-    background-image: url('../images/banner-3.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 73%;
+.home-banner-wrapper .banner-box-two .box-2 img{
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: -1;
 }
 
 /* Footer */
@@ -255,9 +317,57 @@ footer .footer-links .social-list .list a{
 }
 
 
-/* facilities */
+/* Home facilities */
 
-.facilities-wrapper{
+.home-facilities-wrapper{
+    clear: both;
+    padding: 50px 0;
+}
+
+.home-facilities-wrapper .facilities{
+    clear: both;
+    margin-top: 60px;
+}
+
+.home-facilities-wrapper .facilities .facility{
+    min-height: 100px;
+    width: 400px;
+    background-color: #D9F4F9;
+    padding: 30px;
+    border-radius: 30px;
+}
+
+.home-facilities-wrapper .facilities .facility .icon-group{
+    height: 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.home-facilities-wrapper .facilities .facility .icon-group img{
+    height: auto;
+    width: auto;
+}
+
+.home-facilities-wrapper .facilities .facility .content-group{
+    clear: both;
+}
+
+.home-facilities-wrapper .facilities .facility .content-group .header{
+    color: var(--color-black);
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.home-facilities-wrapper .facilities .facility .content-group .content-text{
+    color: var(--text-color-light);
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Home About us */
+
+.home-about-wrapper{
     clear: both;
     padding: 50px 0;
 }

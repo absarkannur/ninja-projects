@@ -1,6 +1,6 @@
 <main>
 
-    <section class="banner-wrapper">
+    <section class="home-banner-wrapper">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
@@ -23,12 +23,13 @@
             </div>
         </div>
 
-        <div style="height: 80px;">&nbsp;</div>
+        <div class="separator">&nbsp;</div>
 
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
                     <div class="banner-box-one">
+                        <img src={{ asset("ozon/images/banner-1.svg") }} />
                         <h3 class="header">Our products</h3>
                         <p class="content-text">We offer high quality products comparable to the best globally</p>
                         <button class="oz-button-lightblue">Explore Products</button>
@@ -37,18 +38,32 @@
                 <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
                     <div class="banner-box-two">
                         <div class="box-1">
-                            aa
+
+                            <p class="content-text">More than</p>
+                            <h3 class="header">20+ Years </h3>
+                            <p class="content-text">in Business</p>
+
+
+                            <div class="sec">
+
+                                <svg class="left-sticky-corner" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.269516 35.5V0.5C0.269516 19.83 15.9395 35.5 35.2695 35.5H0.269516Z" fill="#0D83A7"/>
+                                </svg>
+
+                                <button class="oz-button-default">Learn More</button>
+                            </div>
                         </div>
                         <div class="box-2">
-                            bb
+                            <img src={{ asset("ozon/images/banner-3.svg") }} />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </section>
 
-    <section class="facilities-wrapper">
+    <section class="home-facilities-wrapper">
 
         <div class="container"> {{-- Header --}}
             <div class="row">
@@ -85,10 +100,60 @@
         <div class="container">
             <div class="row">
                 <div class="col col-12">
-                    <span>Hello -------------</span>
+                    <ul class="facilities owl-carousel">
+                        <li class="facility">
+                            <div class="icon-group">
+                                <img src={{ asset('ozon/images/_1.png') }} />
+                            </div>
+                            <div class="content-group">
+                                <h3 class="header">Manufacturing Technology</h3>
+                                <p class="content-text">We consider the manufacturing facilities, systems and people as its core assets.</p>
+                            </div>
+                            <div class="button-group">
+                                <button class="oz-button-link no-padding">
+                                    Learn More
+                                    <svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg);" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </li>
+
+                        <li class="facility">
+                            <div class="icon-group">
+                                <img src={{ asset('ozon/images/_1.png') }} />
+                            </div>
+                            <div class="content-group">
+                                <h3 class="header">Manufacturing Technology</h3>
+                                <p class="content-text">We consider the manufacturing facilities, systems and people as its core assets.</p>
+                            </div>
+                            <div class="button-group">
+                                <button class="oz-button-link no-padding">
+                                    Learn More
+                                    <svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg);" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </li>
+
+                    </ul>
                 </div>
             </div>
         </div>
+
+
+    </section>
+
+    <section class="home-about-wrapper">
+        <div class="container"> {{-- Header --}}
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <h2 class="heading">ABOUT US</h2>
+                </div>
+            </div>
+        </div>
+
 
 
     </section>
