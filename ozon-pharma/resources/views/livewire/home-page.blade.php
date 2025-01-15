@@ -224,7 +224,7 @@
 
     </section>
 
-    <section class="home-cherapeutic-categories ">
+    <section class="home-cherapeutic-categories">
         <div class="container"> {{-- Header --}}
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
@@ -260,12 +260,67 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    ....
+                    <ul class="categories owl-carousel">
+                        <li class="category-list">
+                            <img src="{{ asset('ozon/images/Rectangle 117.png') }}" alt="">
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-up-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0z"/>
+                                </svg>
+                            </span>
+                            <button class="button">Cardiovascular</button>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
+    <section class="home-blog-wrapper">
+        <div class="container"> {{-- Header --}}
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <h2 class="heading">WHATS NEW</h2>
+                </div>
+            </div>
+        </div>
 
+        <div class="container"> {{-- Header --}}
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                    <h2 class="sub-heading">Interesting articles about
+                        healthcare</h2>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                    <div class="learnmore-button-group fr">
+                        <button class="oz-button-primery p-l-10 center">
+                            View All
+                        </button>
+                        <button class="oz-button-primery no-padding p-l-10 center">
+                            <svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg);" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <ul class="blogs owl-carousel">
+                        <li class="blogs-list">
+                            <div class="images"></div>
+                            <div class="tags"></div>
+                            <div class="contects"></div>
+                            <div class="publish"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </section>
 
 </main>
