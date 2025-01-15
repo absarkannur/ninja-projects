@@ -11,8 +11,8 @@
 
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="justify-content: end;">
             <div class="navbar-nav">
-                <a class="nav-link" aria-current="page" >Home</a>
-                <a class="nav-link">About Us</a>
+                <a class="nav-link" aria-current="page" href="{{ route('home') }}">Home</a>
+                <a class="nav-link" href="{{ route('about') }}">About Us</a>
                 <a class="nav-link">Facilities</a>
                 <a class="nav-link">Products</a>
                 <a class="nav-link">Sales & Distribution</a>

@@ -309,12 +309,63 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <ul class="blogs owl-carousel">
+                    <ul class="blogs _owl-carousel">
                         <li class="blogs-list">
-                            <div class="images"></div>
-                            <div class="tags"></div>
-                            <div class="contects"></div>
-                            <div class="publish"></div>
+                            <div class="images">
+                                <div class="imagethmb">
+                                    <div class="imagethmb_inner">
+                                        <img src="{{ asset('ozon/images/blog.png') }}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tags">
+                                <ul class="tags-list">
+                                    <li class="list">NEWS</li>
+                                    <li class="list">MEDICINE</li>
+                                </ul>
+                            </div>
+                            <div class="contents">
+                                <h3 class="title">New age of biological research that changed the</h3>
+                                <span class="published">By: Ozon Pharma   .   10/02/24</span>
+                            </div>
+                        </li>
+                        <li class="blogs-list">
+                            <div class="images">
+                                <div class="imagethmb">
+                                    <div class="imagethmb_inner">
+                                        <img src="{{ asset('ozon/images/blog.png') }}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tags">
+                                <ul class="tags-list">
+                                    <li class="list">NEWS</li>
+                                    <li class="list">MEDICINE</li>
+                                </ul>
+                            </div>
+                            <div class="contents">
+                                <h3 class="title">New age of biological research that changed the</h3>
+                                <span class="published">By: Ozon Pharma   .   10/02/24</span>
+                            </div>
+                        </li>
+                        <li class="blogs-list">
+                            <div class="images">
+                                <div class="imagethmb">
+                                    <div class="imagethmb_inner">
+                                        <img src="{{ asset('ozon/images/blog.png') }}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tags">
+                                <ul class="tags-list">
+                                    <li class="list">NEWS</li>
+                                    <li class="list">MEDICINE</li>
+                                </ul>
+                            </div>
+                            <div class="contents">
+                                <h3 class="title">New age of biological research that changed the</h3>
+                                <span class="published">By: Ozon Pharma   .   10/02/24</span>
+                            </div>
                         </li>
                     </ul>
                 </div>

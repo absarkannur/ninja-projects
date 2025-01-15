@@ -557,10 +557,61 @@ footer .footer-links .social-list .list a{
     font-size: 18px;
 }
 
-
-/* WHats News */
+/* Whats News */
 
 .home-blog-wrapper{
     clear: both;
     padding: 50px 0;
+}
+
+.home-blog-wrapper .blogs{
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.home-blog-wrapper .blogs .blogs-list{
+    overflow: hidden;
+}
+
+.home-blog-wrapper .blogs .blogs-list .images{
+    margin-bottom: 20px;
+}
+
+.home-blog-wrapper .blogs .blogs-list .images,
+.home-blog-wrapper .blogs .blogs-list .images .imagethmb_inner{
+    height: 220px;
+}
+
+.home-blog-wrapper .blogs .blogs-list .contents{
+    margin-bottom: 20px;
+}
+
+.home-blog-wrapper .blogs .blogs-list .contents .title{
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+
+.home-blog-wrapper .blogs .blogs-list .contents .published{
+    font-size: 12px;
+    color: var(--text-color-light);
+}
+
+.home-blog-wrapper .blogs .blogs-list .tags{
+    margin-bottom: 20px;
+}
+
+.home-blog-wrapper .blogs .blogs-list .tags .tags-list{
+    display: flex;
+}
+
+.home-blog-wrapper .blogs .blogs-list .tags .tags-list .list{
+    background-color: #D9F4F9;
+    color: var(--color-black);
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    margin-right: 10px;
+    border-radius: 20px;
 }

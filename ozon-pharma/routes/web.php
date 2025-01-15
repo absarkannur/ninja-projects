@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\HomePage;
+use App\Livewire\AboutPage;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +19,5 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get( '/', HomePage::class );
-
+Route::get( '/', HomePage::class )->name('home');
+Route::get( '/about', AboutPage::class )->name('about');
