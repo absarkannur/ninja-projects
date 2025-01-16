@@ -34,12 +34,207 @@
     bottom: 0;
     margin: auto;
     height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 }
 
 .inner-page-banner-wrapper .banner-image-wrapper .header .title{
     color: var(--color-white);
     font-size: 60px;
+}
+
+.inner-page-banner-wrapper .banner-image-wrapper .header .breadcrumbs{
+    display: block;
+    color: var(--color-white);
+    font-size: 16px;
+}
+
+
+/* About Page */
+
+.about-info-wrapper{
+    clear: both;
+    padding: 50px 0;
+}
+
+.about-info-wrapper .content-wrap{
+    clear: both;
+    padding-right: 20px;
+}
+
+.about-info-wrapper .content-wrap .header{
+    color: var(--color-black);
+    font-size: 56px;
+    margin-bottom: 20px;
+}
+
+.about-info-wrapper .content-wrap .content-text{
+    font-size: 14px;
+    color: var( --text-color-light );
+    text-align: justify;
+}
+
+.about-info-wrapper .image-wrap,
+.about-info-wrapper .image-wrap .imagethmb_inner{
+    height: 360px;
+}
+
+.about-accordion-wrapper{
+    clear: both;
+    padding: 50px 0;
+}
+
+.about-accordion-wrapper .accordion-button::after{
+    padding: 20px;
+    border-radius: 50%;
+    border: solid 1px var(--border-color);
+    background-position: center;
+}
+
+.about-our-numbers{
+    clear: both;
+    padding: 50px 0;
+}
+
+.about-our-numbers .header{
+    text-transform: uppercase;
+    color: var(--color-darkblue);
+    font-size: 32px;
+    font-weight: 400;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.about-our-numbers .numbers{
+    list-style: none;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.about-our-numbers .numbers .list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    width: 400px;
+    height: 400px;
+    background-color: red;
+    border: solid 3px var(--color-white);
+    float: left;
+    margin-left: -60px;
+}
+
+.about-our-numbers .numbers .list:nth-child(1){
+    background-color: #5AE5FF;
+}
+.about-our-numbers .numbers .list:nth-child(2){
+    background-color: #41C7E0;
+}
+.about-our-numbers .numbers .list:nth-child(3){
+    background-color: #0D83A7;
+}
+
+.about-our-numbers .numbers .list .count{
+    display: block;
+    width: 100%;
+    font-size: 56px;
+    font-weight: bold;
+    color: var(--color-white);
+    text-align: center;
+}
+
+.about-our-numbers .numbers .list .title{
+    display: block;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--color-white);
+    text-align: center;
+}
+
+
+/* Facilities Page */
+
+.facilities-page-wrapper{
+    clear: both;
+    padding: 50px 0;
+}
+
+.facilities-page-wrapper .facilities-list{
+    clear: both;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.facilities-page-wrapper .list{
+    position: relative;
+    min-height: 100px;
+    width: calc( 50% - 30px );
+    background-color: #D9F4F9;
+    border-radius: 30px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.facilities-page-wrapper .list .button{
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    background-color: var(--color-darkblue);
+    color: var(--color-white);
+    border-radius: 50%;
+    right: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.facilities-page-wrapper .list .left-sticky-corner{
+    transition-duration: 0.5s;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.facilities-page-wrapper .list:hover .left-sticky-corner{
+    top: -100px;
+    right: -100px;
+}
+
+.facilities-page-wrapper .list .image-wrap{
+    width: 50%;
+    height: 350px;
+    float: left;
+    border-radius: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.facilities-page-wrapper .list .content-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 350px;
+    float: left;
+    padding: 20px;
+}
+
+.facilities-page-wrapper .list .content-wrap h4,
+.facilities-page-wrapper .list .content-wrap p{
+    width: 80%;
+}
+
+.facilities-page-wrapper .list .content-wrap p{
+    font-size: 12px;
+    color: var(--text-color-light);
 }

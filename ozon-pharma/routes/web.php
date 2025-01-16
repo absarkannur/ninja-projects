@@ -2,6 +2,7 @@
 
 use App\Livewire\HomePage;
 use App\Livewire\AboutPage;
+use App\Livewire\FacilitiesPage;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +22,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get( '/', HomePage::class )->name('home');
 Route::get( '/about', AboutPage::class )->name('about');
+Route::get( '/facilities', FacilitiesPage::class )->name('facilities');

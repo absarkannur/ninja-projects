@@ -131,6 +131,7 @@ h1,h2,h3,h4,h5,h5,span,a,em{
 } */
 
 .heading{
+    text-transform: uppercase;
     color: var(--color-darkblue);
     font-size: 32px;
     font-weight: 400;

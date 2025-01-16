@@ -6,13 +6,14 @@
                 <div class="banner-image-wrapper">
                     <div class="imagethmb">
                         <div class="imagethmb_inner">
-                            <img src="{{ asset('ozon/images/about-innnerpage.png') }}" />
+                            <img src="{{ asset( $image ) }}" />
                         </div>
                     </div>
                     <div class="layer"></div>
 
                     <div class="header">
                         <h2 class="title">{{ $title }}</h2>
+                        <span class="breadcrumbs">{{ $breadcrumbs }}</span>
                     </div>
 
                 </div>
