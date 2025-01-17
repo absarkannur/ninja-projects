@@ -21,7 +21,7 @@
     </head>
     <body>
 
-        <x:inc.topbar />
+        {{-- <x:inc.topbar /> --}}
         <x:header.header />
 
         {{ $slot }}

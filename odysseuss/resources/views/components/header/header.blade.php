@@ -15,8 +15,10 @@
 
                     <a class="nav-link" href="{{ route('home') }}">Home</a>
                     <a class="nav-link" href="{{ route('services') }}">Services</a>
-                    <a class="nav-link" href="{{ route('home') }}">About</a>
-                    <a class="nav-link" href="{{ route('home') }}">Case Studies</a>
+                    <a class="nav-link" href="{{ route('about-us') }}">About</a>
+                    <a class="nav-link"></a>
+                    {{-- <a class="nav-link" href="{{ route('home') }}">Case Studies</a> --}}
+
 
                     <a class="nav-link social" href="" target="_blank">
                         <div class="social-link fb">
@@ -29,7 +31,7 @@
                         </div>
                     </a>
 
-                    <a class="nav-link no-padding" href="{{ route('home') }}">
+                    <a class="nav-link no-padding" href="{{ route('contact-us') }}">
                         <button class="odys-blue-btn">
                             Contact Us
                             <img src={{ asset('odys_assets/images/icons/btn-arrow-dark.svg') }} alt="">

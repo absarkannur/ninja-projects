@@ -196,9 +196,20 @@ input::placeholder {
     color: var(--color-white);
 }
 
+.bg-blue{
+    background-color: rgba(0, 176, 236, 0.04);
+}
+
 
 /* Animation */
 
 .visibility{
     visibility: hidden;
+}
+
+textarea::placeholder,
+input::placeholder {
+    font-weight: 500;
+    opacity: 0.5;
+    color: rgba(47, 47, 47, 0.4) !important;
 }
