@@ -70,16 +70,29 @@
                         <h3>Send a message</h3>
 
                         <form wire:submit="submit">
-                            <input type="text" placeholder="Name" required />
-                            <input type="email" placeholder="Email Address" required />
-                            <textarea rows="6" placeholder="Message"></textarea>
+                            <input wire:model="name" name="name" type="text" placeholder="Name" />
+                            @error('name')
+                            <span style="display: block;position: relative;color: red;margin-top: -15px;font-size: 11px;">{{ $message }}</span>
+                            @enderror
+                            <input wire:model="email" name="email" type="email" placeholder="Email Address" />
+                            @error('email')
+                            <span style="display: block;position: relative;color: red;margin-top: -15px;font-size: 11px;">{{ $message }}</span>
+                            @enderror
+                            <textarea wire:model="message" name="message" rows="6" placeholder="Message"></textarea>
 
-                            <button class="odys-blue-btn">
+                            <button class="odys-blue-btn" type="submit">
                                 Submit&nbsp;
                                 <img src="http://127.0.0.1:8000/odys_assets/images/icons/btn-arrow-dark.svg" alt="">
                             </button>
 
                         </form>
+
+                        @if (session()->has('success'))
+                            <div class="alert alert-success" style="margin-top: 20px">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+
                     </div>
 
                 </div>

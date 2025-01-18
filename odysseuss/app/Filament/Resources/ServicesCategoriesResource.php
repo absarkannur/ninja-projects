@@ -20,6 +20,12 @@ class ServicesCategoriesResource extends Resource
 {
     protected static ?string $model = ServicesCategories::class;
 
+    protected static ?string $navigationGroup = 'Services';
+
+    protected static ?int $navigationSort = 2;
+
+    protected static ?string $navigationLabel = 'Service Categories';
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
