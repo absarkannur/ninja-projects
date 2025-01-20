@@ -101,41 +101,28 @@
             <div class="row">
                 <div class="col col-12">
                     <ul class="facilities owl-carousel">
-                        <li class="facility">
-                            <div class="icon-group">
-                                <img src={{ asset('ozon/images/_1.png') }} />
-                            </div>
-                            <div class="content-group">
-                                <h3 class="header">Manufacturing Technology</h3>
-                                <p class="content-text">We consider the manufacturing facilities, systems and people as its core assets.</p>
-                            </div>
-                            <div class="button-group">
-                                <button class="oz-button-link no-padding">
-                                    Learn More
-                                    <svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg);" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"></path>
-                                    </svg>
-                                </button>
-                            </div>
-                        </li>
 
-                        <li class="facility">
-                            <div class="icon-group">
-                                <img src={{ asset('ozon/images/_1.png') }} />
-                            </div>
-                            <div class="content-group">
-                                <h3 class="header">Manufacturing Technology</h3>
-                                <p class="content-text">We consider the manufacturing facilities, systems and people as its core assets.</p>
-                            </div>
-                            <div class="button-group">
-                                <button class="oz-button-link no-padding">
-                                    Learn More
-                                    <svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg);" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"></path>
-                                    </svg>
-                                </button>
-                            </div>
-                        </li>
+                        @foreach( $facilities_category as $category )
+
+                            <li class="facility">
+                                <div class="icon-group">
+                                    <img src={{ asset( "storage/" . $category->facility_category_icon ) }} />
+                                </div>
+                                <div class="content-group">
+                                    <h3 class="header">{{ $category['facility_category_name'] }}</h3>
+                                    <p class="content-text">{{ $category['facility_category_description'] }}</p>
+                                </div>
+                                <div class="button-group">
+                                    <button class="oz-button-link no-padding">
+                                        Learn More
+                                        <svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg);" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </li>
+
+                        @endforeach
 
                     </ul>
                 </div>
@@ -261,15 +248,21 @@
             <div class="row">
                 <div class="col-sm-12">
                     <ul class="categories owl-carousel">
+
+                        @foreach( $therapeutic_dategories as $category )
+
                         <li class="category-list">
-                            <img src="{{ asset('ozon/images/Rectangle 117.png') }}" alt="">
+                            <img src="{{ asset( "storage/" . $category->therapeutic_category_image ) }}" alt="">
                             <span class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-up-right" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0z"/>
                                 </svg>
                             </span>
-                            <button class="button">Cardiovascular</button>
+                            <button class="button">{{ $category['therapeutic_category_name'] }}</button>
                         </li>
+
+                        @endforeach
+
                     </ul>
                 </div>
             </div>
