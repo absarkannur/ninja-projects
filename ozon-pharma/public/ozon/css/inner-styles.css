@@ -376,3 +376,154 @@
     border-radius: 30px 0 0 30px;
     z-index: -1;
 }
+
+/* Mobile */
+@media ( max-width: 768px ) {
+
+    .inner-page-banner-wrapper .banner-image-wrapper .header .title{
+        font-size: 32px;
+        height: 75px;
+        line-height: 75px;
+    }
+
+    .inner-page-banner-wrapper .banner-image-wrapper .header .breadcrumbs{
+        display: none;
+    }
+
+    .inner-page-banner-wrapper .banner-image-wrapper .header{
+        height: 75px;
+    }
+
+    .about-info-wrapper .content-wrap .header{
+        font-size: 26px;
+    }
+
+    .inner-page-banner-wrapper .banner-image-wrapper,
+    .inner-page-banner-wrapper .banner-image-wrapper .imagethmb_inner{
+        height: 200px;
+    }
+
+    .inner-page-banner-wrapper .banner-image-wrapper .imagethmb img{
+        max-width: initial !important;
+    }
+
+    .about-info-wrapper{
+        padding: 30px 0;
+    }
+
+    .about-info-wrapper .content-wrap{
+        padding: 0;
+    }
+
+    .about-info-wrapper .image-wrap,
+    .about-info-wrapper .image-wrap .imagethmb_inner{
+        height: 240px;
+    }
+
+    .about-accordion-wrapper{
+        padding: 30px 0;
+    }
+
+    .about-accordion-wrapper .accordion-header h1{
+        font-size: 24px;
+    }
+
+    .accordion-item .accordion-header .accordion-button{
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .about-our-numbers .header{
+        font-size: 22px;
+    }
+
+    .about-our-numbers .numbers{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-our-numbers .numbers .list{
+        margin: 0;
+        width: 250px;
+        height: 250px;
+    }
+
+    .about-our-numbers .numbers .list:nth-child(2){
+        margin-top: -50px;
+    }
+
+    .about-our-numbers .numbers .list:nth-child(3){
+        margin-top: -50px;
+    }
+
+    .about-our-numbers .numbers .list .count{
+        font-size: 40px;
+    }
+
+    .about-our-numbers .numbers .list .title{
+        font-size: 16px;
+    }
+
+    /* Facilities */
+    .facilities-page-wrapper .facilities-list{
+        display: block;
+    }
+
+    .facilities-page-wrapper .list{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .facilities-page-wrapper .list .image-wrap,
+    .facilities-page-wrapper .list .content-wrap{
+        width: 100%;
+    }
+
+    .facilities-page-wrapper .list .content-wrap{
+        display: block;
+        height: auto;
+    }
+
+    .facilities-page-wrapper .list .content-wrap h4,
+    .facilities-page-wrapper .list .content-wrap p{
+        width: 100%;
+    }
+
+    .facilities-page-wrapper .list .content-wrap p{
+        font-size: 16px;
+    }
+
+    /* Products */
+
+    .products-container .products-list{
+        display: block;
+    }
+
+    .products-container .products-list .product{
+        width: 100%;
+    }
+
+    /*  */
+
+    .pharmacovigilance-page-wrapper h3{
+        font-size: 20px;
+    }
+
+    .pharmacovigilance-info .image-wrap{
+        height: auto;
+    }
+
+    .pharmacovigilance-info .image-wrap img{
+        width: 100%;
+        height: auto;
+    }
+
+    .pharmacovigilance-info .content-wrap .wrap{
+        padding: 20px;
+    }
+
+    .pharmacovigilance-info .content-wrap .wrap::after{
+        display: none;
+    }
+
+}

@@ -54,7 +54,8 @@
                             </div>
                         </div>
                         <div class="box-2">
-                            <img src={{ asset("ozon/images/banner-3.svg") }} />
+                            <img src={{ asset("ozon/images/banner-3.svg") }} class="desktop-view" />
+                            <img src={{ asset("ozon/images/mobile-banner-box.svg") }} class="mobile-view" />
                         </div>
                     </div>
                 </div>

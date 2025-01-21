@@ -277,6 +277,10 @@ footer .content-text{
     color: var(--color-white);
 }
 
+footer .footer-links ul{
+    overflow: hidden;
+}
+
 footer .footer-links .list{
     display: flex;
     align-items: felx-start;
@@ -615,3 +619,198 @@ footer .footer-links .social-list .list a{
     margin-right: 10px;
     border-radius: 20px;
 }
+
+
+/* Mobile */
+@media ( max-width: 768px ) {
+
+    .topbar-wrapper {
+        display: none;
+    }
+
+    .navbar-nav{
+        padding: 10px 0;
+    }
+
+    .navbar .social-icon-group{
+        display: none;
+    }
+
+    .navbar .navbar-brand img{
+        height: 36px;
+    }
+
+    .navbar .nav-link .oz-button-default{
+        margin: 10px 0;
+    }
+
+    /* Home Banner */
+
+    .home-banner-wrapper{
+        padding: 30px 0;
+    }
+
+    .home-banner-wrapper .header{
+        font-size: 34px;
+    }
+
+    .home-banner-wrapper .content-text{
+        font-size: 16px;
+    }
+
+    .home-banner-wrapper .separator{
+        height: 40px;
+    }
+
+    .home-banner-wrapper .banner-box-one{
+        height: auto;
+    }
+
+    .home-banner-wrapper .banner-box-two{
+        display: block;
+        margin-top: 20px;
+        height: auto;
+    }
+
+    .home-banner-wrapper .banner-box-two .box-1{
+        width: 100%;
+        border-radius: 30px;
+    }
+
+    .home-banner-wrapper .banner-box-two .box-1 .sec{
+        position: initial;
+        justify-content: flex-start;
+    }
+
+    .home-banner-wrapper .banner-box-two .box-1 .sec .left-sticky-corner{
+        display: none;
+    }
+
+    .home-banner-wrapper .banner-box-two .box-2{
+        width: 100%;
+        height: 200px;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-top: 20px;
+    }
+
+    .home-banner-wrapper .banner-box-two .box-2 img{
+        width: 100%;
+        height: auto;
+    }
+
+    .home-facilities-wrapper{
+        padding: 30px 0;
+    }
+
+    /*  */
+
+    .home-facilities-wrapper .sub-heading{
+        margin-bottom: 20px;
+    }
+
+    .home-facilities-wrapper .facilities{
+        margin-top: 30px;
+    }
+
+    /*  */
+
+    .home-blog-wrapper .blogs{
+        display: block;
+    }
+
+    .home-about-wrapper,
+    .home-cherapeutic-categories,
+    .home-blog-wrapper{
+        padding: 30px 0;
+    }
+
+    .home-about-wrapper .about-info{
+        padding: 0px;
+        margin-top: 30px;
+    }
+
+    .home-about-wrapper .about-info .header{
+        font-size: 24px;
+    }
+
+    .home-about-wrapper .image-wrap .sec{
+        width: 200px;
+        height: 160px;
+    }
+
+    .home-about-wrapper .image-wrap .sec{
+        border-radius: 20px 0 0 0;
+    }
+
+    .home-about-wrapper .image-wrap .sec .video-sec{
+        padding: 10px;
+        border-radius: 15px;
+    }
+
+    .home-about-wrapper .image-wrap .sec .video-sec .title{
+        width: 70%;
+    }
+
+    .home-about-wrapper .image-wrap .sec .video-sec .video{
+        height: 74px;
+        border-radius: 15px;
+    }
+
+    .home-about-wrapper .image-wrap .sec .video-sec .learnmore{
+        width: 30px;
+        height: 30px;
+        top: 15px;
+        right: 15px;
+    }
+
+    .home-about-wrapper .image-wrap .sec .bottom-sticky-corner {
+        position: absolute;
+        bottom: -8px;
+        left: -21px;
+        width: 21px;
+    }
+
+    .home-about-wrapper .image-wrap .sec .right-sticky-corner {
+        position: absolute;
+        top: -28px;
+        right: 0px;
+        width: 21px;
+    }
+
+    .home-about-wrapper .about-counter .list .count{
+        font-size: 30px;
+    }
+
+    .home-about-wrapper .about-counter .list .title{
+        font-size: 14px;
+    }
+
+    .home-cherapeutic-categories .categories .category-list .icon{
+        height: 45px;
+        width: 45px;
+    }
+
+    .home-cherapeutic-categories .categories .category-list .button{
+        bottom: -26px;
+        height: 60px;
+    }
+
+    /* Footer */
+
+    footer{
+        margin: 10px;
+        padding: 40px 15px;
+    }
+
+    footer .footer-links .list{
+        height: auto;
+        padding: 10px 0;
+    }
+
+    footer .footer-links .list.header{
+        margin-bottom: 10px;
+    }
+
+}
+
