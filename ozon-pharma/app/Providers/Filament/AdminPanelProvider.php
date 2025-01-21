@@ -26,6 +26,8 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
+            ->brandLogo(asset('images/ozon-logo.png'))
+            ->brandLogoHeight('2rem')
             ->login()
             ->colors([
                 'primary' => Color::Amber,

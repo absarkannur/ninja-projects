@@ -34,7 +34,7 @@ $(function(){
     // Therapeutic Categories
 
     var owl_categories = $('.categories').owlCarousel({
-        loop: true,
+        loop: false,
         margin: 15,
         nav: false,
         dots: false,

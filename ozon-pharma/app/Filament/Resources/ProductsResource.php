@@ -2,11 +2,13 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\TherapeuticCategoriesResource\Pages;
-use App\Filament\Resources\TherapeuticCategoriesResource\RelationManagers;
-use App\Models\TherapeuticCategories;
+use App\Filament\Resources\ProductsResource\Pages;
+use App\Filament\Resources\ProductsResource\RelationManagers;
+use App\Models\Products;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -15,11 +17,10 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Illuminate\Support\Str;
 
-class TherapeuticCategoriesResource extends Resource
+class ProductsResource extends Resource
 {
-    protected static ?string $model = TherapeuticCategories::class;
+    protected static ?string $model = Products::class;
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $navigationGroup = 'Products Section';
 
@@ -27,14 +28,14 @@ class TherapeuticCategoriesResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('therapeutic_category_name')
-                ->live(onBlur:true)
-                ->afterStateUpdated(function( string $operation, string $state, Forms\Set $set ){
-                    //if($operation == 'edit') return false;
-                    $set( 'therapeutic_category_slug', Str::slug($state) );
-                })->required()->label('Therapeutic Category'),
-                TextInput::make('therapeutic_category_slug')->readOnly()->required()->label('Slug'),
-                FileUpload::make('therapeutic_category_image')->label('Select Image')
+                TextInput::make('product_name'),
+                Select::make('therapeutic_categories_id')
+                    ->label('Therapeutic Category')
+                    ->relationship( 'therapeutic_categories', 'therapeutic_category_name' )
+                    ->preload()
+                    ->required(),
+                Textarea::make('product_description')->columnSpanFull(),
+                FileUpload::make('product_image')
             ]);
     }
 
@@ -42,7 +43,7 @@ class TherapeuticCategoriesResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('therapeutic_category_name')->label('Therapeutic Category')
+                TextColumn::make('product_name')->label('Product Name')->sortable()->searchable()
             ])
             ->filters([
                 //
@@ -68,9 +69,10 @@ class TherapeuticCategoriesResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListTherapeuticCategories::route('/'),
-            'create' => Pages\CreateTherapeuticCategories::route('/create'),
-            'edit' => Pages\EditTherapeuticCategories::route('/{record}/edit'),
+            'index' => Pages\ListProducts::route('/'),
+            'create' => Pages\CreateProducts::route('/create'),
+            'edit' => Pages\EditProducts::route('/{record}/edit'),
         ];
     }
+
 }
