@@ -106,6 +106,7 @@
                         @foreach( $facilities_category as $category )
 
                             <li class="facility">
+                                <a href={{ 'facility/' . $category->facility_category_slug  }}>
                                 <div class="icon-group">
                                     <img src={{ asset( "storage/" . $category->facility_category_icon ) }} />
                                 </div>
@@ -121,6 +122,7 @@
                                         </svg>
                                     </button>
                                 </div>
+                                </a>
                             </li>
 
                         @endforeach
@@ -304,63 +306,34 @@
             <div class="row">
                 <div class="col-sm-12">
                     <ul class="blogs _owl-carousel">
-                        <li class="blogs-list">
-                            <div class="images">
-                                <div class="imagethmb">
-                                    <div class="imagethmb_inner">
-                                        <img src="{{ asset('ozon/images/blog.png') }}" alt="">
+
+                        @foreach ( $articles as $article )
+
+                            <li class="blogs-list">
+                                <a href={{ 'news/' . $article->slug  }}>
+                                <div class="images">
+                                    <div class="imagethmb">
+                                        <div class="imagethmb_inner">
+                                            <img src="{{ asset( 'storage/' . $article->thumbnail  ) }}" alt="">
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="tags">
-                                <ul class="tags-list">
-                                    <li class="list">NEWS</li>
-                                    <li class="list">MEDICINE</li>
-                                </ul>
-                            </div>
-                            <div class="contents">
-                                <h3 class="title">New age of biological research that changed the</h3>
-                                <span class="published">By: Ozon Pharma   .   10/02/24</span>
-                            </div>
-                        </li>
-                        <li class="blogs-list">
-                            <div class="images">
-                                <div class="imagethmb">
-                                    <div class="imagethmb_inner">
-                                        <img src="{{ asset('ozon/images/blog.png') }}" alt="">
-                                    </div>
+                                <div class="tags">
+                                    <ul class="tags-list">
+                                        @foreach ( $article->tags as $tag )
+                                            <li class="list">{{ $tag }}</li>
+                                        @endforeach
+                                    </ul>
                                 </div>
-                            </div>
-                            <div class="tags">
-                                <ul class="tags-list">
-                                    <li class="list">NEWS</li>
-                                    <li class="list">MEDICINE</li>
-                                </ul>
-                            </div>
-                            <div class="contents">
-                                <h3 class="title">New age of biological research that changed the</h3>
-                                <span class="published">By: Ozon Pharma   .   10/02/24</span>
-                            </div>
-                        </li>
-                        <li class="blogs-list">
-                            <div class="images">
-                                <div class="imagethmb">
-                                    <div class="imagethmb_inner">
-                                        <img src="{{ asset('ozon/images/blog.png') }}" alt="">
-                                    </div>
+                                <div class="contents">
+                                    <h3 class="title">{{ $article->title }}</h3>
+                                    <span class="published">By: Ozon Pharma - {{ \Carbon\Carbon::parse( $article->updated_at )->format('d M, Y')  }}</span>
                                 </div>
-                            </div>
-                            <div class="tags">
-                                <ul class="tags-list">
-                                    <li class="list">NEWS</li>
-                                    <li class="list">MEDICINE</li>
-                                </ul>
-                            </div>
-                            <div class="contents">
-                                <h3 class="title">New age of biological research that changed the</h3>
-                                <span class="published">By: Ozon Pharma   .   10/02/24</span>
-                            </div>
-                        </li>
+                                </a>
+                            </li>
+
+                        @endforeach
+
                     </ul>
                 </div>
             </div>

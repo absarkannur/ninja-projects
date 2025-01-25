@@ -7,9 +7,9 @@ use Livewire\Component;
 
 use App\Models\FacilitiesCategory;
 use App\Models\TherapeuticCategories;
+use App\Models\Articles;
 
-class HomePage extends Component
-{
+class HomePage extends Component {
 
     #[Title('OZON Pharmaceuticals | Home')]
 
@@ -17,10 +17,12 @@ class HomePage extends Component
 
         $facilities_category = FacilitiesCategory::get();
         $therapeutic_dategories = TherapeuticCategories::get();
+        $articles = Articles::orderBy( 'created_at', 'DESC' )->get();
 
         return view('livewire.home-page', [
             'facilities_category' => $facilities_category,
-            'therapeutic_dategories' => $therapeutic_dategories
+            'therapeutic_dategories' => $therapeutic_dategories,
+            'articles' => $articles
         ]);
 
     }

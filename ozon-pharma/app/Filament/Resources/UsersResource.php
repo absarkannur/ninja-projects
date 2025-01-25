@@ -23,6 +23,7 @@ class UsersResource extends Resource
 
     protected static ?string $navigationGroup = 'Settings';
     protected static ?string $navigationLabel = 'Users';
+    protected static ?int $navigationSort = 6;
 
     public static function form(Form $form): Form
     {

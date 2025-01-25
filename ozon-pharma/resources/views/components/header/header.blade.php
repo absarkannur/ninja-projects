@@ -15,7 +15,7 @@
                 <a class="nav-link" href="{{ route('about') }}">About Us</a>
                 <a class="nav-link" href="{{ route('facilities') }}">Facilities</a>
                 <a class="nav-link" href="{{ route('products') }}">Products</a>
-                <a class="nav-link" href="{{ route('pharmacovigilance') }}">Sales & Distribution</a>
+                <a class="nav-link" href="{{ route('pharmacovigilance') }}">Our Strategy</a>
 
                 <span class="social-icon-group">
                     <a class="nav-link social" href="https://www.facebook.com/0" target="_blank">

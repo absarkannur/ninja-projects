@@ -33,6 +33,8 @@ body{
     overflow: hidden;
     display: flex;
     justify-content: space-between;
+    width: 70%;
+    float: right;
 }
 
 .topbar-wrapper .social-links .list{

@@ -33,6 +33,8 @@ body{
     overflow: hidden;
     display: flex;
     justify-content: space-between;
+    width: 70%;
+    float: right;
 }
 
 .topbar-wrapper .social-links .list{
@@ -571,7 +573,7 @@ footer .footer-links .social-list .list a{
 .home-blog-wrapper .blogs{
     margin-top: 60px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 20px;
 }
 

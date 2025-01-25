@@ -22,6 +22,7 @@ class TherapeuticCategoriesResource extends Resource
     protected static ?string $model = TherapeuticCategories::class;
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $navigationGroup = 'Products Section';
+    protected static ?int $navigationSort = 5;
 
     public static function form(Form $form): Form
     {

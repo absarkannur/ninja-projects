@@ -1,7 +1,7 @@
 <main>
 
     <x:widgets.banner
-        title="Custom"
+        title="{{ $facilitiesCategory->facility_category_name }}"
         breadcrumbs="Home > Facilities"
         image="ozon/images/facilities.png" />
 
@@ -10,7 +10,9 @@
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
                     <div class="innerpage-contents">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum cum repellendus quibusdam, error eveniet in esse rem illum consequatur earum neque, suscipit ab praesentium nisi doloribus nostrum officia totam officiis.
+
+                        {!! $facilities->facilities_content !!}
+
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
