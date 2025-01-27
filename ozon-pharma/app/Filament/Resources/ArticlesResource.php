@@ -7,6 +7,8 @@ use App\Filament\Resources\ArticlesResource\RelationManagers;
 use App\Models\Articles;
 use Filament\Forms;
 use Filament\Forms\Components\Checkbox;
+use Filament\Forms\Components\Fieldset;
+use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\RichEditor;

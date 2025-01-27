@@ -54,6 +54,9 @@
     font-size: 16px;
 }
 
+.inner-page-banner-wrapper .banner-image-wrapper .header .breadcrumbs a{
+    color: var(--color-white);
+}
 
 /* About Page */
 
@@ -275,6 +278,13 @@
     margin-bottom: 20px;
 }
 
+.facilities-page-wrapper .facilities-sidebar .sidebar-list .links a{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
 .facilities-page-wrapper .innerpage-contents{
     padding-bottom: 30px;
 }
@@ -398,9 +408,9 @@
 @media ( max-width: 768px ) {
 
     .inner-page-banner-wrapper .banner-image-wrapper .header .title{
-        font-size: 32px;
-        height: 75px;
-        line-height: 75px;
+        font-size: 24px;
+        height: auto;
+        line-height: initial;
     }
 
     .inner-page-banner-wrapper .banner-image-wrapper .header .breadcrumbs{
@@ -409,6 +419,9 @@
 
     .inner-page-banner-wrapper .banner-image-wrapper .header{
         height: 75px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .about-info-wrapper .content-wrap .header{

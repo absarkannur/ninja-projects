@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
@@ -17,7 +18,7 @@ class HomePage extends Component {
 
         $facilities_category = FacilitiesCategory::get();
         $therapeutic_dategories = TherapeuticCategories::get();
-        $articles = Articles::orderBy( 'created_at', 'DESC' )->get();
+        $articles = Articles::orderBy( 'created_at', 'DESC' )->paginate(3);
 
         return view('livewire.home-page', [
             'facilities_category' => $facilities_category,

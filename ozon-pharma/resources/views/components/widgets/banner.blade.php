@@ -12,8 +12,8 @@
                     <div class="layer"></div>
 
                     <div class="header">
-                        <h2 class="title">{{ $title }}</h2>
-                        <span class="breadcrumbs">{{ $breadcrumbs }}</span>
+                        <h2 class="title">{!! $title !!}</h2>
+                        <span class="breadcrumbs">{!! $breadcrumbs !!}</span>
                     </div>
 
                 </div>

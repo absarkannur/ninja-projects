@@ -579,6 +579,7 @@ footer .footer-links .social-list .list a{
 
 .home-blog-wrapper .blogs .blogs-list{
     overflow: hidden;
+    width: 33.33%;
 }
 
 .home-blog-wrapper .blogs .blogs-list .images{

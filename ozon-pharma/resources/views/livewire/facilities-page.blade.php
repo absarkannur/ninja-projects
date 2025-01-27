@@ -2,7 +2,7 @@
 
     <x:widgets.banner
         title="Facilities"
-        breadcrumbs="Home > Facilities"
+        breadcrumbs="<a href='/'>Home</a> > Facilities"
         image="ozon/images/facilities.png" />
 
     <section class="facilities-page-wrapper">

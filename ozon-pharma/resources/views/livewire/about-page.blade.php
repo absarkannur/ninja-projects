@@ -2,7 +2,7 @@
 
     <x:widgets.banner
         title="About Us"
-        breadcrumbs="Home > About Us"
+        breadcrumbs="<a href='/'>Home</a> > About Us"
         image="ozon/images/about-innnerpage.png" />
 
     <section class="about-info-wrapper">

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
 
-        <a class="navbar-brand">
+        <a class="navbar-brand" href="{{ route('home') }}">
             <img src={{ asset( 'ozon/images/ozon-logo.png' )}} alt="OZON Pharmaceuticals">
         </a>
 
@@ -15,7 +15,7 @@
                 <a class="nav-link" href="{{ route('about') }}">About Us</a>
                 <a class="nav-link" href="{{ route('facilities') }}">Facilities</a>
                 <a class="nav-link" href="{{ route('products') }}">Products</a>
-                <a class="nav-link" href="{{ route('pharmacovigilance') }}">Our Strategy</a>
+                <a class="nav-link" href="{{ route('strategy') }}">Our Strategy</a>
 
                 <span class="social-icon-group">
                     <a class="nav-link social" href="https://www.facebook.com/0" target="_blank">

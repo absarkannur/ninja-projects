@@ -2,7 +2,7 @@
 
     <x:widgets.blog-banner
         title="{{ $articles->title }}"
-        breadcrumbs="Home > News"
+        breadcrumbs="<a href='/'>Home</a> > News"
         image="{{ asset( 'storage/' . $articles->thumbnail ) }}" />
 
     <section class="inner-news-wrapper">

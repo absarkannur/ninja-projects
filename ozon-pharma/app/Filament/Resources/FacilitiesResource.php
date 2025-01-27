@@ -7,6 +7,7 @@ use App\Filament\Resources\FacilitiesResource\RelationManagers;
 use App\Models\Facilities;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
@@ -36,6 +37,7 @@ class FacilitiesResource extends Resource
                     ->required(),
                 FileUpload::make('facilities_inner_banner')->label('Banner Image')->columnSpanFull(),
                 RichEditor::make('facilities_content')->columnSpanFull()
+                // MarkdownEditor::make('facilities_content')->columnSpanFull()
             ]);
     }
 

@@ -2,7 +2,7 @@
 
     <x:widgets.banner
         title="Pharmacovigilance"
-        breadcrumbs="Home > Pharmacovigilance"
+        breadcrumbs="<a href='/'>Home</a> > Pharmacovigilance"
         image="ozon/images/Pharmacovigilance.png" />
 
     <section class="pharmacovigilance-page-wrapper">
