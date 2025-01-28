@@ -14,14 +14,15 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->foreignId('brands_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('colors_id')->constrained()->cascadeOnDelete();
             $table->string('product_name');
             $table->string('product_model')->nullable();
             $table->string('product_part_number')->unique();
             $table->string('product_parts')->nullable();
-            $table->string('product_color')->nullable();
             $table->string('product_condition')->nullable();
             $table->string('product_quality')->nullable();
             $table->string('product_image')->nullable();
+            $table->boolean('product_latest')->default(0);
             $table->timestamps();
         });
     }

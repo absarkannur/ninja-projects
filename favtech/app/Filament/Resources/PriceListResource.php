@@ -22,6 +22,9 @@ class PriceListResource extends Resource
     protected static ?string $model = PriceList::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Website Section';
+    protected static ?int $navigationSort = 6;
+
 
     public static function form(Form $form): Form
     {

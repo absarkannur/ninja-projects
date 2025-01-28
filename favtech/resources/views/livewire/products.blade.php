@@ -36,10 +36,10 @@
                                     </div>
                                     <div class="title">{{ $brand['brand_name'] }}</div>
                                 </a>
-                            </li>    
+                            </li>
                             @endforeach
 
-                        @endif   
+                        @endif
                     </ul>
                 </div>
             </div>
@@ -59,8 +59,8 @@
                                 </div>
                                 <div class="details-wrapper">
                                     <div class="product_name">
-                                        <span class="tag">{{ $product['product_name'] }}</span>
-                                        <span class="title">{{ $product['product_name'] }}+{{ $product['product_model'] }}+{{ $product['product_part_number'] }}</span>
+                                        <span class="tag">{{ $product['brand_name'] . ' ' . $product['product_name'] . ' ' . $product['product_model'] }}</span>
+                                        <span class="title">{{ $product['product_parts'] . ' + ' .  $product['color_name'] . ' + ' . $product['product_part_number'] }}</span>
                                     </div>
                                     <div class="product_enquiry">
                                         <a class="whatsapp" target="__blank" href="{{ 'https://wa.me/+971553351001/?text=I am interested with ' .  $product['product_model']. '-' . $product['product_part_number'] }}">
@@ -78,7 +78,7 @@
                 </div>
             </div>
         </div>
-    
+
     </div>
 
     <div class="product-pagination">

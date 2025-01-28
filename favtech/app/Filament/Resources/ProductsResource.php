@@ -6,7 +6,10 @@ use App\Filament\Resources\ProductsResource\Pages;
 use App\Filament\Resources\ProductsResource\RelationManagers;
 use App\Models\Products;
 use Filament\Forms;
+use Filament\Forms\Components\Checkbox;
+use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
@@ -17,37 +20,40 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use PhpParser\Node\Stmt\Label;
 
 class ProductsResource extends Resource
 {
     protected static ?string $model = Products::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-list-bullet';
+    protected static ?string $navigationGroup = 'Products Section';
+    protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Select::make('brands_id')
-                    ->label('Brand')
                     ->relationship( 'brands', 'brand_name' )
+                    ->label('Brand')
                     ->searchable(false)
                     ->required(),
-                TextInput::make('product_name')->label('Name')->required(),
-                TextInput::make('product_model')->label('Model'),
-                TextInput::make('product_part_number')->label('Part Number'),
-                TextInput::make('product_parts')->label('Parts'),
-
-                Select::make('product_color')
-                    ->label('Color')
-                    ->options([
-                        'black' => 'Black',
-                        'white' => 'White',
-                        'blue' => 'Blue'
-                    ]),
+                TextInput::make('product_name')->required()->label('Name'),
+                TextInput::make('product_part_number')->required()->label('Part Number'),
+                TextInput::make('product_model')->required()->label('Model'),
+                TextInput::make('product_parts')->required()->label('Parts'),
+                Select::make('colors_id')
+                    ->relationship( 'colors', 'color_name' )
+                    ->Label('Search Color')
+                    ->required(),
                 TextInput::make('product_condition')->label('Condition'),
                 TextInput::make('product_quality')->label('Quality'),
                 FileUpload::make('product_image')->label('Image'),
+                Fieldset::make('Latest Product')
+                    ->schema([
+                        Checkbox::make('product_latest')->label('Latest Product')
+                    ])
             ]);
     }
 
@@ -55,9 +61,10 @@ class ProductsResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('product_name')->label('Product Name'),
                 TextColumn::make('brands.brand_name')->label('Brand'),
-                ImageColumn::make('product_image')->label('Image'),
+                TextColumn::make('product_name')->searchable()->label('Product Name'),
+                TextColumn::make('product_parts')->searchable()->label('Product Parts'),
+                TextColumn::make('product_part_number')->searchable()->label('Part Number'),
             ])
             ->filters([
                 //

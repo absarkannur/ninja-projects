@@ -2,36 +2,32 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\BannersResource\Pages;
-use App\Filament\Resources\BannersResource\RelationManagers;
-use App\Models\Banners;
+use App\Filament\Resources\ColorsResource\Pages;
+use App\Filament\Resources\ColorsResource\RelationManagers;
+use App\Models\Colors;
 use Filament\Forms;
-use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class BannersResource extends Resource
+class ColorsResource extends Resource
 {
-    protected static ?string $model = Banners::class;
-
-    protected static ?string $navigationIcon = 'heroicon-o-photo';
-    protected static ?string $navigationGroup = 'Website Section';
-    protected static ?int $navigationSort = 4;
+    protected static ?string $model = Colors::class;
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Products Section';
+    protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                TextInput::make('banner_title'),
-                TextInput::make('banner_subtitle'),
-                FileUpload::make('banner_image')
+                TextInput::make('color_name')->required()->label('Color'),
+                TextInput::make('color_value')->label('Color Code')
             ]);
     }
 
@@ -39,8 +35,7 @@ class BannersResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('banner_image'),
-                TextColumn::make('banner_title')
+                TextColumn::make('color_name')->label('Color Name'),
             ])
             ->filters([
                 //
@@ -65,9 +60,10 @@ class BannersResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListBanners::route('/'),
-            'create' => Pages\CreateBanners::route('/create'),
-            'edit' => Pages\EditBanners::route('/{record}/edit'),
+            'index' => Pages\ListColors::route('/'),
+            'create' => Pages\CreateColors::route('/create'),
+            'edit' => Pages\EditColors::route('/{record}/edit'),
         ];
     }
+
 }
