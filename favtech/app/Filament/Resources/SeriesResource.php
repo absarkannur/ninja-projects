@@ -2,12 +2,11 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\UserResource\Pages;
-use App\Filament\Resources\UserResource\RelationManagers;
-use App\Models\User;
+use App\Filament\Resources\SeriesResource\Pages;
+use App\Filament\Resources\SeriesResource\RelationManagers;
+use App\Models\Series;
 use Filament\Forms;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -16,30 +15,27 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class UserResource extends Resource
+class SeriesResource extends Resource
 {
-    protected static ?string $model = User::class;
+    protected static ?string $model = Series::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-users';
-    protected static ?string $navigationGroup = 'Admin';
-    protected static ?int $navigationSort = 8;
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Products Section';
+    protected static ?int $navigationSort = 4;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                TextInput::make('name')->required(),
-                TextInput:: make('email')->required()->email(),
-                TextInput:: make('password')->required()->password()
-            ])->columns(2);
+                TextInput::make('product_series')->label('Series')
+            ]);
     }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('name'),
-                TextColumn::make('email')
+                TextColumn::make('product_series')
             ])
             ->filters([
                 //
@@ -64,9 +60,9 @@ class UserResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListUsers::route('/'),
-            'create' => Pages\CreateUser::route('/create'),
-            'edit' => Pages\EditUser::route('/{record}/edit'),
+            'index' => Pages\ListSeries::route('/'),
+            'create' => Pages\CreateSeries::route('/create'),
+            'edit' => Pages\EditSeries::route('/{record}/edit'),
         ];
     }
 }

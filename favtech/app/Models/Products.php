@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Brands;
 use App\Models\Colors;
+use App\Models\Series;
 
 class Products extends Model
 {
@@ -15,6 +16,7 @@ class Products extends Model
         'product_name',
         'brands_id',
         'colors_id',
+        'series_id',
         'product_model',
         'product_part_number',
         'product_parts',
@@ -34,6 +36,10 @@ class Products extends Model
 
     public function colors(){
         return $this->belongsTo( Colors::class );
+    }
+
+    public function series(){
+        return $this->belongsTo( Series::class );
     }
 
 }

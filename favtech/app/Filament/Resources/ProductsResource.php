@@ -43,13 +43,17 @@ class ProductsResource extends Resource
                 TextInput::make('product_part_number')->required()->label('Part Number'),
                 TextInput::make('product_model')->required()->label('Model'),
                 TextInput::make('product_parts')->required()->label('Parts'),
+                Select::make('series_id')
+                    ->relationship( 'series','product_series' )
+                    ->Label('Series')
+                    ->required(),
                 Select::make('colors_id')
                     ->relationship( 'colors', 'color_name' )
                     ->Label('Search Color')
                     ->required(),
                 TextInput::make('product_condition')->label('Condition'),
                 TextInput::make('product_quality')->label('Quality'),
-                FileUpload::make('product_image')->label('Image'),
+                FileUpload::make('product_image')->columnSpanFull()->label('Image'),
                 Fieldset::make('Latest Product')
                     ->schema([
                         Checkbox::make('product_latest')->label('Latest Product')

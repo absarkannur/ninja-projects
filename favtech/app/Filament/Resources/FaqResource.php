@@ -23,7 +23,7 @@ class FaqResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-queue-list';
     protected static ?string $navigationGroup = 'Website Section';
-    protected static ?int $navigationSort = 5;
+    protected static ?int $navigationSort = 6;
 
     public static function form(Form $form): Form
     {

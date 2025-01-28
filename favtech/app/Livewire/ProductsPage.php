@@ -26,7 +26,6 @@ class ProductsPage extends Component
 
         // $products_list = Products::leftJoin( 'brands', 'brands.id', 'products.brands_id' )->paginate(12);
 
-
         if( $this->id === 'all' ) {
             $products_list = Products::leftJoin( 'brands', 'brands.id', 'products.brands_id' )
                                 ->leftJoin( 'colors', 'colors.id', 'products.colors_id' )
