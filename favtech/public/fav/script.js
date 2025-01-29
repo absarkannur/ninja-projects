@@ -13,7 +13,7 @@ $(function(){
     // Home Page Products
 
     $('.home_product_list').owlCarousel({
-        loop:true,
+        loop:false,
         nav:true,
         margin: 20,
         items: 4,

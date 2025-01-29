@@ -42,6 +42,7 @@ class ProductsResource extends Resource
                 TextInput::make('product_name')->required()->label('Name'),
                 TextInput::make('product_part_number')->required()->label('Part Number'),
                 TextInput::make('product_model')->required()->label('Model'),
+                TextInput::make('product_class')->label('Classification'),
                 TextInput::make('product_parts')->required()->label('Parts'),
                 Select::make('series_id')
                     ->relationship( 'series','product_series' )

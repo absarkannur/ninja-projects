@@ -134,109 +134,109 @@ input::placeholder {
     font-weight: 100;
     font-style: normal;
   }
-  
+
   .poppins-extralight {
     font-family: "Poppins", sans-serif;
     font-weight: 200;
     font-style: normal;
   }
-  
+
   .poppins-light {
     font-family: "Poppins", sans-serif;
     font-weight: 300;
     font-style: normal;
   }
-  
+
   .poppins-regular {
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
   }
-  
+
   .poppins-medium {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-style: normal;
   }
-  
+
   .poppins-semibold {
     font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-style: normal;
   }
-  
+
   .poppins-bold {
     font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-style: normal;
   }
-  
+
   .poppins-extrabold {
     font-family: "Poppins", sans-serif;
     font-weight: 800;
     font-style: normal;
   }
-  
+
   .poppins-black {
     font-family: "Poppins", sans-serif;
     font-weight: 900;
     font-style: normal;
   }
-  
+
   .poppins-thin-italic {
     font-family: "Poppins", sans-serif;
     font-weight: 100;
     font-style: italic;
   }
-  
+
   .poppins-extralight-italic {
     font-family: "Poppins", sans-serif;
     font-weight: 200;
     font-style: italic;
   }
-  
+
   .poppins-light-italic {
     font-family: "Poppins", sans-serif;
     font-weight: 300;
     font-style: italic;
   }
-  
+
   .poppins-regular-italic {
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: italic;
   }
-  
+
   .poppins-medium-italic {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-style: italic;
   }
-  
+
   .poppins-semibold-italic {
     font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-style: italic;
   }
-  
+
   .poppins-bold-italic {
     font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-style: italic;
   }
-  
+
   .poppins-extrabold-italic {
     font-family: "Poppins", sans-serif;
     font-weight: 800;
     font-style: italic;
   }
-  
+
   .poppins-black-italic {
     font-family: "Poppins", sans-serif;
     font-weight: 900;
     font-style: italic;
   }
-  
+
 .header{
     font-size: 34px;
     height: 100px;
@@ -262,16 +262,9 @@ input::placeholder {
     overflow: hidden;
 }
 
-.product-list .list-item .image-wrapper{
-    clear: both;
-    height: 280px;
-}
-
-.product-list .list-item .image-wrapper .imagethmb{
-    height: 280px;
-}
+.product-list .list-item .image-wrapper,
 .product-list .list-item .image-wrapper .imagethmb .imagethmb_inner{
-    height: 280px;
+    height: 330px;
 }
 
 .product-list .list-item .image-wrapper .imagethmb .imagethmb_inner img{
@@ -280,13 +273,13 @@ input::placeholder {
 }
 
 .product-list .list-item .details-wrapper{
-    margin-top: 20px;
     background-color: #F9F9F9;
     border-top: solid 1px var(--border-color);
 }
 
 .product-list .list-item .details-wrapper .product_name{
     display: block;
+    height: 100px;
     padding: 15px;
 }
 
@@ -296,14 +289,16 @@ input::placeholder {
 }
 
 .product-list .list-item .details-wrapper .product_name .tag{
-    color: var(--nav-color);
+    color: #333;
+    font-size: 14px;
 }
 
 .product-list .list-item .details-wrapper .product_name .title{
-    color: #333;
-    font-size: 12px;
-    height: 40px;
+    color: var(--nav-color);
+    font-size: 16px;
+    font-weight: 500;
     overflow: hidden;
+    margin-bottom: 5px;
 }
 
 .product-list .list-item .details-wrapper .product_enquiry{
@@ -320,7 +315,7 @@ input::placeholder {
 }
 
 .product-list .list-item .details-wrapper .product_enquiry .whatsapp:hover{
-    background-color: var(--green);   
+    background-color: var(--green);
 }
 
 .product-list .owl-prev{

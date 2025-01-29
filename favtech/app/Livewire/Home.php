@@ -53,10 +53,16 @@ class Home extends Component
     public function render() {
 
         $banners =  Banners::get();
-        $products = Products::latest()->take(8)->get();
+        // $products = Products::latest()->take(8)->get();
         $brands = Brands::latest()->take(6)->get();
         $faq = Faq::orderBy('id', 'desc')->take(3)->get();
-        
+
+        $products = Products::where( 'product_latest', '=' , 1 )
+                            ->leftJoin( 'brands', 'brands.id', 'products.brands_id' )
+                            ->leftJoin( 'colors', 'colors.id', 'products.colors_id' )
+                            ->get();
+
+
         return view('livewire.home', [
             'banners' => $banners,
             'products' => $products,

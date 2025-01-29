@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('series_id')->constrained()->cascadeOnDelete();
             $table->string('product_name');
             $table->string('product_model')->nullable();
+            $table->string('product_class')->nullable();
             $table->string('product_part_number')->unique();
             $table->string('product_parts')->nullable();
             $table->string('product_condition')->nullable();

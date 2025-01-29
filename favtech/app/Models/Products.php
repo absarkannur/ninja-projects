@@ -18,6 +18,7 @@ class Products extends Model
         'colors_id',
         'series_id',
         'product_model',
+        'product_class',
         'product_part_number',
         'product_parts',
         'product_condition',
