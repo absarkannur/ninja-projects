@@ -291,6 +291,53 @@
 
 /* Products Page */
 
+.product-search-container{
+    clear: both;
+}
+
+.product-search-container .form-options{
+    overflow: hidden;
+    padding: 30px 0;
+}
+
+.product-search-container .form-options .option{
+    float: left;
+    margin-right: 20px;
+}
+
+.product-search-container .form-options .option.header em{
+    color: var(--text-color-light);
+}
+
+.product-search-container .form-inputs{
+    background-color: #D9F4F9;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-search-container .form-inputs input{
+    height: 49px;
+    width: 85%;
+    border-radius: 30px;
+    padding: 0 20px;
+    border: none;
+}
+
+.product-search-container .form-inputs input::placeholder {
+    color: #AAAAAA !important;
+    font-size: 16px;
+}
+
+.product-search-container .form-inputs .button-group{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+
 .products-container{
     clear: both;
     overflow: hidden;
