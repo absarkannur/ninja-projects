@@ -6,15 +6,20 @@ use Livewire\Attributes\Title;
 use Livewire\Component;
 use App\Models\Products;
 use App\Models\Brands;
-
+use Livewire\WithPagination;
+use Livewire\WithoutUrlPagination;
 
 class ProductsPage extends Component
 {
+
+    use WithPagination;
 
     #[Title('favtech | Products')]
 
     public $products_list;
     public $id;
+
+    protected $paginationTheme = 'bootstrap';
 
     public function mount( $id ) {
         $this->id = $id;

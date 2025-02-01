@@ -407,3 +407,17 @@ input::placeholder {
     color: red;
     font-size: 12px;
 }
+
+/* Pagination ---------- */
+
+.fav-pagination{
+    clear: both;
+}
+
+.fav-pagination .page-prev button,
+.fav-pagination .page-next button{
+    border: solid 1px var(--border-color);
+    height: 40px;
+    width: 100px;
+    padding: 0 20px;
+}

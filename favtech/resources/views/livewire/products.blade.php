@@ -85,7 +85,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 flex-center">
-                    {{ $products->links() }}
+                    {{ $products->links('pagination.pagination-links') }}
                 </div>
             </div>
         </div>

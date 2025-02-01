@@ -1,7 +1,7 @@
-<div>
+<div class="fav-pagination">
     @if ($paginator->hasPages())
         <nav role="navigation" aria-label="Pagination Navigation">
-            <span>
+            <span class="page-prev">
                 @if ($paginator->onFirstPage())
                     <span>Previous</span>
                 @else
@@ -9,7 +9,7 @@
                 @endif
             </span>
 
-            <span>
+            <span class="page-next">
                 @if ($paginator->onLastPage())
                     <span>Next</span>
                 @else
