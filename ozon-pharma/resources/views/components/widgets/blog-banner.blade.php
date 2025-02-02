@@ -4,6 +4,7 @@
             <div class="col-sm-12">
 
                 <div class="banner-image-wrapper blog" style="background-image: url('{{ asset( $image ) }}')">
+                    <div class="layer"></div>
                     <div class="header">
                         <h2 class="title">{!! $title !!}</h2>
                         <span class="breadcrumbs">{!! $breadcrumbs !!}</span>

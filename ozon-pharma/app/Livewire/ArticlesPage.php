@@ -8,17 +8,12 @@ use App\Models\Articles;
 class ArticlesPage extends Component
 {
 
-    public $articles;
+    public function render() {
 
-    public function mount( $slug ) {
-        $this->articles = Articles::where( 'slug', $slug )->orderBy( 'created_at', 'DESC' )->first();
-    }
-
-    public function render()
-    {
+        $articles = Articles::orderBy( 'created_at', 'DESC' )->paginate(10);
 
         return view('livewire.articles-page', [
-            "articles" => $this->articles
+            "articles" => $articles
         ]);
     }
 }

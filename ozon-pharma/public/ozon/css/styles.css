@@ -240,6 +240,7 @@ body{
     bottom: 0;
     right: -175px;
     border-radius: 0 30px 30px 0;
+    z-index: 9999;
 }
 
 .home-banner-wrapper .banner-box-two .box-1 .sec .left-sticky-corner{

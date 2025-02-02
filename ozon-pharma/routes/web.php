@@ -7,7 +7,10 @@ use App\Livewire\ProductsPage;
 use App\Livewire\PharmacovigilancePage;
 use App\Livewire\FacilityPage;
 use App\Livewire\ArticlesPage;
+use App\Livewire\ArticlePage;
 use App\Livewire\StrategyPage;
+use App\Livewire\ContactPage;
+use App\Livewire\AppPage;
 
 use Illuminate\Support\Facades\Route;
 
@@ -31,11 +34,14 @@ Route::get( '/about', AboutPage::class )->name('about');
 Route::get( '/facilities', FacilitiesPage::class )->name('facilities');
 Route::get( '/facility/{slug}', FacilityPage::class )->name('facility');
 Route::get( '/products', ProductsPage::class )->name('products');
-ROute::get( '/strategy', StrategyPage::class )->name('strategy');
+Route::get( '/strategy', StrategyPage::class )->name('strategy');
+Route::get( '/contact',  ContactPage::class )->name('contact');
 
 Route::get( '/pharmacovigilance', PharmacovigilancePage::class )->name('pharmacovigilance');
 
 // Articles
 
-Route::get( '/news/{slug}', ArticlesPage::class )->name('news');
+Route::get( '/article/{slug}', ArticlePage::class )->name('article');
+Route::get( '/articles', ArticlesPage::class )->name('articles');
+
 

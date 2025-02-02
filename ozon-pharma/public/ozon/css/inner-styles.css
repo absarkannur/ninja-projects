@@ -31,6 +31,11 @@
     opacity: 0.6;
 }
 
+.inner-page-banner-wrapper .banner-image-wrapper.blog .layer{
+    background-color: #000;
+    opacity: 0.4;
+}
+
 .inner-page-banner-wrapper .banner-image-wrapper .header{
     position: absolute;
     z-index: 999;
@@ -46,6 +51,10 @@
 .inner-page-banner-wrapper .banner-image-wrapper .header .title{
     color: var(--color-white);
     font-size: 60px;
+}
+
+.inner-page-banner-wrapper .banner-image-wrapper.blog .header .title{
+    font-size: 40px;
 }
 
 .inner-page-banner-wrapper .banner-image-wrapper .header .breadcrumbs{
@@ -313,13 +322,11 @@
     background-color: #D9F4F9;
     border-radius: 10px;
     padding: 20px;
-    display: flex;
-    justify-content: space-between;
 }
 
 .product-search-container .form-inputs input{
     height: 49px;
-    width: 85%;
+    width: 100%;
     border-radius: 30px;
     padding: 0 20px;
     border: none;
@@ -336,7 +343,20 @@
     align-items: center;
 }
 
+.product-search-container .form-inputs select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: 49px;
+    width: 100%;
+    border-radius: 30px;
+    padding: 0 20px;
+    border: none;
 
+    background-image: url('./../icons/down.png');
+    background-position: right 20px center;
+    background-repeat: no-repeat;
+    background-size: 30px;
+}
 
 .products-container{
     clear: both;
@@ -440,6 +460,199 @@
     z-index: -1;
 }
 
+/* Strategy Page */
+
+.strategy-page-wrapper{
+    padding: 50px 0;
+}
+
+.strategy-info{
+    position: relative;
+    padding-bottom: 50px;
+}
+
+.strategy-info .image-wrap{
+    text-align: center;
+    height: 600px;
+}
+
+.strategy-info .image-wrap img{
+    height: 100%;
+    position: relative;
+    z-index: 999;
+}
+
+.strategy-info .content-wrap{
+    position: relative;
+    height: 600px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 60px;
+}
+
+.strategy-info .content-wrap .sticky-left-top{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.strategy-info .content-wrap .sticky-right-bottom{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+}
+
+.strategy-info .content-wrap .wrap{
+    background-color: #D9F4F9;
+    height: 500px;
+    border-radius: 0px 30px 30px 0px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.strategy-info .content-wrap .wrap::after{
+    content: '';
+    background-color: #D9F4F9;
+    height: 500px;
+    width: 103%;
+    position: absolute;
+    left: -103%;
+    top: 0;
+    border-radius: 30px 0 0 30px;
+    z-index: -1;
+}
+
+
+.strategy-info .content-wrap .wrap::before{
+    content: '';
+    /* background-color: #fff; */
+    background-image: url('./../images/str-left-top.svg');
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 164px;
+    width: 100%;
+    position: absolute;
+    left: -103%;
+    top: 0;
+    z-index: 1;
+}
+
+
+.strategy-page-wrapper .accordion .accordion-body{
+    clear: both;
+}
+
+.strategy-page-wrapper .accordion .accordion-body ul{
+    list-style: none;
+}
+
+.strategy-page-wrapper .accordion .accordion-body ul li{
+    font-size: 16px;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 10px;
+    position: relative;
+}
+
+.strategy-page-wrapper .accordion .accordion-body ul li::after{
+    content: '';
+    width: 4px;
+    height: 4px;
+    background-color: var(--color-black);
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.strategy-dots {
+    list-style: none;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.strategy-dots .list{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    width: 300px;
+    height: 300px;
+    border: solid 3px var(--color-white);
+    color: var(--color-white);
+    float: left;
+    margin-left: -60px;
+    padding: 60px;
+    font-size: 14px;
+}
+
+.strategy-dots .list:nth-child(1){
+    background-color: #73E9FF;
+}
+
+.strategy-dots .list:nth-child(2){
+    background-color: #41C7E0;
+}
+
+.strategy-dots .list:nth-child(3){
+    background-color: #2F9CB0;
+}
+
+.strategy-dots .list:nth-child(4){
+    background-color: #0D83A7;
+}
+
+.strategy-list-pharma{
+    margin-top: 30px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.strategy-list-pharma .list{
+    min-height: 100px;
+    width: 100%;
+    background-color: #D9F4F9;
+    padding: 30px;
+    border-radius: 30px;
+}
+
+.strategy-list-pharma .list .icon-group{
+    height: 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.strategy-list-pharma .list .content-group{
+    clear: both;
+}
+
+.strategy-list-pharma .list .content-group .header{
+    color: var(--color-black);
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.strategy-list-pharma .list .content-group .content-text{
+    color: var(--text-color-light);
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+
 /* News */
 
 .inner-news-wrapper{
@@ -450,12 +663,121 @@
     font-size: 44px;
 }
 
+/* Contact Us Page */
+
+.contact-wrapper{
+    clear: both;
+    padding: 50px 0;
+}
+
+.contact-wrapper .contact_form {
+    clear: both;
+}
+
+.contact-wrapper .contact_form input[type=text],
+.contact-wrapper .contact_form input[type=number],
+.contact-wrapper .contact_form textarea{
+    outline: none;
+    width: 100%;
+    border-radius: 10px;
+    border: solid 1px var(--border-color);
+    box-shadow: 0px 8px 40px 0px #002B5C1A;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.contact-wrapper .contact_form input[type=text]:focus,
+.contact-wrapper .contact_form input[type=number]:focus,
+.contact-wrapper .contact_form textarea:focus{
+    box-shadow: 0px 8px 40px 0px #0095DA33;
+}
+
+.contact-wrapper .contact_form textarea::placeholder,
+.contact-wrapper .contact_form input[type=text]::placeholder {
+    font-weight: bold;
+    opacity: 0.5;
+    font-size: 14px;
+}
+
+
+
+/* Articles */
+
+.articles-wrapper{
+    padding: 30px 0;
+}
+
+.articles-wrapper .blogs{
+    clear: both;
+}
+
+.articles-wrapper .blogs .blogs-list{
+    overflow: hidden;
+    width: 50%;
+    float: left;
+    margin-bottom: 60px;
+}
+
+.articles-wrapper .blogs .blogs-list .images{
+    margin-bottom: 20px;
+}
+
+.articles-wrapper .blogs .blogs-list .images{
+    height: 270px;
+}
+
+.articles-wrapper .blogs .blogs-list .images img{
+    height: 100%;
+}
+
+.articles-wrapper .blogs .blogs-list .contents{
+    margin-bottom: 20px;
+}
+
+.articles-wrapper .blogs .blogs-list .contents .title{
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+
+.articles-wrapper .blogs .blogs-list .contents .published{
+    font-size: 12px;
+    color: var(--text-color-light);
+}
+
+.articles-wrapper .blogs .blogs-list .tags{
+    margin-bottom: 20px;
+}
+
+.articles-wrapper .blogs .blogs-list .tags .tags-list{
+    display: flex;
+}
+
+.articles-wrapper .blogs .blogs-list .tags .tags-list .list{
+    background-color: #D9F4F9;
+    color: var(--color-black);
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    margin-right: 10px;
+    border-radius: 20px;
+}
+
+
 
 /* Mobile */
 @media ( max-width: 768px ) {
 
     .inner-page-banner-wrapper .banner-image-wrapper .header .title{
-        font-size: 24px;
+        font-size: 22px;
+        height: auto;
+        line-height: initial;
+        padding: 0 30px;
+    }
+
+    .inner-page-banner-wrapper .banner-image-wrapper.blog .header .title{
+        font-size: 22px;
         height: auto;
         line-height: initial;
     }
@@ -601,6 +923,101 @@
 
     .pharmacovigilance-info .content-wrap .wrap::after{
         display: none;
+    }
+
+    /* Blogs */
+
+    .home-blog-wrapper .blogs .blogs-list{
+        width: 100%;
+    }
+
+    /* Our Strategy */
+
+    .strategy-page-wrapper{
+        padding: 30px 0;
+    }
+
+    .strategy-info{
+        padding-bottom: 30px;
+    }
+
+    .strategy-info .image-wrap{
+        width: 100%;
+        height: 420px;
+    }
+
+    .strategy-info .image-wrap img{
+        width: 100%;
+    }
+
+    .strategy-info .content-wrap{
+        height: auto;
+        margin-top: 20px;
+    }
+
+    .strategy-info .content-wrap .wrap{
+        border-radius: 30px;
+        height: 300px;
+        padding: 70px 30px;
+        align-items: self-start;
+    }
+
+    .strategy-info .content-wrap .wrap::after,
+    .strategy-info .content-wrap .wrap::before{
+        display: none;
+    }
+
+    .strategy-info .content-wrap .wrap h2{
+        font-size: 26px;
+    }
+
+    .strategy-page-wrapper .heading{
+        height: auto;
+        line-height: 26px;
+    }
+
+    .strategy-dots{
+        clear: both;
+        display: block;
+        padding-bottom: 100px;
+    }
+
+    .strategy-dots .list{
+        margin: 0 auto;
+        margin-bottom: -60px;
+        font-size: 18px;
+        float: initial;
+    }
+
+
+    .strategy-page-wrapper .strategy-list-pharma{
+        display: block;
+    }
+
+    .strategy-page-wrapper .strategy-list-pharma .list{
+        margin-bottom: 20px;
+    }
+
+    .product-search-container .form-options .option{
+        font-size: 12px;
+    }
+
+    .product-search-container .form-inputs .oz-mo{
+        display: none;
+    }
+
+    .articles-wrapper .blogs .blogs-list{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .articles-wrapper .blogs .blogs-list .images{
+        height: auto;
+    }
+
+    .articles-wrapper .blogs .blogs-list .images img{
+        height: auto;
+        width: 100%;
     }
 
 }

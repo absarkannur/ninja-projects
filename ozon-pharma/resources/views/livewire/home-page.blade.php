@@ -9,16 +9,18 @@
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
                     <p class="content-text">Ozon Pharmaceuticals is a trusted name in the region, with decades in healthcare distribution and over 20 years of GMP-certified manufacturing excellence.</p>
 
-                    <div class="button-group">
-                        <button class="oz-button-primery p-l-10 center">
-                            Learn More
-                        </button>
-                        <button class="oz-button-primery no-padding p-l-10 center">
-                            <svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg);" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
-                            </svg>
-                        </button>
-                    </div>
+                    <a href="{{ route('about') }}">
+                        <div class="button-group">
+                            <button class="oz-button-primery p-l-10 center">
+                                Learn More
+                            </button>
+                            <button class="oz-button-primery no-padding p-l-10 center">
+                                <svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg);" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -32,7 +34,9 @@
                         <img src={{ asset("ozon/images/banner-1.svg") }} />
                         <h3 class="header">Our products</h3>
                         <p class="content-text">We offer high quality products comparable to the best globally</p>
-                        <button class="oz-button-lightblue">Explore Products</button>
+                        <a href="{{ route('products') . '?filter=Product+Name' }}">
+                            <button class="oz-button-lightblue">Explore Products</button>
+                        </a>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
@@ -43,14 +47,15 @@
                             <h3 class="header">20+ Years </h3>
                             <p class="content-text">in Business</p>
 
-
                             <div class="sec">
 
                                 <svg class="left-sticky-corner" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M0.269516 35.5V0.5C0.269516 19.83 15.9395 35.5 35.2695 35.5H0.269516Z" fill="#0D83A7"/>
                                 </svg>
 
-                                <button class="oz-button-default">Learn More</button>
+                                <a href="{{ route('about')}}">
+                                    <button class="oz-button-default">Learn More</button>
+                                </a>
                             </div>
                         </div>
                         <div class="box-2">
@@ -164,9 +169,11 @@
                             <div class="video-sec">
                                 <span class="title">World class facilities</span>
                                 <span class="learnmore">
-                                    <svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg);" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"></path>
-                                    </svg>
+                                    <a href="{{ route('about') }}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg);" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"></path>
+                                        </svg>
+                                    </a>
                                 </span>
                                 <span class="video"></span>
                             </div>
@@ -196,16 +203,18 @@
                             </li>
                         </ul>
 
-                        <div class="button-group">
-                            <button class="oz-button-primery p-l-10 center">
-                                Learn More
-                            </button>
-                            <button class="oz-button-primery no-padding p-l-10 center">
-                                <svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg);" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
-                                </svg>
-                            </button>
-                        </div>
+                        <a href="{{ route('about') }}">
+                            <div class="button-group">
+                                <button class="oz-button-primery p-l-10 center">
+                                    Learn More
+                                </button>
+                                <button class="oz-button-primery no-padding p-l-10 center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg);" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </a>
                     </div>
                 </div>
 
@@ -255,13 +264,15 @@
                         @foreach( $therapeutic_dategories as $category )
 
                         <li class="category-list">
-                            <img src="{{ asset( "storage/" . $category->therapeutic_category_image ) }}" alt="">
-                            <span class="icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-up-right" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0z"/>
-                                </svg>
-                            </span>
-                            <button class="button">{{ $category['therapeutic_category_name'] }}</button>
+                            <a href="{{ route('products') . '?filter=Therapeutic+Categories&categories='. $category['therapeutic_category_slug'] }}">
+                                <img src="{{ asset( "storage/" . $category->therapeutic_category_image ) }}" alt="">
+                                <span class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-up-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0z"/>
+                                    </svg>
+                                </span>
+                                <button class="button">{{ $category['therapeutic_category_name'] }}</button>
+                            </a>
                         </li>
 
                         @endforeach
@@ -288,16 +299,18 @@
                         healthcare</h2>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                    <div class="learnmore-button-group fr">
-                        <button class="oz-button-primery p-l-10 center">
-                            View All
-                        </button>
-                        <button class="oz-button-primery no-padding p-l-10 center">
-                            <svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg);" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
-                            </svg>
-                        </button>
-                    </div>
+                    <a href="{{ route('articles') }}">
+                        <div class="learnmore-button-group fr">
+                            <button class="oz-button-primery p-l-10 center">
+                                View All
+                            </button>
+                            <button class="oz-button-primery no-padding p-l-10 center">
+                                <svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg);" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -310,7 +323,7 @@
                         @foreach ( $articles as $article )
 
                             <li class="blogs-list">
-                                <a href={{ 'news/' . $article->slug  }}>
+                                <a href={{ 'article/' . $article->slug  }}>
                                 <div class="images">
                                     <div class="imagethmb">
                                         <div class="imagethmb_inner">
