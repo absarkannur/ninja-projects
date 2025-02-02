@@ -16,7 +16,7 @@ class ProfileComposer {
 
         // Site Information
         $this->site_data = SiteInfo::first();
-        $this->facilities = FacilitiesCategory::get();
+        $this->facilities = FacilitiesCategory::orderBy('id', 'ASC')->take(6)->get();
 
     }
 
