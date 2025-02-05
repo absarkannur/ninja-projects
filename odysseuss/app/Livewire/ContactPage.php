@@ -22,13 +22,13 @@ class ContactPage extends Component {
         $this->validate();
 
         $mailData = [
-            'subject' => 'OZON Pharmaceutical | Contact Form Lead',
+            'subject' => 'Odysseus Strategies | Website Enquiry',
             'name' => $this->name,
             'email' => $this->email,
             'message' => $this->message,
         ];
 
-        Mail::to('absarkannur@gmail.com')->send(new ContactEmail($mailData));
+        Mail::to('anca.Beta@odysseuss-strategies.com')->send(new ContactEmail($mailData));
 
         session()->flash( 'success', 'Our Team will contact you shortly' );
 

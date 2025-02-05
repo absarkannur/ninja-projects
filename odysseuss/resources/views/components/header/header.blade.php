@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
 
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{ route('home') }}">
                 <img src={{ asset( 'odys_assets/images/logo.png' ) }} alt="Odysseus Strategies">
             </a>
 
@@ -20,12 +20,12 @@
                     {{-- <a class="nav-link" href="{{ route('home') }}">Case Studies</a> --}}
 
 
-                    <a class="nav-link social" href="" target="_blank">
+                    <a class="nav-link social" href="{{ $site_info->compnay_fb }}" target="_blank">
                         <div class="social-link fb">
                             <img src={{ asset( 'odys_assets/images/icons/facebook.png' ) }} alt="">
                         </div>
                     </a>
-                    <a class="nav-link social" href="" target="_blank">
+                    <a class="nav-link social" href="{{ $site_info->compnay_insta }}" target="_blank">
                         <div class="social-link in">
                             <img src={{ asset( 'odys_assets/images/icons/insta.png' ) }} alt="">
                         </div>

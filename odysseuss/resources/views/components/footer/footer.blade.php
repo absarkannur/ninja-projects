@@ -19,14 +19,14 @@
             <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 flex-end">
                 <ul class="footer-navbar mobile">
                     <li>
-                        <a class="nav-link social" href="https://www.facebook.com/" target="_blank">
+                        <a class="nav-link social" href="{{ $site_info->compnay_fb }}" target="_blank">
                             <div class="social-link">
                                 <img src={{ asset( 'odys_assets/images/icons/facebook.png' ) }} alt="">
                             </div>
                         </a>
                     </li>
                     <li>
-                        <a class="nav-link social" href="https://www.instagram.com/" target="_blank">
+                        <a class="nav-link social" href="{{ $site_info->compnay_insta }}" target="_blank">
                             <div class="social-link">
                                 <img src={{ asset( 'odys_assets/images/icons/insta.png' ) }} alt="">
                             </div>

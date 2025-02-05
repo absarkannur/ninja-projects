@@ -26,7 +26,7 @@
 
                                 <div>
                                     <h3>Address</h3>
-                                    <p>The Meydan Hotel, Grandstand, 6th floor, Meydan Road, Nad Al Sheba, Dubai, U.A.AE</p>
+                                    <p>{{ $site_info->compnay_address }}</p>
                                 </div>
 
                             </li>
@@ -40,7 +40,7 @@
 
                                 <div>
                                     <h3>Email Address</h3>
-                                    <p>anca.Beta@odysseuss-strategies.com</p>
+                                    <p>{{ $site_info->compnay_email }}</p>
                                 </div>
 
                             </li>
@@ -54,7 +54,7 @@
 
                                 <div>
                                     <h3>Phone Number</h3>
-                                    <p>+971 55 751 3216</p>
+                                    <p>{{ $site_info->compnay_phone }}</p>
                                 </div>
 
                             </li>

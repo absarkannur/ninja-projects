@@ -24,13 +24,10 @@ class ServicesCategoriesContentResource extends Resource
 {
     protected static ?string $model = ServicesCategoriesContent::class;
 
-    protected static ?string $navigationGroup = 'Services';
-
-    protected static ?int $navigationSort = 3;
-
-    protected static ?string $navigationLabel = 'Service Contents';
-
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Services';
+    protected static ?string $navigationLabel = 'Service Contents';
+    protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
     {

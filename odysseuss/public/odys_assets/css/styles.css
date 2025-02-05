@@ -18,7 +18,7 @@
 }
 
 
-@media ( max-width: 768px ) {
+@media ( max-width: 853px ) {
 
     .topbar-wrapper{
         line-height: normal;
@@ -91,7 +91,7 @@
     margin: auto;
 }
 
-@media ( max-width: 768px ) {
+@media ( max-width: 853px ) {
     .header-wrapper .nav-link.social{
         display: none;
     }
@@ -140,7 +140,7 @@
     margin-top: 20px;
 }
 
-@media ( max-width: 768px ) {
+@media ( max-width: 853px ) {
 
     .banner-wrapper .box,
     .banner-wrapper .heading-3{
@@ -202,7 +202,7 @@
     color: var(--font-color-blue);
 }
 
-@media ( max-width: 768px ) {
+@media ( max-width: 853px ) {
 
     .whyus-wrapper{
         padding: 30px 0;
@@ -261,7 +261,7 @@
     padding: 100px 0;
 }
 
-@media ( max-width: 768px ) {
+@media ( max-width: 853px ) {
 
     .growth-wrapper{
         padding: 30px 0;
@@ -372,7 +372,7 @@
     border: none;
 }
 
-@media ( max-width: 768px ) {
+@media ( max-width: 853px ) {
 
     .service-wrapper{
         padding: 30px 0;
@@ -431,7 +431,7 @@
     font-weight: 700;
 }
 
-@media ( max-width: 768px ) {
+@media ( max-width: 853px ) {
 
     .webelieve-wrapper{
         padding: 30px 0;
@@ -573,7 +573,7 @@
     border-radius: 50%;
 }
 
-@media ( max-width: 768px ) {
+@media ( max-width: 853px ) {
 
     .teams-wrapper{
         padding: 30px 0;
@@ -668,7 +668,7 @@ footer .footer-navbar .nav-link.social{
     justify-content: center;
 }
 
-@media ( max-width: 768px ) {
+@media ( max-width: 853px ) {
 
     .letsconnect-wrapper{
         width: calc(100% - 18px);
@@ -684,7 +684,7 @@ footer .footer-navbar .nav-link.social{
     }
 
     footer .footer-navbar{
-        /* display: block; */
+        display: block;
     }
 
     footer .footer-navbar.mobile{
@@ -700,7 +700,9 @@ footer .footer-navbar .nav-link.social{
     footer .footer-navbar .nav-link{
         height: 40px;
         line-height: 40px;
-        width: 100%;
+        width: 40%;
+        float: left;
+        text-align: center;
     }
 
     footer .flex-end{
@@ -844,7 +846,7 @@ footer .footer-navbar .nav-link.social{
     color: rgba(129, 129, 129, 1);
 }
 
-@media ( max-width: 768px ) {
+@media ( max-width: 853px ) {
 
     .services-wrapper .heading-inner{
         font-size: 32px;
@@ -954,7 +956,7 @@ footer .footer-navbar .nav-link.social{
     font-weight: 600;
 }
 
-@media ( max-width: 768px ) {
+@media ( max-width: 853px ) {
 
     .about-inner-wrapper .header{
         height: 70px;
@@ -1104,7 +1106,7 @@ footer .footer-navbar .nav-link.social{
     margin-bottom: 20px;
 }
 
-@media ( max-width: 768px ) {
+@media ( max-width: 853px ) {
 
     .contact-inner-wrapper {
         padding-bottom: 0px;
