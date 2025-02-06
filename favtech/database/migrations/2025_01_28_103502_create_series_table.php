@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('series', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('brands_id')->constrained()->cascadeOnDelete();
             $table->string('product_series');
+            $table->string('product_series_slug');
             $table->timestamps();
         });
     }

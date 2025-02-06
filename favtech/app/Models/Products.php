@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Brands;
 use App\Models\Colors;
 use App\Models\Series;
+use App\Models\ScreenTypes;
 
 class Products extends Model
 {
@@ -17,6 +18,7 @@ class Products extends Model
         'brands_id',
         'colors_id',
         'series_id',
+        'screen_types_id',
         'product_model',
         'product_class',
         'product_part_number',
@@ -41,6 +43,10 @@ class Products extends Model
 
     public function series(){
         return $this->belongsTo( Series::class );
+    }
+
+    public function screen_types(){
+        return $this->belongsTo( ScreenTypes::class );
     }
 
 }

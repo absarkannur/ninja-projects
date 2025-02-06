@@ -16,10 +16,11 @@ return new class extends Migration
             $table->foreignId('brands_id')->constrained()->cascadeOnDelete();
             $table->foreignId('colors_id')->constrained()->cascadeOnDelete();
             $table->foreignId('series_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('screen_types_id')->constrained()->cascadeOnDelete();
             $table->string('product_name');
             $table->string('product_model')->nullable();
             $table->string('product_class')->nullable();
-            $table->string('product_part_number')->unique();
+            $table->string('product_part_number');
             $table->string('product_parts')->nullable();
             $table->string('product_condition')->nullable();
             $table->string('product_quality')->nullable();

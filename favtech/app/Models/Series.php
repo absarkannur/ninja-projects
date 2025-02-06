@@ -10,7 +10,14 @@ class Series extends Model
     use HasFactory;
 
     protected $fillable = [
-        'product_series'
+        'brands_id',
+        'product_series',
+        'product_series_slug'
     ];
+
+    public function brands(){
+        return $this->belongsTo( Brands::class );
+    }
+
 
 }

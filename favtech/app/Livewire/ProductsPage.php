@@ -4,10 +4,13 @@ namespace App\Livewire;
 
 use Livewire\Attributes\Title;
 use Livewire\Component;
-use App\Models\Products;
-use App\Models\Brands;
 use Livewire\WithPagination;
 use Livewire\WithoutUrlPagination;
+
+// Models
+use App\Models\Products;
+use App\Models\Brands;
+use App\Models\Series;
 
 class ProductsPage extends Component
 {
@@ -29,6 +32,8 @@ class ProductsPage extends Component
 
         $brands = Brands::get();
 
+        $series = Series::get();
+
         // $products_list = Products::leftJoin( 'brands', 'brands.id', 'products.brands_id' )->paginate(12);
 
         if( $this->id === 'all' ) {
@@ -45,7 +50,8 @@ class ProductsPage extends Component
 
         return view('livewire.products', [
             'products' => $products_list,
-            'brands' => $brands
+            'brands' => $brands,
+            'series' => $series
         ]);
 
     }

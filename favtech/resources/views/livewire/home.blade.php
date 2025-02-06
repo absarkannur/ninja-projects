@@ -9,7 +9,7 @@
                         <h1>{{ $banner['banner_title'] }}</h1>
                         <h6>{{ $banner['banner_subtitle'] }}</h6>
                     </div>
-                    <img src={{ asset( 'storage/'. $banner['banner_image'] ) }} alt="" />
+                    <img src="{{ asset( 'storage/'. $banner['banner_image'] ) }}" alt="" />
                 </div>
                 @endforeach
             @endif
@@ -24,7 +24,7 @@
                         <li class="list">
                             <div class="wrap">
                                 <svg width="50" height="50">
-                                    <use xlink:href={{ asset('fav/images/svg-sprint.svg#car_clock-thick') }}></use>
+                                    <use xlink:href="{{ asset('fav/images/svg-sprint.svg#car_clock-thick') }}"></use>
                                 </svg>
                                 <div>
                                     <span class="title">Fast Delivery</span>
@@ -35,7 +35,7 @@
                         <li class="list">
                             <div class="wrap">
                                 <svg width="50" height="50">
-                                    <use xlink:href={{ asset('fav/images/svg-sprint.svg#worker-thick') }}></use>
+                                    <use xlink:href="{{ asset('fav/images/svg-sprint.svg#worker-thick') }}"></use>
                                 </svg>
                                 <div>
                                     <span class="title">Professional team</span>
@@ -46,7 +46,7 @@
                         <li class="list">
                             <div class="wrap">
                                 <svg width="40" height="40">
-                                    <use xlink:href={{ asset('fav/images/svg-sprint.svg#shield-checkmark-shape') }}></use>
+                                    <use xlink:href="{{ asset('fav/images/svg-sprint.svg#shield-checkmark-shape') }}"></use>
                                 </svg>
                                 <div>
                                     <span class="title">Secure Shopping</span>
@@ -57,7 +57,7 @@
                         <li class="list">
                             <div class="wrap">
                                 <svg width="40" height="40">
-                                    <use xlink:href={{ asset('fav/images/svg-sprint.svg#layers-shape') }}></use>
+                                    <use xlink:href="{{ asset('fav/images/svg-sprint.svg#layers-shape') }}"></use>
                                 </svg>
                                 <div>
                                     <span class="title">Unlimited Stocks</span>
@@ -89,7 +89,7 @@
                                 <div class="image-wrapper">
                                     <div class="imagethmb">
                                         <div class="imagethmb_inner">
-                                            <img src={{ asset( 'storage/' . $product['product_image'] ) }} alt="">
+                                            <img src="{{ asset( 'storage/' . $product['product_image'] ) }}" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -99,9 +99,9 @@
                                         <span class="tag">{{ $product['product_parts'] . ' + ' .  $product['color_name'] . ' + ' . $product['product_part_number'] }}</span>
                                     </div>
                                     <div class="product_enquiry">
-                                        <a class="whatsapp" target="__blank" href="{{ 'https://wa.me/+971553351001/?text=I am interested with ' .  $product['product_model']. '-' . $product['product_part_number'] }}">
+                                        <a class="whatsapp" target="__blank" href="{{ 'https://wa.me/+971553351001/?text=I am interested with ' . $product['brand_name'] . ' ' . $product['product_name'] . ' ' . $product['product_class'] . '-' . $product['product_model'] . '-' .$product['product_parts'] . ' + ' .  $product['color_name'] . ' + ' . $product['product_part_number'] }}">
                                             <svg width="24" height="24">
-                                                <use xlink:href={{ asset('fav/images/svg-sprint.svg#whatsapp-filled') }}></use>
+                                                <use xlink:href="{{ asset('fav/images/svg-sprint.svg#whatsapp-filled') }}"></use>
                                             </svg>
                                             Quick Enquiry
                                         </a>
@@ -137,19 +137,18 @@
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
 
                     @if( $brands )
-                    <ul class="brands-list">
-                        @foreach( $brands as $brand )
-                        <li class="list">
-                            <div class="imagethmb">
-                                <div class="imagethmb_inner">
-                                    <img src={{ asset( 'storage/' . $brand['brand_image'] ) }} alt="" />
+                        <ul class="brands-list">
+                            @foreach( $brands as $brand )
+                            <li class="list">
+                                <div class="imagethmb">
+                                    <div class="imagethmb_inner">
+                                        <img src="{{ asset( 'storage/' . $brand['brand_image'] ) }}" alt="" />
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                        @endforeach
-                    </ul>
+                            </li>
+                            @endforeach
+                        </ul>
                     @endif
-
 
                 </div>
             </div>
@@ -189,7 +188,7 @@
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                     <div class="image_wrapper">
-                        <img src={{ asset( 'fav/images/faq.png' ) }} alt="">
+                        <img src="{{ asset( 'fav/images/faq.png' ) }}" alt="">
                     </div>
                 </div>
             </div>
@@ -203,26 +202,26 @@
                     <h2>Contact Us</h2>
                     <ul class="address">
                         <li>
-                            <svg width="30" height="30">
-                                <use xlink:href={{ asset('fav/images/svg-sprint.svg#building-2-shape') }}></use>
+                            <svg width="24" height="24">
+                                <use xlink:href="{{ asset('fav/images/svg-sprint.svg#building-2-shape') }}"></use>
                             </svg>
                             <span class="text">4WA Building</span>
                         </li>
                         <li>
-                            <svg width="30" height="30">
-                                <use xlink:href={{ asset('fav/images/svg-sprint.svg#phone-shape') }}></use>
+                            <svg width="24" height="24">
+                                <use xlink:href="{{ asset('fav/images/svg-sprint.svg#phone-shape') }}"></use>
                             </svg>
                             <span class="text">+971 55 335 1001</span>
                         </li>
                         <li>
-                            <svg width="30" height="30">
-                                <use xlink:href={{ asset('fav/images/svg-sprint.svg#envelope-shape') }}></use>
+                            <svg width="24" height="24">
+                                <use xlink:href="{{ asset('fav/images/svg-sprint.svg#envelope-shape') }}"></use>
                             </svg>
                             <span class="text">info@favtech.ae</span>
                         </li>
                         <li>
-                            <svg width="30" height="30">
-                                <use xlink:href={{ asset('fav/images/svg-sprint.svg#map-pin-thick-shape') }}></use>
+                            <svg width="24" height="24">
+                                <use xlink:href="{{ asset('fav/images/svg-sprint.svg#map-pin-thick-shape') }}"></use>
                             </svg>
                             <span class="text">G25 Dubai Airport Freezone ,Dubai , UAE</span>
                         </li>

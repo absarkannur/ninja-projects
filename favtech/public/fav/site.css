@@ -659,11 +659,32 @@ footer .copyright{
     color: var(--dark-gray);
 }
 
-
 .product-page-wrapper .product-brands .list:hover{
     border-color: #a8daf5;
     box-shadow: 0px 0px 15px 3px rgb(195, 242, 252);
 }
+
+/*  */
+
+.product-series{
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.product-series .list{
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    cursor: pointer;
+
+    border: solid 1px var(--border-color);
+}
+
+
 
 @media ( max-width: 1024px ) {
     .product-page-wrapper .product-list .list-item{

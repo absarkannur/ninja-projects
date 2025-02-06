@@ -43,6 +43,10 @@ class ProductsResource extends Resource
                 TextInput::make('product_part_number')->required()->label('Part Number'),
                 TextInput::make('product_model')->required()->label('Model'),
                 TextInput::make('product_class')->label('Classification'),
+                Select::make('screen_types_id')
+                    ->relationship( 'screen_types','screen_type' )
+                    ->Label('Screen Types')
+                    ->required(),
                 TextInput::make('product_parts')->required()->label('Parts'),
                 Select::make('series_id')
                     ->relationship( 'series','product_series' )

@@ -17,7 +17,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-
+use Illuminate\Support\Str;
 class BrandsResource extends Resource
 {
     protected static ?string $model = Brands::class;
@@ -30,18 +30,20 @@ class BrandsResource extends Resource
     {
         return $form
             ->schema([
-                Section::make('')
-                    ->schema([
-                        TextInput::make('brand_name'),
-                        FileUpload::make('brand_image')
-                            ->image()
-                            ->imageEditor()
-                            ->imageEditorAspectRatios([
-                                '16:9',
-                                '4:3',
-                                '1:1',
-                            ])
-                    ])->columnSpan(2)
+                TextInput::make('brand_name')
+                    ->live(onBlur:true)
+                    ->afterStateUpdated(function( string $operation, string $state, Forms\Set $set ){
+                        $set( 'brand_slug', Str::slug($state) );
+                    })->required()->label('Brand Name'),
+                TextInput::make('brand_slug')->readOnly()->required()->label('Slug'),
+                FileUpload::make('brand_image')->columnSpanFull()
+                    ->image()
+                    ->imageEditor()
+                    ->imageEditorAspectRatios([
+                        '16:9',
+                        '4:3',
+                        '1:1',
+                    ])
             ]);
     }
 

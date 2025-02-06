@@ -2,11 +2,10 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\SeriesResource\Pages;
-use App\Filament\Resources\SeriesResource\RelationManagers;
-use App\Models\Series;
+use App\Filament\Resources\ScreenTypesResource\Pages;
+use App\Filament\Resources\ScreenTypesResource\RelationManagers;
+use App\Models\ScreenTypes;
 use Filament\Forms;
-use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -15,30 +14,20 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Illuminate\Support\Str;
-class SeriesResource extends Resource
+
+class ScreenTypesResource extends Resource
 {
-    protected static ?string $model = Series::class;
+    protected static ?string $model = ScreenTypes::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $navigationGroup = 'Products Section';
-    protected static ?int $navigationSort = 4;
+    protected static ?int $navigationSort = 5;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                TextInput::make('product_series')->label('Series')
-                    ->live(onBlur:true)
-                    ->afterStateUpdated(function( string $operation, string $state, Forms\Set $set ){
-                        $set( 'product_series_slug', Str::slug($state) );
-                })->required()->label('Series'),
-                TextInput::make('product_series_slug')->label('Slug'),
-                Select::make('brands_id')
-                    ->relationship( 'brands', 'brand_name' )
-                    ->label('Brand')
-                    ->searchable(false)
-                    ->required(),
+                TextInput::make('screen_type')->required()
             ]);
     }
 
@@ -46,7 +35,7 @@ class SeriesResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('product_series')
+                TextColumn::make('screen_type')
             ])
             ->filters([
                 //
@@ -71,9 +60,9 @@ class SeriesResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListSeries::route('/'),
-            'create' => Pages\CreateSeries::route('/create'),
-            'edit' => Pages\EditSeries::route('/{record}/edit'),
+            'index' => Pages\ListScreenTypes::route('/'),
+            'create' => Pages\CreateScreenTypes::route('/create'),
+            'edit' => Pages\EditScreenTypes::route('/{record}/edit'),
         ];
     }
 }
