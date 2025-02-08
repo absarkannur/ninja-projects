@@ -1,7 +1,6 @@
-
 $(function(){
 
-    // OWL Main Banner
+    // Owl Main Banner -----
     $('.banner_slider').owlCarousel({
         loop:true,
         nav:true,
@@ -10,8 +9,7 @@ $(function(){
         autoplayTimeout: 5000,
     })
 
-    // Home Page Products
-
+    // Home Page Products -----
     $('.home_product_list').owlCarousel({
         loop:false,
         nav:true,

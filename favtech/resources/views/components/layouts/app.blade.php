@@ -16,6 +16,7 @@
         <link rel="stylesheet" href={{ asset( 'fav/assets/owl.carousel.min.css' ) }}>
         <link rel="stylesheet" href={{ asset( 'fav/assets/owl.theme.default.min.css' ) }}>
         <link rel="stylesheet" href={{ asset( 'fav/assets/owl.theme.green.min.css' ) }}>
+        <link rel="stylesheet" href={{ asset( 'fav/select2.min.css' ) }}>
         <link rel="stylesheet" href={{ asset( 'fav/init.css' ) }}>
         <link rel="stylesheet" href={{ asset( 'fav/site.css' ) }}>
 
@@ -34,6 +35,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src={{ asset( 'fav/bootstrap.bundle.min.js' ) }}></script>
         <script src={{ asset( 'fav/owl.carousel.min.js' ) }}></script>
+        <script src={{ asset( 'fav/select2.min.js' ) }}></script>
         <script src={{ asset( 'fav/script.js' ) }}></script>
 
         @livewireScripts

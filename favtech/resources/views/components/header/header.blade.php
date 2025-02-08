@@ -49,7 +49,7 @@
                 <div class="navbar-nav">
                     <a class="nav-link" href="{{ route('home') }}">Home</a>
                     <a class="nav-link" href="{{ route('about-us') }}">About Us</a>
-                    <a class="nav-link" href="{{ route( 'products', ['id'=>'all'] ) }}">Products</a>
+                    <a class="nav-link" href="{{ route( 'products', ['slug'=>'all'] ) }}">Products</a>
                     <a class="nav-link" href="{{ route('contact-us') }}">Contact Us</a>
                     <a class="nav-link btn" href="{{ route('price-list') }}">Price List</a>
                 </div>

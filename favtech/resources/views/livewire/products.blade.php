@@ -1,4 +1,3 @@
-
 <div>
     <div class="inner-header-wrapper" style="{{ 'background-image: url(' .asset( 'fav/images/inner-banner.png' ) . ')'  }}">
         <div class="container-fluid">
@@ -22,11 +21,12 @@
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                     <ul class="product-brands">
+
                         @if( $brands )
 
                             @foreach( $brands as $brand )
-                            <li class="list">
-                                <a href="{{ route( 'products', ['id'=>$brand->id] ) }}">
+                            <li class="list {{ ( $slug === $brand->brand_slug ) ? 'active': ''  }}">
+                                <a href="{{ route( 'products', ['slug'=>$brand->brand_slug ] ) }}">
                                     <div class="image-wrapper">
                                         <div class="imagethmb">
                                             <div class="imagethmb_inner">
@@ -44,15 +44,93 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                    <ul class="product-series">
-                        @foreach ( $series as $s )
-                        <li class="list">{{ $s->product_series }}</li>
-                        @endforeach
-                    </ul>
+            @if ( $slug !== 'all' )
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
+                        <div class="product-series">
+                            <div class="row">
+                                <div wire:ignore class="col-12 col-md-6 col-lg-6 col-xl-6">
+
+                                    <label>Series</label>
+                                    <select wire:model="series" class="series-select-search" name="state">
+                                        <option value="null" disabled selected>Select Series</option>
+                                        @foreach ( $series_list as $s )
+                                        <option value="{{$s->product_series_slug}}">{{ $s->product_series }}</option>
+                                        @endforeach
+                                    </select>
+
+                                    @script
+                                        <script>
+                                            $(document).ready(function() {
+
+                                                // Clear URL after chnage the series
+                                                function removeParam(parameter) {
+                                                    var url=document.location.href;
+                                                    var urlparts= url.split('?');
+
+                                                    if (urlparts.length>=2) {
+                                                        var urlBase=urlparts.shift();
+                                                        var queryString=urlparts.join("?");
+
+                                                        var prefix = encodeURIComponent(parameter)+'=';
+                                                        var pars = queryString.split(/[&;]/g);
+                                                        for (var i= pars.length; i-->0;)
+                                                            if (pars[i].lastIndexOf(prefix, 0)!==-1)
+                                                                pars.splice(i, 1);
+                                                        url = urlBase+'?'+pars.join('&');
+                                                        window.history.pushState('',document.title,url); // added this line to push the new url directly to url bar .
+
+                                                    }
+                                                    return url;
+                                                }
+
+                                                $('.series-select-search').select2()
+                                                    .on( 'change', function() {
+                                                        let data = $(this).val();
+                                                        $wire.set( 'series', data );
+
+                                                        setTimeout(() => {
+                                                            window.location.reload();
+                                                        }, 300);
+
+                                                    });
+                                            });
+                                        </script>
+                                    @endscript
+
+                                </div>
+                                <div wire:ignore class="col-12 col-md-6 col-lg-6 col-xl-6">
+
+                                    <label>Product Filter</label>
+                                    <select wire:model="filter" multiple class="products-select-search" name="state">
+                                        <option disabled>Select Product</option>
+                                        @foreach ( $product_select_list as $s )
+                                            <option value="{{ $s->p_id }}">{{ $s->product_name . '-' . $s->product_model . '-' . $s->product_part_number . '-' . $s->color_name }}</option>
+                                        @endforeach
+                                    </select>
+
+                                    @script
+                                        <script>
+                                            $(document).ready(function() {
+
+                                                $('.products-select-search').select2({
+                                                    placeholder: 'Select Products'
+                                                }).on( 'change', function() {
+                                                        let data = $(this).val();
+                                                        $wire.set( 'filter', data );
+                                                    });
+                                            });
+                                        </script>
+                                    @endscript
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-            </div>
+            @endif
 
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">

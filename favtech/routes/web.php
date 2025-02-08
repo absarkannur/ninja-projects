@@ -13,7 +13,9 @@ use App\Livewire\SignoutPage;
 
 Route::get( '/', Home::class )->name('home');
 Route::get( '/about-us', About::class )->name('about-us');
-Route::get( '/products/{id}', ProductsPage::class )->name('products');
+
+Route::get( '/products/{slug}', ProductsPage::class )->name('products');
+
 Route::get( '/price-list', Home::class )->name('price-list');
 Route::get( '/contact-us', Contact::class )->name('contact-us');
 

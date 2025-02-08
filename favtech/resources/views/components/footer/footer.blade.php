@@ -35,7 +35,7 @@
                     <ul class="footer-nav">
                         <li class="header">Links</li>
                         <li><a href="{{ route('about-us') }}">About Us</a></li>
-                        <li><a href="{{ route( 'products', ['id'=>'all'] ) }}">Products</a></li>
+                        <li><a href="{{ route( 'products', ['slug'=>'all'] ) }}">Products</a></li>
                         <li><a href=href="{{ route('contact-us') }}">Contact Us</a></li>
                     </ul>
                 </div>
