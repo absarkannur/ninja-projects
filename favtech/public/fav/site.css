@@ -681,6 +681,15 @@ footer .copyright{
     width: 100%;
 }
 
+.product-result{
+    margin: 0 10px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: solid 1px var(--border-color);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
 
 @media ( max-width: 1024px ) {
     .product-page-wrapper .product-list .list-item{
@@ -695,8 +704,16 @@ footer .copyright{
     }
 
     .product-page-wrapper .product-brands .list{
-
+        margin: 5px;
+        width: calc( 33.33% - 10px );
+        float: left;
     }
+
+    .product-page-wrapper .product-brands .list .image-wrapper,
+    .product-page-wrapper .product-brands .list .image-wrapper .imagethmb .imagethmb_inner{
+        height: 40px;
+    }
+
 
     .product-page-wrapper .product-list .list-item{
         width: calc( 50% - 10px );
@@ -706,7 +723,7 @@ footer .copyright{
 
     .product-list .list-item .image-wrapper,
     .product-list .list-item .image-wrapper .imagethmb .imagethmb_inner{
-        height: 170px;
+        height: 200px;
     }
 
     .product-list .list-item .details-wrapper .product_name .title{
@@ -731,10 +748,63 @@ footer .copyright{
 .product-pagination{
     padding-bottom: 50px;
     display: flex;
-    text-align: center;
-    justify-content: center;
+    justify-content: space-between;
+}
+
+.product-pagination .flex{
+    display: flex;
     align-items: center;
 }
+
+.product-pagination .page-field{
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.product-pagination  .nav-field{
+    display: flex;
+    justify-content: center;
+}
+
+
+.product-pagination .page-field span,
+.product-pagination  .nav-field a{
+    display: block;
+    padding: 0 !important;
+    height: 44px;
+    line-height: 44px;
+    width: 60px;
+}
+
+.product-pagination .prev-last,
+.product-pagination .prev,
+.product-pagination .next,
+.product-pagination .next-last
+{
+    background-color: var(--nav-color);
+    border: solid 1px var(--border-color);
+    color: var(--white);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.product-pagination .page{
+    background-color: var(--white);
+    border: solid 1px var(--border-color);
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 0 !important;
+    width: 60px;
+    height: 44px;
+    line-height: 44px;
+}
+
+.product-pagination .page.active{
+    background-color: var(--nav-light-color);
+}
+
+
 
 /* About */
 
@@ -895,6 +965,18 @@ footer .copyright{
 }
 
 @media ( max-width: 768px ) {
+
+    .product-pagination .page,
+    .product-pagination .page.active{
+        width: 30px;
+        font-size: 12px;
+    }
+
+    .product-pagination .page-field span,
+    .product-pagination .nav-field a{
+        width: 40px;
+        font-size: 12px;
+    }
 
 }
 

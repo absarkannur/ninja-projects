@@ -86,6 +86,9 @@
                         @if( $products )
                             @foreach( $products as $product )
                             <li class="list-item">
+                                @if ( $product->product_latest == 1)
+                                <span class="new">LATEST</span>
+                                @endif
                                 <div class="image-wrapper">
                                     <div class="imagethmb">
                                         <div class="imagethmb_inner">

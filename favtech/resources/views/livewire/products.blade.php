@@ -44,7 +44,7 @@
                 </div>
             </div>
 
-            @if ( $slug !== 'all' )
+            @if ( $slug != 'all' )
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
 
@@ -88,9 +88,12 @@
                                                 $('.series-select-search').select2()
                                                     .on( 'change', function() {
                                                         let data = $(this).val();
+
                                                         $wire.set( 'series', data );
+                                                        $wire.set( 'filter', [] );
 
                                                         setTimeout(() => {
+                                                            removeParam("page");
                                                             window.location.reload();
                                                         }, 300);
 
@@ -98,7 +101,7 @@
                                             });
                                         </script>
                                     @endscript
-
+                                    <label>Results: {{ $products->total() }}</label>
                                 </div>
                                 <div wire:ignore class="col-12 col-md-6 col-lg-6 col-xl-6">
 
@@ -114,11 +117,44 @@
                                         <script>
                                             $(document).ready(function() {
 
-                                                $('.products-select-search').select2({
-                                                    placeholder: 'Select Products'
-                                                }).on( 'change', function() {
+                                                function removeParam(parameter) {
+                                                    var url=document.location.href;
+                                                    var urlparts= url.split('?');
+
+                                                    if (urlparts.length>=2) {
+                                                        var urlBase=urlparts.shift();
+                                                        var queryString=urlparts.join("?");
+
+                                                        var prefix = encodeURIComponent(parameter)+'=';
+                                                        var pars = queryString.split(/[&;]/g);
+                                                        for (var i= pars.length; i-->0;)
+                                                            if (pars[i].lastIndexOf(prefix, 0)!==-1)
+                                                                pars.splice(i, 1);
+                                                        url = urlBase+'?'+pars.join('&');
+                                                        window.history.pushState('',document.title,url); // added this line to push the new url directly to url bar .
+
+                                                    }
+                                                    return url;
+                                                }
+
+                                                $('.products-select-search').select2({ placeholder: 'Select Products' })
+                                                    .on( 'change', function() {
                                                         let data = $(this).val();
                                                         $wire.set( 'filter', data );
+
+
+
+                                                        setTimeout(() => {
+
+                                                            var url = new URL( window.location.href );
+                                                            var c = url.searchParams.get("page");
+
+                                                            if( c != null ) {
+                                                                removeParam("page");
+                                                                window.location.reload();
+                                                            }
+
+                                                        }, 300);
                                                     });
                                             });
                                         </script>
@@ -138,6 +174,9 @@
                         @if( $products )
                             @foreach( $products as $product )
                             <li class="list-item">
+                                @if ( $product->product_latest == 1)
+                                <span class="new">LATEST</span>
+                                @endif
                                 <div class="image-wrapper">
                                     <div class="imagethmb">
                                         <div class="imagethmb_inner">

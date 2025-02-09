@@ -12,13 +12,13 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
         <!-- Site Style -->
-        <link rel="stylesheet" href={{ asset( 'fav/bootstrap.min.css' ) }}>
-        <link rel="stylesheet" href={{ asset( 'fav/assets/owl.carousel.min.css' ) }}>
-        <link rel="stylesheet" href={{ asset( 'fav/assets/owl.theme.default.min.css' ) }}>
-        <link rel="stylesheet" href={{ asset( 'fav/assets/owl.theme.green.min.css' ) }}>
-        <link rel="stylesheet" href={{ asset( 'fav/select2.min.css' ) }}>
-        <link rel="stylesheet" href={{ asset( 'fav/init.css' ) }}>
-        <link rel="stylesheet" href={{ asset( 'fav/site.css' ) }}>
+        <link rel="stylesheet" href={{ asset( 'fav/bootstrap.min.css?v=h5s8d8' ) }}>
+        <link rel="stylesheet" href={{ asset( 'fav/assets/owl.carousel.min.css?v=h5s8d8' ) }}>
+        <link rel="stylesheet" href={{ asset( 'fav/assets/owl.theme.default.min.css?v=h5s8d8' ) }}>
+        <link rel="stylesheet" href={{ asset( 'fav/assets/owl.theme.green.min.css?v=h5s8d8' ) }}>
+        <link rel="stylesheet" href={{ asset( 'fav/select2.min.css?v=h5s8d8' ) }}>
+        <link rel="stylesheet" href={{ asset( 'fav/init.css?v=h5s8d8' ) }}>
+        <link rel="stylesheet" href={{ asset( 'fav/site.css?v=h5s8d8' ) }}>
 
         @livewireStyles
 
@@ -33,10 +33,10 @@
 
         <!-- Scripts -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <script src={{ asset( 'fav/bootstrap.bundle.min.js' ) }}></script>
-        <script src={{ asset( 'fav/owl.carousel.min.js' ) }}></script>
-        <script src={{ asset( 'fav/select2.min.js' ) }}></script>
-        <script src={{ asset( 'fav/script.js' ) }}></script>
+        <script src={{ asset( 'fav/bootstrap.bundle.min.js?v=h5s8d8' ) }}></script>
+        <script src={{ asset( 'fav/owl.carousel.min.js?v=h5s8d8' ) }}></script>
+        <script src={{ asset( 'fav/select2.min.js?v=h5s8d8' ) }}></script>
+        <script src={{ asset( 'fav/script.js?v=h5s8d8' ) }}></script>
 
         @livewireScripts
 

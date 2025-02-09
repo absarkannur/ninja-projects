@@ -46,16 +46,15 @@ class ProductsPage extends Component
             $products_select_list = [];
 
             $products_list = Products::leftJoin( 'brands', 'brands.id', 'products.brands_id' )
-            ->leftJoin( 'colors', 'colors.id', 'products.colors_id' )
-            ->paginate(12);
+                ->leftJoin( 'colors', 'colors.id', 'products.colors_id' )
+                ->orderBy( 'products.id', 'DESC')
+                ->paginate(12);
 
         } else {
 
             // if Series Only
 
             if( $this->series != null && $this->filter == null ){
-
-                // $this->resetPage();
 
                 $series_id = $this->get_series_id( $this->series );
 
@@ -66,6 +65,7 @@ class ProductsPage extends Component
                                 ->where( 'series_id', $series_id )
                                 ->leftJoin( 'brands', 'brands.id', 'products.brands_id' )
                                 ->leftJoin( 'colors', 'colors.id', 'products.colors_id' )
+                                ->orderBy( 'products.id', 'DESC')
                                 ->paginate(12);
 
 
@@ -80,6 +80,7 @@ class ProductsPage extends Component
                                 ->whereIn( 'products.id', $this->filter )
                                 ->leftJoin( 'brands', 'brands.id', 'products.brands_id' )
                                 ->leftJoin( 'colors', 'colors.id', 'products.colors_id' )
+                                ->orderBy( 'products.id', 'DESC')
                                 ->paginate(12);
 
             } else {
@@ -89,6 +90,7 @@ class ProductsPage extends Component
                 $products_list = Products::where('brands_id' , $brand_id )
                                 ->leftJoin( 'brands', 'brands.id', 'products.brands_id' )
                                 ->leftJoin( 'colors', 'colors.id', 'products.colors_id' )
+                                ->orderBy( 'products.id', 'DESC')
                                 ->paginate(12);
 
             }
