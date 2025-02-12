@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('site_infos', function (Blueprint $table) {
             $table->id();
-            $table->string('compnay_address');
-            $table->string('compnay_email');
-            $table->string('compnay_phone');
-            $table->string('compnay_time');
-            $table->string('compnay_fb');
-            $table->string('compnay_insta');
-            $table->string('compnay_linkd');
+            $table->string('compnay_address')->nullable();
+            $table->string('compnay_email')->nullable();
+            $table->string('compnay_phone')->nullable();
+            $table->string('compnay_time')->nullable();
+            $table->string('compnay_fb')->nullable();
+            $table->string('compnay_insta')->nullable();
+            $table->string('compnay_linkd')->nullable();
             $table->timestamps();
         });
     }

@@ -189,18 +189,12 @@
                         <p class="content-text">Ozon Pharma one of the fastest growing companies in the region, with world class manufacturing facilities and processes managed by dedicated teams</p>
 
                         <ul class="about-counter">
-                            <li class="list">
-                                <span class="count">20+</span>
-                                <span class="title">Years in Business</span>
-                            </li>
-                            <li class="list">
-                                <span class="count">35+</span>
-                                <span class="title">Team Members</span>
-                            </li>
-                            <li class="list">
-                                <span class="count">100+</span>
-                                <span class="title">Products</span>
-                            </li>
+                            @foreach ( $ourNumbers as $item )
+                                <li class="list">
+                                    <span class="count">{{ $item->value }}</span>
+                                    <span class="title">{{ $item->title }}</span>
+                                </li>
+                            @endforeach
                         </ul>
 
                         <a href="{{ route('about') }}">

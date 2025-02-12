@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="{{ asset('ozon/css/bootstrap.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('ozon/css/owl.carousel.css') }}" />
         <link rel="stylesheet" href="{{ asset('ozon/css/owl.theme.default.css') }}" />
+        <link rel="stylesheet" href="{{ asset('ozon/css/tiptap-custom.css') }}" />
         <link rel="stylesheet" href="{{ asset('ozon/css/init.css') }}" />
         <link rel="stylesheet" href="{{ asset('ozon/css/styles.css') }}" />
         <link rel="stylesheet" href="{{ asset('ozon/css/inner-styles.css') }}" />

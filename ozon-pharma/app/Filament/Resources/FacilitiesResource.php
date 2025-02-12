@@ -18,6 +18,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use FilamentTiptapEditor\TiptapEditor;
 
 class FacilitiesResource extends Resource
 {
@@ -36,7 +37,7 @@ class FacilitiesResource extends Resource
                     ->preload()
                     ->required(),
                 FileUpload::make('facilities_inner_banner')->label('Banner Image')->columnSpanFull(),
-                RichEditor::make('facilities_content')->columnSpanFull()
+                TiptapEditor::make('facilities_content')->columnSpanFull()
                 // MarkdownEditor::make('facilities_content')->columnSpanFull()
             ]);
     }

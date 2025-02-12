@@ -24,6 +24,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
+use FilamentTiptapEditor\TiptapEditor;
 
 class ArticlesResource extends Resource
 {
@@ -49,7 +50,7 @@ class ArticlesResource extends Resource
 
                     // MarkdownEditor::make('content')->columnSpanFull(),
 
-                    RichEditor::make('content')->columnSpanFull(),
+                    TiptapEditor::make('content')->columnSpanFull(),
 
                 ])->columnSpanFull()->columns(2),
 

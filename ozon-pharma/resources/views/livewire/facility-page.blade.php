@@ -10,9 +10,9 @@
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
                     <div class="innerpage-contents">
-
-                        {!! $facilities->facilities_content !!}
-
+                        <div class="tip__tap">
+                            {!! tiptap_converter()->asHTML($facilities->facilities_content) !!}
+                        </div>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">

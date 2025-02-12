@@ -22,8 +22,12 @@
                     <div class="content-wrap">
 
                         <h2 class="header">World-Class Quality, Efficacy & Excellence</h2>
-                        <p class="content-text">Jamjoom Pharma merges global best practices with local expertise to maximize value creation for key stakeholders, while reinforcing our position as a leading pharmaceutical manufacturing organization in the Middle East and Africa region.</p>
-                        <p class="content-text">Our strategy is tailored to accelerate and prioritize growth by exploring and expanding into key markets, while creating a positive and lasting impact in the communities we operate in. We strive to optimize operational efficiencies in manufacturing to drive cost reduction and minimize waste, as well as contributing to national and regional self-sufficiency. This enables us to reinforce our position as a key strategic supplier to the Kingdom’s public healthcare system, in line with Vision 2030 and the National Transformation Program.</p>
+                        <p class="content-text">
+                            Ozon Pharmaceuticals is a cutting-edge pharmaceutical manufacturing company based in the UAE. Established to meet the growing healthcare demands of the Middle East and beyond, we are committed to producing high-quality, innovative medicines that improve lives. Our state-of-the-art facilities, adherence to global standards, and dedication to excellence position us as a trusted partner in the healthcare industry.
+                        </p>
+                        <p class="content-text">
+                            At Ozon Pharmaceuticals, we strive to deliver solutions that address the region’s most pressing healthcare needs while fostering partnerships with healthcare providers, distributors, and researchers. We aim to be more than just a manufacturer—we aspire to be a force for positive change in global health.MissionTo enhance the quality of healthcare by manufacturing innovative, safe, and affordable pharmaceutical products that empower patients and healthcare professionals in the UAE and across the globe.VisionTo become a leading pharmaceutical manufacturer recognized for excellence, innovation, anda commitment to transforming healthcare outcomes worldwide.
+                        </p>
 
                     </div>
                 </div>
@@ -60,8 +64,8 @@
                                     <h1>Our Mission</h1>
                                 </button>
                             </div>
-                            <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">To enhance the quality of healthcare by manufacturing innovative, safe, and affordable pharmaceutical products that empower patients and healthcare professionals in the UAE and across the globe.</div>
                             </div>
                         </div>
                         <div class="accordion-item">
@@ -71,17 +75,7 @@
                                 </button>
                             </div>
                             <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <div class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                    <h1>Company Values</h1>
-                                </button>
-                            </div>
-                            <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+                                <div class="accordion-body">To become a leading pharmaceutical manufacturer recognized for excellence, innovation, anda commitment to transforming healthcare outcomes worldwide.</div>
                             </div>
                         </div>
                     </div>
@@ -104,18 +98,12 @@
             <div class="row">
                 <div class="col">
                     <ul class="numbers">
-                        <li class="list">
-                            <span class="count">20+</span>
-                            <span class="title">Years in Business</span>
-                        </li>
-                        <li class="list">
-                            <span class="count">35+</span>
-                            <span class="title">Team Members</span>
-                        </li>
-                        <li class="list">
-                            <span class="count">100+</span>
-                            <span class="title">Products</span>
-                        </li>
+                        @foreach ( $ourNumbers  as $item )
+                            <li class="list">
+                                <span class="count">{{ $item->value }}</span>
+                                <span class="title">{{ $item->title }}</span>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>

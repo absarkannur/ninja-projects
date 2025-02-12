@@ -17,13 +17,13 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class SiteInfoResource extends Resource
-{
+class SiteInfoResource extends Resource {
+
     protected static ?string $model = SiteInfo::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $navigationLabel = 'Site Info';
-    protected static ?string $navigationGroup = 'Settings';
+    protected static ?string $navigationGroup = 'General';
     protected static ?int $navigationSort = 6;
 
 

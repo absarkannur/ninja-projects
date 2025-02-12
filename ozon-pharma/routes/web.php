@@ -10,9 +10,11 @@ use App\Livewire\ArticlesPage;
 use App\Livewire\ArticlePage;
 use App\Livewire\StrategyPage;
 use App\Livewire\ContactPage;
-use App\Livewire\AppPage;
+use App\Livewire\ComingSoonPage;
 
 use Illuminate\Support\Facades\Route;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +31,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get( '/', HomePage::class )->name('home');
+Route::get( '/', ComingSoonPage::class )->name('comingsoon');
+Route::get( '/home', HomePage::class )->name('home');
 Route::get( '/about', AboutPage::class )->name('about');
 Route::get( '/facilities', FacilitiesPage::class )->name('facilities');
 Route::get( '/facility/{slug}', FacilityPage::class )->name('facility');

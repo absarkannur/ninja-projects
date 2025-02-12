@@ -1,0 +1,47 @@
+.tip__tap * {
+    margin: 0;
+    padding: 0;
+}
+
+.tip__tap h1,
+.tip__tap h2,
+.tip__tap h3,
+.tip__tap h4,
+.tip__tap h5,
+.tip__tap h6{
+    margin-bottom: 20px;
+}
+
+.tip__tap p{
+    margin: 10px 0;
+}
+
+.tip__tap .filament-tiptap-grid-builder{
+    display: flex;
+    justify-content: space-between;
+}
+
+.tip__tap .filament-tiptap-grid-builder__column{
+    width: 100%;
+    padding: 10px;
+}
+
+.tip__tap table{
+    width: 100%;
+    table-layout: fixed;
+    border-top: solid 1px #ddd;
+    border-right: solid 1px #ddd;
+}
+
+.tip__tap table tr th,
+.tip__tap table tr td{
+    padding: 5px 10px;
+    border-left: solid 1px #ddd;
+    border-bottom: solid 1px #ddd;
+}
+
+@media only screen and (max-width: 768px) {
+    .tip__tap .filament-tiptap-grid-builder{
+        display: block;
+    }
+}
