@@ -50,11 +50,11 @@
                     </ul>
 
                     <p class="">Our products are sourced from reputable manufacturers, ensuring they meet the highest industry standards for quality and performance.</p>
-                
+
                 </div>
                 <div class="col-12 col-sm-6 col-lg-6 col-xl-6">
                     <div class="image-wrap">
-                        <img src={{ asset('fav/images/abt-img-1.jpg') }} alt="">
+                        <img src={{ asset('fav/images/abt-img-1.jpg') }} alt="At Favtech FZCO, we pride ourselves on offering a comprehensive range of high-quality spare parts. Our main focus is on LCD displays, but our inventory also includes other essential components for mobile phones. We support the following leading brands:" />
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
             <div class="row">
                 <div class="col-12 col-sm-6 col-lg-6 col-xl-6">
                     <div class="image-wrap">
-                        <img style="width: 480px" src={{ asset('fav/images/abt-img-2.jpg') }} alt="">
+                        <img style="width: 480px" src={{ asset('fav/images/abt-img-2.jpg') }} alt="Favtech FZCO is specialized in dealing with genuine spare parts for mobile phones , such as SERVICE PACK LCD for all Brands" />
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-6 col-xl-6">
@@ -128,7 +128,7 @@
                 </div>
                 <div class="col-12 col-sm-6 col-lg-6 col-xl-6">
                     <div class="image-wrap">
-                        <img style="width: 480px" src={{ asset('fav/images/abt-img-3.png') }} alt="">
+                        <img style="width: 480px" src={{ asset('fav/images/abt-img-3.png') }} alt="Favtech FZCO is specialized in dealing with genuine spare parts for mobile phones , such as SERVICE PACK LCD for all Brands" />
                     </div>
                 </div>
             </div>
@@ -141,7 +141,7 @@
                 <div class="col-12">
                     <h2 class="title">Our Philosophy</h2>
                     <p class="">We believe in building long-term relationships based on trust, integrity, and mutual benefit. Our commitment to excellence drives us to continually improve our products and services, ensuring we meet the evolving needs of our clients.</p>
-                </div>                
+                </div>
             </div>
         </div>
     </div>

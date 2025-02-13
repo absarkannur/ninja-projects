@@ -30,7 +30,7 @@
                                     <div class="image-wrapper">
                                         <div class="imagethmb">
                                             <div class="imagethmb_inner">
-                                                <img src={{ asset( 'storage/' . $brand['brand_image'] ) }} alt="">
+                                                <img src={{ asset( 'storage/' . $brand['brand_image'] ) }} alt="{{ $brand['brand_name'] }}" />
                                             </div>
                                         </div>
                                     </div>
@@ -180,7 +180,7 @@
                                 <div class="image-wrapper">
                                     <div class="imagethmb">
                                         <div class="imagethmb_inner">
-                                            <img src={{ asset( 'storage/' . $product['product_image'] ) }} alt="">
+                                            <img src={{ asset( 'storage/' . $product['product_image'] ) }} alt="{{ $product['brand_name'] . ' ' . $product['product_name'] . ' ' . $product['product_class'] . '-' . $product['product_model'] . '-' . $product['product_parts'] . ' + ' .  $product['color_name'] . ' + ' . $product['product_part_number'] }}" />
                                         </div>
                                     </div>
                                 </div>
@@ -190,7 +190,7 @@
                                         <span class="tag">{{ $product['product_parts'] . ' + ' .  $product['color_name'] . ' + ' . $product['product_part_number'] }}</span>
                                     </div>
                                     <div class="product_enquiry">
-                                        <a class="whatsapp" target="__blank" href="{{ 'https://wa.me/+971553351001/?text=I am interested with ' . $product['brand_name'] . ' ' . $product['product_name'] . ' ' . $product['product_class'] . '-' . $product['product_model'] . '-' . $product['product_parts'] . ' + ' .  $product['color_name'] . ' + ' . $product['product_part_number'] }}">
+                                        <a class="whatsapp" target="__blank" rel="noreferrer" href="{{ 'https://wa.me/+971553351001/?text=I am interested with ' . $product['brand_name'] . ' ' . $product['product_name'] . ' ' . $product['product_class'] . '-' . $product['product_model'] . '-' . $product['product_parts'] . ' + ' .  $product['color_name'] . ' + ' . $product['product_part_number'] }}">
                                             <svg width="24" height="24">
                                                 <use xlink:href="{{ asset('fav/images/svg-sprint.svg#whatsapp-filled') }}"></use>
                                             </svg>

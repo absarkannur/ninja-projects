@@ -1,4 +1,4 @@
-<header class="wrapper-header">
+<header class="wrapper-header" itemscope itemtype="http://schema.org/LocalBusiness">
     <div class="top-bar">
         <div class="container-fluid">
 
@@ -39,19 +39,19 @@
     </div>
     <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ route('home') }}">
-                <img class="site-header-logo" src={{ asset('/fav/images/logo.png') }} alt="">
+            <a class="navbar-brand" href="{{ route('home') }}" rel="noreferrer">
+                <img class="site-header-logo" src={{ asset('/fav/images/logo.png') }} title="Favtech FZCO" alt="Favtech FZCO" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" href="{{ route('home') }}">Home</a>
-                    <a class="nav-link" href="{{ route('about-us') }}">About Us</a>
-                    <a class="nav-link" href="{{ route( 'products', ['slug'=>'all'] ) }}">Products</a>
-                    <a class="nav-link" href="{{ route('contact-us') }}">Contact Us</a>
-                    <a class="nav-link btn" href="{{ route('price-list') }}">Price List</a>
+                    <a class="nav-link" href="{{ route('home') }}" rel="noreferrer">Home</a>
+                    <a class="nav-link" href="{{ route('about-us') }}" rel="noreferrer">About Us</a>
+                    <a class="nav-link" href="{{ route( 'products', ['slug'=>'all'] ) }}" rel="noreferrer">Products</a>
+                    <a class="nav-link" href="{{ route('contact-us') }}" rel="noreferrer">Contact Us</a>
+                    <a class="nav-link btn" href="{{ route('price-list') }}" rel="noreferrer">Price List</a>
                 </div>
             </div>
         </div>

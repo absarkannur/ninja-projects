@@ -9,7 +9,7 @@
                         <h1>{{ $banner['banner_title'] }}</h1>
                         <h6>{{ $banner['banner_subtitle'] }}</h6>
                     </div>
-                    <img src="{{ asset( 'storage/'. $banner['banner_image'] ) }}" alt="" />
+                    <img src="{{ asset( 'storage/'. $banner['banner_image'] ) }}" title={{ $banner['banner_title'] }} alt="{{ $banner['banner_title'] }}" />
                 </div>
                 @endforeach
             @endif
@@ -92,7 +92,9 @@
                                 <div class="image-wrapper">
                                     <div class="imagethmb">
                                         <div class="imagethmb_inner">
-                                            <img src="{{ asset( 'storage/' . $product['product_image'] ) }}" alt="">
+                                            <img src="{{ asset( 'storage/' . $product['product_image'] ) }}"
+                                                title="{{ $product['brand_name'] . ' ' . $product['product_name'] . ' ' . $product['product_class'] . '-' . $product['product_model'] . '-' .$product['product_parts'] . ' + ' .  $product['color_name'] . ' + ' . $product['product_part_number'] }}"
+                                                alt="{{ $product['brand_name'] . ' ' . $product['product_name'] . ' ' . $product['product_class'] . '-' . $product['product_model'] . '-' .$product['product_parts'] . ' + ' .  $product['color_name'] . ' + ' . $product['product_part_number'] }}" />
                                         </div>
                                     </div>
                                 </div>
@@ -145,7 +147,7 @@
                             <li class="list">
                                 <div class="imagethmb">
                                     <div class="imagethmb_inner">
-                                        <img src="{{ asset( 'storage/' . $brand['brand_image'] ) }}" alt="" />
+                                        <img src="{{ asset( 'storage/' . $brand['brand_image'] ) }}" title="null" alt="null" />
                                     </div>
                                 </div>
                             </li>
@@ -191,7 +193,7 @@
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                     <div class="image_wrapper">
-                        <img src="{{ asset( 'fav/images/faq.png' ) }}" alt="">
+                        <img src="{{ asset( 'fav/images/faq.png' ) }}" title="null" alt="null" />
                     </div>
                 </div>
             </div>
@@ -205,6 +207,9 @@
                     <h2>Contact Us</h2>
                     <ul class="address">
                         <li>
+                            <span class="text" itemprop="name">Favtech FZCO</span>
+                        </li>
+                        <li>
                             <svg width="24" height="24">
                                 <use xlink:href="{{ asset('fav/images/svg-sprint.svg#building-2-shape') }}"></use>
                             </svg>
@@ -214,19 +219,19 @@
                             <svg width="24" height="24">
                                 <use xlink:href="{{ asset('fav/images/svg-sprint.svg#phone-shape') }}"></use>
                             </svg>
-                            <span class="text">+971 55 335 1001</span>
+                            <span class="text" itemprop="telephone">+971 55 335 1001</span>
                         </li>
                         <li>
                             <svg width="24" height="24">
                                 <use xlink:href="{{ asset('fav/images/svg-sprint.svg#envelope-shape') }}"></use>
                             </svg>
-                            <span class="text">info@favtech.ae</span>
+                            <span class="text" itemprop="email">info@favtech.ae</span>
                         </li>
-                        <li>
+                        <li itemprop="address" itemscope itemtype="http://schema.org/PostalAddress" itemref="_addressLocality6">
                             <svg width="24" height="24">
                                 <use xlink:href="{{ asset('fav/images/svg-sprint.svg#map-pin-thick-shape') }}"></use>
                             </svg>
-                            <span class="text">G25 Dubai Airport Freezone ,Dubai , UAE</span>
+                            <span class="text"><span itemprop="streetAddress">G25 Dubai Airport Freezone</span>, <span itemprop="addressRegion">Dubai</span> , <span itemprop="addressCountry">UAE</span></span>
                         </li>
                     </ul>
 
