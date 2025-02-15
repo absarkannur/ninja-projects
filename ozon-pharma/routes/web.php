@@ -31,19 +31,17 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get( '/', ComingSoonPage::class )->name('comingsoon');
-Route::get( '/home', HomePage::class )->name('home');
+// Route::get( '/', ComingSoonPage::class )->name('comingsoon');
+Route::get( '/', HomePage::class )->name('home');
 Route::get( '/about', AboutPage::class )->name('about');
 Route::get( '/facilities', FacilitiesPage::class )->name('facilities');
 Route::get( '/facility/{slug}', FacilityPage::class )->name('facility');
 Route::get( '/products', ProductsPage::class )->name('products');
 Route::get( '/strategy', StrategyPage::class )->name('strategy');
 Route::get( '/contact',  ContactPage::class )->name('contact');
-
 Route::get( '/pharmacovigilance', PharmacovigilancePage::class )->name('pharmacovigilance');
 
 // Articles
-
 Route::get( '/article/{slug}', ArticlePage::class )->name('article');
 Route::get( '/articles', ArticlesPage::class )->name('articles');
 

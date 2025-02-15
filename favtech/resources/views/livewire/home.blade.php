@@ -207,7 +207,7 @@
                     <h2>Contact Us</h2>
                     <ul class="address">
                         <li>
-                            <span class="text" itemprop="name">Favtech FZCO</span>
+                            <span class="text">Favtech FZCO</span>
                         </li>
                         <li>
                             <svg width="24" height="24">
@@ -219,19 +219,19 @@
                             <svg width="24" height="24">
                                 <use xlink:href="{{ asset('fav/images/svg-sprint.svg#phone-shape') }}"></use>
                             </svg>
-                            <span class="text" itemprop="telephone">+971 55 335 1001</span>
+                            <span class="text">+971 55 335 1001</span>
                         </li>
                         <li>
                             <svg width="24" height="24">
                                 <use xlink:href="{{ asset('fav/images/svg-sprint.svg#envelope-shape') }}"></use>
                             </svg>
-                            <span class="text" itemprop="email">info@favtech.ae</span>
+                            <span class="text">info@favtech.ae</span>
                         </li>
-                        <li itemprop="address" itemscope itemtype="http://schema.org/PostalAddress" itemref="_addressLocality6">
+                        <li>
                             <svg width="24" height="24">
                                 <use xlink:href="{{ asset('fav/images/svg-sprint.svg#map-pin-thick-shape') }}"></use>
                             </svg>
-                            <span class="text"><span itemprop="streetAddress">G25 Dubai Airport Freezone</span>, <span itemprop="addressRegion">Dubai</span> , <span itemprop="addressCountry">UAE</span></span>
+                            <span class="text">G25 Dubai Airport Freezone, Dubai, UAE</span>
                         </li>
                     </ul>
 

@@ -5,7 +5,7 @@
             <div class="box">
                 <h2 class="heading-2">WE ARE ODYSSEUSS. WE ARE GROWTH ARCHITECTS</h2>
                 <h1 class="heading-1">We aim to give companies fuel for sustainable growth</h1>
-                <h3 class="heading-3">through consumer-centric strategy, memorable story-telling and strategic innovation</h3>
+                <h2 class="heading-2">through consumer-centric strategy, memorable story-telling and strategic innovation</h2>
                 <a href="{{ route('contact-us') }}" class="btn odys-black-btn">
                     Let's Connect
                     <img src={{ asset('odys_assets/images/icons/btn-arrow-white.svg') }} alt="">
@@ -19,7 +19,7 @@
 
             <div class="row">
                 <div class="col">
-                    <h1 class="heading animate__animated visibility">Why Us</h1>
+                    <h3 class="heading animate__animated visibility">Why Us</h3>
                 </div>
             </div>
 
@@ -114,8 +114,8 @@
 
             <div class="row">
                 <div class="col">
-                    <h1 class="sub-heading animate__animated visibility">OUR MODEL</h1>
-                    <h1 class="heading animate__animated visibility">The Growth Wheel</h1>
+                    <h2 class="sub-heading animate__animated visibility">OUR MODEL</h2>
+                    <h2 class="heading animate__animated visibility">The Growth Wheel</h2>
                 </div>
             </div>
 
@@ -148,8 +148,8 @@
 
             <div class="row">
                 <div class="col">
-                    <h1 class="sub-heading animate__animated visibility">WHAT WE DO</h1>
-                    <h1 class="heading animate__animated visibility">Our Services</h1>
+                    <h2 class="sub-heading animate__animated visibility">WHAT WE DO</h2>
+                    <h2 class="heading animate__animated visibility">Our Services</h2>
                 </div>
             </div>
 
@@ -183,8 +183,8 @@
 
             <div class="row">
                 <div class="col">
-                    <h1 class="sub-heading animate__animated visibility">OUR COMPASS IS THE CONSUMER</h1>
-                    <h1 class="heading animate__animated visibility">We Believe In</h1>
+                    <h2 class="sub-heading animate__animated visibility">OUR COMPASS IS THE CONSUMER</h2>
+                    <h2 class="heading animate__animated visibility">We Believe In</h2>
                 </div>
             </div>
 
@@ -254,8 +254,8 @@
 
             <div class="row">
                 <div class="col">
-                    <h1 class="sub-heading animate__animated visibility">THE MINDS BEHIND THE MAGIC</h1>
-                    <h1 class="heading animate__animated visibility">Our Executive Team</h1>
+                    <h2 class="sub-heading animate__animated visibility">THE MINDS BEHIND THE MAGIC</h2>
+                    <h2 class="heading animate__animated visibility">Our Executive Team</h2>
                 </div>
             </div>
 

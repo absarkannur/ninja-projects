@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use App\View\Composers\ProfileComposer;
+use App\View\Composers\HeaderComposer;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -27,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
 
         //
         View::composer( '*', ProfileComposer::class );
+        View::composer( '*', HeaderComposer::class );
 
     }
 }
