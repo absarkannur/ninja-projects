@@ -25,6 +25,8 @@ return new class extends Migration
             $table->string('product_condition')->nullable();
             $table->string('product_quality')->nullable();
             $table->string('product_image')->nullable();
+            $table->double('product_price_aed');
+            $table->double('product_price_usd');
             $table->boolean('product_latest')->default(0);
             $table->timestamps();
         });

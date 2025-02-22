@@ -177,11 +177,20 @@
                                 @if ( $product->product_latest == 1)
                                 <span class="new">LATEST</span>
                                 @endif
-                                <div class="image-wrapper">
-                                    <div class="imagethmb">
-                                        <div class="imagethmb_inner">
-                                            <img src={{ asset( 'storage/' . $product['product_image'] ) }} alt="{{ $product['brand_name'] . ' ' . $product['product_name'] . ' ' . $product['product_class'] . '-' . $product['product_model'] . '-' . $product['product_parts'] . ' + ' .  $product['color_name'] . ' + ' . $product['product_part_number'] }}" />
+                                <div class="wrp">
+                                    @if( $product->product_price_aed == 0 )
+                                    <span class="soldout"><em>SOLD OUT</em></span>
+                                    @endif
+                                    <div class="image-wrapper">
+                                        <div class="imagethmb">
+                                            <div class="imagethmb_inner">
+                                                <img src={{ asset( 'storage/' . $product['product_image'] ) }} alt="{{ $product['brand_name'] . ' ' . $product['product_name'] . ' ' . $product['product_class'] . '-' . $product['product_model'] . '-' . $product['product_parts'] . ' + ' .  $product['color_name'] . ' + ' . $product['product_part_number'] }}" />
+                                            </div>
                                         </div>
+                                    </div>
+                                    <div class="price-wrapper">
+                                        <span class="price"><em>AED</em> {{ $product['product_price_aed'] }}</span>
+                                        <span class="price">${{ $product['product_price_usd'] }}</span>
                                     </div>
                                 </div>
                                 <div class="details-wrapper">

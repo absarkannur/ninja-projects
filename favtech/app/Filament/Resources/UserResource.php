@@ -30,7 +30,7 @@ class UserResource extends Resource
             ->schema([
                 TextInput::make('name')->required(),
                 TextInput:: make('email')->required()->email(),
-                TextInput:: make('password')->required()->password()
+                TextInput:: make('password')->revealable()->required()->password()
             ])->columns(2);
     }
 

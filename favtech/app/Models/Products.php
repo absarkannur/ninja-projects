@@ -26,7 +26,11 @@ class Products extends Model
         'product_condition',
         'product_quality',
         'product_image',
-        'product_latest'
+        'product_price_aed',
+        'product_price_usd',
+        'product_latest',
+        'created_at',
+        'updated_at'
     ];
 
     // protected $casts = [

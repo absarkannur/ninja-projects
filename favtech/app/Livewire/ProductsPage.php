@@ -47,7 +47,8 @@ class ProductsPage extends Component
 
             $products_list = Products::leftJoin( 'brands', 'brands.id', 'products.brands_id' )
                 ->leftJoin( 'colors', 'colors.id', 'products.colors_id' )
-                ->orderBy( 'products.id', 'DESC')
+                // ->orderBy( 'products.product_price_aed', 'DESC')
+                ->orderBy( 'products.updated_at', 'DESC')
                 ->paginate(12);
 
         } else {
@@ -65,7 +66,8 @@ class ProductsPage extends Component
                                 ->where( 'series_id', $series_id )
                                 ->leftJoin( 'brands', 'brands.id', 'products.brands_id' )
                                 ->leftJoin( 'colors', 'colors.id', 'products.colors_id' )
-                                ->orderBy( 'products.id', 'DESC')
+                                // ->orderBy( 'products.product_price_aed', 'DESC')
+                                ->orderBy( 'products.updated_at', 'DESC')
                                 ->paginate(12);
 
 
@@ -80,7 +82,8 @@ class ProductsPage extends Component
                                 ->whereIn( 'products.id', $this->filter )
                                 ->leftJoin( 'brands', 'brands.id', 'products.brands_id' )
                                 ->leftJoin( 'colors', 'colors.id', 'products.colors_id' )
-                                ->orderBy( 'products.id', 'DESC')
+                                // ->orderBy( 'products.product_price_aed', 'DESC')
+                                ->orderBy( 'products.updated_at', 'DESC')
                                 ->paginate(12);
 
             } else {
@@ -90,7 +93,8 @@ class ProductsPage extends Component
                 $products_list = Products::where('brands_id' , $brand_id )
                                 ->leftJoin( 'brands', 'brands.id', 'products.brands_id' )
                                 ->leftJoin( 'colors', 'colors.id', 'products.colors_id' )
-                                ->orderBy( 'products.id', 'DESC')
+                                // ->orderBy( 'products.product_price_aed', 'DESC')
+                                ->orderBy( 'products.updated_at', 'DESC')
                                 ->paginate(12);
 
             }

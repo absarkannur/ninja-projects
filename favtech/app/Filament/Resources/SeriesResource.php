@@ -46,7 +46,8 @@ class SeriesResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('product_series')
+                TextColumn::make('product_series'),
+                TextColumn::make('brands.brand_name')->sortable()
             ])
             ->filters([
                 //
