@@ -1,6 +1,12 @@
+.tip__tap{
+    margin-top: 30px;
+}
+
 .tip__tap * {
     margin: 0;
     padding: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 .tip__tap h1,
@@ -12,18 +18,37 @@
     margin-bottom: 20px;
 }
 
+.tip__tap h1{ font-size: 50px; }
+.tip__tap h2{ font-size: 40px; font-weight: 400;}
+.tip__tap h3{ font-size: 32px; }
+
+.tip__tap hr{
+    margin-bottom: 20px;
+}
+
 .tip__tap p{
     margin: 10px 0;
+    font-size: 18px;
 }
 
 .tip__tap .filament-tiptap-grid-builder{
     display: flex;
     justify-content: space-between;
+    gap: 20px;
 }
 
 .tip__tap .filament-tiptap-grid-builder__column{
     width: 100%;
-    padding: 10px;
+    /* padding: 10px; */
+}
+
+.tip__tap .filament-tiptap-grid-builder__column img{
+    width: 100% !important;
+    height: auto !important;
+}
+
+.tip__tap .filament-tiptap-grid-builder__column p{
+    text-align: justify;
 }
 
 .tip__tap table{
@@ -41,7 +66,20 @@
 }
 
 @media only screen and (max-width: 768px) {
+
+    .tip__tap{
+        margin-top: 15px;
+    }
+
+    .tip__tap h1{ font-size: 28px;}
+    .tip__tap h2{ font-size: 26px;}
+    .tip__tap h3{ font-size: 24px;}
+
     .tip__tap .filament-tiptap-grid-builder{
         display: block;
+    }
+
+    .tip__tap p{
+        font-size: 16px;
     }
 }

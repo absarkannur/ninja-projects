@@ -16,7 +16,9 @@ class SiteInfo extends Model
         'compnay_time',
         'compnay_fb',
         'compnay_insta',
-        'compnay_linkd'
+        'compnay_linkd',
+        'company_logo_header',
+        'company_logo_footer'
     ];
 
 }

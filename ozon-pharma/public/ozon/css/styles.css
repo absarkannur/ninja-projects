@@ -140,7 +140,7 @@ body{
 .home-banner-wrapper .header{
     color: var(--text-color);
     font-weight: 400;
-    font-size: 54px;
+    font-size: 46px;
 }
 
 .home-banner-wrapper .content-text{
@@ -191,7 +191,6 @@ body{
 
 .home-banner-wrapper .banner-box-one button{
     position: relative;
-    margin-top: 79px;
     z-index: 99;
 }
 
@@ -467,7 +466,7 @@ footer .footer-links .social-list .list a{
 }
 
 .home-about-wrapper .about-info .header{
-    font-size: 40px;
+    font-size: 30px;
     margin-bottom: 20px;
 }
 
@@ -483,24 +482,22 @@ footer .footer-links .social-list .list a{
 }
 
 .home-about-wrapper .about-info .about-counter{
-    display: flex;
     margin: 30px 0;
 }
 
 .home-about-wrapper .about-info .about-counter .list{
-    width: 33.33%;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 .home-about-wrapper .about-counter .list .count{
     display: block;
-    font-size: 40px;
+    font-size: 18px;
     font-weight: 600;
 }
 
 .home-about-wrapper .about-counter .list .title{
     display: block;
-    height: 30px;
-    line-height: 30px;
     color: var(--text-color-light);
 }
 
@@ -655,7 +652,7 @@ footer .footer-links .social-list .list a{
     }
 
     .home-banner-wrapper .header{
-        font-size: 34px;
+        font-size: 26px;
     }
 
     .home-banner-wrapper .content-text{
@@ -782,13 +779,13 @@ footer .footer-links .social-list .list a{
         width: 21px;
     }
 
-    .home-about-wrapper .about-counter .list .count{
+    /* .home-about-wrapper .about-counter .list .count{
         font-size: 30px;
     }
 
     .home-about-wrapper .about-counter .list .title{
         font-size: 14px;
-    }
+    } */
 
     .home-cherapeutic-categories .categories .category-list .icon{
         height: 45px;

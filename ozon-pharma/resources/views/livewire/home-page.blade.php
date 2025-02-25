@@ -4,10 +4,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                    <h1 class="header">Innovative solutions for a wide range of health needs.</h1>
+                    <h1 class="header">Localized Pharmaceutical Manufacturing & Repackaging in the UAE</h1>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                    <p class="content-text">Ozon Pharmaceuticals is a trusted name in the region, with decades in healthcare distribution and over 20 years of GMP-certified manufacturing excellence.</p>
+                    <p class="content-text">Ozon Pharmaceuticals is a UAE-based pharmaceutical manufacturer specializing in the production and repackaging of tablets, capsules, and injectables. With over 20 years of GMP-certified expertise, we support the localization of high-quality medicines, ensuring accessibility and efficiency in the region.</p>
 
                     <a href="{{ route('about') }}">
                         <div class="button-group">
@@ -33,7 +33,7 @@
                     <div class="banner-box-one">
                         <img src={{ asset("ozon/images/banner-1.svg") }} />
                         <h3 class="header">Our products</h3>
-                        <p class="content-text">We offer high quality products comparable to the best globally</p>
+                        <p class="content-text">We manufacture and repackage high-quality medicines in the UAE, ensuring world-class standards with a localized approach.</p>
                         <a href="{{ route('products') . '?filter=Product+Name' }}">
                             <button class="oz-button-lightblue">Explore Products</button>
                         </a>
@@ -43,8 +43,8 @@
                     <div class="banner-box-two">
                         <div class="box-1">
 
-                            <p class="content-text">More than</p>
-                            <h3 class="header">20+ Years </h3>
+                            <p class="content-text">More than a</p>
+                            <h3 class="header">Year</h3>
                             <p class="content-text">in Business</p>
 
                             <div class="sec">
@@ -82,7 +82,7 @@
         <div class="container"> {{-- Header --}}
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                    <h2 class="sub-heading">Reliable and Trusted Pharmaceutical Innovation</h2>
+                    <h2 class="sub-heading">State-of-the-Art Manufacturing & Repackaging in the UAE</h2>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
                     <div class="carousel-button-group fr">
@@ -185,16 +185,22 @@
 
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
                     <div class="about-info">
-                        <h2 class="header">The company is ranked among the Top 5 Pharma Companies (IMS)</h2>
-                        <p class="content-text">Ozon Pharma one of the fastest growing companies in the region, with world class manufacturing facilities and processes managed by dedicated teams</p>
+                        <h2 class="header">Pioneering Pharmaceutical Manufacturing & Repackaging in the UAE </h2>
+                        <p class="content-text">Ozon Pharma is a newly established pharmaceutical manufacturing and repackaging facility in the UAE, built to meet the highest global standards. With cutting-edge technology and a commitment to quality, we specialize in the production and repackaging of tablets, capsules, and injectables. Our goal is to localize pharmaceutical production, ensuring faster access to high-quality medicines while supporting the region’s healthcare sector.</p>
 
                         <ul class="about-counter">
-                            @foreach ( $ourNumbers as $item )
-                                <li class="list">
-                                    <span class="count">{{ $item->value }}</span>
-                                    <span class="title">{{ $item->title }}</span>
-                                </li>
-                            @endforeach
+                            <li class="list">
+                                <span class="count">GMP-Certified</span>
+                                <span class="title">Committed to Global Pharmaceutical Standards</span>
+                            </li>
+                            <li class="list">
+                                <span class="count">End-to-End Solutions</span>
+                                <span class="title">Manufacturing & Repackaging for Tablets, Capsules & Injectables</span>
+                            </li>
+                            <li class="list">
+                                <span class="count">Supporting UAE’s Healthcare Vision</span>
+                                <span class="title">Strengthening Localized Medicine Production</span>
+                            </li>
                         </ul>
 
                         <a href="{{ route('about') }}">

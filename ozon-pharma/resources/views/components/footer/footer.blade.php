@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3">
-                <img class="logo" src={{ asset('ozon/images/ozon-logo-white.png') }} alt="">
+                <img class="logo" src={{ asset( 'storage/' . $site_info->company_logo_footer ) }} alt="">
                 <p class="content-text">Ozon Pharma one of the fastest growing companies in the region.</p>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3">

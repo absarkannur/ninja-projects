@@ -2,7 +2,7 @@
     <div class="container">
 
         <a class="navbar-brand" href="{{ route('home') }}">
-            <img src={{ asset( 'ozon/images/ozon-logo.png' )}} alt="OZON Pharmaceuticals">
+            <img src={{ asset( 'storage/' . $site_info->company_logo_header )}} alt="OZON Pharmaceuticals">
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

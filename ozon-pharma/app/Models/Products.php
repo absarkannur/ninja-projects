@@ -10,7 +10,6 @@ class Products extends Model
 {
     use HasFactory;
 
-
     protected $fillable = [
         'therapeutic_categories_id',
         'product_name',

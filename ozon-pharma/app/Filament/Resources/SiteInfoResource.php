@@ -6,6 +6,7 @@ use App\Filament\Resources\SiteInfoResource\Pages;
 use App\Filament\Resources\SiteInfoResource\RelationManagers;
 use App\Models\SiteInfo;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -31,6 +32,11 @@ class SiteInfoResource extends Resource {
     {
         return $form
             ->schema([
+                Section::make('Site Logo')
+                ->schema([
+                    FileUpload::make('company_logo_header')->label('Header Logo'),
+                    FileUpload::make('company_logo_footer')->label('Footer Logo')
+                ])->columnSpan(1),
                 Section::make('Company Information')
                     ->schema([
                         TextInput::make('compnay_email')->label('Email'),
