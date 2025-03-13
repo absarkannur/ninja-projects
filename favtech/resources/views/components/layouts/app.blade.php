@@ -21,6 +21,7 @@
         <link rel="stylesheet" href={{ asset( 'fav/assets/owl.theme.default.min.css?v=faaaavTelex' ) }}>
         <link rel="stylesheet" href={{ asset( 'fav/assets/owl.theme.green.min.css?v=faaaavTelex' ) }}>
         <link rel="stylesheet" href={{ asset( 'fav/select2.min.css?v=faaaavTelex' ) }}>
+        <link rel="stylesheet" href={{ asset( 'fav/animate.min.css?v=faaaavTelex' ) }}>
         <link rel="stylesheet" href={{ asset( 'fav/init.css?v=faaaavTelex' ) }}>
         <link rel="stylesheet" href={{ asset( 'fav/site.css?v=faaaavTelex' ) }}>
 

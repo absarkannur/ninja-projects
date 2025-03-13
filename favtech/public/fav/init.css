@@ -491,3 +491,20 @@
     height: 50px;
     line-height: 50px;
   }
+
+
+  .footer_whatsapp{
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+  }
+
+
+  @media (max-width: 768px) {
+    .footer_whatsapp{
+        bottom: 15px;
+        right: 15px;
+    }
+  }

@@ -1,4 +1,5 @@
 $((function() {
+
 	$(".banner_slider").owlCarousel({
 		loop: !0,
 		nav: !0,
@@ -43,4 +44,11 @@ $((function() {
 			}
 		}
     })
+
+    $('document').ready(function(){
+        setTimeout(function(){
+            $('.footer_whatsapp').show();
+        }, 3000)
+    })
+
 }));
