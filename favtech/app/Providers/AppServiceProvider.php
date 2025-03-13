@@ -6,7 +6,8 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use App\View\Composers\HeaderComposer;
-
+use App\View\Composers\StructuredData;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,7 +26,19 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useBootstrapFour();
 
+        URL::macro('livewire_current', function () {
+            if (request()->route()->named('livewire.update')) {
+                $previousUrl = url()->previous(); // use the more meaningful one from previous
+
+                return $previousUrl;
+            } else {
+                return request()->route();
+            }
+        });
+
         // View
         View::composer( '*', HeaderComposer::class );
+        View::composer( '*', StructuredData::class );
+
     }
 }

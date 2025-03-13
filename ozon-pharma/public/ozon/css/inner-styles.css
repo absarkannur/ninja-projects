@@ -467,7 +467,7 @@
 
 .strategy-info{
     position: relative;
-    padding-bottom: 50px;
+    /* padding-bottom: 50px; */
 }
 
 .strategy-info .image-wrap{
@@ -618,6 +618,14 @@
 
 .strategy-dots .list:nth-child(4){
     background-color: #0D83A7;
+}
+
+.strategy-dots .list:nth-child(5){
+    background-color: #147390;
+}
+
+.strategy-dots .list:nth-child(6){
+    background-color: #0d576d;
 }
 
 .strategy-list-pharma{
@@ -945,7 +953,7 @@
     }
 
     .strategy-info{
-        padding-bottom: 30px;
+        /* padding-bottom: 30px; */
     }
 
     .strategy-info .image-wrap{

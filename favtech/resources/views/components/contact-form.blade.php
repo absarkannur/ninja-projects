@@ -27,7 +27,7 @@
             <textarea wire:model="message" name="message" class="form-control" id="message" rows="3"></textarea>
         </div>
         <div class="mb-3">
-            <button type="submit" class="btn btn-primary mb-3">Submit</button>
+            <button type="submit" class="contact-button">Submit</button>
         </div>
     </form>
 

@@ -10,6 +10,7 @@ use App\Models\FacilitiesCategory;
 use App\Models\TherapeuticCategories;
 use App\Models\Articles;
 use App\Models\OurNumbers;
+use App\Models\HomePageContent;
 
 class HomePage extends Component {
 
@@ -22,11 +23,14 @@ class HomePage extends Component {
         $articles = Articles::orderBy( 'created_at', 'DESC' )->paginate(3);
         $ourNumbers = OurNumbers::get();
 
+        $homeContent = HomePageContent::first();
+
         return view('livewire.home-page', [
             'facilities_category' => $facilities_category,
             'therapeutic_dategories' => $therapeutic_dategories,
             'articles' => $articles,
-            "ourNumbers" => $ourNumbers
+            "ourNumbers" => $ourNumbers,
+            "homeContent" => $homeContent
         ]);
 
     }

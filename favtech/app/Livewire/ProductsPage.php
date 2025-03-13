@@ -18,8 +18,6 @@ class ProductsPage extends Component
 
     use WithPagination;
 
-    #[Title('favtech | Products')]
-
     #[Url()]
     public $series;
     #[Url()]

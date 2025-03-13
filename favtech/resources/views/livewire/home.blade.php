@@ -5,10 +5,6 @@
             @if( $banners )
                 @foreach( $banners as $banner )
                 <div class="item">
-                    <div class="title">
-                        <h1>{{ $banner['banner_title'] }}</h1>
-                        <h6>{{ $banner['banner_subtitle'] }}</h6>
-                    </div>
                     <img src="{{ asset( 'storage/'. $banner['banner_image'] ) }}" title={{ $banner['banner_title'] }} alt="{{ $banner['banner_title'] }}" />
                 </div>
                 @endforeach
@@ -18,48 +14,60 @@
 
     <section class="home-info-wrapper">
         <div class="container-fluid">
-            <div class="row justify-content-md-center">
-                <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <div class="info-wrap">
+                        {{-- <h3 class="sub-heading">Hola</h3> --}}
+                        <h1 class="heading">Dominate your market. Start today.</h1>
+                        <h2 class="text">Tired of the same old stock struggles? It's not just about filling shelves; it's about strategically reinventing your inventory with the right wholesale partner. Enter Favtech FZCO, your solution to the persistent challenges of securing competitive pricing and consistent, reliable quantity. We understand the tightrope walk of balancing cost and availability. That's why Favtech FZCO is dedicated to streamlining your procurement process, offering a pathway to unlock the potential of your stock through optimized wholesale solutions.</h2>
+                        <a href="{{ route('about-us') }}" class="fancy-btn">&nbsp;&nbsp;&nbsp; Learn More &nbsp;&nbsp;&nbsp;</a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
                     <ul class="info-list">
                         <li class="list">
-                            <div class="wrap">
-                                <svg width="50" height="50">
+                            <div class="wrap" style="background-image: url('{{ asset('fav/images/fast-delivery.jpg') }}')">
+                                <span class="layer"></span>
+                                <svg width="50" height="50" style="position: relative;z-index: 99">
                                     <use xlink:href="{{ asset('fav/images/svg-sprint.svg#car_clock-thick') }}"></use>
                                 </svg>
-                                <div>
+                                <div style="position: relative;z-index: 99">
                                     <span class="title">Fast Delivery</span>
                                     <span class="sub-title">Same day shipping</span>
                                 </div>
                             </div>
                         </li>
                         <li class="list">
-                            <div class="wrap">
-                                <svg width="50" height="50">
+                            <div class="wrap" style="background-image: url('{{ asset('fav/images/professional-team.jpg') }}')">
+                                <span class="layer"></span>
+                                <svg width="50" height="50" style="position: relative;z-index: 99">
                                     <use xlink:href="{{ asset('fav/images/svg-sprint.svg#worker-thick') }}"></use>
                                 </svg>
-                                <div>
+                                <div style="position: relative;z-index: 99">
                                     <span class="title">Professional team</span>
                                     <span class="sub-title">Multilingual communication</span>
                                 </div>
                             </div>
                         </li>
                         <li class="list">
-                            <div class="wrap">
-                                <svg width="40" height="40">
+                            <div class="wrap" style="background-image: url('{{ asset('fav/images/secure-shopping.jpg') }}')">
+                                <span class="layer"></span>
+                                <svg width="40" height="40" style="position: relative;z-index: 99">
                                     <use xlink:href="{{ asset('fav/images/svg-sprint.svg#shield-checkmark-shape') }}"></use>
                                 </svg>
-                                <div>
+                                <div style="position: relative;z-index: 99">
                                     <span class="title">Secure Shopping</span>
                                     <span class="sub-title">Best security features</span>
                                 </div>
                             </div>
                         </li>
                         <li class="list">
-                            <div class="wrap">
-                                <svg width="40" height="40">
+                            <div class="wrap" style="background-image: url('{{ asset('fav/images/unlimited-stocks.jpg') }}')">
+                                <span class="layer"></span>
+                                <svg width="40" height="40" style="position: relative;z-index: 99">
                                     <use xlink:href="{{ asset('fav/images/svg-sprint.svg#layers-shape') }}"></use>
                                 </svg>
-                                <div>
+                                <div style="position: relative;z-index: 99">
                                     <span class="title">Unlimited Stocks</span>
                                     <span class="sub-title">Always physical stocks</span>
                                 </div>
@@ -71,65 +79,11 @@
         </div>
     </section>
 
-    <section class="home-products-wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                    <h2 class="header">LATEST PRODUCTS</h2>
-                </div>
-            </div>
+    <x:products :products="$products" :title="$title='LATEST PRODUCTS'" :pos="$pos=''" />
 
-            <div class="row">
-                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                    <ul class="owl-carousel owl-theme product-list home_product_list">
-
-                        @if( $products )
-                            @foreach( $products as $product )
-                            <li class="list-item">
-                                @if ( $product->product_latest == 1)
-                                <span class="new">LATEST</span>
-                                @endif
-                                <div class="wrp">
-                                    @if( $product->product_price_aed == 0 )
-                                    <span class="soldout"><em>SOLD OUT</em></span>
-                                    @endif
-                                    <div class="image-wrapper">
-                                        <div class="imagethmb">
-                                            <div class="imagethmb_inner">
-                                                <img src="{{ asset( 'storage/' . $product['product_image'] ) }}"
-                                                    title="{{ $product['brand_name'] . ' ' . $product['product_name'] . ' ' . $product['product_class'] . '-' . $product['product_model'] . '-' .$product['product_parts'] . ' + ' .  $product['color_name'] . ' + ' . $product['product_part_number'] }}"
-                                                    alt="{{ $product['brand_name'] . ' ' . $product['product_name'] . ' ' . $product['product_class'] . '-' . $product['product_model'] . '-' .$product['product_parts'] . ' + ' .  $product['color_name'] . ' + ' . $product['product_part_number'] }}" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="price-wrapper">
-                                        <span class="price"><em>AED</em> {{ $product['product_price_aed'] }}</span>
-                                        <span class="price">${{ $product['product_price_usd'] }}</span>
-                                    </div>
-                                </div>
-                                <div class="details-wrapper">
-                                    <div class="product_name">
-                                        <span class="title">{{ $product['brand_name'] . ' ' . $product['product_name'] . ' ' . $product['product_class'] . '-' . $product['product_model'] }}</span>
-                                        <span class="tag">{{ $product['product_parts'] . ' + ' .  $product['color_name'] . ' + ' . $product['product_part_number'] }}</span>
-                                    </div>
-                                    <div class="product_enquiry">
-                                        <a class="whatsapp" target="__blank" href="{{ 'https://wa.me/+971553351001/?text=I am interested with ' . $product['brand_name'] . ' ' . $product['product_name'] . ' ' . $product['product_class'] . '-' . $product['product_model'] . '-' .$product['product_parts'] . ' + ' .  $product['color_name'] . ' + ' . $product['product_part_number'] }}">
-                                            <svg width="24" height="24">
-                                                <use xlink:href="{{ asset('fav/images/svg-sprint.svg#whatsapp-filled') }}"></use>
-                                            </svg>
-                                            Quick Enquiry
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            @endforeach
-                        @endif
-
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div style="background-color: rgb(250, 250, 250)">
+        <x:products :products="$most_viewed" :title="$title='Customers also viewed'" :pos="$pos=''" />
+    </div>
 
     <section class="home-info-block-wrapper">
         <div class="container-fluid">
@@ -143,22 +97,21 @@
 
     <section class="home-brands-wrapper">
         <div class="container-fluid">
+
             <div class="row">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                    <h2>Our trusted partners</h2>
-                    <p>Favtech FZCO is specialized in dealing with genuine spare parts for mobile phones , such as SERVICE PACK LCD for all Brands</p>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <h2 class="header">Our trusted partners</h2>
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            </div>
+
+            <div class="row">
+                <div class="col">
 
                     @if( $brands )
-                        <ul class="brands-list">
+                        <ul class="brands-list owl-carousel owl-theme">
                             @foreach( $brands as $brand )
                             <li class="list">
-                                <div class="imagethmb">
-                                    <div class="imagethmb_inner">
-                                        <img src="{{ asset( 'storage/' . $brand['brand_image'] ) }}" title="null" alt="null" />
-                                    </div>
-                                </div>
+                                <img src="{{ asset( 'storage/' . $brand['brand_image'] ) }}" title="null" alt="null" />
                             </li>
                             @endforeach
                         </ul>
@@ -166,6 +119,7 @@
 
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -216,31 +170,22 @@
                     <h2>Contact Us</h2>
                     <ul class="address">
                         <li>
-                            <span class="text">Favtech FZCO</span>
+                            <svg width="30" height="30">
+                                <use xlink:href={{ asset('fav/images/svg-sprint.svg#building-2-shape') }}></use>
+                            </svg>
+                            <span class="text" style="display:block;width:70%">{{ $site_info->compnay_address }}</span>
                         </li>
                         <li>
-                            <svg width="24" height="24">
-                                <use xlink:href="{{ asset('fav/images/svg-sprint.svg#building-2-shape') }}"></use>
+                            <svg width="30" height="30">
+                                <use xlink:href={{ asset('fav/images/svg-sprint.svg#phone-shape') }}></use>
                             </svg>
-                            <span class="text">4WA Building</span>
+                            <span class="text">{{ $site_info->compnay_phone }}</span>
                         </li>
                         <li>
-                            <svg width="24" height="24">
-                                <use xlink:href="{{ asset('fav/images/svg-sprint.svg#phone-shape') }}"></use>
+                            <svg width="30" height="30">
+                                <use xlink:href={{ asset('fav/images/svg-sprint.svg#envelope-shape') }}></use>
                             </svg>
-                            <span class="text">+971 55 335 1001</span>
-                        </li>
-                        <li>
-                            <svg width="24" height="24">
-                                <use xlink:href="{{ asset('fav/images/svg-sprint.svg#envelope-shape') }}"></use>
-                            </svg>
-                            <span class="text">info@favtech.ae</span>
-                        </li>
-                        <li>
-                            <svg width="24" height="24">
-                                <use xlink:href="{{ asset('fav/images/svg-sprint.svg#map-pin-thick-shape') }}"></use>
-                            </svg>
-                            <span class="text">G25 Dubai Airport Freezone, Dubai, UAE</span>
+                            <span class="text">{{ $site_info->compnay_email }}</span>
                         </li>
                     </ul>
 

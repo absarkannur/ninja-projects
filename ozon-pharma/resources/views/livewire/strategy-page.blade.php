@@ -41,6 +41,7 @@
         </div>
 
         <br>
+        <br>
 
         <div class="container">
             <div class="row">
@@ -53,8 +54,6 @@
         </div>
 
     </section>
-
-
 
     {{-- <section class="strategy-page-wrapper">
         <div class="container">
@@ -78,21 +77,9 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h2 class="heading">Core Strategic Pillars</h2>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-
-                    <ul class="strategy-dots">
-                        <li class="list">Advanced Manufacturing Capabilities:</li>
-                        <li class="list">Comprehensive Repackaging Services:</li>
-                        <li class="list">Market Expansion and Portfolio Development:</li>
-                    </ul>
-
+                    <div class="tip__tap">
+                    {!! tiptap_converter()->asHTML($strategy_content->content_2) !!}
+                    </div>
                 </div>
             </div>
         </div>

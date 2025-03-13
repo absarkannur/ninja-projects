@@ -9,25 +9,19 @@
                         <svg width="30" height="30">
                             <use xlink:href={{ asset('fav/images/svg-sprint.svg#building-2-shape') }}></use>
                         </svg>
-                        <span class="text">4WA Building</span>
+                        <span class="text" style="display:block;width:70%">{{ $site_info->compnay_address }}</span>
                     </li>
                     <li>
                         <svg width="30" height="30">
                             <use xlink:href={{ asset('fav/images/svg-sprint.svg#phone-shape') }}></use>
                         </svg>
-                        <span class="text">+971 55 335 1001</span>
+                        <span class="text">{{ $site_info->compnay_phone }}</span>
                     </li>
                     <li>
                         <svg width="30" height="30">
                             <use xlink:href={{ asset('fav/images/svg-sprint.svg#envelope-shape') }}></use>
                         </svg>
-                        <span class="text">info@favtech.ae</span>
-                    </li>
-                    <li>
-                        <svg width="30" height="30">
-                            <use xlink:href={{ asset('fav/images/svg-sprint.svg#map-pin-thick-shape') }}></use>
-                        </svg>
-                        <span class="text">G25 Dubai Airport Freezone ,Dubai , UAE</span>
+                        <span class="text">{{ $site_info->compnay_email }}</span>
                     </li>
                 </ul>
 

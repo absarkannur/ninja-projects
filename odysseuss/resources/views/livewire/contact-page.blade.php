@@ -82,7 +82,7 @@
 
                             <button class="odys-blue-btn" type="submit">
                                 Submit&nbsp;
-                                <img src="http://127.0.0.1:8000/odys_assets/images/icons/btn-arrow-dark.svg" alt="">
+                                <img src="{{ asset( 'odys_assets/images/icons/btn-arrow-dark.svg' ) }}" alt="">
                             </button>
 
                         </form>

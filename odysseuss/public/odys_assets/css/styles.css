@@ -1123,3 +1123,9 @@ footer .footer-navbar .nav-link.social{
 
 
 }
+
+
+
+h1:contains("OK"){
+    display: none !important;
+}

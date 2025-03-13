@@ -52,6 +52,16 @@
 
         </div>
 
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="tip__tap">
+                    {!! tiptap_converter()->asHTML( $contactContent->content_1 ) !!}
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
 
 

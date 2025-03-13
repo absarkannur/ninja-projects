@@ -27,7 +27,7 @@ class StrategyPageContentResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-newspaper';
     protected static ?string $navigationGroup = 'Pages';
     protected static ?string $navigationLabel = 'Strategy Page';
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
     {
@@ -42,6 +42,10 @@ class StrategyPageContentResource extends Resource
                 Section::make('Block 2')
                     ->schema([
                         TiptapEditor::make('content_1')->label('')->columnSpanFull()
+                    ]),
+                Section::make('Block 3')
+                    ->schema([
+                        TiptapEditor::make('content_2')->label('')->columnSpanFull()
                     ]),
                 Section::make('Block 4')
                     ->schema([
@@ -64,7 +68,7 @@ class StrategyPageContentResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    // Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
     }

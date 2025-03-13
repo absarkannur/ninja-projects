@@ -11,11 +11,10 @@ use App\Models\Brands;
 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactEmail;
+use Illuminate\Support\Arr;
 
 class Home extends Component
 {
-
-    #[Title('favtech | Home')]
 
     public $name = '';
     public $phone = '';
@@ -63,11 +62,19 @@ class Home extends Component
                             ->get();
 
 
+        $most_viewed = Products::where( 'product_view', '<>', 0 )
+                            ->leftJoin( 'brands', 'brands.id', 'products.brands_id' )
+                            ->leftJoin( 'colors', 'colors.id', 'products.colors_id' )
+                            ->orderBy('product_view', 'desc')
+                            ->take(12)
+                            ->get();
+
         return view('livewire.home', [
             'banners' => $banners,
             'products' => $products,
             'faq' => $faq,
             'brands' => $brands,
+            'most_viewed' => $most_viewed,
         ]);
 
     }

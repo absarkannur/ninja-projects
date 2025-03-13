@@ -38,7 +38,7 @@ class HeaderResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('description')
+                TextColumn::make('Header')->default('Headers & Description')
             ])
             ->filters([
                 //

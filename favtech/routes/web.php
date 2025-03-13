@@ -9,12 +9,14 @@ use App\Livewire\PriceListPage;
 use App\Livewire\RegisterPage;
 use App\Livewire\SigninPage;
 use App\Livewire\SignoutPage;
+use App\Livewire\Product;
 
 
 Route::get( '/', Home::class )->name('home');
 Route::get( '/about-us', About::class )->name('about-us');
 
 Route::get( '/products/{slug}', ProductsPage::class )->name('products');
+Route::get( '/product/{slug}', Product::class)->name('product');
 
 Route::get( '/price-list', Home::class )->name('price-list');
 Route::get( '/contact-us', Contact::class )->name('contact-us');

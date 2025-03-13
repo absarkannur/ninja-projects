@@ -10,7 +10,7 @@ class SignoutPage extends Component {
         session()->flush();
         $this->redirect('/signin');
     }
-    
+
     public function render() {
         return view( 'components.signout' );
     }

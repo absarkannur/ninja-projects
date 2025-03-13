@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('product_class')->nullable();
             $table->string('product_part_number');
             $table->string('product_parts')->nullable();
+            $table->text('product_description')->nullable();
             $table->string('product_condition')->nullable();
             $table->string('product_quality')->nullable();
             $table->string('product_image')->nullable();

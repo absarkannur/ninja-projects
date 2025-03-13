@@ -8,7 +8,6 @@ use App\Models\PriceList;
 
 class PriceListPage extends Component {
 
-    #[Title('favtech | Price List')] 
 
     public $auth;
 

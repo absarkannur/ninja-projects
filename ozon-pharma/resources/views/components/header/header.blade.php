@@ -14,8 +14,13 @@
                 <a class="nav-link" aria-current="page" href="{{ route('home') }}">Home</a>
                 <a class="nav-link" href="{{ route('about') }}">About Us</a>
                 <a class="nav-link" href="{{ route('facilities') }}">Facilities</a>
+
+                @if ( sizeOf( $products_count ) )
                 <a class="nav-link" href="{{ route('products') . '?filter=Product Name' }}">Products</a>
+                @endif
+
                 <a class="nav-link" href="{{ route('strategy') }}">Our Strategy</a>
+                <a class="nav-link" href="{{ route('pharmacovigilance') }}">Pharmacovigilance</a>
 
                 <span class="social-icon-group">
                     <a class="nav-link social" href="{{ $site_info->compnay_fb }}" target="_blank">

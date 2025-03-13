@@ -23,6 +23,7 @@ class Products extends Model
         'product_class',
         'product_part_number',
         'product_parts',
+        'product_description',
         'product_condition',
         'product_quality',
         'product_image',

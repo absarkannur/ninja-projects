@@ -174,6 +174,7 @@
                         @if( $products )
                             @foreach( $products as $product )
                             <li class="list-item">
+                                <a href={{ route('product', ['slug'=> $product['product_name'] .'~'. $product['product_model'] .'~'. $product['color_name'] .'~'. $product['product_parts'] .'~'. $product['product_part_number'] ]) }}>
                                 @if ( $product->product_latest == 1)
                                 <span class="new">LATEST</span>
                                 @endif
@@ -184,7 +185,9 @@
                                     <div class="image-wrapper">
                                         <div class="imagethmb">
                                             <div class="imagethmb_inner">
-                                                <img src={{ asset( 'storage/' . $product['product_image'] ) }} alt="{{ $product['brand_name'] . ' ' . $product['product_name'] . ' ' . $product['product_class'] . '-' . $product['product_model'] . '-' . $product['product_parts'] . ' + ' .  $product['color_name'] . ' + ' . $product['product_part_number'] }}" />
+                                                <img src="{{ asset( 'storage/' . $product['product_image'] ) }}"
+                                                    title="{{ $product['product_name'] . ' ' . $product['product_class'] . '-' . $product['product_model'] . '-' .$product['product_parts'] . ' + ' .  $product['color_name'] . ' + ' . $product['product_part_number'] }}"
+                                                    alt="{{ $product['product_name'] . ' ' . $product['product_class'] . '-' . $product['product_model'] . '-' .$product['product_parts'] . ' + ' .  $product['color_name'] . ' + ' . $product['product_part_number'] }}" />
                                             </div>
                                         </div>
                                     </div>
@@ -195,11 +198,14 @@
                                 </div>
                                 <div class="details-wrapper">
                                     <div class="product_name">
-                                        <span class="title">{{ $product['brand_name'] . ' ' . $product['product_name'] . ' ' . $product['product_class'] . '-' . $product['product_model'] }}</span>
+                                        <span class="title">{{ $product['product_name'] . ' ' . $product['product_class'] . '-' . $product['product_model'] }}</span>
                                         <span class="tag">{{ $product['product_parts'] . ' + ' .  $product['color_name'] . ' + ' . $product['product_part_number'] }}</span>
                                     </div>
+                                </div>
+                                </a>
+                                <div class="details-wrapper">
                                     <div class="product_enquiry">
-                                        <a class="whatsapp" target="__blank" rel="noreferrer" href="{{ 'https://wa.me/+971553351001/?text=I am interested with ' . $product['brand_name'] . ' ' . $product['product_name'] . ' ' . $product['product_class'] . '-' . $product['product_model'] . '-' . $product['product_parts'] . ' + ' .  $product['color_name'] . ' + ' . $product['product_part_number'] }}">
+                                        <a class="whatsapp" target="__blank" rel="noreferrer" href="{{ 'https://wa.me/+971553351001/?text=I am interested with ' . $product['product_name'] . ' ' . $product['product_class'] . '-' . $product['product_model'] . '-' . $product['product_parts'] . ' + ' .  $product['color_name'] . ' + ' . $product['product_part_number'] }}">
                                             <svg width="24" height="24">
                                                 <use xlink:href="{{ asset('fav/images/svg-sprint.svg#whatsapp-filled') }}"></use>
                                             </svg>

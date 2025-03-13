@@ -23,6 +23,7 @@ use PhpParser\Node\Stmt\Label;
 
 use App\Models\Options;
 use App\Models\Series;
+use Filament\Forms\Components\Textarea;
 
 class ProductsResource extends Resource
 {
@@ -65,8 +66,9 @@ class ProductsResource extends Resource
                             ->relationship( 'colors', 'color_name' )
                             ->Label('Search Color')
                             ->required(),
-                        TextInput::make('product_condition')->label('Condition'),
-                        TextInput::make('product_quality')->label('Quality'),
+                            TextInput::make('product_condition')->label('Condition'),
+                            TextInput::make('product_quality')->label('Quality'),
+                            Textarea::make('product_description')->label('Description')->columnSpanFull(),
                     ])->columns(3),
 
                 Fieldset::make('Price')

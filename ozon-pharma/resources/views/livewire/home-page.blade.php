@@ -1,15 +1,14 @@
 <main>
-
     <section class="home-banner-wrapper">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                    <h1 class="header">Localized Pharmaceutical Manufacturing & Repackaging in the UAE</h1>
+                    <h1 class="header">{{ $homeContent->page_heading }}</h1>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                    <p class="content-text">Ozon Pharmaceuticals is a UAE-based pharmaceutical manufacturer specializing in the production and repackaging of tablets, capsules, and injectables. With over 20 years of GMP-certified expertise, we support the localization of high-quality medicines, ensuring accessibility and efficiency in the region.</p>
+                    <p class="content-text">{{ $homeContent->page_description }}</p>
 
-                    <a href="{{ route('about') }}">
+                    <a href="{{ $homeContent->page_description_url }}">
                         <div class="button-group">
                             <button class="oz-button-primery p-l-10 center">
                                 Learn More
@@ -32,9 +31,9 @@
                 <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
                     <div class="banner-box-one">
                         <img src={{ asset("ozon/images/banner-1.svg") }} />
-                        <h3 class="header">Our products</h3>
-                        <p class="content-text">We manufacture and repackage high-quality medicines in the UAE, ensuring world-class standards with a localized approach.</p>
-                        <a href="{{ route('products') . '?filter=Product+Name' }}">
+                        <h3 class="header">{{ $homeContent->page_banner_product_title }}</h3>
+                        <p class="content-text">{{ $homeContent->page_banner_product_description }}</p>
+                        <a href="{{ $homeContent->page_banner_product_url }}">
                             <button class="oz-button-lightblue">Explore Products</button>
                         </a>
                     </div>
@@ -43,9 +42,7 @@
                     <div class="banner-box-two">
                         <div class="box-1">
 
-                            <p class="content-text">More than a</p>
-                            <h3 class="header">Year</h3>
-                            <p class="content-text">in Business</p>
+                            {!! $homeContent->page_banner_section_description !!}
 
                             <div class="sec">
 
@@ -53,7 +50,7 @@
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M0.269516 35.5V0.5C0.269516 19.83 15.9395 35.5 35.2695 35.5H0.269516Z" fill="#0D83A7"/>
                                 </svg>
 
-                                <a href="{{ route('about')}}">
+                                <a href="{{ $homeContent->page_banner_section_url }}">
                                     <button class="oz-button-default">Learn More</button>
                                 </a>
                             </div>
@@ -82,7 +79,7 @@
         <div class="container"> {{-- Header --}}
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                    <h2 class="sub-heading">State-of-the-Art Manufacturing & Repackaging in the UAE</h2>
+                    <h2 class="sub-heading">{{ $homeContent->page_facilities_section_heading }}</h2>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
                     <div class="carousel-button-group fr">
@@ -154,7 +151,7 @@
 
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
                     <div class="image-wrap">
-                        <img src="{{ asset('ozon/images/home-about.png') }}" />
+                        <img src="{{ asset('storage/' . $homeContent->page_abouts_section_image ) }}" />
 
                         <div class="sec">
 
@@ -167,9 +164,9 @@
                             </svg>
 
                             <div class="video-sec">
-                                <span class="title">World class facilities</span>
+                                <span class="title">{{ $homeContent->page_abouts_section_image_text }}</span>
                                 <span class="learnmore">
-                                    <a href="{{ route('about') }}">
+                                    <a href="{{ $homeContent->page_abouts_section_video_url }}" target="__blank">
                                         <svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-45deg);" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"></path>
                                         </svg>
@@ -185,25 +182,14 @@
 
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
                     <div class="about-info">
-                        <h2 class="header">Pioneering Pharmaceutical Manufacturing & Repackaging in the UAE </h2>
-                        <p class="content-text">Ozon Pharma is a newly established pharmaceutical manufacturing and repackaging facility in the UAE, built to meet the highest global standards. With cutting-edge technology and a commitment to quality, we specialize in the production and repackaging of tablets, capsules, and injectables. Our goal is to localize pharmaceutical production, ensuring faster access to high-quality medicines while supporting the region’s healthcare sector.</p>
 
-                        <ul class="about-counter">
-                            <li class="list">
-                                <span class="count">GMP-Certified</span>
-                                <span class="title">Committed to Global Pharmaceutical Standards</span>
-                            </li>
-                            <li class="list">
-                                <span class="count">End-to-End Solutions</span>
-                                <span class="title">Manufacturing & Repackaging for Tablets, Capsules & Injectables</span>
-                            </li>
-                            <li class="list">
-                                <span class="count">Supporting UAE’s Healthcare Vision</span>
-                                <span class="title">Strengthening Localized Medicine Production</span>
-                            </li>
-                        </ul>
+                        <div class="tip__tap">
+                            {!! tiptap_converter()->asHTML($homeContent->page_abouts_section_content ) !!}
+                        </div>
 
-                        <a href="{{ route('about') }}">
+                        <br/>
+
+                        <a href="{{ $homeContent->page_abouts_section_url }}">
                             <div class="button-group">
                                 <button class="oz-button-primery p-l-10 center">
                                     Learn More
@@ -235,7 +221,7 @@
         <div class="container"> {{-- Header --}}
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                    <h2 class="sub-heading">Exploration with superior quality healthcare products</h2>
+                    <h2 class="sub-heading">{{ $homeContent->page_therapeutic_section_heading }}</h2>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
                     <div class="carousel-button-group fr">
@@ -295,8 +281,7 @@
         <div class="container"> {{-- Header --}}
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                    <h2 class="sub-heading">Interesting articles about
-                        healthcare</h2>
+                    <h2 class="sub-heading">{{ $homeContent->page_articles_section_heading }}</h2>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
                     <a href="{{ route('articles') }}">

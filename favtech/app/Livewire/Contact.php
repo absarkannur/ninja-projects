@@ -9,8 +9,6 @@ use App\Mail\ContactEmail;
 
 class Contact extends Component {
 
-    #[Title('favtech | Contact Us')] 
-
     public $name = '';
     public $phone = '';
     public $email = '';
