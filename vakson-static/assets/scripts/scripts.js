@@ -1,7 +1,35 @@
 $(function(){
+
+    var owl = $('.homebanner');
+
+    // Page Loader
+    function imgLoadedCallback() {
+        showPage();
+    }
+    function preloadimages(n) {
+        function o() {
+            ++a == n.length && imgLoadedCallback()
+        }
+        for (var e = [], a = 0, t = (n = "object" != typeof n ? [n] : n, 0); t < n.length; t++) e[t] = new Image, e[t].src = n[t], e[t].onload = function() {
+            a / n.length * 100, o()
+        }, e[t].onerror = function() {
+            o()
+        }
+    }! function() {
+        for (var n = document.getElementsByTagName("img"), o = [], e = 0; e < n.length; e++) o.push(n[e].src);
+        preloadimages(o)
+        if (o.length == 0) {
+            showPage();
+        }
+    }();
+    function showPage() {
+        var loader = document.getElementById("loader");
+        loader.style.display="none";
+        owl.trigger('to.owl.carousel', [0, 0]);
+    }
     
     // Home Banner Slider
-    $('.homebanner').owlCarousel({
+    owl.owlCarousel({
         loop:true,
         margin:0,
         nav:false,
