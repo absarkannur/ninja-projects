@@ -6,10 +6,14 @@ use App\Filament\Resources\OrderItemsResource\Pages;
 use App\Filament\Resources\OrderItemsResource\RelationManagers;
 use App\Models\OrderItems;
 use Filament\Forms;
+use Filament\Forms\Components\Fieldset;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -19,6 +23,9 @@ class OrderItemsResource extends Resource
     protected static ?string $model = OrderItems::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = "Sales";
+    protected static ?string $navigationParentItem = "Orders";
+    protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
     {
@@ -26,10 +33,21 @@ class OrderItemsResource extends Resource
             ->schema([
                 Select::make('orders_id')
                     ->relationship( 'orders', 'order_number' )
-                    ->label('Order Number')
+                    ->label('Order ID')
                     ->searchable(true)
-                    ->columnSpanFull()
                     ->required(),
+                Select::make('products_id')
+                    ->relationship( 'products', 'product_name' )
+                    ->label('Product')
+                    ->searchable(true)
+                    ->required(),
+                Section::make('')->schema([
+                    TextInput::make('order_qty')->numeric()->required(),
+                    TextInput::make('order_price')->numeric()->required(),
+                    TextInput::make('order_discount_percent')->numeric()->required(),
+                    TextInput::make('order_tax_percent')->numeric()->required(),
+                    TextInput::make('order_shipping_charge')->numeric()->required(),
+                ])->columns(2)
             ]);
     }
 
@@ -37,7 +55,7 @@ class OrderItemsResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('orders.order_number')
             ])
             ->filters([
                 //

@@ -11,6 +11,7 @@ use Filament\Forms;
 use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\ToggleButtons;
 use Filament\Forms\Form;
@@ -33,9 +34,8 @@ class OrdersResource extends Resource
 
     public static function getNavigationBadge(): ?string
     {
-        // return static::getModel()::count();
-
-        return static::getModel()::where('order_status', 'new')->count();
+        return static::getModel()::count();
+        // return static::getModel()::where('order_status', 'new')->count();
 
     }
 
@@ -58,17 +58,26 @@ class OrdersResource extends Resource
                     ->label('Customer Name')
                     ->searchable(false)
                     ->required(),
-                Fieldset::make('')->schema([
-
+                Select::make('payment_types_id')
+                    ->relationship( 'payment_types', 'payment_type' )
+                    ->label('Shipping Methods')
+                    ->searchable(false)
+                    ->required(),
+                Select::make('shipping_methods_id')
+                    ->relationship( 'shipping_methods', 'shipping_title' )
+                    ->label('Shipping Methods')
+                    ->searchable(false)
+                    ->required(),
+                Section::make('')->schema([
                     ToggleButtons::make('order_status')
                         ->label('Order Status')
                         ->inline()
                         ->options( OrderStatus::class )
                         ->required(),
-
                     DatePicker::make('order_date')
+                        ->required()
                         ->label('Order Date'),
-                ])
+                ])->columns(2)
             ]);
     }
 

@@ -20,13 +20,13 @@ class Customers extends Model
     ];
 
     protected $hidden = [
-        'password',
+        'customer_password',
         'remember_token',
     ];
 
     protected $casts = [
         'customer_email_verified_at' => 'datetime',
-        'password' => 'hashed',
+        'customer_password' => 'hashed',
     ];
 
 }

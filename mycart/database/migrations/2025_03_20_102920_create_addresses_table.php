@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('postal_code')->nullable();
             $table->string('landmark')->nullable();
             $table->string('phone_number')->nullable();
+            $table->boolean('default_address')->default(0);
             $table->timestamps();
         });
     }

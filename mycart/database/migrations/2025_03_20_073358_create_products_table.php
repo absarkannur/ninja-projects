@@ -16,22 +16,18 @@ return new class extends Migration
             $table->foreignId('brands_id')->constrained()->cascadeOnDelete();
             $table->foreignId('sub_categories_id')->constrained()->cascadeOnDelete();
             $table->foreignId('offers_id')->nullable()->constrained()->cascadeOnDelete();
-            // Tax
+            $table->foreignId('taxes_id')->nullable()->constrained()->cascadeOnDelete();
 
             $table->string('product_name');
             $table->string('product_slug');
             $table->longtext('product_description')->nullable();
             $table->longtext('product_content')->nullable();
-
-            $table->string('product_images')->nullable();
+            $table->longtext('product_images')->nullable();
             $table->double('product_original_price')->nullable();
             $table->double('product_sales_price')->nullable();
             $table->double('product_qty_in_stock')->nullable();
             $table->string('product_sku')->nullable();
             $table->boolean('product_status')->default(0);
-
-
-
             $table->timestamps();
         });
     }

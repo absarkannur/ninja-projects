@@ -4,8 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Brands;
 use App\Models\SubCategories;
 use App\Models\Offers;
+use App\Models\Tax;
 
 class Products extends Model
 {
@@ -15,6 +17,7 @@ class Products extends Model
         'brands_id',
         'sub_categories_id',
         'offers_id',
+        'taxes_id',
         'product_name',
         'product_slug',
         'product_description',
@@ -34,11 +37,17 @@ class Products extends Model
     public function brands(){
         return $this->belongsTo( Brands::class );
     }
+
     public function sub_categories(){
         return $this->belongsTo( SubCategories::class );
     }
+
     public function offers(){
         return $this->belongsTo( Offers::class );
+    }
+
+    public function taxes(){
+        return $this->belongsTo( Tax::class );
     }
 
 }
