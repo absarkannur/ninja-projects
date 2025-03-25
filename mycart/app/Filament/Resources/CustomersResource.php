@@ -14,7 +14,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-
+use Illuminate\Support\Facades\Hash;
 class CustomersResource extends Resource
 {
     protected static ?string $model = Customers::class;
@@ -29,7 +29,11 @@ class CustomersResource extends Resource
             ->schema([
                 TextInput::make('customer_name')->required(),
                 TextInput::make('customer_email')->email()->required(),
-                TextInput::make('customer_password')->password()->required()
+                TextInput::make('customer_password')
+                    ->password()
+                    ->dehydrateStateUsing(fn ($state) => Hash::make($state))
+                    ->dehydrated(fn ($state) => filled($state))
+                    ->required(fn (string $context): bool => $context === 'create')
             ]);
     }
 

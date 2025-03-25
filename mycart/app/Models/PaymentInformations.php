@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\PaymentTypes;
 
-class PaymentInformation extends Model
+class PaymentInformations extends Model
 {
     use HasFactory;
 

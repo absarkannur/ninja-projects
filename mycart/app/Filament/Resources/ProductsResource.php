@@ -26,6 +26,9 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 
+use App\Models\Brands;
+use App\Models\SubCategories;
+
 class ProductsResource extends Resource
 {
     protected static ?string $model = Products::class;
@@ -41,23 +44,58 @@ class ProductsResource extends Resource
         return static::getModel()::count();
     }
 
+    public static function generateSKU( $get, $set )
+    {
+
+        $s1 = '';
+        $s2 = '';
+
+        if( $get('brands_id') ){
+            $brand = Brands::findOrFail( $get('brands_id') );
+            $s1 = $brand->brand_ref;
+        }
+
+        if( $get('sub_categories_id') ){
+            $cat = SubCategories::where( 'sub_categories.id', '=', $get('sub_categories_id') )
+                    ->leftJoin( 'categories', 'categories.id', 'sub_categories.categories_id' )
+                    ->first();
+
+            $s2 = $cat->category_ref;
+
+        }
+
+        $count = Products::count();
+
+        $sku = "SKU-". $s1 . '-' . $s2 . '-'. $count+1;
+
+        $set('product_sku', $sku );
+
+    }
+
+
     public static function form(Form $form): Form
     {
+
         return $form
             ->schema([
 
+                // Left side column
                 Fieldset::make('')->schema([
 
                     TextInput::make('product_name')
                         ->live(onBlur:true)
-                        ->afterStateUpdated(function( string $operation, string $state, Forms\Set $set ){
+                        ->afterStateUpdated(function( string $operation, ?string $state, Forms\Set $set ){
                             $set( 'product_slug', Str::slug($state) );
-                        })->required()->label('Product Name'),
+                        })
+                        ->required()->label('Product Name'),
                     TextInput::make('product_slug')->readOnly()->required(),
                     Textarea::make('product_description')->label('Product Description')->columnSpanFull(),
 
                     Section::make('Images')->schema([
-                        FileUpload::make('product_images')->multiple()->label('')->columnSpanFull()
+                        FileUpload::make('product_images')
+                            ->directory('cdn-products')
+                            ->maxParallelUploads(1)
+                            ->multiple()->label('')->columnSpanFull()
                     ]),
 
                     Section::make('Pricing')->schema([
@@ -67,20 +105,36 @@ class ProductsResource extends Resource
                     ])->columns(2),
 
                     Section::make('Inventory')->schema([
-                        TextInput::make('product_sku')->label('SKU (Stock Keeping Unit)')->required(),
+                        TextInput::make('product_sku')
+                            ->default( 'SKU-' )
+                            ->label('SKU (Stock Keeping Unit)')->required(),
                     ])->columns(2),
 
                 ])->columnSpan(2)->columns(2),
 
+                // Right Side colum
                 Section::make('')->schema([
 
                     Select::make('brands_id')
+                        ->live(onBlur:true)
+                        ->afterStateUpdated(function( string $operation, ?string $state, Forms\Set $set, Forms\Get $get ){
+                            if( $operation == 'create' ) {
+                                static::generateSKU( $get, $set );
+                            }
+                        })
+                        ->dehydrated(false)
                         ->relationship( 'brands', 'brand_name' )
                         ->label('Brand')
                         ->searchable(false)
                         ->columnSpanFull()
                         ->required(),
                     Select::make('sub_categories_id')
+                        ->live(onBlur:true)
+                        ->afterStateUpdated(function( string $operation, ?string $state, Forms\Set $set, Forms\Get $get ){
+                            if( $operation == 'create' ) {
+                                static::generateSKU( $get, $set );
+                            }
+                        })
                         ->relationship( 'sub_categories', 'sub_category_name' )
                         ->label('Category')
                         ->searchable(false)
@@ -146,4 +200,6 @@ class ProductsResource extends Resource
             'edit' => Pages\EditProducts::route('/{record}/edit'),
         ];
     }
+
+
 }

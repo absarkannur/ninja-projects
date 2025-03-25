@@ -34,8 +34,8 @@ class OrdersResource extends Resource
 
     public static function getNavigationBadge(): ?string
     {
-        return static::getModel()::count();
-        // return static::getModel()::where('order_status', 'new')->count();
+        // return static::getModel()::count();
+        return static::getModel()::where('order_status', 'new')->count();
 
     }
 
@@ -60,7 +60,7 @@ class OrdersResource extends Resource
                     ->required(),
                 Select::make('payment_types_id')
                     ->relationship( 'payment_types', 'payment_type' )
-                    ->label('Shipping Methods')
+                    ->label('Payment Types')
                     ->searchable(false)
                     ->required(),
                 Select::make('shipping_methods_id')

@@ -6,7 +6,7 @@ use App\Filament\Resources\PaymentInformationResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
-class ListPaymentInformation extends ListRecords
+class ListPaymentInformations extends ListRecords
 {
     protected static string $resource = PaymentInformationResource::class;
 

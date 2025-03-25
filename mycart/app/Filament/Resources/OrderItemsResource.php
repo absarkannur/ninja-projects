@@ -22,7 +22,7 @@ class OrderItemsResource extends Resource
 {
     protected static ?string $model = OrderItems::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-queue-list';
     protected static ?string $navigationGroup = "Sales";
     protected static ?string $navigationParentItem = "Orders";
     protected static ?int $navigationSort = 2;
@@ -56,6 +56,13 @@ class OrderItemsResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('orders.order_number')
+                    ->searchable()
+                    ->width('30%'),
+                TextColumn::make('order_qty')->label('QTY'),
+                TextColumn::make('order_price')->label('Price'),
+                TextColumn::make('order_discount_percent')->label('Discount'),
+                TextColumn::make('order_tax_percent')->label('Tax'),
+                TextColumn::make('order_shipping_charge')->label('Shipping'),
             ])
             ->filters([
                 //

@@ -5,7 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Clusters\PaymentsCluster;
 use App\Filament\Resources\PaymentInformationResource\Pages;
 use App\Filament\Resources\PaymentInformationResource\RelationManagers;
-use App\Models\PaymentInformation;
+use App\Models\PaymentInformations;
 use Filament\Forms;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -19,12 +19,12 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class PaymentInformationResource extends Resource
 {
-    protected static ?string $model = PaymentInformation::class;
+    protected static ?string $model = PaymentInformations::class;
 
     protected static ?string $cluster = PaymentsCluster::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-credit-card';
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 1;
 
 
     public static function form(Form $form): Form
@@ -78,9 +78,9 @@ class PaymentInformationResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListPaymentInformation::route('/'),
-            'create' => Pages\CreatePaymentInformation::route('/create'),
-            'edit' => Pages\EditPaymentInformation::route('/{record}/edit'),
+            'index' => Pages\ListPaymentInformations::route('/'),
+            'create' => Pages\CreatePaymentInformations::route('/create'),
+            'edit' => Pages\EditPaymentInformations::route('/{record}/edit'),
         ];
     }
 }

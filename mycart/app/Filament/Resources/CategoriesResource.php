@@ -38,6 +38,7 @@ class CategoriesResource extends Resource
                         $set( 'category_slug', Str::slug($state) );
                     })->required()->label('Category Name'),
                 TextInput::make('category_slug')->readOnly()->label('Slug')->required(),
+                TextInput::make('category_ref')->label('Ref')->required(),
                 Textarea::make('category_description')->rows(4)->label('Description')->columnSpanFull()
             ]);
     }
@@ -46,7 +47,8 @@ class CategoriesResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('category_name')->label('Categories')
+                TextColumn::make('category_name')->label('Categories'),
+                TextColumn::make('category_ref')->label('# Ref')
             ])
             ->filters([
                 //

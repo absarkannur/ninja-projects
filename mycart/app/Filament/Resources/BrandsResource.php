@@ -36,6 +36,7 @@ class BrandsResource extends Resource
                         $set( 'brand_slug', Str::slug($state) );
                     })->required()->label('Brand Name'),
                 TextInput::make('brand_slug')->readOnly()->label('Slug')->required(),
+                TextInput::make('brand_ref')->label('Ref')->required(),
                 Textarea::make('brand_description')->rows(4)->label('Description')->columnSpanFull()
             ]);
     }
@@ -44,7 +45,8 @@ class BrandsResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('brand_name')->label('Brands')
+                TextColumn::make('brand_name')->label('Brands')->width('30%'),
+                TextColumn::make('brand_ref')->label('# Ref')->width('70%'),
             ])
             ->filters([
                 //

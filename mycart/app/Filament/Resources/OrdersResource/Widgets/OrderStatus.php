@@ -18,7 +18,7 @@ class OrderStatus extends BaseWidget
     protected function getStats(): array
     {
         return [
-            Stat::make('Orders', $this->getAllOrder()),
+            Stat::make('Total Orders', $this->getAllOrder()),
             Stat::make('Average price', '0.00' ),
         ];
     }

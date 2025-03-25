@@ -9,9 +9,10 @@ use Laravel\Sanctum\HasApiTokens;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Customers extends Model
+class Customers extends Authenticatable
 {
-    use HasFactory;
+
+    use HasApiTokens, HasFactory, Notifiable;
 
     protected $fillable = [
         'customer_name',
