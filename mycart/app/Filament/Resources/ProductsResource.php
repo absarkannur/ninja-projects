@@ -28,6 +28,7 @@ use Illuminate\Support\Str;
 
 use App\Models\Brands;
 use App\Models\SubCategories;
+use Filament\Tables\Columns\ImageColumn;
 
 class ProductsResource extends Resource
 {
@@ -171,6 +172,10 @@ class ProductsResource extends Resource
                 TextColumn::make('product_original_price')->label('Original Price'),
                 TextColumn::make('product_sales_price')->label('Sales Price'),
                 TextColumn::make('product_qty_in_stock')->label('QTY in Stock'),
+                ImageColumn::make('product_images')
+                    // ->circular()
+                    ->stacked()
+                    ->limit(3)
             ])
             ->filters([
                 //
