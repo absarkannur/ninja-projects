@@ -16,6 +16,13 @@ $(document).ready(function()
                 return false
             }
             $el_product.find('#quantity').val(quantity + 1);
+
+            var id  = $el_product.parent().parent().find('#addtocart').attr( 'product-id' );
+            var qty = quantity + 1;
+            var bind = "addToCart(" + id + "," + qty + ")"; // Livewire Click Event
+            $el_product.parent().parent().find('#addtocart').attr({ 'wire:click.prevent': bind });
+            $el_product.parent().parent().find('#addtocart').attr({ 'wire:target': bind });
+
         });
 
         $el_product.find('.quantity-left-minus').click(function(e){
@@ -28,7 +35,14 @@ $(document).ready(function()
             }
 
             if(quantity>1){
-              $el_product.find('#quantity').val(quantity - 1);
+                $el_product.find('#quantity').val(quantity - 1);
+
+                var id  = $el_product.parent().parent().find('#addtocart').attr( 'product-id' );
+                var qty = quantity - 1;
+                var bind = "addToCart(" + id + "," + qty + ")"; // Livewire Click Event
+                $el_product.parent().parent().find('#addtocart').attr({ 'wire:click.prevent': bind });
+                $el_product.parent().parent().find('#addtocart').attr({ 'wire:target': bind });
+
             }
         });
 

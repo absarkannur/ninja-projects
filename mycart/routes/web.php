@@ -1,7 +1,15 @@
 <?php
 
+use App\Livewire\CartPage;
 use App\Livewire\HomePage;
+use App\Livewire\Navbar;
+use App\Livewire\RegisterPage;
+use App\Livewire\SigninPage;
+use App\Models\Products;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +27,13 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get( '/', HomePage::class )->name( 'home' );
+Route::get( '/cart', CartPage::class )->name( 'cart' );
+// Products
+// ProductDetails
+
+Route::get( 'logout', function( Request $request ) {
+    Auth::guard('customers')->logout();
+    // session()->flush('users_session');
+    $request->session()->forget('users_session');
+    return redirect('/');
+})->name('logout');

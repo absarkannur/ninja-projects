@@ -17,17 +17,17 @@ class Customers extends Authenticatable
     protected $fillable = [
         'customer_name',
         'customer_email',
-        'customer_password'
+        'password'
     ];
 
     protected $hidden = [
-        'customer_password',
+        'password',
         'remember_token',
     ];
 
     protected $casts = [
         'customer_email_verified_at' => 'datetime',
-        'customer_password' => 'hashed',
+        'password' => 'hashed',
     ];
 
 }
