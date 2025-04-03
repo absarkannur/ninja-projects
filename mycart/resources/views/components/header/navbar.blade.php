@@ -50,7 +50,7 @@
 
                     <!-- Cart -->
                     <div class="cart">
-                        <a wire:navigate href="{{ route('cart') }}">
+                        <a wire:navigate href="{{ route('payment') }}">
                             <div class="flex-row cart_container d-flex align-items-center justify-content-end">
                                 <div class="cart_icon">
                                     <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918704/cart.png" alt="">

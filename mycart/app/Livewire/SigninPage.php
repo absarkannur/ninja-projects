@@ -13,14 +13,14 @@ class SigninPage extends Component
     public $email = '';
     public $password = '';
 
-    protected $rules = [
-        'email' => 'required|email',
-        'password' => 'required',
-    ];
+    public function submit() {
 
-    public function submit( Request $request ) {
+        $this->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
 
-        $credentials = array( "customer_email" => $this->email, "password" => $this->password );
+        $credentials = array( "email" => $this->email, "password" => $this->password );
 
         if (Auth::guard('customers')->attempt($credentials)) {
 
@@ -34,7 +34,6 @@ class SigninPage extends Component
             );
 
             session()->put( 'users_session', $customer_stack );
-
 
             return redirect()->intended('user/orders');
 

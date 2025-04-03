@@ -16,7 +16,7 @@ class Customers extends Authenticatable
 
     protected $fillable = [
         'customer_name',
-        'customer_email',
+        'email',
         'password'
     ];
 
@@ -26,7 +26,7 @@ class Customers extends Authenticatable
     ];
 
     protected $casts = [
-        'customer_email_verified_at' => 'datetime',
+        'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
 

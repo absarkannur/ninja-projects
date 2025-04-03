@@ -6,16 +6,15 @@ use App\Helpers\CartManagement;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-
-class CartPage extends Component
+class PaymentPage extends Component
 {
 
-    #[Title('Home | Cart')]
+    #[Title('Payments | MyCart')]
 
-    protected $cart_items = [];
-    protected $grand_total = 0;
+    public $cart_items;
+    public $grand_total;
 
-    public function mount(){
+    public function mount() {
         $this->cart_items = CartManagement::getCartItemsFromCookie();
         $this->grand_total = CartManagement::calculateGrandTotal( $this->cart_items );
     }
@@ -40,7 +39,7 @@ class CartPage extends Component
 
     public function render()
     {
-        return view('livewire.cart-page', [
+        return view('livewire.payment-page', [
             'cart_items' => $this->cart_items,
             'grand_total' => $this->grand_total
         ]);

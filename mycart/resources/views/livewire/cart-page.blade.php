@@ -37,7 +37,7 @@
                                 <div class="sales_price">{{ Number::currency( $item['product_sales_price'], 'AED' ) }}</div>
                                 <div class="total_price">{{ Number::currency( $item['product_total_amount'], 'AED' ) }}</div>
                                 <div class="delete" wire:click.prevent="removeCart({{ $item['product_id'] }})">
-                                    <svg width="20" height="20"><use xlink:href="{{ asset('front-end/images/svg-sprint.svg#bin-thick-shape') }}"></use></svg>
+                                    <svg width="16" height="16"><use xlink:href="{{ asset('front-end/images/svg-sprint.svg#bin-thick-shape') }}"></use></svg>
                                 </div>
                             </li>
 
@@ -57,7 +57,9 @@
                     <br/>
                     <h4>AED {{ $grand_total }}</h4>
                     <br/>
-                    <button class="btn btn-primary" style="width: 100%">Checkout</button>
+                    <a href="{{ route('checkout') }}">
+                        <button class="btn btn-primary" style="width: 100%">Checkout</button>
+                    </a>
                 </div>
             </div>
         </div>

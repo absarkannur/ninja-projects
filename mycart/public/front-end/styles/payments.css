@@ -1,0 +1,321 @@
+
+:root{
+    --fd-border-color: #d9d9d9;
+}
+
+.payment-wrapper form{
+    clear: both;
+    display: flex;
+    gap: 20px;
+}
+
+.payment-wrapper .cart-section{
+    margin-top: 40px;
+    width: 70%;
+}
+
+/* -------- Cart List -------- */
+
+.payment-wrapper .cart-section .cart-list{
+    list-style: none;
+    overflow: hidden;
+}
+
+.payment-wrapper .cart-section .cart-list .cart-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    border-bottom: solid 1px var(--fd-border-color);
+}
+
+.payment-wrapper .cart-section .cart-list .cart-item:last-child{
+    border: none;
+}
+
+.payment-wrapper .cart-section .cart-list .cart-item .image{
+    background-color: #838383;
+    width: 50px;
+    text-align: center;
+}
+
+.payment-wrapper .cart-section .cart-list .cart-item .title{
+    width: 30%;
+    padding: 0 20px;
+    font-size: 16px;
+}
+
+.payment-wrapper .cart-section .cart-list .cart-item .sales_price,
+.payment-wrapper .cart-section .cart-list .cart-item .total_price{
+    width: 15%;
+}
+
+.payment-wrapper .cart-section .cart-list .cart-item .quantity{
+    width: 20%;
+}
+
+.payment-wrapper .cart-section .cart-list .cart-item .delete{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 0.2s;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+.payment-wrapper .cart-section .cart-list .cart-item .delete:hover{
+    color: red;
+}
+
+/* -------- Payment Method -------- */
+
+.payment-wrapper .cart-section .payment-methods-list{
+    clear: both;
+    list-style: none;
+}
+
+.payment-wrapper .cart-section .payment-methods-list .list{
+    height: 60px;
+    width: 100%;
+    background-color: #fff;
+    border: solid 1px var(--fd-border-color);
+    border-radius: 6px;
+    box-shadow: 0 0 5px var(--fd-border-color);
+    margin-bottom: 15px;
+}
+
+.payment-wrapper .cart-section .payment-methods-list .list:hover{
+    background-color: #f6f6f6;
+}
+
+.payment-wrapper .cart-section .payment-methods-list .list:last-child{
+    margin-bottom: 0;
+}
+
+.payment-wrapper .cart-section .payment-methods-list .list label{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.payment-wrapper .cart-section .payment-methods-list .list span{
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    height: 100%;
+}
+
+.payment-wrapper .cart-section .payment-methods-list .list span input{
+    height: 18px;
+    width: 18px;
+}
+
+.payment-wrapper .cart-section .payment-methods-list .list span label{
+    margin: 0;
+}
+
+.payment-wrapper .cart-section .payment-methods-list .list span.title{
+    width: 100%;
+    font-size: 20px;
+    padding: 0px;
+}
+
+.payment-wrapper .cart-section .payment-methods-list .list span.cards{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.payment-wrapper .cart-section .payment-methods-list .list span.cards img{
+    width: 50px;
+}
+
+.payment-wrapper .cart-section .payment-methods-list .list span.cards img[data-width="35"] {
+    width: 35px;
+}
+.payment-wrapper .cart-section .payment-methods-list .list span.cards img[data-width="70"] {
+    width: 70px;
+}
+
+.payment-wrapper .cart-section .cards-wrap{
+    margin: 20px 0;
+}
+
+.payment-wrapper .cart-section .cards-wrap .card-list{
+    overflow: hidden;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.payment-wrapper .cart-section .cards-wrap .card-list .card{
+    position: relative;
+    border-radius: 8px;
+    width: 13%;
+    height: 70px;
+    /* margin-right: 10px; */
+    padding: 10px;
+    cursor: pointer;
+    /* margin: 3px; */
+}
+
+.payment-wrapper .cart-section .cards-wrap .card-list .card.visa:hover::after,
+.payment-wrapper .cart-section .cards-wrap .card-list .card.master:hover::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    left: 0;
+    top: 0;
+    border: solid 3px rgb(44, 115, 230);
+}
+
+.payment-wrapper .cart-section .cards-wrap .card-list .card.visa{
+    background-color: rgb(249, 249, 249);
+}
+
+.payment-wrapper .cart-section .cards-wrap .card-list .card.master{
+    background-color: rgb(69, 70, 74);
+    color: #fff;
+}
+
+.payment-wrapper .cart-section .cards-wrap .card-list .card img{
+    width: 30px;
+    margin: 0;
+}
+
+.payment-wrapper .cart-section .cards-wrap .card-list .card .number{
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.payment-wrapper .cart-section .cards-wrap .card-list .card.new{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    border-style: dashed;
+    border-color: black;
+}
+.payment-wrapper .cart-section .cards-wrap .card-list .card.new:hover{
+    background-color: #f1f1f1;
+}
+
+.payment-wrapper .cart-section fieldset{
+    position: relative;
+    /* padding: 20px; */
+    border-radius: 10px;
+    border: solid 1px var(--fd-border-color);
+    margin-bottom: 30px;
+}
+
+.payment-wrapper .cart-section fieldset legend{
+    background-color: #fff;
+    position: absolute;
+    width: auto;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    padding: 0 10px;
+    top: -17px;
+    left: 10px;
+}
+
+.payment-wrapper .cart-section fieldset .fieldset-body{
+    padding: 30px 20px;
+}
+
+.payment-wrapper .checkout-section{
+    background-color: #efefef;
+    border-radius: 10px;
+    border: solid 1px var(--fd-border-color);
+    margin-top: 40px;
+    width: 30%;
+    height: 400px;
+    padding: 20px;
+}
+
+.payment-wrapper .checkout-section .price-wrap,
+.payment-wrapper .checkout-section .head-wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: solid 1px var(--fd-border-color);
+}
+
+.payment-wrapper .checkout-section .head-wrap span{
+    display: block;
+    font-size: 26px;
+    font-weight: 400;
+    height: 50px;
+    line-height: 50px;
+}
+
+.payment-wrapper .checkout-section .price-wrap span{
+    display: block;
+    font-size: 14px;
+    font-weight: normal;
+    height: 30px;
+    line-height: 30px;
+}
+
+.payment-wrapper .checkout-section .price-wrap span.value{
+    font-weight: 500;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .payment-wrapper form{
+        display: block;
+    }
+
+    .payment-wrapper .cart-section,
+    .payment-wrapper .checkout-section{
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .payment-wrapper .cart-section fieldset{
+        margin-bottom: 25px;
+    }
+
+    .payment-wrapper .cart-section .payment-methods-list .list{
+        margin-bottom: 8px;
+    }
+
+    .payment-wrapper .cart-section .payment-methods-list .list span{
+        padding: 0 10px;
+    }
+
+    .payment-wrapper .cart-section .payment-methods-list .list span.title{
+        font-size: 13px;
+    }
+
+    .payment-wrapper .cart-section .payment-methods-list .list span.cards img[data-width="35"]{
+        width: 30px;
+    }
+    .payment-wrapper .cart-section .payment-methods-list .list span.cards img[data-width="70"]{
+        width: 50px;
+    }
+    .payment-wrapper .cart-section .payment-methods-list .list span.cards img{
+        width: 40px;
+    }
+
+    .payment-wrapper .cart-section .cards-wrap .card-list .card{
+        width: 31%;
+    }
+
+    .payment-wrapper .checkout-section{
+        margin-bottom: 20px;
+    }
+
+}

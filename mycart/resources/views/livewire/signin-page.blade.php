@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <!-- login_wrapper -->
-                <form wire:submit="submit">
+                <form wire:submit.prevent="submit">
                     <div class="login_wrapper">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
@@ -24,20 +24,18 @@
                                 <input wire:model="password" type="password" class="form-control" required="" id="password2" placeholder="Password *">
                             </div>
                         </div>
+
+                        <div class="login_remember_box">
+                            <a href="{{ route('password.request') }}" class="forget_password">
+                                Forgot Password
+                            </a>
+                            <br/>
+                        </div>
                         @if (session()->has('error'))
                             <div class="alert alert-danger">
                                 {{ session('error') }}
                             </div>
                         @endif
-                        <div class="login_remember_box">
-                            <label class="control control--checkbox">Remember me
-                                <input type="checkbox">
-                                <span class="control__indicator"></span>
-                            </label>
-                            <a href="#" class="forget_password">
-                                Forgot Password
-                            </a>
-                        </div>
                         <div class="login_btn_wrapper">
                             {{-- <a href="#" class="btn btn-primary login_btn"> Login </a> --}}
                             <button type="submit" style="width: 100%;height: 50px;" class="btn btn-primary login_btn">Login</button>

@@ -153,11 +153,12 @@
 .cart-list .cart{
     background-color: #fff;
     min-height: 80px;
-    border-radius: 4px;
+    border-radius: 10px;
     border: solid 1px var(--border-color);
     padding: 10px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 10px;
     box-shadow: 0px 0px 3px #DDD;
 }
@@ -170,15 +171,20 @@
 }
 
 .cart-list .cart .image{
-    border: solid 1px #ddd;
     width: 50px;
 }
 
 .cart-list .cart .delete{
-    width: 50px;
+    transition-duration: 0.2s;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
-    border: solid 1px var(--border-color);
+    /* border: solid 1px var(--border-color); */
     border-radius: 10px;
+    margin-right: 10px;
+}
+.cart-list .cart .delete:hover{
+    color: red;
 }
 
 .cart-summary{

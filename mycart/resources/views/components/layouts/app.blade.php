@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
         <link rel="stylesheet" href="{{ asset('front-end/styles/product.css') }}" />
         <link rel="stylesheet" href="{{ asset('front-end/styles/style.css') }}" />
+        <link rel="stylesheet" href="{{ asset('front-end/styles/payments.css') }}" />
 
         @livewireStyles
 

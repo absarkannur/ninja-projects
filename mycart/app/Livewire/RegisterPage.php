@@ -9,22 +9,21 @@ use Illuminate\Support\Facades\Auth;
 class RegisterPage extends Component
 {
 
-
     public $name = '';
     public $email = '';
     public $password = '';
-    public $confirm_password = '';
-
-    protected $rules = [
-        'name' => 'required',
-        'email' => 'required|email',
-        'password' => 'required',
-        'confirm_password' => 'required',
-    ];
+    public $password_confirmation = '';
 
     public function submit() {
 
-        if( $this->password == $this->confirm_password ) {
+        $this->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|email|unique:customers,email|max:255',
+            'password' => 'required|min:6|max:255|confirmed',
+            'password_confirmation' => 'required|min:6|max:255',
+        ]);
+
+        if( $this->password == $this->password_confirmation ) {
 
             $name = $this->name;
             $email = $this->email;
@@ -34,11 +33,11 @@ class RegisterPage extends Component
 
                 if(Customers::create([
                     'customer_name' => $name,
-                    'customer_email' => $email,
+                    'email' => $email,
                     'password' => $password,
                 ])){
 
-                    $credentials = array( "customer_email" => $email, "password" => $password );
+                    $credentials = array( "email" => $email, "password" => $password );
 
                     if (Auth::guard('customers')->attempt($credentials)) {
 
@@ -47,11 +46,11 @@ class RegisterPage extends Component
                         $customer_stack = array(
                             "id" => $customers->id,
                             "customer_name" => $customers->customer_name,
-                            "customer_email" => $customers->customer_email,
+                            "customer_email" => $customers->email,
                             "customer_email_verified_at" => $customers->customer_email_verified_at
                         );
 
-                        session()->put( 'user', $customer_stack );
+                        session()->put( 'users_session', $customer_stack );
 
                         return redirect()->intended('user/orders');
 
