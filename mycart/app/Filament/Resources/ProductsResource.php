@@ -169,8 +169,12 @@ class ProductsResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('product_name')->label('Product Name'),
-                TextColumn::make('product_original_price')->label('Original Price'),
-                TextColumn::make('product_sales_price')->label('Sales Price'),
+                TextColumn::make('product_original_price')
+                    ->money( env('APP_CURRENCY') )
+                    ->label('Original Price'),
+                TextColumn::make('product_sales_price')
+                    ->money( env('APP_CURRENCY') )
+                    ->label('Sales Price'),
                 TextColumn::make('product_qty_in_stock')->label('QTY in Stock'),
                 ImageColumn::make('product_images')
                     // ->circular()

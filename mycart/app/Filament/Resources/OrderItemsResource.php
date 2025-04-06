@@ -15,6 +15,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Filament\Tables\Columns\Summarizers\Sum;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -45,8 +46,7 @@ class OrderItemsResource extends Resource
                     TextInput::make('order_qty')->numeric()->required(),
                     TextInput::make('order_price')->numeric()->required(),
                     TextInput::make('order_discount_percent')->numeric()->required(),
-                    TextInput::make('order_tax_percent')->numeric()->required(),
-                    TextInput::make('order_shipping_charge')->numeric()->required(),
+                    TextInput::make('order_tax_percent')->numeric()->required()
                 ])->columns(2)
             ]);
     }
@@ -58,11 +58,29 @@ class OrderItemsResource extends Resource
                 TextColumn::make('orders.order_number')
                     ->searchable()
                     ->width('30%'),
-                TextColumn::make('order_qty')->label('QTY'),
-                TextColumn::make('order_price')->label('Price'),
-                TextColumn::make('order_discount_percent')->label('Discount'),
-                TextColumn::make('order_tax_percent')->label('Tax'),
-                TextColumn::make('order_shipping_charge')->label('Shipping'),
+                TextColumn::make('order_qty')
+                    ->summarize([
+                        Sum::make()->label('')
+                    ])
+                    ->label('QTY'),
+                TextColumn::make('order_price')
+                    ->money(env('APP_CURRENCY'))
+                    ->summarize([
+                        Sum::make()->money(env('APP_CURRENCY'))->label('')
+                    ])
+                    ->label('Price'),
+                TextColumn::make('order_discount_percent')
+                    ->money(env('APP_CURRENCY'))
+                    ->summarize([
+                        Sum::make()->money(env('APP_CURRENCY'))->label('')
+                    ])
+                    ->label('Discount'),
+                TextColumn::make('order_tax_percent')
+                    ->money(env('APP_CURRENCY'))
+                    ->summarize([
+                        Sum::make()->money(env('APP_CURRENCY'))->label('')
+                    ])
+                    ->label('Tax')
             ])
             // ->defaultSort('orders_id', 'desc')
             ->filters([

@@ -19,6 +19,7 @@ class Orders extends Model
         'shipping_methods_id',
         'payment_types_id',
         'addresses_id',
+        'grand_total',
         'order_number',
         'order_status',
         'order_date'

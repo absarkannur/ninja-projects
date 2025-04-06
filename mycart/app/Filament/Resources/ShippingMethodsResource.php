@@ -40,6 +40,7 @@ class ShippingMethodsResource extends Resource
             ->columns([
                 TextColumn::make('shipping_title'),
                 TextColumn::make('shipping_charge')
+                    ->money( env('APP_CURRENCY') )
             ])
             ->filters([
                 //

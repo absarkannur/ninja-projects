@@ -28,8 +28,8 @@ class CustomersResource extends Resource
         return $form
             ->schema([
                 TextInput::make('customer_name')->required(),
-                TextInput::make('customer_email')->email()->required(),
-                TextInput::make('customer_password')
+                TextInput::make('email')->email()->required(),
+                TextInput::make('password')
                     ->password()
                     ->dehydrateStateUsing(fn ($state) => Hash::make($state))
                     ->dehydrated(fn ($state) => filled($state))
@@ -42,7 +42,7 @@ class CustomersResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('customer_name'),
-                TextColumn::make('customer_email'),
+                TextColumn::make('email'),
             ])
             ->filters([
                 //

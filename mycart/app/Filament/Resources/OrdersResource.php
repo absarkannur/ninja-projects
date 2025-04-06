@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Enums\OrderStatus;
 use App\Filament\Resources\OrdersResource\Pages;
 use App\Filament\Resources\OrdersResource\RelationManagers;
+use App\Filament\Resources\OrdersResource\RelationManagers\AddressesRelationManager;
 use App\Filament\Resources\OrdersResource\RelationManagers\OrderItemsRelationManager;
 use App\Filament\Resources\OrdersResource\RelationManagers\PaymentsTransactionRelationManager;
 use App\Models\Orders;
@@ -22,6 +23,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Filament\Tables\Columns\Summarizers\Sum;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -94,6 +96,11 @@ class OrdersResource extends Resource
                     ->sortable(),
                 TextColumn::make('customers.customer_name')
                     ->searchable(),
+                TextColumn::make('grand_total')
+                    ->money(env('APP_CURRENCY'))
+                    ->summarize([
+                        Sum::make()->money(env('APP_CURRENCY'))->label('Grand Total')
+                    ]),
                 TextColumn::make('order_status')->badge(),
                 TextColumn::make('order_date')
                     ->date()
@@ -106,7 +113,7 @@ class OrdersResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                // Tables\Actions\ViewAction::make(),
+                Tables\Actions\ViewAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -120,6 +127,7 @@ class OrdersResource extends Resource
         return [
             RelationGroup::make('', [
                 PaymentsTransactionRelationManager::class,
+                AddressesRelationManager::class,
                 OrderItemsRelationManager::class,
             ]),
         ];
