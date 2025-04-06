@@ -16,8 +16,11 @@ return new class extends Migration
             $table->foreignId('customers_id')->constrained()->cascadeOnDelete();
             $table->foreignId('payment_types_id')->constrained()->cascadeOnDelete();
             $table->string('provider')->nullable();
+            $table->string('card_holder_name')->nullable();
+            $table->string('card_type')->nullable();
             $table->string('card_no')->nullable();
-            $table->string('expiry')->nullable();
+            $table->string('expiry_month')->nullable();
+            $table->string('expiry_year')->nullable();
             $table->timestamps();
         });
     }

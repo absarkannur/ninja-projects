@@ -10,7 +10,9 @@ class PaymentTypes extends Model
     use HasFactory;
 
     protected $fillable = [
-        'payment_type'
+        'payment_type',
+        'payment_type_short',
+        'payment_type_visible'
     ];
 
 }

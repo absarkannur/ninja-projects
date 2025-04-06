@@ -18,6 +18,7 @@ class Orders extends Model
         'customers_id',
         'shipping_methods_id',
         'payment_types_id',
+        'addresses_id',
         'order_number',
         'order_status',
         'order_date'
@@ -31,6 +32,14 @@ class Orders extends Model
         'order_date'
     ];
 
+    public function orderitems(){
+        return $this->HasMany( OrderItems::class );
+    }
+
+    public function paymentstransaction(){
+        return $this->HasMany( PaymentsTransaction::class );
+    }
+
     public function customers(){
         return $this->belongsTo( Customers::class );
     }
@@ -41,6 +50,10 @@ class Orders extends Model
 
     public function payment_types(){
         return $this->belongsTo( PaymentTypes::class );
+    }
+
+    public function addresses(){
+        return $this->belongsTo( Addresses::class );
     }
 
 

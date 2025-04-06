@@ -17,7 +17,7 @@ class OrdersPage extends Component
         $request = Request();
 
         // Initial Load
-        $this->sessions = $request->session()->get('user');
+        $this->sessions = $request->session()->get('users_session');
 
     }
 

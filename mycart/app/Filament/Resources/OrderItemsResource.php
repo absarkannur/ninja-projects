@@ -64,6 +64,7 @@ class OrderItemsResource extends Resource
                 TextColumn::make('order_tax_percent')->label('Tax'),
                 TextColumn::make('order_shipping_charge')->label('Shipping'),
             ])
+            // ->defaultSort('orders_id', 'desc')
             ->filters([
                 //
             ])

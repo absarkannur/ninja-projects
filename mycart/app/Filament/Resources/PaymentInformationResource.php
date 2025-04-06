@@ -42,8 +42,11 @@ class PaymentInformationResource extends Resource
                     ->searchable(false)
                     ->required(),
                 TextInput::make('provider'),
+                TextInput::make('card_holder_name'),
+                TextInput::make('card_type'),
                 TextInput::make('card_no'),
-                TextInput::make('expiry')
+                TextInput::make('expiry_month'),
+                TextInput::make('expiry_year')
             ]);
     }
 
@@ -53,6 +56,7 @@ class PaymentInformationResource extends Resource
             ->columns([
                 TextColumn::make('customers.customer_name'),
                 TextColumn::make('payment_types.payment_type'),
+                TextColumn::make('card_type'),
                 TextColumn::make('provider'),
             ])
             ->filters([

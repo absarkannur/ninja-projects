@@ -8,6 +8,7 @@ use App\Filament\Resources\PaymentTypesResource\RelationManagers;
 use App\Models\PaymentTypes;
 use Filament\Forms;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -29,7 +30,9 @@ class PaymentTypesResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('payment_type')
+                TextInput::make('payment_type'),
+                TextInput::make('payment_type_short'),
+                Toggle::make('payment_type_visible')
             ]);
     }
 
@@ -37,7 +40,8 @@ class PaymentTypesResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('payment_type')
+                TextColumn::make('payment_type'),
+                TextColumn::make('payment_type_short'),
             ])
             ->filters([
                 //

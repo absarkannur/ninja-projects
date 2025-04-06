@@ -14,8 +14,11 @@ class PaymentInformations extends Model
         'customers_id',
         'payment_types_id',
         'provider',
+        'card_holder_name',
+        'card_type',
         'card_no',
-        'expiry'
+        'expiry_month',
+        'expiry_year',
     ];
 
     public function customers(){

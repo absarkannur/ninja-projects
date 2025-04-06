@@ -5,8 +5,11 @@ namespace App\Filament\Resources;
 use App\Enums\OrderStatus;
 use App\Filament\Resources\OrdersResource\Pages;
 use App\Filament\Resources\OrdersResource\RelationManagers;
+use App\Filament\Resources\OrdersResource\RelationManagers\OrderItemsRelationManager;
+use App\Filament\Resources\OrdersResource\RelationManagers\PaymentsTransactionRelationManager;
 use App\Models\Orders;
 use Faker\Core\Color;
+use Filament\Actions\ActionGroup;
 use Filament\Forms;
 use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\TextInput;
@@ -21,6 +24,8 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+
+use Filament\Resources\RelationManagers\RelationGroup;
 
 class OrdersResource extends Resource
 {
@@ -66,8 +71,7 @@ class OrdersResource extends Resource
                 Select::make('shipping_methods_id')
                     ->relationship( 'shipping_methods', 'shipping_title' )
                     ->label('Shipping Methods')
-                    ->searchable(false)
-                    ->required(),
+                    ->searchable(false),
                 Section::make('')->schema([
                     ToggleButtons::make('order_status')
                         ->label('Order Status')
@@ -102,6 +106,7 @@ class OrdersResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                // Tables\Actions\ViewAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -113,7 +118,10 @@ class OrdersResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationGroup::make('', [
+                PaymentsTransactionRelationManager::class,
+                OrderItemsRelationManager::class,
+            ]),
         ];
     }
 
@@ -122,6 +130,7 @@ class OrdersResource extends Resource
         return [
             'index' => Pages\ListOrders::route('/'),
             'create' => Pages\CreateOrders::route('/create'),
+            'view' => Pages\ViewOrders::route('/{record}'),
             'edit' => Pages\EditOrders::route('/{record}/edit'),
         ];
     }
@@ -142,5 +151,7 @@ class OrdersResource extends Resource
         }
 
     }
+
+
 
 }

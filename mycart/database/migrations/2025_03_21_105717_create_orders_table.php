@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('order_number')->unique();
             $table->foreignId('customers_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('shipping_methods_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('shipping_methods_id')->nullable()->constrained()->cascadeOnDelete();
             $table->foreignId('payment_types_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('addresses_id')->nullable()->constrained()->cascadeOnDelete();
             $table->string('order_status')->nullable();
             $table->date('order_date');
             $table->timestamps();

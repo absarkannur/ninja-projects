@@ -29,8 +29,8 @@ class SigninPage extends Component
             $customer_stack = array(
                 "id" => $customers->id,
                 "customer_name" => $customers->customer_name,
-                "customer_email" => $customers->customer_email,
-                "customer_email_verified_at" => $customers->customer_email_verified_at
+                "customer_email" => $customers->email,
+                "customer_email_verified_at" => $customers->email_verified_at
             );
 
             session()->put( 'users_session', $customer_stack );

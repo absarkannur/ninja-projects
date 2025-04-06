@@ -4,14 +4,15 @@
 }
 
 .payment-wrapper form{
-    clear: both;
+    /* clear: both;
     display: flex;
-    gap: 20px;
+    gap: 20px; */
 }
 
 .payment-wrapper .cart-section{
     margin-top: 40px;
     width: 70%;
+    float: left;
 }
 
 /* -------- Cart List -------- */
@@ -166,6 +167,8 @@
     /* margin: 3px; */
 }
 
+.payment-wrapper .cart-section .cards-wrap .card-list .card.visa.active::after,
+.payment-wrapper .cart-section .cards-wrap .card-list .card.master.active::after,
 .payment-wrapper .cart-section .cards-wrap .card-list .card.visa:hover::after,
 .payment-wrapper .cart-section .cards-wrap .card-list .card.master:hover::after{
     content: '';
@@ -234,14 +237,50 @@
     padding: 30px 20px;
 }
 
+.payment-wrapper .cart-section fieldset .fieldset-body .address-list{
+    list-style: none;
+    overflow: hidden;
+}
+
+.payment-wrapper .cart-section fieldset .fieldset-body .address-list .address{
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    padding: 10px;
+    width: 33.33%;
+    float: left;
+    margin-right: 10px;
+}
+
+.payment-wrapper .cart-section fieldset .fieldset-body .address-list .address input{
+    float: left;
+    width: 20px;
+    height: 20px;
+}
+
+.payment-wrapper .cart-section fieldset .fieldset-body .address-list .address label{
+    padding: 0 10px;
+}
+
+.payment-wrapper .cart-section fieldset .fieldset-body .address-list .address address{
+    overflow: hidden;
+    margin: 0;
+}
+
+.payment-wrapper .cart-section fieldset .fieldset-body .address-list .address address span{
+    display: block;
+    font-size: 12px;
+}
+
+/* -------------------------- */
+
 .payment-wrapper .checkout-section{
     background-color: #efefef;
     border-radius: 10px;
     border: solid 1px var(--fd-border-color);
     margin-top: 40px;
-    width: 30%;
-    height: 400px;
+    width: 29%;
     padding: 20px;
+    float: right;
 }
 
 .payment-wrapper .checkout-section .price-wrap,
@@ -254,7 +293,7 @@
 
 .payment-wrapper .checkout-section .head-wrap span{
     display: block;
-    font-size: 26px;
+    font-size: 22px;
     font-weight: 400;
     height: 50px;
     line-height: 50px;
@@ -270,6 +309,15 @@
 
 .payment-wrapper .checkout-section .price-wrap span.value{
     font-weight: 500;
+}
+
+.payment-wrapper .checkout-section .button-wrap{
+    margin: 20px 0;
+}
+
+.payment-wrapper .checkout-section .button-wrap .btn{
+    width: 100%;
+    height: 50px;
 }
 
 @media only screen and (max-width: 600px) {
