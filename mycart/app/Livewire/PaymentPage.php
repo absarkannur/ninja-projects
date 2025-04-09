@@ -24,6 +24,7 @@ class PaymentPage extends Component
     public $cart_items;
     public $grand_total;
     public $current_session;
+    public $currency;
 
     // Form Fields
     public $payment_option = 'COD';
@@ -32,6 +33,13 @@ class PaymentPage extends Component
 
 
     public function mount() {
+
+        $this->currency = env('APP_CURRENCY');
+
+        if( Session()->get('users_session') === null ){
+            return redirect('/gust/login');
+        }
+
         $this->current_session = Session()->get('users_session');
         $this->cart_items = CartManagement::getCartItemsFromCookie();
         $this->grand_total = CartManagement::calculateGrandTotal( $this->cart_items );

@@ -17,8 +17,11 @@ class HomePage extends Component
     #[Title('Home | MyCart')]
 
     public $sessions;
+    public $currency;
 
     public function mount() {
+
+        $this->currency = env('APP_CURRENCY');
 
          // Initial Load
         $request = Request();

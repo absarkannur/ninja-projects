@@ -13,7 +13,7 @@
                                     <img height="50" src="{{ asset('storage/' . $item['product_images'][0] ) }}" alt="" />
                                 </div>
                                 <div class="title">{{ $item['product_name'] }}</div>
-                                <div class="sales_price">{{ Number::currency( $item['product_sales_price'], 'AED' ) }}</div>
+                                <div class="sales_price">{{ Number::currency( $item['product_sales_price'], $currency ) }}</div>
                                 <div class="quantity">
                                     <div class="product-qty">
                                         <button wire:click.prevent="decrementCart({{ $item['product_id'] }})" type="button" class="input-quantity-btn quantity-left-minus" data-type="minus">
@@ -25,7 +25,7 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="total_price">{{ Number::currency( $item['product_total_amount'], 'AED' ) }}</div>
+                                <div class="total_price">{{ Number::currency( $item['product_total_amount'], $currency ) }}</div>
                                 <div class="delete" wire:click.prevent="removeCart({{ $item['product_id'] }})">
                                     <svg width="16" height="16"><use xlink:href="{{ asset('front-end/images/svg-sprint.svg#bin-thick-shape') }}"></use></svg>
                                 </div>
@@ -140,23 +140,23 @@
         <div class="checkout-section">
             <div class="head-wrap">
                 <span>Total</span>
-                <span class="value">{{ Number::currency( $grand_total, 'AED' ) }}</span>
+                <span class="value">{{ Number::currency( $grand_total, $currency ) }}</span>
             </div>
             <div class="price-wrap">
                 <span>Discount</span>
-                <span class="value">{{ Number::currency( 34.90, 'AED' ) }}</span>
+                <span class="value">{{ Number::currency( 34.90, $currency ) }}</span>
             </div>
             <div class="price-wrap">
                 <span>TAX</span>
-                <span class="value">{{ Number::currency( 5.90, 'AED' ) }}</span>
+                <span class="value">{{ Number::currency( 5.90, $currency ) }}</span>
             </div>
             <div class="price-wrap">
                 <span>Shipping</span>
-                <span class="value">{{ Number::currency( 20, 'AED' ) }}</span>
+                <span class="value">{{ Number::currency( 20, $currency ) }}</span>
             </div>
             <div class="head-wrap">
                 <span>Grand Total</span>
-                <span class="value">{{ Number::currency( $grand_total, 'AED' ) }}</span>
+                <span class="value">{{ Number::currency( $grand_total, $currency ) }}</span>
             </div>
             <div class="button-wrap">
                 <button class="btn btn-primary">CHECKOUT</button>

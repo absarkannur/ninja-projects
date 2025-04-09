@@ -25,7 +25,7 @@
                                 </div>
                                 <div class="title-wrap">
                                     <h2 class="title">{{ $product->product_name }}</h2>
-                                    <span class="price"><em>AED</em> {{ $product->product_sales_price }}</span>
+                                    <span class="price">{{ Number::currency( $product->product_sales_price, $currency ) }}</span>
                                 </div>
                                 <div class="button-wrap">
                                     <div class="box">
