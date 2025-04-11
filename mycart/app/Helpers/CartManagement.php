@@ -24,20 +24,62 @@ class CartManagement {
 
             $cart_items[$existing_item]['product_qty'] = $cart_items[$existing_item]['product_qty'] + $qty;
             $cart_items[$existing_item]['product_total_amount'] = $cart_items[$existing_item]['product_qty'] * $cart_items[$existing_item]['product_sales_price'];
+            $cart_items[$existing_item]['product_total_discount_amount'] = $cart_items[$existing_item]['product_qty'] * $cart_items[$existing_item]['product_sales_discount'];
 
 
         } else {
 
-            $product = Products::where( 'id', $product_id )->first(['id', 'product_name', 'product_sales_price', 'product_images' ]);
+            $product = Products::where( 'products.id', $product_id )
+                                ->leftJoin( 'offers', 'offers.id', 'products.offers_id' )
+                                ->first(['products.id',
+                                        'products.product_name',
+                                        'products.product_sales_price',
+                                        'products.product_images',
+                                        'products.product_qty_in_stock',
+                                        'offers.offer_discount_percent',
+                                        'offers.offer_status',
+                                        'offers.offer_end_date',
+                                    ]);
+
+            // dd( $product );
 
             if( $product ){
+
+                $expire = date('Y-m-d', strtotime('0 days'));
+
+                $price = $product->product_sales_price;
+                $discount = $product->offer_discount_percent;
+
+                // Offer end with status check
+                if( $product->offer_status == 'inactive' ){
+                    $discount = 0;
+                }
+
+                // Offer End with date
+                if (strtotime( $product->offer_end_date ) <= strtotime($expire)) {
+                    $discount = 0;
+                }
+
+                $after_discount = $price*$discount/100;
+
                 $cart_items[] = [
                     'product_id' => $product->id,
                     'product_name' => $product->product_name,
                     'product_images' => $product->product_images,
+
                     'product_qty' => $qty,
-                    'product_sales_price' => $product->product_sales_price,
-                    'product_total_amount' => $qty * $product->product_sales_price,
+                    'product_price' => floatval($price),
+
+                    'product_sales_price' => floatval($price)-floatval( $after_discount ),
+                    'product_sales_discount' => floatval( $after_discount ),
+
+                    'product_total_amount' => $qty*floatval($price)-floatval( $after_discount ),
+                    'product_total_discount_amount' => $qty*floatval($after_discount),
+
+                    'options' => array(
+                        'product_qty_in_stock' => $product->product_qty_in_stock,
+                        'offer_discount_percent' => $product->offer_discount_percent,
+                    )
                 ];
             }
 
@@ -91,10 +133,21 @@ class CartManagement {
     static public function incrementQuantityToCartItem( $product_id ){
         $cart_items = self::getCartItemsFromCookie();
 
+        // Get Product QTY
+        $product_qty = Products::where( 'id', $product_id )->first('product_qty_in_stock');
+
+        // dd( $product_qty );
+
+
         foreach ($cart_items as $key => $item) {
             if( $item['product_id'] == $product_id ){
-                $cart_items[$key]['product_qty']++;
-                $cart_items[$key]['product_total_amount'] = $cart_items[$key]['product_qty'] * $cart_items[$key]['product_sales_price'];
+                if( $cart_items[$key]['product_qty'] < $product_qty->product_qty_in_stock ){
+
+                    $cart_items[$key]['product_qty']++;
+                    $cart_items[$key]['product_total_amount'] = $cart_items[$key]['product_qty'] * $cart_items[$key]['product_sales_price'];
+                    $cart_items[$key]['product_total_discount_amount'] = $cart_items[$key]['product_qty'] * $cart_items[$key]['product_sales_discount'];
+
+                }
             }
         }
 
@@ -110,8 +163,11 @@ class CartManagement {
         foreach ($cart_items as $key => $item) {
             if( $item['product_id'] == $product_id ){
                 if( $cart_items[$key]['product_qty'] > 1 ){
+
                     $cart_items[$key]['product_qty']--;
                     $cart_items[$key]['product_total_amount'] = $cart_items[$key]['product_qty'] * $cart_items[$key]['product_sales_price'];
+                    $cart_items[$key]['product_total_discount_amount'] = $cart_items[$key]['product_qty'] * $cart_items[$key]['product_sales_discount'];
+
                 }
             }
         }
@@ -126,5 +182,9 @@ class CartManagement {
         return array_sum( array_column( $items, 'product_total_amount' ) );
     }
 
+    // Calculate grand discount total
+    static public function calculateGrandDiscountTotal( $items ){
+        return array_sum( array_column( $items, 'product_total_discount_amount' ) );
+    }
 
 };

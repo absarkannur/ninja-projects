@@ -31,6 +31,7 @@ class PaymentPage extends Component
     public $shipping_address;
     public $payment_card;
 
+    public $item;
 
     public function mount() {
 
@@ -117,7 +118,7 @@ class PaymentPage extends Component
                 "expiryYear" => $card['expiry_year'],
                 "cvv" => "123",
                 "amount" => $this->grand_total,
-                "currency" => "AED"
+                "currency" => env('APP_CURRENCY')
             ]);
 
             if( $response->json() ){

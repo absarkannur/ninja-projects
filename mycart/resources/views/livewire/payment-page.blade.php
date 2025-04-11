@@ -19,7 +19,7 @@
                                         <button wire:click.prevent="decrementCart({{ $item['product_id'] }})" type="button" class="input-quantity-btn quantity-left-minus" data-type="minus">
                                             <svg width="16" height="16"><use xlink:href="{{ asset('front-end/images/svg-sprint.svg#minus-thick') }}"></use></svg>
                                         </button>
-                                        <input min="1" max="10" readonly type="text" id="quantity" name="quantity" class="input-quantity" value="{{ $item['product_qty'] }}">
+                                        <input min="1" max="{{ $item['options']['product_qty_in_stock'] }}" readonly type="text" id="quantity" name="quantity" class="input-quantity" value="{{ $item['product_qty'] }}">
                                         <button wire:click.prevent="incrementCart({{ $item['product_id'] }})" type="button" class="input-quantity-btn quantity-right-plus" data-type="plus">
                                             <svg width="16" height="16"><use xlink:href="{{ asset('front-end/images/svg-sprint.svg#plus-thick') }}"></use></svg>
                                         </button>
@@ -31,9 +31,6 @@
                                 </div>
                             </li>
                         @endforeach
-                            <li>
-
-                            </li>
                     </ul>
 
                 </div>

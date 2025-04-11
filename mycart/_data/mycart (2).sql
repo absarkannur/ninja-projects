@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Apr 06, 2025 at 03:49 PM
+-- Generation Time: Apr 11, 2025 at 05:14 AM
 -- Server version: 5.7.39
 -- PHP Version: 8.2.0
 
@@ -47,7 +47,7 @@ CREATE TABLE `addresses` (
 --
 
 INSERT INTO `addresses` (`id`, `customers_id`, `countries_id`, `address_line_1`, `address_line_2`, `city`, `postal_code`, `landmark`, `phone_number`, `default_address`, `created_at`, `updated_at`) VALUES
-(3, 1, 398, 'Media City, GBS Building, 101, 102', 'GBS Building, 101, 102', 'Dubai', '000000', 'Costa Cafe , GBS Building', '0562364538', 0, '2025-04-03 23:47:04', '2025-04-03 23:47:04'),
+(3, 1, 398, 'Media City, GBS Building, 101, 102', 'GBS Building, 101, 102', 'Dubai', '000001', 'Costa Cafe , GBS Building', '0562364538', 0, '2025-04-03 23:47:04', '2025-04-06 10:44:00'),
 (4, 6, 398, 'Media City, GBS Building, 101, 102', 'GBS Building, 101, 102', 'Dubai', '870304', 'Costa Cafe , GBS Building', '0562364538', 0, '2025-04-04 13:41:50', '2025-04-04 13:41:50');
 
 -- --------------------------------------------------------
@@ -449,7 +449,7 @@ CREATE TABLE `offers` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `offer_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `offer_description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `offer_discount_percent` double NOT NULL,
+  `offer_discount_percent` double NOT NULL DEFAULT '0',
   `offer_end_date` date DEFAULT NULL,
   `offer_status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
@@ -461,7 +461,7 @@ CREATE TABLE `offers` (
 --
 
 INSERT INTO `offers` (`id`, `offer_name`, `offer_description`, `offer_discount_percent`, `offer_end_date`, `offer_status`, `created_at`, `updated_at`) VALUES
-(1, '10% Offer', '10% Offers for all users', 10, '2025-03-31', 'active', '2025-03-22 01:33:41', '2025-03-22 07:05:21');
+(1, '10% Offer', '10% Offers for all users', 12, '2025-06-17', 'active', '2025-03-22 01:33:41', '2025-04-10 06:52:40');
 
 -- --------------------------------------------------------
 
@@ -476,21 +476,12 @@ CREATE TABLE `orders` (
   `shipping_methods_id` bigint(20) UNSIGNED DEFAULT NULL,
   `payment_types_id` bigint(20) UNSIGNED NOT NULL,
   `addresses_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `grand_total` double NOT NULL DEFAULT '0',
   `order_status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order_date` date NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`id`, `order_number`, `customers_id`, `shipping_methods_id`, `payment_types_id`, `addresses_id`, `order_status`, `order_date`, `created_at`, `updated_at`) VALUES
-(21, 'ORD-000001', 6, NULL, 3, 4, 'new', '2025-04-04', '2025-04-04 13:47:37', '2025-04-04 13:47:37'),
-(22, 'ORD-000002', 6, NULL, 4, 4, 'new', '2025-04-04', '2025-04-04 13:49:11', '2025-04-04 13:49:11'),
-(24, 'ORD-000003', 1, NULL, 3, 3, 'new', '2025-04-04', '2025-04-04 16:14:25', '2025-04-04 16:14:25'),
-(25, 'ORD-000004', 1, NULL, 4, 3, 'new', '2025-04-04', '2025-04-04 16:26:16', '2025-04-04 16:26:16');
 
 -- --------------------------------------------------------
 
@@ -506,26 +497,9 @@ CREATE TABLE `order_items` (
   `order_price` double NOT NULL DEFAULT '0',
   `order_discount_percent` double NOT NULL DEFAULT '0',
   `order_tax_percent` double NOT NULL DEFAULT '0',
-  `order_shipping_charge` double DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `order_items`
---
-
-INSERT INTO `order_items` (`id`, `orders_id`, `products_id`, `order_qty`, `order_price`, `order_discount_percent`, `order_tax_percent`, `order_shipping_charge`, `created_at`, `updated_at`) VALUES
-(18, 21, 1, 2, 160, 0, 0, 0, '2025-04-04 13:47:37', '2025-04-04 13:47:37'),
-(19, 21, 2, 1, 450, 0, 0, 0, '2025-04-04 13:47:37', '2025-04-04 13:47:37'),
-(20, 21, 3, 1, 410, 0, 0, 0, '2025-04-04 13:47:37', '2025-04-04 13:47:37'),
-(21, 21, 4, 1, 600, 0, 0, 0, '2025-04-04 13:47:37', '2025-04-04 13:47:37'),
-(22, 22, 1, 2, 160, 0, 0, 0, '2025-04-04 13:49:11', '2025-04-04 13:49:11'),
-(23, 22, 2, 1, 450, 0, 0, 0, '2025-04-04 13:49:11', '2025-04-04 13:49:11'),
-(24, 22, 3, 1, 410, 0, 0, 0, '2025-04-04 13:49:11', '2025-04-04 13:49:11'),
-(25, 22, 4, 1, 600, 0, 0, 0, '2025-04-04 13:49:11', '2025-04-04 13:49:11'),
-(27, 24, 2, 1, 450, 0, 0, 0, '2025-04-04 16:14:25', '2025-04-04 16:14:25'),
-(28, 25, 2, 1, 450, 0, 0, 0, '2025-04-04 16:26:16', '2025-04-04 16:26:16');
 
 -- --------------------------------------------------------
 
@@ -554,16 +528,6 @@ CREATE TABLE `payments_transactions` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `payments_transactions`
---
-
-INSERT INTO `payments_transactions` (`id`, `orders_id`, `payment_types_id`, `payment_informations_id`, `payment_status`, `created_at`, `updated_at`) VALUES
-(11, 21, 3, NULL, 'pending', '2025-04-04 13:47:37', '2025-04-04 13:47:37'),
-(12, 22, 4, 3, 'complete', '2025-04-04 13:49:11', '2025-04-04 13:49:11'),
-(14, 24, 3, NULL, 'pending', '2025-04-04 16:14:25', '2025-04-04 16:14:25'),
-(15, 25, 4, 2, 'complete', '2025-04-04 16:26:16', '2025-04-04 16:26:16');
 
 -- --------------------------------------------------------
 
@@ -654,7 +618,7 @@ CREATE TABLE `products` (
   `product_images` longtext COLLATE utf8mb4_unicode_ci,
   `product_original_price` double DEFAULT NULL,
   `product_sales_price` double DEFAULT NULL,
-  `product_qty_in_stock` double DEFAULT NULL,
+  `product_qty_in_stock` int(11) DEFAULT NULL,
   `product_sku` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `product_status` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
@@ -666,7 +630,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `brands_id`, `sub_categories_id`, `offers_id`, `taxes_id`, `product_name`, `product_slug`, `product_description`, `product_content`, `product_images`, `product_original_price`, `product_sales_price`, `product_qty_in_stock`, `product_sku`, `product_status`, `created_at`, `updated_at`) VALUES
-(1, 3, 3, NULL, NULL, 'Product 1', 'product-1', 'Nulla tincidunt erat lacus, a tempor est semper in. Proin ut ligula nulla.', NULL, '[\"01JQA4WVRTW9VMX1J0GH86BB16.jpg\",\"cdn-products\\/01JQA5PQR353XWAN9WJC14M6NG.png\"]', 100, 160, 4, 'SKU-GBA-CK-1', 1, '2025-03-23 03:58:37', '2025-03-28 03:11:24'),
+(1, 3, 3, 1, NULL, 'Product 1', 'product-1', 'Nulla tincidunt erat lacus, a tempor est semper in. Proin ut ligula nulla.', NULL, '[\"01JQA4WVRTW9VMX1J0GH86BB16.jpg\",\"cdn-products\\/01JQA5PQR353XWAN9WJC14M6NG.png\"]', 100, 160, 4, 'SKU-GBA-CK-1', 1, '2025-03-23 03:58:37', '2025-04-10 04:39:16'),
 (2, 3, 2, 1, 1, 'Product 2', 'product-2', 'Test', NULL, '[\"cdn-products\\/01JQA4SBYJ4F821CRD9PP0JM0T.png\"]', 290, 450, 10, 'SKU-GBA-CK-2', 0, '2025-03-24 04:11:12', '2025-03-26 15:56:24'),
 (3, 3, 4, 1, 1, 'Product 3', 'product-3', 'Chees Cake', NULL, '[\"cdn-products\\/01JQG4D61YGSTTR5RY28NH4B0E.jpeg\"]', 230, 410, 10, 'SKU-GBA-CK-3', 1, '2025-03-28 23:31:17', '2025-03-28 23:32:48'),
 (4, 3, 4, NULL, NULL, 'Product 4', 'product-4', 'Blueberry Lemon Cake', NULL, '[\"cdn-products\\/01JQG4K3YC8SJSBBG1GJVP1277.jpg\"]', 300, 600, 3, 'SKU-GBA-CK-4', 1, '2025-03-28 23:34:32', '2025-03-28 23:34:32');
@@ -969,7 +933,7 @@ ALTER TABLE `offers`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `order_items`
@@ -981,7 +945,7 @@ ALTER TABLE `order_items`
 -- AUTO_INCREMENT for table `payments_transactions`
 --
 ALTER TABLE `payments_transactions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `payment_informations`
