@@ -14,6 +14,24 @@ export const Colors = {
     icon: '#687076',
     tabIconDefault: '#687076',
     tabIconSelected: tintColorLight,
+    innerBackground: '#ffffff',
+    transparent: 'transparent',
+    textColor: '#111111',
+    textColorWhite: '#ffffff',
+    inputBgColor: '#ffffff',
+    borderColor: '#a1a1a1',
+    labelColor: '#616161',
+    labelColorBlue: '#0069BF',        
+    buttonFace: '#0044FF',
+    buttonFaceDisabled: '#CECECE',
+    highlightColor: '#F38806',
+    placeholderColor: '#AAAAAA',
+
+    header: {
+      backgroundColor: '#f4511e',
+      headerTintColor: '#fff',
+ 
+    }
   },
   dark: {
     text: '#ECEDEE',
@@ -22,5 +40,6 @@ export const Colors = {
     icon: '#9BA1A6',
     tabIconDefault: '#9BA1A6',
     tabIconSelected: tintColorDark,
+    innerBackground: '#ffffff',
   },
 };

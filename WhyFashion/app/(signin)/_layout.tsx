@@ -1,9 +1,9 @@
-import { View, Text } from 'react-native'
+import { View, Text, Button } from 'react-native'
 import React from 'react'
 import { Stack } from 'expo-router'
 import { Colors } from '@/constants/Colors'
 
-export default function RegisterLayout() {
+export default function AuthLayout() {
     return (
         <Stack
             screenOptions={{
@@ -16,13 +16,13 @@ export default function RegisterLayout() {
                 },
             }}
             >
-            <Stack.Screen 
-                name="register" 
+            <Stack.Screen name="signin"
                 options={{
-                    title: 'Signip',
+                    title: 'Signin',
                     gestureEnabled: false,
-                    headerShown: true
-                }} />
+                    headerShown: true,
+                }}
+            />
         </Stack>
     )
 }
