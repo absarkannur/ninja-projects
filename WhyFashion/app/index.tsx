@@ -1,12 +1,15 @@
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, Alert } from 'react-native'
 import React, { useEffect, useRef } from 'react'
 import { useVideoPlayer, VideoView } from 'expo-video';
 import { Colors } from '@/constants/Colors'
 import { router, Redirect, Link } from 'expo-router'
 import { StatusBar } from 'expo-status-bar';
-
 import Button from '@/components/Button'
 import Spacer from '@/components/Spacer'
+
+// Icons
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 export default function SplashScreen() {
 
@@ -18,19 +21,14 @@ export default function SplashScreen() {
         player.play();
     });
 
-    useEffect(() => {
-        
-        setTimeout(function(){
-            
-            // Demo load
-            // router.push('/(register)');
-            
-        }, 5000);
-        
-    },[]);
+    // useEffect(() => {
+    //     setTimeout(function(){
+    //         router.push('/(register)/register');
+    //     }, 5000);
+    // },[]);
 
     const handleRegister =() => {
-        router.push('/(register)/register');
+        router.push('/(profile)/profile.screen');
     }
 
     return (
@@ -49,11 +47,22 @@ export default function SplashScreen() {
                 <View style={ Styles.boxBottom }>
                     <View style={ Styles.footer}>
                         
-                        <Button title="Register" onPress={ handleRegister } />
+                        <Button 
+                            icon={ <FontAwesome6 name="apple" size={24} color="white" /> }
+                            title="Continue with Apple" onPress={ handleRegister } />
+                        
+                        <Spacer gap={10} />
+
+                        <Button 
+                            icon={ <FontAwesome name="google" size={24} color="white" /> }
+                            title="Continue with Google" onPress={ handleRegister } />
                         
                         <Spacer gap={20}/>
-                        <Text style={ Styles.signinText }>Already have an account? <Link style={{ textDecorationLine: 'underline' }} href="/(signin)/signin">Signin</Link></Text>
                         
+                        <Link style={{ textDecorationLine: 'underline' }} href="/(register)/register">
+                            <Text style={ Styles.signinText }>More sign up options</Text>
+                        </Link>
+
                     </View>
                 </View>
             </View>
@@ -88,7 +97,7 @@ const Styles = StyleSheet.create({
     boxBottom: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'flex-end'
+        justifyContent: 'center'
     },
     footer: {
         height: 200,

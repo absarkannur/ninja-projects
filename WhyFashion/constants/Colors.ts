@@ -22,16 +22,17 @@ export const Colors = {
     borderColor: '#a1a1a1',
     labelColor: '#616161',
     labelColorBlue: '#0069BF',        
-    buttonFace: '#0044FF',
-    buttonFaceDisabled: '#CECECE',
     highlightColor: '#F38806',
     placeholderColor: '#AAAAAA',
 
+    buttonFace: '#000000',
+    buttonFaceDisabled: '#999999',
+
     header: {
-      backgroundColor: '#f4511e',
-      headerTintColor: '#fff',
- 
+      backgroundColor: '#fff',
+      headerTintColor: '#000',
     }
+    
   },
   dark: {
     text: '#ECEDEE',

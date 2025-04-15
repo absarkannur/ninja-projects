@@ -54,6 +54,10 @@ export default function _layout() {
                 gestureEnabled: false,
                 headerShown: false
             }} />
+            <Stack.Screen name="(profile)" options={{
+                gestureEnabled: false,
+                headerShown: false
+            }} />
         </Stack>
         // Auth Layer End
     )

@@ -22,7 +22,9 @@ const Styles = StyleSheet.create({
         borderColor: Colors.light.borderColor,
         color: Colors.light.textColor,
         padding: 8,
-        borderBottomWidth: 1,
+        // borderBottomWidth: 1,
+        borderWidth: 1,
+        borderRadius: 10,
         marginBottom: 10,
         fontSize: 16,
     }

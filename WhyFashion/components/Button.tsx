@@ -22,8 +22,10 @@ const Button = ({ title, icon, disabled, onPress }: StateProps) => {
             activeOpacity={0.6}
             onPress={ onPress }>
             <View style={ ( disabled ) ? Styles.buttonFaceDisabled : Styles.buttonFace  }>
-                <Text style={ Styles.textStyle }>{ title }</Text>
+                <View style={ Styles.icon }>
                 { icon }
+                </View>
+                <Text style={ Styles.textStyle }>{ title }</Text>
             </View>
         </TouchableOpacity>
     )
@@ -38,7 +40,7 @@ const Styles = StyleSheet.create({
         width: '100%',
         paddingLeft: 10,
         paddingRight: 10,
-        borderRadius: 50,
+        borderRadius: 10,
         flexWrap: 'wrap',
         justifyContent: 'center',
         alignItems: 'center',
@@ -49,7 +51,7 @@ const Styles = StyleSheet.create({
         width: '100%',
         paddingLeft: 10,
         paddingRight: 10,
-        borderRadius: 50,
+        borderRadius: 10,
         flexWrap: 'wrap',
         justifyContent: 'center',
         alignItems: 'center',
@@ -64,5 +66,11 @@ const Styles = StyleSheet.create({
         textAlign: 'center',
         paddingLeft: 5,
         paddingRight: 5,
+    },
+    icon: {
+        position: 'absolute',
+        alignItems: 'center',
+        width: 50,
+        left: 10,
     }
 });

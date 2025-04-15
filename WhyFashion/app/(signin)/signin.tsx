@@ -15,6 +15,7 @@ export default function SignIn() {
 
                 <View style={ Styles.wrapper}>
                     
+                    <Text>Hello</Text>
 
                 </View>
 

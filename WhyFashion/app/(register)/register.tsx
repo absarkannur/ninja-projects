@@ -1,18 +1,56 @@
-import { View, Text, Alert, SafeAreaView } from 'react-native'
+import { View, Text, Alert, SafeAreaView, StyleSheet } from 'react-native'
 import React, { useEffect } from 'react'
 import { router, Redirect } from 'expo-router'
+import AppWrapper from '@/components/AppWrapper';
+import { Const } from '@/constants/Const';
+import Input from '@/components/Input';
+import Button from '@/components/Button';
 
-export default function index() {
+export default function Register() {
 
-    useEffect(()=>{
-        // router.push('/(startup)');
-    },[]);
+    const handleRegister =() => {
+        router.push('/(profile)/profile.screen');
+    }
 
     return (
-        <SafeAreaView>
-            <View>
-                <Text>Registration Screen</Text>
+        <AppWrapper>
+            <View style={ Styles.container }>
+
+                <View style={ Styles.wrapper }>
+
+                    <Text style={ Styles.header }>Continue with email</Text>
+
+                    <Input placeholder="Full Name" />
+                    <Input placeholder="Email" />
+                    
+                    <Input placeholder="Password" secureTextEntry={true} />
+                    <Input placeholder="Confirm Password" secureTextEntry={true} />
+
+                    <Button title="Register" onPress={ handleRegister } />
+
+                </View>
+
             </View>
-        </SafeAreaView>
+        </AppWrapper>
     )
 }
+
+const Styles = StyleSheet.create({
+
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: Const.padding.appInnerPadding,
+    },
+    wrapper: {
+        width: '100%',
+    },
+    header: {
+        fontFamily: 'Montserrat-Medium',
+        fontSize: 20,
+        color: "#666",
+        marginBottom: 20
+    }
+
+});
