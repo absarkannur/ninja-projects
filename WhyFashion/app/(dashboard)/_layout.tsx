@@ -21,7 +21,7 @@ export default function DashboardLayout() {
                 options={{
                     title: 'Dashboard',
                     gestureEnabled: false,
-                    headerShown: true
+                    headerShown: false
                 }} />
         </Stack>
     )
