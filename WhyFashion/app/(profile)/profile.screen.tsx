@@ -160,7 +160,7 @@ const Styles = StyleSheet.create({
         fontFamily: 'Montserrat-Bold',
         fontSize: 30,
         marginTop: 20,
-        // marginBottom: 20,
+        marginBottom: 5,
         textAlign: 'left',
     },
     subHeader: {

@@ -10,11 +10,11 @@ export default function SizeScreen() {
     const [ size , setSize ] = useState('');
 
     const handleNext = () => {
-        router.push('/(profile)/size.screen');
+        router.push('/(profile)/brands.screen');
     }
 
     const handleSize = ( value: string ) => {
-        Alert.alert('sdsd')
+        setSize( value )
     }
 
     return (
@@ -38,17 +38,83 @@ export default function SizeScreen() {
                                 XXXS
                             </Text>
                         </TouchableOpacity>
-                   
+                        
+                        <TouchableOpacity 
+                                onPress={ ()=> handleSize( 'XXS' ) }
+                                activeOpacity={0.6}>
+                            <Text style={[ Styles.sizelist, ( size === 'XXS' ) ?  Styles.sizeActive: '' ]}>
+                                XXS
+                            </Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity 
+                                onPress={ ()=> handleSize( 'XS' ) }
+                                activeOpacity={0.6}>
+                            <Text style={[ Styles.sizelist, ( size === 'XS' ) ?  Styles.sizeActive: '' ]}>
+                                XS
+                            </Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity 
+                                onPress={ ()=> handleSize( 'S' ) }
+                                activeOpacity={0.6}>
+                            <Text style={[ Styles.sizelist, ( size === 'S' ) ?  Styles.sizeActive: '' ]}>
+                                S
+                            </Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity 
+                                onPress={ ()=> handleSize( 'M' ) }
+                                activeOpacity={0.6}>
+                            <Text style={[ Styles.sizelist, ( size === 'M' ) ?  Styles.sizeActive: '' ]}>
+                                M
+                            </Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity 
+                                onPress={ ()=> handleSize( 'L' ) }
+                                activeOpacity={0.6}>
+                            <Text style={[ Styles.sizelist, ( size === 'L' ) ?  Styles.sizeActive: '' ]}>
+                                L
+                            </Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity 
+                                onPress={ ()=> handleSize( 'XL' ) }
+                                activeOpacity={0.6}>
+                            <Text style={[ Styles.sizelist, ( size === 'XL' ) ?  Styles.sizeActive: '' ]}>
+                                XL
+                            </Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity 
+                                onPress={ ()=> handleSize( 'XXL' ) }
+                                activeOpacity={0.6}>
+                            <Text style={[ Styles.sizelist, ( size === 'XXL' ) ?  Styles.sizeActive: '' ]}>
+                                XXL
+                            </Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity 
+                                onPress={ ()=> handleSize( 'XXXL' ) }
+                                activeOpacity={0.6}>
+                            <Text style={[ Styles.sizelist, ( size === 'XXXL' ) ?  Styles.sizeActive: '' ]}>
+                                XXXL
+                            </Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity 
+                                onPress={ ()=> handleSize( 'XXXXL' ) }
+                                activeOpacity={0.6}>
+                            <Text style={[ Styles.sizelist, ( size === 'XXXXL' ) ?  Styles.sizeActive: '' ]}>
+                                XXXXL
+                            </Text>
+                        </TouchableOpacity>
+
                     </View>
 
                 </View>
 
                 <View style={ Styles.bottomWrapper }>
-                    
-
                     <Button title="Next" onPress={ handleNext} />
-
-
                 </View>
 
             </View>
@@ -67,6 +133,7 @@ const Styles = StyleSheet.create({
         fontFamily: 'Montserrat-Bold',
         fontSize: 30,
         marginTop: 20,
+        marginBottom: 5,
         textAlign: 'left',
     },
     topWrapper: {
@@ -86,7 +153,7 @@ const Styles = StyleSheet.create({
         justifyContent: 'flex-end',
     },
     sizeWraper:{
-        backgroundColor: 'red',
+        // backgroundColor: 'red',
         flex: 1,
         flexWrap: 'wrap',
         flexDirection: 'row',
