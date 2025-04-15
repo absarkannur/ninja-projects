@@ -3,9 +3,9 @@ import React from 'react';
 import { Stack } from 'expo-router';
 import { Colors } from '@/constants/Colors';
 
-export default function RegisterLayout() {
+export default function DashboardLayout() {
     return (
-        <Stack
+       <Stack
             screenOptions={{
                 headerStyle: {
                     backgroundColor: Colors.light.header.backgroundColor,
@@ -17,9 +17,9 @@ export default function RegisterLayout() {
             }}
             >
             <Stack.Screen 
-                name="register" 
+                name="dashboard" 
                 options={{
-                    title: 'Register',
+                    title: 'Dashboard',
                     gestureEnabled: false,
                     headerShown: true
                 }} />

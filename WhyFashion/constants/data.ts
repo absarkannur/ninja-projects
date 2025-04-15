@@ -3,7 +3,7 @@
 export const Data = [
     {
         "brand_name": "Gucci",
-        "image": "https://logoeps.com/wp-content/uploads/2011/08/gucci-logo-vector.jpg",
+        "image": "https://static.cdnlogo.com/logos/g/68/gucci.png",
         "products": []
     },
     {

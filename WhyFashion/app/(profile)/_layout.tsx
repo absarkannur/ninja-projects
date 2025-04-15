@@ -37,6 +37,13 @@ export default function ProfileLayout() {
                     headerShown: true,
                 }}
             />
+            <Stack.Screen name="finish.screen"
+                options={{
+                    title: '',
+                    gestureEnabled: false,
+                    headerShown: false,
+                }}
+            />
         </Stack>
     )
 }

@@ -1,24 +1,37 @@
-import { View, Text, StyleSheet, Alert, FlatList, SafeAreaView, Image } from 'react-native'
-import React from 'react'
+import { View, Text, StyleSheet, Alert, FlatList, SafeAreaView, Image, TouchableOpacity } from 'react-native'
+import React, { useState } from 'react'
 import AppWrapper from '@/components/AppWrapper'
 import { Const } from '@/constants/Const'
 import Button from '@/components/Button'
 import { Colors } from '@/constants/Colors'
 
 import { Data} from '@/constants/data'
+import { router, Redirect } from 'expo-router'
 
 export default function BrandsScreen() {
 
-    type ItemProps = {title: string, logo: string };
+    type ItemProps = { id: string, title: string, logo: string };
 
-    const handleNext = () => {
-        Alert.alert('Hello Next');
+    const [ brands, setBrands ] = useState<any>([]);
+    
+    const handleBrand = ( value: string ) => {
+        
+        let newBrands = brands;
+        newBrands.push( value );
+        setBrands( newBrands );
+    
     }
 
-    const Item = ({title, logo}: ItemProps) => (
-        <View style={ Styles.brand }>
-            <Image style={{ width: 100, height: 100, resizeMode: 'contain' }} source={{ uri: logo }} />
-        </View>
+    const handleNext = () => {
+        router.push('/(profile)/finish.screen');
+    }
+
+    const Item = ({id, title, logo}: ItemProps) => (
+        <TouchableOpacity onPress={ () => handleBrand( id ) }>
+            <View style={ Styles.brand }>
+                <Image style={{ width: 100, height: 100, resizeMode: 'contain' }} source={{ uri: logo }} />
+            </View>
+        </TouchableOpacity>
     );
 
     return (
@@ -35,12 +48,12 @@ export default function BrandsScreen() {
                     <FlatList
                         numColumns={3}
                         data={ Data }
-                        renderItem={({item}) => <Item title={item.brand_name} logo={item.image} />} />
+                        renderItem={({item}) => <Item id={ item.brand_name } title={item.brand_name} logo={item.image} />} />
 
                 </View>
 
                 <View style={ Styles.bottomWrapper }>
-                    <Button title="Next" onPress={ handleNext} />
+                    <Button title="Done" onPress={ handleNext} />
                 </View>
 
             </View>
