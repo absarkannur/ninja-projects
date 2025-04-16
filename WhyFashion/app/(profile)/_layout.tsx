@@ -1,6 +1,6 @@
 import { View, Text, Button } from 'react-native'
 import React from 'react'
-import { Stack } from 'expo-router'
+import { router, Stack } from 'expo-router'
 import { Colors } from '@/constants/Colors'
 
 export default function ProfileLayout() {
@@ -21,6 +21,9 @@ export default function ProfileLayout() {
                     title: 'Profile',
                     gestureEnabled: false,
                     headerShown: true,
+                    headerLeft: (props) => (
+                        <Button title='Back' onPress={ ()=> router.push('/') } />
+                    ),
                 }}
             />
             <Stack.Screen name="size.screen"

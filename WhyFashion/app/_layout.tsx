@@ -43,12 +43,14 @@ export default function _layout() {
         // Auth Layer
         <Stack>
             <Stack.Screen name="index" options={{
+                title: '',
                 gestureEnabled: false,
                 headerShown: false
             }} />
             <Stack.Screen name="(register)" options={{
+                title: 'Register',
                 gestureEnabled: false,
-                headerShown: false
+                headerShown: true
             }} />
             <Stack.Screen name="(signin)" options={{
                 gestureEnabled: false,

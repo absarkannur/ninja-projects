@@ -13,7 +13,7 @@ export default function Register() {
     }
 
     return (
-        <AppWrapper>
+        <AppWrapper statusbarColor={'dark'}>
             <View style={ Styles.container }>
 
                 <View style={ Styles.wrapper }>

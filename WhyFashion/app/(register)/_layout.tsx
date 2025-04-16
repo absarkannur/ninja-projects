@@ -21,7 +21,7 @@ export default function RegisterLayout() {
                 options={{
                     title: 'Register',
                     gestureEnabled: false,
-                    headerShown: true
+                    headerShown: false
                 }} />
         </Stack>
     )

@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, Modal, TouchableWithoutFeedback } from 'react-native'
 import React, { useState } from 'react'
 import AppWrapper from '@/components/AppWrapper';
 import { Const } from '@/constants/Const';
@@ -6,32 +6,55 @@ import Button from '@/components/Button';
 import { router, Redirect } from 'expo-router';
 import Spacer from '@/components/Spacer';
 
+import DateTimePicker from '@react-native-community/datetimepicker';
+
 export default function ProfileScreen() {
 
-    const [ male, setMale ] = useState( true );
-    const [ female, setFemale ] = useState( false );
-    const [ age, setAge ] = useState( '' );
+    const [modalVisible, setModalVisible] = useState(false);
+    const [ gender, setGender ] = useState( '' );
+    const [ marital, setMarital ] = useState( '' );
+    const [ dob, setDob ] = useState<string>('');
 
-    const handleGender = () => {
-        
-        if( male === true ){
-            setFemale( true );
-            setMale( false);
-        } 
+    const [date, setDate] = useState(new Date(1598051730000));
+    const [mode, setMode] = useState('date');
+    const [show, setShow] = useState(false);
 
-        if( female === true ){
-            setFemale( false );
-            setMale( true );
-        }
-        
+    const handleGender = ( value: string ) => {
+        setGender( value );
     }
-
-    const handleAge = ( value: string ) => {
-        setAge( value )
+    
+    const handleMaritalStatus = ( value: string ) => {
+        setMarital( value );
     }
 
     const handleNext = () => {
         router.push('/(profile)/size.screen');
+    }
+
+    const showDatepicker = () => {
+        setModalVisible(true);
+    };
+
+    const onChangeDatePick = (event: any, selectedDate: any) => {
+        const currentDate = selectedDate;
+        // setDob(currentDate);
+
+        const d1 = new Date( selectedDate )
+
+        let year = d1.getFullYear();
+        let month = Math.abs( d1.getMonth() + 1 ) .toLocaleString();
+        let date = d1.getDate().toLocaleString();
+
+        if ( month.length < 2 ) {
+            month = '0' + month;
+        }
+
+        if (date.length < 2 ) {
+            date = '0' + date;
+        }
+
+        setDob( year + '-' + month + '-' + date  );      
+
     }
 
     return (
@@ -39,14 +62,153 @@ export default function ProfileScreen() {
             
             <View style={ Styles.container }>
 
-                <View style={ Styles.topWrapper }>
+                <View style={ Styles.header_container }>
                     <Text style={ Styles.header }>What's your gender and age</Text>
-                    <Text>Let us know about your self</Text>
+                    <Text style={ Styles.subHeader }>Let us know about your self</Text>
+                </View>
+                <View style={ Styles.body_container }>
+                    <View style={ Styles.contentWrapper }>
+
+                        <Spacer gap={20}/>
+
+                        <View style={{ width: '100%' }}>
+                            <Text style={[ Styles.subHeader, { fontFamily: 'Montserrat-SemiBold', fontSize: 16, textAlign: 'left' } ]}>Gender</Text>
+                        </View>
+
+                        <Spacer gap={10}/>
+                        
+                        <View style={{  width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
+                            
+                            <TouchableOpacity 
+                                style={[ Styles.box, ( gender === 'male') ? Styles.boxActive: '' ]}
+                                onPress={ () => handleGender('male') }
+                                activeOpacity={0.6}>
+                                <Text style={[ ( gender === 'male') ? { color: '#fff', fontFamily: 'Montserrat-Bold' } : { color: '#000', fontFamily: 'Montserrat-SemiBold' } ]}>Male</Text>
+                            </TouchableOpacity>
+
+                            <TouchableOpacity 
+                                style={[ Styles.box, ( gender === 'female') ? Styles.boxActive: '' ]}
+                                onPress={ () => handleGender('female') }
+                                activeOpacity={0.6}>
+                                <Text style={[ ( gender === 'female') ? { color: '#fff', fontFamily: 'Montserrat-Bold' } : { color: '#000', fontFamily: 'Montserrat-SemiBold' } ]}>Female</Text>
+                            </TouchableOpacity>
+
+                        </View>
+
+                        {/* ========== */}
+
+                        <Spacer gap={20}/>
+
+                        <View style={{ width: '100%', }}>
+                            <Text style={[ Styles.subHeader, { fontFamily: 'Montserrat-SemiBold', fontSize: 16, textAlign: 'left' } ]}>
+                                Marital Status
+                            </Text>
+                        </View>
+
+                        <Spacer gap={10}/>
+                        
+                        <View style={{  width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
+                            
+                            <TouchableOpacity 
+                                style={[ Styles.box, ( marital === 'single') ? Styles.boxActive: '' ]}
+                                onPress={ () => handleMaritalStatus('single') }
+                                activeOpacity={0.6}>
+                                <Text style={[ ( marital === 'single') ? { color: '#fff', fontFamily: 'Montserrat-Bold' } : { color: '#000', fontFamily: 'Montserrat-SemiBold' } ]}>Single</Text>
+                            </TouchableOpacity>
+
+                            <TouchableOpacity 
+                                style={[ Styles.box, ( marital === 'married') ? Styles.boxActive: '' ]}
+                                onPress={ () => handleMaritalStatus('married') }
+                                activeOpacity={0.6}>
+                                <Text style={[ ( marital === 'married') ? { color: '#fff', fontFamily: 'Montserrat-Bold' } : { color: '#000', fontFamily: 'Montserrat-SemiBold' } ]}>Married</Text>
+                            </TouchableOpacity>
+
+                        </View>
+
+                        <View style={{  width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
+                            
+                            <TouchableOpacity 
+                                style={[ Styles.box, ( marital === 'divorced') ? Styles.boxActive: '' ]}
+                                onPress={ () => handleMaritalStatus('divorced') }
+                                activeOpacity={0.6}>
+                                <Text style={[ ( marital === 'divorced') ? { color: '#fff', fontFamily: 'Montserrat-Bold' } : { color: '#000', fontFamily: 'Montserrat-SemiBold' } ]}>Divorced</Text>
+                            </TouchableOpacity>
+
+                            <TouchableOpacity 
+                                style={[ Styles.box, ( marital === 'widow') ? Styles.boxActive: '' ]}
+                                onPress={ () => handleMaritalStatus('widow') }
+                                activeOpacity={0.6}>
+                                <Text style={[ ( marital === 'widow') ? { color: '#fff', fontFamily: 'Montserrat-Bold' } : { color: '#000', fontFamily: 'Montserrat-SemiBold' } ]}>Widow</Text>
+                            </TouchableOpacity>
+
+                        </View>
+
+                        {/* ========== */}
+
+                        <Spacer gap={20}/>
+
+                        <View style={{ width: '100%', }}>
+                            <Text style={[ Styles.subHeader, { fontFamily: 'Montserrat-SemiBold', fontSize: 16, textAlign: 'left' } ]}>Date Of Birth</Text>
+                        </View>
+
+                        <Spacer gap={10}/>
+
+                        <View style={{  width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
+
+                            <TouchableOpacity 
+                                style={[ Styles.box, { width: '100%' } ]}
+                                onPress={ showDatepicker }
+                                activeOpacity={0.6}>
+                                <Text>{ ( dob !== '' ) ? dob : 'Choose your date of birth' }</Text>
+                            </TouchableOpacity>
+
+                            <Modal
+                                animationType="fade"
+                                transparent={true}
+                                visible={modalVisible}
+                                onRequestClose={() => {
+                                    setModalVisible(!modalVisible);
+                                }}>
+                                
+                                <TouchableWithoutFeedback onPress={ ()=>setModalVisible(!modalVisible) }>
+                                    <View style={{
+                                        position: 'absolute',
+                                        top: 0,
+                                        bottom: 0,
+                                        left: 0,
+                                        right: 0,
+                                        backgroundColor: 'rgba(0,0,0,0.5)'
+                                    }}></View>
+                                </TouchableWithoutFeedback>
+
+                                <View style={Styles.centeredView}>
+                                    <View style={Styles.modalView}>
+                                        <DateTimePicker
+                                            testID="dateTimePicker"
+                                            value={date}
+                                            mode={ 'date' }
+                                            themeVariant='light'
+                                            display='spinner'
+                                            is24Hour={true}
+                                            onChange={onChangeDatePick}
+                                        />
+                                    </View>
+                                </View>
+
+                            </Modal>
+
+                        </View>
+
+
+                    </View>
+                    <View style={ Styles.buttonWrapper }>
+                        <Button title="Next" onPress={ handleNext} />
+                    </View>
                 </View>
                 
-                <View style={ Styles.wrapper }>
+                {/* <View style={ Styles.wrapper }>
 
-                    {/* <Text style={ Styles.subHeader }>Gender</Text>   */}
+                    <Text style={ Styles.subHeader }>Gender</Text>  
 
                     <View style={ Styles.innerWrap }>
 
@@ -124,9 +286,7 @@ export default function ProfileScreen() {
 
                     <Button title="Next" onPress={ handleNext} />
 
-                </View>
-
-                
+                </View> */}
 
             </View>
 
@@ -142,12 +302,46 @@ const Styles = StyleSheet.create({
         justifyContent: 'flex-start',
         padding: Const.padding.appInnerPadding,
     },
-    topWrapper: {
+    header_container: {
+        width: '100%',
+        height: 150,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    body_container: {
         flex: 1,
         width: '100%',
-        alignItems: 'flex-start',
-        justifyContent: 'flex-start'
+        // backgroundColor: 'green'
     },
+    contentWrapper: {
+        flex: 20,
+        // backgroundColor: 'yellow'
+    },
+    buttonWrapper: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        // backgroundColor: 'blue'
+    },
+    box: {
+        width: '48%',
+        height: 50,
+        lineHeight: 50,
+        textAlign: 'center',
+        borderRadius: 10,
+        borderWidth: 1,
+        borderColor: '#444',
+        fontFamily: 'Montserrat-Medium',
+        fontSize: 16,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    boxActive: {
+        backgroundColor: '#333',
+        color: '#fff',
+        fontFamily: 'Montserrat-Bold',
+    },
+
     wrapper: {
         flex: 3,
         width: '100%'
@@ -157,19 +351,18 @@ const Styles = StyleSheet.create({
         width: '100%'
     },
     header: {
+        width: '100%',
         fontFamily: 'Montserrat-Bold',
         fontSize: 30,
-        marginTop: 20,
         marginBottom: 5,
-        textAlign: 'left',
+        textAlign: 'center',
     },
     subHeader: {
+        width: '100%',
         fontFamily: 'Montserrat-Medium',
-        fontSize: 20,
-        // marginTop: 10,
-        // marginBottom: 10,
-        textAlign: 'left',
-        color: '#666'
+        fontSize: 18,
+        textAlign: 'center',
+        color: '#444'
     },
     innerWrap: {
         width: '100%',
@@ -218,5 +411,46 @@ const Styles = StyleSheet.create({
     ageActive: {
         color: '#fff',
         backgroundColor: '#999'
-    }
+    },
+    centeredView: {
+        flex: 1,
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+    },
+    modalView: {
+        width: '100%',
+        margin: 0,
+        backgroundColor: 'white',
+        borderRadius: 20,
+        padding: 35,
+        alignItems: 'flex-start',
+        shadowColor: '#000',
+        shadowOffset: {
+          width: 0,
+          height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
+    },    
+    button: {
+        borderRadius: 20,
+        padding: 10,
+        elevation: 2,
+    },
+    buttonOpen: {
+        backgroundColor: '#F194FF',
+    },
+    buttonClose: {
+        backgroundColor: '#2196F3',
+    },
+    textStyle: {
+        color: 'white',
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
+    modalText: {
+        marginBottom: 15,
+        textAlign: 'justify',
+    },
 });

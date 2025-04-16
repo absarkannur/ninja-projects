@@ -13,7 +13,7 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 export default function SplashScreen() {
 
-    const videoSource = require('@/assets/videos/c7b7b7df5ac798f9899d620fc2ddf1fc.mp4');
+    const videoSource = require('@/assets/videos/video.mp4');
 
     const player = useVideoPlayer(videoSource, player => {
         player.muted = true;
@@ -34,7 +34,7 @@ export default function SplashScreen() {
 
     return (
         <View style={ Styles.container }>
-            <StatusBar style="dark" />
+            <StatusBar style="light" />
             <VideoView 
                 contentFit={'cover'}
                 nativeControls={false}
@@ -43,8 +43,8 @@ export default function SplashScreen() {
             <View style={ Styles.wrapper }>
                 <View style={ Styles.boxTop }></View>
                 <View style={ Styles.boxMiddle }>
-                    {/* <Image source={require('@/assets/images/react-logo.png')} /> */}
-                    <Text style={{ fontFamily: 'Montserrat-Black', fontSize: 50, color: '#fff' }}>YFASHION</Text>
+                    <Image style={{ width: '100%', resizeMode: 'contain' }} source={require('@/assets/images/splash-logo.png')} />
+                    {/* <Text style={{ fontFamily: 'Montserrat-Black', fontSize: 40, color: '#fff' }}>WhyFashion</Text> */}
                 </View>
                 <View style={ Styles.boxBottom }>
                     <View style={ Styles.footer}>

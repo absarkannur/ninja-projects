@@ -38,7 +38,7 @@ export default function Dashboard() {
             <View style={ Styles.container }>
                 <View style={ Styles.topMenuContainer }>
                     <View style={{ padding: 10, width: '70%', height: '100%', justifyContent: 'center' }}>
-                        <Text style={{ fontFamily: 'Montserrat-black', fontSize: 24, color: '#fff' }}>YFASHION</Text>
+                        <Text style={{ fontFamily: 'Montserrat-black', fontSize: 22, color: '#fff' }}>WhyFashion</Text>
                     </View>
                     <View style={{ padding: 10, width: '30%', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
                         <Image style={{ width: 45, height: 45 }} source={ require('@/assets/images/man.png') } />

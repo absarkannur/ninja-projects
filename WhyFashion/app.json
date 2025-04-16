@@ -41,6 +41,21 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "e5fd468e-e059-4fed-906b-7b68982c508a"
+      }
+    },
+    "owner": "absar",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/e5fd468e-e059-4fed-906b-7b68982c508a"
     }
   }
 }
