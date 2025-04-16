@@ -28,8 +28,8 @@ export default function SplashScreen() {
     // },[]);
 
     const handleRegister =() => {
-        // router.push('/(profile)/profile.screen');
-        router.push('/(dashboard)/dashboard');
+        router.push('/(profile)/profile.screen');
+        // router.push('/(dashboard)/dashboard');
     }
 
     return (
@@ -43,7 +43,8 @@ export default function SplashScreen() {
             <View style={ Styles.wrapper }>
                 <View style={ Styles.boxTop }></View>
                 <View style={ Styles.boxMiddle }>
-                <Image source={require('@/assets/images/react-logo.png')} />
+                    {/* <Image source={require('@/assets/images/react-logo.png')} /> */}
+                    <Text style={{ fontFamily: 'Montserrat-Black', fontSize: 50, color: '#fff' }}>YFASHION</Text>
                 </View>
                 <View style={ Styles.boxBottom }>
                     <View style={ Styles.footer}>
