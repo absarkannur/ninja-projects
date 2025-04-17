@@ -33,7 +33,7 @@ export default function ProfileScreen() {
 
     const showDatepicker = () => {
         setModalVisible(true);
-    };
+    }
 
     const onChangeDatePick = (event: any, selectedDate: any) => {
         const currentDate = selectedDate;
@@ -53,7 +53,7 @@ export default function ProfileScreen() {
             date = '0' + date;
         }
 
-        setDob( year + '-' + month + '-' + date  );      
+        setDob( date + '-' + month + '-' + year  );      
 
     }
 
@@ -156,10 +156,10 @@ export default function ProfileScreen() {
                         <View style={{  width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
 
                             <TouchableOpacity 
-                                style={[ Styles.box, { width: '100%' } ]}
+                                style={[ Styles.box, { width: '100%' } ,( dob !== '' ) ? Styles.boxActive: '' ]}
                                 onPress={ showDatepicker }
                                 activeOpacity={0.6}>
-                                <Text>{ ( dob !== '' ) ? dob : 'Choose your date of birth' }</Text>
+                                <Text style={[ ( dob !== '' ) ? { color: '#fff', fontFamily: 'Montserrat-Bold' } : { color: '#000', fontFamily: 'Montserrat-SemiBold' } ]}>{ ( dob !== '' ) ? dob : 'Choose your date of birth' }</Text>
                             </TouchableOpacity>
 
                             <Modal
