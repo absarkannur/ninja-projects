@@ -28,8 +28,8 @@ export default function SplashScreen() {
     // },[]);
 
     const handleRegister =() => {
-        router.push('/(profile)/profile.screen');
-        // router.push('/(dashboard)/dashboard');
+        // router.push('/(profile)/profile.screen');
+        router.push('/(dashboard)/dashboard');
     }
 
     return (
@@ -83,7 +83,7 @@ const Styles = StyleSheet.create({
         left: 0,
         width: '100%',
         height: '100%',
-        backgroundColor: 'green'
+        backgroundColor: '#fff'
     },
     wrapper: {
         flex: 1

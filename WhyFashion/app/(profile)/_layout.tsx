@@ -18,24 +18,25 @@ export default function ProfileLayout() {
             >
             <Stack.Screen name="profile.screen"
                 options={{
-                    title: 'Profile',
+                    title: '',
                     gestureEnabled: false,
                     headerShown: true,
+                    headerBackVisible: true,
                     headerLeft: (props) => (
-                        <Button title='Back' onPress={ ()=> router.push('/') } />
+                        <Button title='Back' color={'#000'} onPress={ ()=> router.push('/') } />
                     ),
                 }}
-            />
+                />
             <Stack.Screen name="size.screen"
                 options={{
-                    title: 'Cloth Size',
+                    title: '',
                     gestureEnabled: false,
                     headerShown: true,
                 }}
             />
             <Stack.Screen name="brands.screen"
                 options={{
-                    title: 'Brands',
+                    title: '',
                     gestureEnabled: false,
                     headerShown: true,
                 }}

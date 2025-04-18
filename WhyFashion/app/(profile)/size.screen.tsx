@@ -13,11 +13,13 @@ export default function SizeScreen() {
     const [ topsize , setTopsize ] = useState('');
     const [ outerwear , setOuterwear ] = useState('');
     const [ underwear , setUnderwear ] = useState('');
+    const [ suitsTailoring , setSuitsTailoring ] = useState('');
 
 
     const [ modalTops, setModalTops ] = useState(false);
     const [ modalOuterwear, setModalOuterwear ] = useState(false);
     const [ modalUnderwear, setModalUnderwear ] = useState(false);
+    const [ modalSuitsTailoring, setModalSuitsTailoring ] = useState(false);
 
     const handleNext = () => {
         router.push('/(profile)/brands.screen');
@@ -32,7 +34,7 @@ export default function SizeScreen() {
             <View style={ Styles.container }>
                 
                 <View style={ Styles.header_container }>
-                    <Text style={ Styles.header }>What's your cloth size</Text>
+                    <Text style={ Styles.header }>What's your clothes size</Text>
                     <Text style={ Styles.subHeader }>Let us know about your self</Text>
                 </View>
 
@@ -42,7 +44,7 @@ export default function SizeScreen() {
                         {/* <Spacer gap={20}/> */}
 
                         <View style={{ width: '100%' }}>
-                            <Text style={[ Styles.subHeader, { fontFamily: 'Montserrat-SemiBold', fontSize: 16, textAlign: 'left' } ]}>
+                            <Text style={[ Styles.subHeader, { fontFamily: 'Montserrat-SemiBold', fontSize: 16, textAlign: 'center' } ]}>
                                 Tops
                             </Text>
                         </View>
@@ -53,9 +55,9 @@ export default function SizeScreen() {
                                                     
                             <TouchableOpacity
                                 onPress={ showDatepicker } 
-                                style={[ Styles.box, { width: '100%' } ]}
+                                style={[ Styles.box, { width: '100%' }, ( topsize ) ? Styles.boxActive: '' ]}
                                 activeOpacity={0.6}>
-                                <Text style={[ ( true === true ) ? { color: '#000', fontFamily: 'Montserrat-Bold' } : { color: '#000', fontFamily: 'Montserrat-SemiBold' } ]}>
+                                <Text style={[ ( topsize ) ? { color: '#fff', fontFamily: 'Montserrat-Bold' } : { color: '#000', fontFamily: 'Montserrat-SemiBold' } ]}>
                                     { ( topsize !== '' ) ? topsize : "Choose your size" }
                                 </Text>
                             </TouchableOpacity>
@@ -113,10 +115,10 @@ export default function SizeScreen() {
 
                         {/* ========================== */}
 
-                        <Spacer gap={20}/>
+                        <Spacer gap={10}/>
 
                         <View style={{ width: '100%' }}>
-                            <Text style={[ Styles.subHeader, { fontFamily: 'Montserrat-SemiBold', fontSize: 16, textAlign: 'left' } ]}>
+                            <Text style={[ Styles.subHeader, { fontFamily: 'Montserrat-SemiBold', fontSize: 16, textAlign: 'center' } ]}>
                                 Outerwear
                             </Text>
                         </View>
@@ -127,9 +129,9 @@ export default function SizeScreen() {
                                                     
                             <TouchableOpacity 
                                 onPress={ () => setModalOuterwear(!modalOuterwear) } 
-                                style={[ Styles.box, { width: '100%' } ]}
+                                style={[ Styles.box, { width: '100%' }, ( outerwear ) ? Styles.boxActive: '' ]}
                                 activeOpacity={0.6}>
-                                <Text style={[ ( true === true ) ? { color: '#000', fontFamily: 'Montserrat-Bold' } : { color: '#000', fontFamily: 'Montserrat-SemiBold' } ]}>
+                                <Text style={[ ( outerwear ) ? { color: '#fff', fontFamily: 'Montserrat-Bold' } : { color: '#000', fontFamily: 'Montserrat-SemiBold' } ]}>
                                     { ( outerwear !== '' ) ? outerwear : "Choose your size" }
                                 </Text>
                             </TouchableOpacity>
@@ -188,10 +190,10 @@ export default function SizeScreen() {
 
                         {/* ========================== */}
 
-                        <Spacer gap={20}/>
+                        <Spacer gap={10}/>
 
                         <View style={{ width: '100%' }}>
-                            <Text style={[ Styles.subHeader, { fontFamily: 'Montserrat-SemiBold', fontSize: 16, textAlign: 'left' } ]}>
+                            <Text style={[ Styles.subHeader, { fontFamily: 'Montserrat-SemiBold', fontSize: 16, textAlign: 'center' } ]}>
                                 Underwear
                             </Text>
                         </View>
@@ -202,9 +204,9 @@ export default function SizeScreen() {
                                                     
                             <TouchableOpacity 
                                 onPress={ () => setModalUnderwear(!modalUnderwear) } 
-                                style={[ Styles.box, { width: '100%' } ]}
+                                style={[ Styles.box, { width: '100%' }, ( underwear ) ? Styles.boxActive: '' ]}
                                 activeOpacity={0.6}>
-                                <Text style={[ ( true === true ) ? { color: '#000', fontFamily: 'Montserrat-Bold' } : { color: '#000', fontFamily: 'Montserrat-SemiBold' } ]}>
+                                <Text style={[ ( underwear ) ? { color: '#fff', fontFamily: 'Montserrat-Bold' } : { color: '#000', fontFamily: 'Montserrat-SemiBold' } ]}>
                                     { ( underwear !== '' ) ? underwear : "Choose your size" }
                                 </Text>
                             </TouchableOpacity>
@@ -262,10 +264,10 @@ export default function SizeScreen() {
 
                         {/* ========================== */}
 
-                        <Spacer gap={20}/>
+                        <Spacer gap={10}/>
 
                         <View style={{ width: '100%' }}>
-                            <Text style={[ Styles.subHeader, { fontFamily: 'Montserrat-SemiBold', fontSize: 16, textAlign: 'left' } ]}>
+                            <Text style={[ Styles.subHeader, { fontFamily: 'Montserrat-SemiBold', fontSize: 16, textAlign: 'center' } ]}>
                                 Suits and Tailoring
                             </Text>
                         </View>
@@ -275,12 +277,62 @@ export default function SizeScreen() {
                           <View style={{  width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
                                                     
                             <TouchableOpacity 
-                                style={[ Styles.box, { width: '100%' } ]}
+                                onPress={ () => setModalSuitsTailoring(!modalSuitsTailoring) } 
+                                style={[ Styles.box, { width: '100%' }, ( suitsTailoring ) ? Styles.boxActive: '' ]}
                                 activeOpacity={0.6}>
-                                <Text style={[ ( true === true ) ? { color: '#000', fontFamily: 'Montserrat-Bold' } : { color: '#000', fontFamily: 'Montserrat-SemiBold' } ]}>
-                                    Choose your size
+                                <Text style={[ ( suitsTailoring ) ? { color: '#fff', fontFamily: 'Montserrat-Bold' } : { color: '#000', fontFamily: 'Montserrat-SemiBold' } ]}>
+                                    { ( suitsTailoring !== '' ) ? suitsTailoring : "Choose your size" }
                                 </Text>
                             </TouchableOpacity>
+
+                            <Modal
+                                animationType="fade"
+                                transparent={true}
+                                visible={modalSuitsTailoring}
+                                onRequestClose={() => {
+                                    setModalSuitsTailoring(!modalSuitsTailoring);
+                                }}>
+                                
+                                <TouchableWithoutFeedback onPress={ ()=>setModalSuitsTailoring(!modalSuitsTailoring) }>
+                                    <View style={{
+                                        position: 'absolute',
+                                        top: 0,
+                                        bottom: 0,
+                                        left: 0,
+                                        right: 0,
+                                        backgroundColor: 'rgba(0,0,0,0.5)'
+                                    }}></View>
+                                </TouchableWithoutFeedback>
+
+                                <View style={Styles.centeredView}>
+                                    <View style={Styles.modalView}>
+                                        
+                                        <Picker
+                                            style={{ width: '100%' }}
+                                            selectedValue={suitsTailoring}
+                                            onValueChange={(itemValue, itemIndex) =>
+                                                setSuitsTailoring(itemValue)
+                                            }>
+                                            <Picker.Item label="XXXS" value="XXXS" />
+                                            <Picker.Item label="XXS" value="XXS" />
+                                            <Picker.Item label="XS" value="XS" />
+                                            <Picker.Item label="S" value="S" />
+                                            <Picker.Item label="M" value="M" />
+                                            <Picker.Item label="L" value="L" />
+                                            <Picker.Item label="XL" value="XL" />
+                                            <Picker.Item label="XXL" value="XXL" />
+                                            <Picker.Item label="XXXL" value="XXXL" />
+                                            <Picker.Item label="4XL" value="4XL" />
+                                            <Picker.Item label="5XL" value="5XL" />
+                                            <Picker.Item label="6XL" value="6XL" />
+                                            <Picker.Item label="7XL" value="7XL" />
+                                            <Picker.Item label="8XL" value="8XL" />
+                                        </Picker>
+                                        
+                                    </View>
+                                </View>
+
+                            </Modal>
 
                         </View>
 
@@ -289,7 +341,6 @@ export default function SizeScreen() {
                         <Button title="Next" onPress={ handleNext} />
                     </View>
                 </View>
-
 
                 {/* 
                 <View style={ Styles.wrapper }>
@@ -399,19 +450,21 @@ const Styles = StyleSheet.create({
         width: '100%',
         height: 150,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
     body_container: {
         flex: 1,
         width: '100%'
     },
     contentWrapper: {
-        flex: 20,
+        flex: 4,
+        // backgroundColor: 'green'
     },
     buttonWrapper: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        // backgroundColor: 'red'
     },
     box: {
         width: '48%',

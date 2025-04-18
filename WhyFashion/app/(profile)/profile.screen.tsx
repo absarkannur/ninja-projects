@@ -72,7 +72,7 @@ export default function ProfileScreen() {
                         <Spacer gap={20}/>
 
                         <View style={{ width: '100%' }}>
-                            <Text style={[ Styles.subHeader, { fontFamily: 'Montserrat-SemiBold', fontSize: 16, textAlign: 'left' } ]}>Gender</Text>
+                            <Text style={[ Styles.subHeader, { fontFamily: 'Montserrat-SemiBold', fontSize: 16, textAlign: 'center' } ]}>Gender</Text>
                         </View>
 
                         <Spacer gap={10}/>
@@ -97,7 +97,7 @@ export default function ProfileScreen() {
 
                         {/* ========== */}
 
-                        <Spacer gap={20}/>
+                        {/* <Spacer gap={20}/>
 
                         <View style={{ width: '100%', }}>
                             <Text style={[ Styles.subHeader, { fontFamily: 'Montserrat-SemiBold', fontSize: 16, textAlign: 'left' } ]}>
@@ -141,14 +141,14 @@ export default function ProfileScreen() {
                                 <Text style={[ ( marital === 'widow') ? { color: '#fff', fontFamily: 'Montserrat-Bold' } : { color: '#000', fontFamily: 'Montserrat-SemiBold' } ]}>Widow</Text>
                             </TouchableOpacity>
 
-                        </View>
+                        </View> */}
 
                         {/* ========== */}
 
                         <Spacer gap={20}/>
 
                         <View style={{ width: '100%', }}>
-                            <Text style={[ Styles.subHeader, { fontFamily: 'Montserrat-SemiBold', fontSize: 16, textAlign: 'left' } ]}>Date Of Birth</Text>
+                            <Text style={[ Styles.subHeader, { fontFamily: 'Montserrat-SemiBold', fontSize: 14, textAlign: 'center' } ]}>Date Of Birth</Text>
                         </View>
 
                         <Spacer gap={10}/>
