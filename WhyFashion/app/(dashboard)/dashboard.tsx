@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, SafeAreaView, Alert, TouchableHighlight, Image, Modal, Pressable, TouchableWithoutFeedback, TouchableOpacity, Dimensions } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef, useMemo } from 'react'
 import AppWrapper from '@/components/AppWrapper'
 import TinderCard from 'react-tinder-card'
 import { StatusBar } from 'expo-status-bar';
@@ -7,18 +7,41 @@ import { LinearGradient } from 'expo-linear-gradient';
 import Button from '@/components/Button';
 import Spacer from '@/components/Spacer';
 
+import Swiper from 'react-native-deck-swiper';
+
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 // Test
+
 import { GestureDetector, Gesture, GestureHandlerRootView, PanGestureHandler } from 'react-native-gesture-handler';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withTiming,
+  interpolate,
+  Extrapolation,
+  withDecay,
+  withClamp,
+  withSpring
 } from 'react-native-reanimated';
+import Card from '@/components/Card';
+import { opacity } from 'react-native-reanimated/lib/typescript/Colors';
+
+
+// Data preach
+// 'https://codesandbox.io/p/sandbox/react-tinder-card-demo-8tzm6?file=%2Fsrc%2Fexamples%2FSimple.js%3A46%2C10-46%2C20'
+
+type dataTypes = { name: string, image: string };
+
+const db: dataTypes[] = [
+    { 'name': 'test1', 'image': 'https://f.nooncdn.com/p/v1613829746/N26089509A_1.jpg' },
+    { 'name': 'test2', 'image': 'https://f.nooncdn.com/p/pzsku/Z793E91EB8BAF6238E67BZ/45/_/1742369807/8d6d5983-30a1-42c0-80b8-e30872675981.jpg' },
+    { 'name': 'test3', 'image': 'https://f.nooncdn.com/p/pnsku/N70106183V/45/_/1726043631/3064c465-3457-42ef-a234-0b6382365281.jpg' },
+    { 'name': 'test4', 'image': 'https://f.nooncdn.com/p/pzsku/ZE57C93631F62176AADD1Z/45/_/1741798933/5351a0a3-f1a7-4c16-b4da-6ecda79cf46d.jpg'},
+]
 
 function clamp(val:number, min:number, max:number) {
     return Math.min(Math.max(val, min), max);
@@ -29,21 +52,17 @@ export default function Dashboard() {
     const [ preventSwipe, setPreventSwipe] = useState([ 'up', 'down' ]);
     const [modalVisible, setModalVisible] = useState(false);
 
-    // useEffect( ()=> {
-    // }, []);
+    const [profile, setProfile] = useState(db);
+    const lastProfile = profile[profile.length - 1];
+    const remainingProfiles = profile.slice(0, -1);
+
 
     const onSwipe = ( direction: any, id: number ) => {
         console.log( 'You swiped: ' + direction + ' - ' + id );
     }
-
     const handlePressCard = () => {
         setModalVisible(true);
     }
-
-    const tapGesture = Gesture.Tap().onStart(() => {
-        console.log('Tap!');
-    });
-
 
     const { width, height } = Dimensions.get('screen');
 
@@ -51,36 +70,113 @@ export default function Dashboard() {
     const translationY = useSharedValue(0);
     const prevTranslationX = useSharedValue(0);
     const prevTranslationY = useSharedValue(0);
+    const velocityX = useSharedValue(0);
+
+    const rotateZ = useSharedValue(0);
+    const prevRotateZ = useSharedValue(0);
+
+    
+    const [ likeOpacity, setLikeOpacity ] = useState(0);
+    const [ nopeOpacity, setNopeOpacity ] = useState(0);
+
+    const [ likeOpacityButton, setLikeOpacityButton ] = useState(1);
+    const [ nopeOpacityButton, setNopeOpacityButton ] = useState(1);
 
     const animatedStyles = useAnimatedStyle(() => ({
         transform: [
           { translateX: translationX.value },
           { translateY: translationY.value },
+          { rotate: `${rotateZ.value}deg`  }
         ],
     }));
 
     const dragGesture = Gesture.Pan()
-        .minDistance(1)
+        .minDistance(100)
         .onStart(() => {
             prevTranslationX.value = translationX.value;
             prevTranslationY.value = translationY.value;
-          })
-          .onUpdate((event) => {
-            const maxTranslateX = width / 2 - 50;
-            const maxTranslateY = height / 2 - 50;
-      
+            prevRotateZ.value = rotateZ.value;
+        })
+        .onUpdate((event) => {
+
+            const maxTranslateX = width;
+            const maxTranslateY = height;
+
             translationX.value = clamp(
-              prevTranslationX.value + event.translationX,
-              -maxTranslateX,
-              maxTranslateX
+                prevTranslationX.value + event.translationX,
+                -maxTranslateX,
+                maxTranslateX
             );
+
             translationY.value = clamp(
-              prevTranslationY.value + event.translationY,
-              -maxTranslateY,
-              maxTranslateY
+                prevTranslationY.value + event.translationY,
+                -maxTranslateY,
+                maxTranslateY
             );
-          })
-          .runOnJS(true);
+
+            rotateZ.value =  interpolate( translationX.value,
+                [ -width / 2, width / 2 ],
+                [ 12, -12 ]
+            );
+
+            let temp_likeOpacity = interpolate(translationX.value,
+                [0, width / 4],
+                [0, 1],
+            );
+
+            setLikeOpacity( temp_likeOpacity );
+            setLikeOpacityButton( temp_likeOpacity );
+
+            let temp_nopeOpacity = interpolate(translationX.value,
+                [-width / 4, 0],
+                [1, 0],
+            );
+
+            // Get Left and Right
+
+            setNopeOpacity( temp_nopeOpacity );
+            setNopeOpacityButton( temp_nopeOpacity );
+
+        })
+        .onEnd((event) => {
+
+            if ( translationX.value > width / 3 ) {
+                
+                console.log('Panning Right:');
+                
+            } else if ( translationX.value <  width / 3 ) {
+
+                console.log('Panning Left:');
+
+            }
+
+
+            // translationX.value = withSpring( 0, { duration: 1500 });
+            // translationY.value = withSpring( 0, { duration: 1500 });
+            // rotateZ.value = withSpring( 0, {   
+            //     duration: 1500
+            // });;
+
+            // setLikeOpacity( 0 );
+            // setNopeOpacity( 0 );
+            // setLikeOpacityButton(1);
+            // setNopeOpacityButton(1);
+
+            // setProfile(profile.slice(0, -1)); // Remove the last profile
+
+        })
+        .runOnJS(true);
+        
+    // Example of updating the profile state
+    // -------
+    // const addNewProfile = (newProfile) => {
+    //     setProfile([...profile, newProfile]); // Add a new profile
+    // };
+  
+    // const removeLastProfile = () => {
+    //     setProfile(profile.slice(0, -1)); // Remove the last profile
+    // };
+
 
     return (
         <SafeAreaView style={ Styles.safearea }>
@@ -103,8 +199,6 @@ export default function Dashboard() {
 
                     {/* <TinderCard
                         preventSwipe={ preventSwipe }
-                        
-                        swipeRequirementType={'velocity'}
                         onSwipe={ (e) => onSwipe( e, 1232 ) }>
                         <TouchableHighlight activeOpacity={1} style={ Styles.shadow } onPress={ handlePressCard }>
                             <View style={ Styles.card }>
@@ -121,8 +215,6 @@ export default function Dashboard() {
 
                     <TinderCard
                         preventSwipe={ preventSwipe }
-                        
-                        swipeRequirementType={'velocity'}
                         onSwipe={ (e) => onSwipe( e, 2123 ) }>
                         <TouchableHighlight activeOpacity={1} style={ Styles.shadow } onPress={ handlePressCard }>
                             <View style={ Styles.card }>
@@ -137,33 +229,60 @@ export default function Dashboard() {
                         </TouchableHighlight>
                     </TinderCard> */}
 
-                <GestureHandlerRootView>
-                    <GestureDetector gesture={dragGesture}>
-                        <Animated.View style={[ animatedStyles, { 
-                            width: 300, 
-                            height: 400, 
-                            backgroundColor: '#fff',
-                            borderRadius: 10,
-                            padding: 10
+                    {/* ------------------------------- */}
+
+                    {/* { remainingProfiles.map( (item, key) => 
+                        <Card key={ key } profile={item} likeOpacity={0} nopeOpacity={0} />
+                    )}
+
+                    <GestureHandlerRootView>
+                        <GestureDetector gesture={dragGesture}>
+                            <Animated.View style={[ animatedStyles, {
+                                position: 'absolute', 
+                                width: '100%', 
+                                height: '100%', 
+                                backgroundColor: '#fff',
+                                borderRadius: 10,
+                                overflow: 'hidden'
                             }]}>
-                            <Text>Card</Text>
-                        </Animated.View>
-                    </GestureDetector>
-                </GestureHandlerRootView>
+                            <Card profile={ lastProfile } likeOpacity={ likeOpacity } nopeOpacity={nopeOpacity} />
+                            </Animated.View>
+                        </GestureDetector>
+                    </GestureHandlerRootView> */}
+
+                    {/* ------------------------------- */}
+
+                    <Swiper
+                        cards={ db }
+                        renderCard={(card: dataTypes ) => {
+                            return (
+                                <View style={ Styles.card}>
+                                    <Image resizeMode="contain" source={{ uri: card.image }} style={{flex:1}}/>
+                                </View>
+                            )
+                        }}
+                        onSwiped={(cardIndex: number ) => {console.log(cardIndex)}}
+                        onSwipedAll={() => {console.log('onSwipedAll')}}
+                        cardIndex={0}
+                        backgroundColor={'transparent'}
+                        stackSize={3}
+                        stackScale={5} />
+
 
                 </View>
                 <View style={ Styles.menuContainer }>
 
                     <View style={ Styles.buttonWrap }>
 
+
                         <TouchableOpacity activeOpacity={0.7}>
-                            <View style={[ Styles.buttonItem, Styles.buttonItemShadow ]}>
+                            <View style={[ Styles.buttonItem, Styles.buttonItemShadow, { opacity: nopeOpacityButton } ]}>
                                 <Ionicons name="close" size={30} color="red" />
                             </View>
                         </TouchableOpacity>
 
                         <TouchableOpacity activeOpacity={0.7}>
-                            <View style={[ Styles.buttonItem, Styles.buttonItemShadow ]}>
+                            <View style={[ Styles.buttonItem, Styles.buttonItemShadow, { opacity: likeOpacityButton } ]}>
                                 <Ionicons name="heart" size={30} color="green" />
                             </View>
                         </TouchableOpacity>
@@ -231,18 +350,18 @@ const Styles = StyleSheet.create({
     },
     cardContainer: {
         flex: 10,
-        alignItems: 'center',
-        justifyContent: 'center'
-        // overflow: 'hidden'
+        // alignItems: 'center',
+        // justifyContent: 'center'
+        overflow: 'hidden'
         // backgroundColor: 'yellow'
     },
     card: {
-        backgroundColor: '#fff',
-        position: 'absolute',
+        backgroundColor: '#f00',
+        // position: 'absolute',
         top: 0,
         left: 0,
         width: '100%',
-        height: 600,
+        height: '100%',
         borderRadius: 10,
         // borderColor: '#999',
         // borderWidth: 1,
