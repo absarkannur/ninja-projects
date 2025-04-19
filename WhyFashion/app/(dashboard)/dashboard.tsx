@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, SafeAreaView, Alert, TouchableHighlight, Image, Modal, Pressable, TouchableWithoutFeedback, TouchableOpacity, Dimensions } from 'react-native'
+import { View, Text, StyleSheet, SafeAreaView, Alert, Image, Modal, TouchableWithoutFeedback, TouchableOpacity, Dimensions } from 'react-native'
 import React, { useEffect, useState, useRef, useMemo } from 'react'
 import AppWrapper from '@/components/AppWrapper'
 import TinderCard from 'react-tinder-card'
@@ -49,6 +49,15 @@ function clamp(val:number, min:number, max:number) {
 
 export default function Dashboard() {
 
+    // Swipe Ref
+    const swiperRef = useRef<Swiper<any>>(null);
+
+    const [ likeOpacity, setLikeOpacity ] = useState(1);
+    const [ nopeOpacity, setNopeOpacity ] = useState(1);
+
+
+
+
     const [ preventSwipe, setPreventSwipe] = useState([ 'up', 'down' ]);
     const [modalVisible, setModalVisible] = useState(false);
 
@@ -75,9 +84,7 @@ export default function Dashboard() {
     const rotateZ = useSharedValue(0);
     const prevRotateZ = useSharedValue(0);
 
-    
-    const [ likeOpacity, setLikeOpacity ] = useState(0);
-    const [ nopeOpacity, setNopeOpacity ] = useState(0);
+
 
     const [ likeOpacityButton, setLikeOpacityButton ] = useState(1);
     const [ nopeOpacityButton, setNopeOpacityButton ] = useState(1);
@@ -177,6 +184,14 @@ export default function Dashboard() {
     //     setProfile(profile.slice(0, -1)); // Remove the last profile
     // };
 
+    
+    const handleSwipeLeft = () => {
+        swiperRef.current?.swipeLeft();
+    }
+    
+    const handleSwipeRight = () => {
+        swiperRef.current?.swipeRight();
+    }
 
     return (
         <SafeAreaView style={ Styles.safearea }>
@@ -189,7 +204,8 @@ export default function Dashboard() {
             <View style={ Styles.container }>
                 <View style={ Styles.topMenuContainer }>
                     <View style={{ padding: 10, width: '70%', height: '100%', justifyContent: 'center' }}>
-                        <Text style={{ fontFamily: 'Montserrat-black', fontSize: 22, color: '#fff' }}>WhyFashion</Text>
+                        {/* <Text style={{ fontFamily: 'Montserrat-black', fontSize: 22, color: '#fff' }}>WhyFashion</Text> */}
+                        <Image style={{ width: 145 }} resizeMode='contain' source={ require('@/assets/images/splash-logo.png') } />
                     </View>
                     <View style={{ padding: 10, width: '30%', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
                         <Image style={{ width: 45, height: 45 }} source={ require('@/assets/images/man.png') } />
@@ -253,40 +269,116 @@ export default function Dashboard() {
                     {/* ------------------------------- */}
 
                     <Swiper
+                        ref={swiperRef}
                         cards={ db }
                         renderCard={(card: dataTypes ) => {
                             return (
                                 <View style={ Styles.card}>
-                                    <Image resizeMode="contain" source={{ uri: card.image }} style={{flex:1}}/>
+                                    <LinearGradient
+                                        colors={['transparent', 'transparent', 'transparent', 'rgb(28, 26, 26)' ]}
+                                        style={[ Styles.background, {zIndex: 1} ]}/>
+                                        <Image resizeMode="contain" source={{ uri: card.image }} style={{flex:1}}/>
                                 </View>
                             )
                         }}
-                        onSwiped={(cardIndex: number ) => {console.log(cardIndex)}}
+                        onSwiped={(cardIndex: number ) => {
+                            setNopeOpacity(1);
+                            setLikeOpacity(1);
+                        }}                        
+                        onSwiping={(e) => {
+                            if( e < 0 ){
+                                setNopeOpacity(1);
+                                setLikeOpacity(0);
+
+                            } else if( e > 0 ) {
+                                setNopeOpacity(0);
+                                setLikeOpacity(1);
+                            }
+                        }}
+                        onSwipedAborted={() => {
+                            setNopeOpacity(1);
+                            setLikeOpacity(1);
+                        }}
                         onSwipedAll={() => {console.log('onSwipedAll')}}
+                        onTapCard={ ()=> setModalVisible(!modalVisible) }
+
                         cardIndex={0}
-                        backgroundColor={'transparent'}
+                        verticalSwipe={false}
+                        showSecondCard={true}
                         stackSize={3}
-                        stackScale={5} />
+                        infinite={true}
+                        
+                        // Styles
+                        backgroundColor={'transparent'}
+                        cardVerticalMargin={10}
+                        cardHorizontalMargin={5}
+
+                        // OverLap content and styles
+                        overlayLabels={{
+                            overlayLabelStyle:{
+                                fontSize: 15,
+                                fontWeight: 'bold',
+                                borderRadius: 10,
+                                padding: 10,
+                                overflow: 'hidden'
+                            },
+                            left: {
+                                // element: <Text>NOPE</Text>, /* Optional */
+                                title: 'NOPE',
+                                style: {
+                                    label: {
+                                        backgroundColor: 'red',
+                                        borderColor: 'black',
+                                        color: 'white',
+                                        borderWidth: 1
+                                    },
+                                    wrapper: {
+                                        flexDirection: 'column',
+                                        alignItems: 'flex-end',
+                                        justifyContent: 'flex-start',
+                                        marginTop: 30,
+                                        marginLeft: -30
+                                    }
+                                }
+                            },
+                            right: {
+                                // element: <Text>LIKE</Text>, /* Optional */
+                                title: 'LIKE',
+                                style: {
+                                    label: {
+                                        backgroundColor: 'green',
+                                        borderColor: 'black',
+                                        color: 'white',
+                                        borderWidth: 1
+                                    },
+                                    wrapper: {
+                                        flexDirection: 'column',
+                                        alignItems: 'flex-start',
+                                        justifyContent: 'flex-start',
+                                        marginTop: 30,
+                                        marginLeft: 30
+                                    }
+                                }
+                            }
+                        }}
+                        />
 
 
                 </View>
                 <View style={ Styles.menuContainer }>
 
                     <View style={ Styles.buttonWrap }>
-
-
-                        <TouchableOpacity activeOpacity={0.7}>
-                            <View style={[ Styles.buttonItem, Styles.buttonItemShadow, { opacity: nopeOpacityButton } ]}>
-                                <Ionicons name="close" size={30} color="red" />
+                        <TouchableOpacity onPress={ handleSwipeLeft } activeOpacity={0.7}>
+                            <View style={[ Styles.buttonItem, Styles.buttonItemShadow, { opacity: nopeOpacity } ]}>
+                                {/* <Ionicons name="close" size={ ( nopeOpacity ) ? 35 : 30 } color="red" /> */}
+                                <Text>{ nopeOpacity }</Text>
                             </View>
                         </TouchableOpacity>
-
-                        <TouchableOpacity activeOpacity={0.7}>
-                            <View style={[ Styles.buttonItem, Styles.buttonItemShadow, { opacity: likeOpacityButton } ]}>
-                                <Ionicons name="heart" size={30} color="green" />
+                        <TouchableOpacity onPress={ handleSwipeRight } activeOpacity={0.7}>
+                            <View style={[ Styles.buttonItem, Styles.buttonItemShadow, { opacity: likeOpacity } ]}>
+                                <Ionicons name="heart" size={( likeOpacity ) ? 35 : 30} color="green" />
                             </View>
                         </TouchableOpacity>
-
                     </View>
 
                     <Modal
@@ -294,7 +386,6 @@ export default function Dashboard() {
                         transparent={true}
                         visible={modalVisible}
                         onRequestClose={() => {
-                            Alert.alert('Modal has been closed.');
                             setModalVisible(!modalVisible);
                         }}>
                         
@@ -338,10 +429,13 @@ const Styles = StyleSheet.create({
     container: {
         flex: 1,
         width: '100%',
-        position: 'relative'
+        height: '100%',
+        overflow: 'hidden'
+        // position: 'relative'
     },
     safearea: {
         flex: 1,
+        height: '100%',
         backgroundColor: 'rgb(0, 0, 0)',
     },
     topMenuContainer:{
@@ -350,24 +444,28 @@ const Styles = StyleSheet.create({
     },
     cardContainer: {
         flex: 10,
+        height: '100%',
+        position: 'relative',
+        // overflow: 'hidden',
         // alignItems: 'center',
-        // justifyContent: 'center'
-        overflow: 'hidden'
+        // justifyContent: 'center',
+        // backgroundColor: 'red',
         // backgroundColor: 'yellow'
     },
     card: {
-        backgroundColor: '#f00',
-        // position: 'absolute',
+        backgroundColor: '#fff',
+        position: 'absolute',
         top: 0,
         left: 0,
         width: '100%',
-        height: '100%',
+        height: '71.5%',
         borderRadius: 10,
         // borderColor: '#999',
         // borderWidth: 1,
         overflow: 'hidden',
         // justifyContent: 'center',
-        // alignItems: 'center'
+        // alignItems: 'center',
+        // zIndex: 9999,
     },
     cardImage: {
         flex: 1,
