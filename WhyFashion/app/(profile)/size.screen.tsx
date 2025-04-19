@@ -85,6 +85,7 @@ export default function SizeScreen() {
                                     <View style={Styles.modalView}>
                                         
                                         <Picker
+                                            itemStyle={{ color: "black" }}
                                             style={{ width: '100%' }}
                                             selectedValue={topsize}
                                             onValueChange={(itemValue, itemIndex) =>
@@ -159,6 +160,7 @@ export default function SizeScreen() {
                                     <View style={Styles.modalView}>
                                         
                                         <Picker
+                                            itemStyle={{ color: "black" }}
                                             style={{ width: '100%' }}
                                             selectedValue={outerwear}
                                             onValueChange={(itemValue, itemIndex) =>
@@ -234,6 +236,7 @@ export default function SizeScreen() {
                                     <View style={Styles.modalView}>
                                         
                                         <Picker
+                                            itemStyle={{ color: "black" }}
                                             style={{ width: '100%' }}
                                             selectedValue={underwear}
                                             onValueChange={(itemValue, itemIndex) =>
@@ -308,6 +311,7 @@ export default function SizeScreen() {
                                     <View style={Styles.modalView}>
                                         
                                         <Picker
+                                            itemStyle={{ color: "black" }}
                                             style={{ width: '100%' }}
                                             selectedValue={suitsTailoring}
                                             onValueChange={(itemValue, itemIndex) =>

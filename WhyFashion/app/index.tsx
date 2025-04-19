@@ -28,8 +28,8 @@ export default function SplashScreen() {
     // },[]);
 
     const handleRegister =() => {
-        // router.push('/(profile)/profile.screen');
-        router.push('/(dashboard)/dashboard');
+        router.push('/(profile)/profile.screen');
+        // router.push('/(dashboard)/dashboard');
     }
 
     return (
@@ -43,6 +43,7 @@ export default function SplashScreen() {
             <View style={ Styles.wrapper }>
                 <View style={ Styles.boxTop }></View>
                 <View style={ Styles.boxMiddle }>
+
                     <Image style={{ width: '100%', resizeMode: 'contain' }} source={require('@/assets/images/splash-logo.png')} />
                     {/* <Text style={{ fontFamily: 'Montserrat-Black', fontSize: 40, color: '#fff' }}>WhyFashion</Text> */}
                 </View>
@@ -83,7 +84,7 @@ const Styles = StyleSheet.create({
         left: 0,
         width: '100%',
         height: '100%',
-        backgroundColor: '#fff'
+        backgroundColor: '#c69c72',
     },
     wrapper: {
         flex: 1

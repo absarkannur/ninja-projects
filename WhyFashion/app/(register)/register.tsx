@@ -50,7 +50,8 @@ const Styles = StyleSheet.create({
         fontFamily: 'Montserrat-Medium',
         fontSize: 20,
         color: "#666",
-        marginBottom: 20
+        marginBottom: 20,
+        textAlign: 'center'
     }
 
 });

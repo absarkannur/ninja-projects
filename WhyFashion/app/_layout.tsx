@@ -50,7 +50,8 @@ export default function _layout() {
             <Stack.Screen name="(register)" options={{
                 title: 'Register',
                 gestureEnabled: false,
-                headerShown: true
+                headerShown: true,
+                headerTintColor: 'black'
             }} />
             <Stack.Screen name="(signin)" options={{
                 gestureEnabled: false,

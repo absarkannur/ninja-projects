@@ -1,7 +1,6 @@
-import { View, Text, StyleSheet, SafeAreaView, Alert, Image, Modal, TouchableWithoutFeedback, TouchableOpacity, Dimensions } from 'react-native'
-import React, { useEffect, useState, useRef, useMemo } from 'react'
-import AppWrapper from '@/components/AppWrapper'
-import TinderCard from 'react-tinder-card'
+import { View, Text, StyleSheet, SafeAreaView, Image, Modal, TouchableWithoutFeedback, TouchableOpacity, Dimensions } from 'react-native'
+import React, { useState, useRef } from 'react'
+
 import { StatusBar } from 'expo-status-bar';
 import { LinearGradient } from 'expo-linear-gradient';
 import Button from '@/components/Button';
@@ -37,10 +36,12 @@ import { opacity } from 'react-native-reanimated/lib/typescript/Colors';
 type dataTypes = { name: string, image: string };
 
 const db: dataTypes[] = [
-    { 'name': 'test1', 'image': 'https://f.nooncdn.com/p/v1613829746/N26089509A_1.jpg' },
-    { 'name': 'test2', 'image': 'https://f.nooncdn.com/p/pzsku/Z793E91EB8BAF6238E67BZ/45/_/1742369807/8d6d5983-30a1-42c0-80b8-e30872675981.jpg' },
-    { 'name': 'test3', 'image': 'https://f.nooncdn.com/p/pnsku/N70106183V/45/_/1726043631/3064c465-3457-42ef-a234-0b6382365281.jpg' },
-    { 'name': 'test4', 'image': 'https://f.nooncdn.com/p/pzsku/ZE57C93631F62176AADD1Z/45/_/1741798933/5351a0a3-f1a7-4c16-b4da-6ecda79cf46d.jpg'},
+    { 'name': 'test1', 'image': 'https://f.nooncdn.com/p/pzsku/Z793E91EB8BAF6238E67BZ/45/_/1742369807/8d6d5983-30a1-42c0-80b8-e30872675981.jpg' },
+    { 'name': 'test2', 'image': 'https://f.nooncdn.com/p/pzsku/ZC2BD5620D54F3AD5D87FZ/45/_/1739138521/ec67f586-e2be-4f0c-9e6a-f28dda79a944.jpg' },
+    { 'name': 'test3', 'image': 'https://f.nooncdn.com/p/v1613829746/N26089509A_1.jpg' },
+    { 'name': 'test4', 'image': 'https://f.nooncdn.com/p/pnsku/N70106183V/45/_/1726043631/3064c465-3457-42ef-a234-0b6382365281.jpg' },
+    { 'name': 'test5', 'image': 'https://f.nooncdn.com/p/pzsku/ZE57C93631F62176AADD1Z/45/_/1741798933/5351a0a3-f1a7-4c16-b4da-6ecda79cf46d.jpg'},
+    { 'name': 'test6', 'image': 'https://f.nooncdn.com/p/pzsku/Z53B26E26C9F25605FE82Z/45/1741629998/b9500a15-7394-4041-995b-4558e82b702b.jpg' }
 ]
 
 function clamp(val:number, min:number, max:number) {
@@ -52,127 +53,127 @@ export default function Dashboard() {
     // Swipe Ref
     const swiperRef = useRef<Swiper<any>>(null);
 
+    const [modalVisible, setModalVisible] = useState(false);
+
     const [ likeOpacity, setLikeOpacity ] = useState(1);
     const [ nopeOpacity, setNopeOpacity ] = useState(1);
 
+    const likeButtonWith = useSharedValue(50);
+    const likeButtonHeight = useSharedValue(50);
+
+
+    // const [profile, setProfile] = useState(db);
+    // const lastProfile = profile[profile.length - 1];
+    // const remainingProfiles = profile.slice(0, -1);
+
+
+    // const onSwipe = ( direction: any, id: number ) => {
+    //     console.log( 'You swiped: ' + direction + ' - ' + id );
+    // }
+    // const handlePressCard = () => {
+    //     setModalVisible(true);
+    // }
+
+    // const { width, height } = Dimensions.get('screen');
+
+    // const translationX = useSharedValue(0);
+    // const translationY = useSharedValue(0);
+    // const prevTranslationX = useSharedValue(0);
+    // const prevTranslationY = useSharedValue(0);
+    // const velocityX = useSharedValue(0);
+
+    // const rotateZ = useSharedValue(0);
+    // const prevRotateZ = useSharedValue(0);
 
 
 
-    const [ preventSwipe, setPreventSwipe] = useState([ 'up', 'down' ]);
-    const [modalVisible, setModalVisible] = useState(false);
+    // const [ likeOpacityButton, setLikeOpacityButton ] = useState(1);
+    // const [ nopeOpacityButton, setNopeOpacityButton ] = useState(1);
 
-    const [profile, setProfile] = useState(db);
-    const lastProfile = profile[profile.length - 1];
-    const remainingProfiles = profile.slice(0, -1);
+    // const animatedStyles = useAnimatedStyle(() => ({
+    //     transform: [
+    //       { translateX: translationX.value },
+    //       { translateY: translationY.value },
+    //       { rotate: `${rotateZ.value}deg`  }
+    //     ],
+    // }));
 
+    // const dragGesture = Gesture.Pan()
+    //     .minDistance(100)
+    //     .onStart(() => {
+    //         prevTranslationX.value = translationX.value;
+    //         prevTranslationY.value = translationY.value;
+    //         prevRotateZ.value = rotateZ.value;
+    //     })
+    //     .onUpdate((event) => {
 
-    const onSwipe = ( direction: any, id: number ) => {
-        console.log( 'You swiped: ' + direction + ' - ' + id );
-    }
-    const handlePressCard = () => {
-        setModalVisible(true);
-    }
+    //         const maxTranslateX = width;
+    //         const maxTranslateY = height;
 
-    const { width, height } = Dimensions.get('screen');
+    //         translationX.value = clamp(
+    //             prevTranslationX.value + event.translationX,
+    //             -maxTranslateX,
+    //             maxTranslateX
+    //         );
 
-    const translationX = useSharedValue(0);
-    const translationY = useSharedValue(0);
-    const prevTranslationX = useSharedValue(0);
-    const prevTranslationY = useSharedValue(0);
-    const velocityX = useSharedValue(0);
+    //         translationY.value = clamp(
+    //             prevTranslationY.value + event.translationY,
+    //             -maxTranslateY,
+    //             maxTranslateY
+    //         );
 
-    const rotateZ = useSharedValue(0);
-    const prevRotateZ = useSharedValue(0);
+    //         rotateZ.value =  interpolate( translationX.value,
+    //             [ -width / 2, width / 2 ],
+    //             [ 12, -12 ]
+    //         );
 
+    //         let temp_likeOpacity = interpolate(translationX.value,
+    //             [0, width / 4],
+    //             [0, 1],
+    //         );
 
+    //         setLikeOpacity( temp_likeOpacity );
+    //         setLikeOpacityButton( temp_likeOpacity );
 
-    const [ likeOpacityButton, setLikeOpacityButton ] = useState(1);
-    const [ nopeOpacityButton, setNopeOpacityButton ] = useState(1);
+    //         let temp_nopeOpacity = interpolate(translationX.value,
+    //             [-width / 4, 0],
+    //             [1, 0],
+    //         );
 
-    const animatedStyles = useAnimatedStyle(() => ({
-        transform: [
-          { translateX: translationX.value },
-          { translateY: translationY.value },
-          { rotate: `${rotateZ.value}deg`  }
-        ],
-    }));
+    //         // Get Left and Right
 
-    const dragGesture = Gesture.Pan()
-        .minDistance(100)
-        .onStart(() => {
-            prevTranslationX.value = translationX.value;
-            prevTranslationY.value = translationY.value;
-            prevRotateZ.value = rotateZ.value;
-        })
-        .onUpdate((event) => {
+    //         setNopeOpacity( temp_nopeOpacity );
+    //         setNopeOpacityButton( temp_nopeOpacity );
 
-            const maxTranslateX = width;
-            const maxTranslateY = height;
+    //     })
+    //     .onEnd((event) => {
 
-            translationX.value = clamp(
-                prevTranslationX.value + event.translationX,
-                -maxTranslateX,
-                maxTranslateX
-            );
-
-            translationY.value = clamp(
-                prevTranslationY.value + event.translationY,
-                -maxTranslateY,
-                maxTranslateY
-            );
-
-            rotateZ.value =  interpolate( translationX.value,
-                [ -width / 2, width / 2 ],
-                [ 12, -12 ]
-            );
-
-            let temp_likeOpacity = interpolate(translationX.value,
-                [0, width / 4],
-                [0, 1],
-            );
-
-            setLikeOpacity( temp_likeOpacity );
-            setLikeOpacityButton( temp_likeOpacity );
-
-            let temp_nopeOpacity = interpolate(translationX.value,
-                [-width / 4, 0],
-                [1, 0],
-            );
-
-            // Get Left and Right
-
-            setNopeOpacity( temp_nopeOpacity );
-            setNopeOpacityButton( temp_nopeOpacity );
-
-        })
-        .onEnd((event) => {
-
-            if ( translationX.value > width / 3 ) {
+    //         if ( translationX.value > width / 3 ) {
                 
-                console.log('Panning Right:');
+    //             console.log('Panning Right:');
                 
-            } else if ( translationX.value <  width / 3 ) {
+    //         } else if ( translationX.value <  width / 3 ) {
 
-                console.log('Panning Left:');
+    //             console.log('Panning Left:');
 
-            }
+    //         }
 
 
-            // translationX.value = withSpring( 0, { duration: 1500 });
-            // translationY.value = withSpring( 0, { duration: 1500 });
-            // rotateZ.value = withSpring( 0, {   
-            //     duration: 1500
-            // });;
+    //         // translationX.value = withSpring( 0, { duration: 1500 });
+    //         // translationY.value = withSpring( 0, { duration: 1500 });
+    //         // rotateZ.value = withSpring( 0, {   
+    //         //     duration: 1500
+    //         // });;
 
-            // setLikeOpacity( 0 );
-            // setNopeOpacity( 0 );
-            // setLikeOpacityButton(1);
-            // setNopeOpacityButton(1);
+    //         // setLikeOpacity( 0 );
+    //         // setNopeOpacity( 0 );
+    //         // setLikeOpacityButton(1);
+    //         // setNopeOpacityButton(1);
 
-            // setProfile(profile.slice(0, -1)); // Remove the last profile
+    //         // setProfile(profile.slice(0, -1)); // Remove the last profile
 
-        })
-        .runOnJS(true);
+    //     })
+    //     .runOnJS(true);
         
     // Example of updating the profile state
     // -------
@@ -277,27 +278,37 @@ export default function Dashboard() {
                                     <LinearGradient
                                         colors={['transparent', 'transparent', 'transparent', 'rgb(28, 26, 26)' ]}
                                         style={[ Styles.background, {zIndex: 1} ]}/>
-                                        <Image resizeMode="contain" source={{ uri: card.image }} style={{flex:1}}/>
+                                        <Image resizeMode="cover" source={{ uri: card.image }} style={ Styles.cardImage } />
                                 </View>
                             )
                         }}
                         onSwiped={(cardIndex: number ) => {
                             setNopeOpacity(1);
                             setLikeOpacity(1);
+                            likeButtonWith.value = withSpring( 50 );
+                            likeButtonHeight.value = withSpring( 50 );
                         }}                        
                         onSwiping={(e) => {
                             if( e < 0 ){
                                 setNopeOpacity(1);
                                 setLikeOpacity(0);
 
+                                likeButtonWith.value = withSpring( 70 );
+                                likeButtonHeight.value = withSpring( 70 );
+
                             } else if( e > 0 ) {
                                 setNopeOpacity(0);
                                 setLikeOpacity(1);
+
+                                likeButtonWith.value = withSpring( 70 );
+                                likeButtonHeight.value = withSpring( 70 );
                             }
                         }}
                         onSwipedAborted={() => {
                             setNopeOpacity(1);
                             setLikeOpacity(1);
+                            likeButtonWith.value = withSpring( 50 );
+                            likeButtonHeight.value = withSpring( 50 );
                         }}
                         onSwipedAll={() => {console.log('onSwipedAll')}}
                         onTapCard={ ()=> setModalVisible(!modalVisible) }
@@ -369,15 +380,16 @@ export default function Dashboard() {
 
                     <View style={ Styles.buttonWrap }>
                         <TouchableOpacity onPress={ handleSwipeLeft } activeOpacity={0.7}>
-                            <View style={[ Styles.buttonItem, Styles.buttonItemShadow, { opacity: nopeOpacity } ]}>
-                                {/* <Ionicons name="close" size={ ( nopeOpacity ) ? 35 : 30 } color="red" /> */}
-                                <Text>{ nopeOpacity }</Text>
-                            </View>
+                            <Animated.View style={[ Styles.buttonItem, Styles.buttonItemShadow, {  width:likeButtonWith, height: likeButtonHeight }, { opacity: nopeOpacity } ]}>
+                                {/* <Ionicons name="close" style={{ transitionDuration: '2s' }} size={ ( likeOpacity ) ? 30 : 50 } color="red" /> */}
+                                <Image style={{ width: '60%', height: '60%' }} source={ require('@/assets/images/close.png')} resizeMode='contain' />
+                            </Animated.View>
                         </TouchableOpacity>
                         <TouchableOpacity onPress={ handleSwipeRight } activeOpacity={0.7}>
-                            <View style={[ Styles.buttonItem, Styles.buttonItemShadow, { opacity: likeOpacity } ]}>
-                                <Ionicons name="heart" size={( likeOpacity ) ? 35 : 30} color="green" />
-                            </View>
+                            <Animated.View style={[ Styles.buttonItem, Styles.buttonItemShadow, {  width:likeButtonWith, height: likeButtonHeight }, { opacity: likeOpacity } ]}>
+                                <Image style={{ width: '100%', height: '100%' }} source={ require('@/assets/images/heart.png')} resizeMode='contain' />
+                                {/* <Ionicons name="heart" style={{ transitionDuration: '2s' }} size={( nopeOpacity ) ? 30 : 50 } color="green" /> */}
+                            </Animated.View>
                         </TouchableOpacity>
                     </View>
 
@@ -460,16 +472,25 @@ const Styles = StyleSheet.create({
         width: '100%',
         height: '71.5%',
         borderRadius: 10,
+        overflow: 'hidden',
         // borderColor: '#999',
         // borderWidth: 1,
-        overflow: 'hidden',
-        // justifyContent: 'center',
-        // alignItems: 'center',
+        // justifyContent: 'flex-start',
+        // alignItems: 'flex-start',
         // zIndex: 9999,
+        shadowColor: 'rgb(121, 12, 12)',
+        shadowOffset: {
+            width: 0,
+            height: 0,
+        },
+        shadowOpacity: 0.5,
+        shadowRadius: 20,
+        elevation: 5,
     },
     cardImage: {
         flex: 1,
-        justifyContent: 'center',
+        backgroundColor: '#999',
+        borderRadius: 10
     },
     shadow: {
         shadowColor: '#333',
@@ -509,6 +530,7 @@ const Styles = StyleSheet.create({
         height: 50,
         width: 50,
         borderRadius: 50,
+        padding: 10,
         backgroundColor: '#FFF',
         alignItems: 'center',
         justifyContent: 'center',
