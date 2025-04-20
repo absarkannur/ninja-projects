@@ -8,9 +8,9 @@ export default function RegisterLayout() {
         <Stack
             screenOptions={{
                 headerStyle: {
-                    backgroundColor: Colors.light.header.backgroundColor,
+                    backgroundColor: 'red',
                 },
-                headerTintColor: Colors.light.header.headerTintColor,
+                headerTintColor: 'red',
                 headerTitleStyle: {
                     fontWeight: 'bold',
                 },

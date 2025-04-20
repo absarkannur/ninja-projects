@@ -8,10 +8,10 @@ import Spacer from '@/components/Spacer';
 
 import Swiper from 'react-native-deck-swiper';
 
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import Ionicons from '@expo/vector-icons/Ionicons';
-import AntDesign from '@expo/vector-icons/AntDesign';
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+// import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+// import Ionicons from '@expo/vector-icons/Ionicons';
+// import AntDesign from '@expo/vector-icons/AntDesign';
+// import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 // Test
 
@@ -199,7 +199,7 @@ export default function Dashboard() {
             <StatusBar style='light' />
             <LinearGradient
                 // Background Linear Gradient
-                colors={['rgb(10, 109, 240)', 'rgb(0, 0, 0)' ]}
+                colors={['rgb(23, 26, 33)', 'rgb(23, 37, 56)' ]}
                 style={ Styles.background }
             />
             <View style={ Styles.container }>

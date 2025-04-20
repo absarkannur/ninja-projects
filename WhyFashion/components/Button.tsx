@@ -8,20 +8,19 @@ interface StateProps {
     title?: string | null,
     onPress?: any,
     icon?: any,
-    disabled?: boolean | false
+    disabled?: boolean | false,
+    background?: string,
 }
 
-const Button = ({ title, icon, disabled, onPress }: StateProps) => {
-
-    const [ bgcolor, setBgcolor ] = useState('red');
+const Button = ({ title, icon, disabled, background, onPress }: StateProps) => {
 
     return (
         <TouchableOpacity 
             disabled={ disabled }
-            style={{width: '100%'}}
+            style={{ width: '100%' }}
             activeOpacity={0.6}
             onPress={ onPress }>
-            <View style={ ( disabled ) ? Styles.buttonFaceDisabled : Styles.buttonFace  }>
+            <View style={[ ( disabled ) ? Styles.buttonFaceDisabled : Styles.buttonFace, { backgroundColor: ( background ) ? background : Colors.light.buttonFace } ]}>
                 <View style={ Styles.icon }>
                 { icon }
                 </View>

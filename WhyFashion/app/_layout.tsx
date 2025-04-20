@@ -41,7 +41,16 @@ export default function _layout() {
 
     return (
         // Auth Layer
-        <Stack>
+        <Stack
+            screenOptions={{
+                headerStyle: {
+                    backgroundColor: 'rgb(23, 26, 33)',
+                },
+                headerTintColor: 'black',
+                headerTitleStyle: {
+                    fontWeight: 'bold',
+                },
+            }}>
             <Stack.Screen name="index" options={{
                 title: '',
                 gestureEnabled: false,
@@ -51,7 +60,7 @@ export default function _layout() {
                 title: 'Register',
                 gestureEnabled: false,
                 headerShown: true,
-                headerTintColor: 'black'
+                headerTintColor: 'white'
             }} />
             <Stack.Screen name="(signin)" options={{
                 gestureEnabled: false,

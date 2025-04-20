@@ -18,7 +18,7 @@ const Styles = StyleSheet.create({
         fontFamily: 'Montserrat-Regular',
         width: '100%',
         height: 50,
-        backgroundColor: Colors.light.transparent,
+        backgroundColor: '#fff',
         borderColor: Colors.light.borderColor,
         color: Colors.light.textColor,
         padding: 8,

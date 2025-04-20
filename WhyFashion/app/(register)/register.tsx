@@ -1,10 +1,12 @@
-import { View, Text, Alert, SafeAreaView, StyleSheet } from 'react-native'
+import { View, Text, Alert, SafeAreaView, StyleSheet, Image } from 'react-native'
 import React, { useEffect } from 'react'
 import { router, Redirect } from 'expo-router'
 import AppWrapper from '@/components/AppWrapper';
 import { Const } from '@/constants/Const';
 import Input from '@/components/Input';
 import Button from '@/components/Button';
+import { LinearGradient } from 'expo-linear-gradient';
+import { StatusBar } from 'expo-status-bar';
 
 export default function Register() {
 
@@ -13,8 +15,21 @@ export default function Register() {
     }
 
     return (
-        <AppWrapper statusbarColor={'dark'}>
+        <SafeAreaView style={ Styles.safearea }>
+            <StatusBar style='light' />
+            
+            <LinearGradient
+                // Background Linear Gradient
+                colors={['rgb(23, 26, 33)', 'rgb(23, 37, 56)' ]}
+                style={ Styles.background } />
+                
             <View style={ Styles.container }>
+
+                <View style={[ Styles.wrapper, { height: 200, justifyContent: 'center' } ]}>
+                    <Image 
+                        source={ require('@/assets/images/splash-logo.png') }
+                        style={ Styles.logo_image } />
+                </View>
 
                 <View style={ Styles.wrapper }>
 
@@ -26,32 +41,50 @@ export default function Register() {
                     <Input placeholder="Password" secureTextEntry={true} />
                     <Input placeholder="Confirm Password" secureTextEntry={true} />
 
-                    <Button title="Register" onPress={ handleRegister } />
+                    <Button 
+                        background={'rgb(7, 92, 221)'}
+                        title="Register" onPress={ handleRegister } />
 
                 </View>
 
             </View>
-        </AppWrapper>
+        </SafeAreaView>
     )
 }
 
 const Styles = StyleSheet.create({
-
+    safearea: {
+        flex: 1,
+        height: '100%',
+        backgroundColor: 'rgb(23, 37, 56)',
+    },
+    background: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: 0,
+        height: '100%',
+    },
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         padding: Const.padding.appInnerPadding,
     },
     wrapper: {
         width: '100%',
+        alignItems: 'center'
     },
     header: {
         fontFamily: 'Montserrat-Medium',
-        fontSize: 20,
-        color: "#666",
+        fontSize: 18,
+        color: "#fff",
         marginBottom: 20,
-        textAlign: 'center'
+        textAlign: 'center',
+    },
+    logo_image: {
+        height: 70,
+        width: '70%'
     }
 
 });

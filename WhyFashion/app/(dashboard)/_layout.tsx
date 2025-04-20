@@ -21,7 +21,7 @@ export default function DashboardLayout() {
                 tabBarStyle: {
                     backgroundColor: "rgb(27, 27, 27)",
                     borderTopWidth: 1,
-                    borderTopColor: '#000',
+                    borderTopColor: 'rgb(57, 57, 57)',
                     height: 80,
                     paddingTop: 10
                 },
