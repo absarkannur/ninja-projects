@@ -8,10 +8,10 @@ import Spacer from '@/components/Spacer';
 
 import Swiper from 'react-native-deck-swiper';
 
-// import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-// import Ionicons from '@expo/vector-icons/Ionicons';
-// import AntDesign from '@expo/vector-icons/AntDesign';
-// import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import AntDesign from '@expo/vector-icons/AntDesign';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 // Test
 
@@ -28,6 +28,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import Card from '@/components/Card';
 import { opacity } from 'react-native-reanimated/lib/typescript/Colors';
+import SearchBar from '@/components/SearchBar';
 
 
 // Data preach
@@ -196,78 +197,31 @@ export default function Dashboard() {
 
     return (
         <SafeAreaView style={ Styles.safearea }>
-            <StatusBar style='light' />
-            <LinearGradient
+            <StatusBar style='dark' />
+            {/* <LinearGradient
                 // Background Linear Gradient
                 colors={['rgb(23, 26, 33)', 'rgb(23, 37, 56)' ]}
                 style={ Styles.background }
-            />
+            /> */}
             <View style={ Styles.container }>
-                <View style={ Styles.topMenuContainer }>
-                    <View style={{ padding: 10, width: '70%', height: '100%', justifyContent: 'center' }}>
-                        {/* <Text style={{ fontFamily: 'Montserrat-black', fontSize: 22, color: '#fff' }}>WhyFashion</Text> */}
-                        <Image style={{ width: 145 }} resizeMode='contain' source={ require('@/assets/images/splash-logo.png') } />
+                
+                <View style={ Styles.headerContainer }>
+                    <TouchableOpacity style={{ width: '20%', height: '100%', justifyContent: 'center', alignItems: 'flex-start', paddingLeft: 15 }}>
+                            <MaterialIcons name="notifications-none" size={26} color="black" />
+                    </TouchableOpacity>
+                    <View style={{ width: '60%', height: '100%', alignItems: 'center', justifyContent: 'center' }}>
+                        <Image style={{ width: 100, height: 40 }} resizeMode='contain' source={ require('@/assets/images/splash-logo.png') }/>
                     </View>
-                    <View style={{ padding: 10, width: '30%', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
-                        <Image style={{ width: 45, height: 45 }} source={ require('@/assets/images/man.png') } />
-                    </View>
+                    <TouchableOpacity style={{ width: '20%', height: '100%', justifyContent: 'center', alignItems: 'flex-end', paddingRight: 15 }}>
+                        <Ionicons name="settings-outline" size={24} color="black" />
+                    </TouchableOpacity>
                 </View>
-                <View style={ Styles.cardContainer }>
 
-                    {/* <TinderCard
-                        preventSwipe={ preventSwipe }
-                        onSwipe={ (e) => onSwipe( e, 1232 ) }>
-                        <TouchableHighlight activeOpacity={1} style={ Styles.shadow } onPress={ handlePressCard }>
-                            <View style={ Styles.card }>
-                            <LinearGradient
-                                // Background Linear Gradient
-                                colors={['transparent', 'rgb(0, 0, 0)' ]}
-                                style={[ Styles.background, {zIndex: 1} ]}/>
-                                <Image 
-                                    source={{ uri: 'https://f.nooncdn.com/p/v1613829746/N26089509A_1.jpg'}} 
-                                    resizeMode="cover" style={ Styles.cardImage } />
-                            </View>
-                        </TouchableHighlight>
-                    </TinderCard>
+                <View style={ Styles.searchContainer }>
+                    <SearchBar />
+                </View>
 
-                    <TinderCard
-                        preventSwipe={ preventSwipe }
-                        onSwipe={ (e) => onSwipe( e, 2123 ) }>
-                        <TouchableHighlight activeOpacity={1} style={ Styles.shadow } onPress={ handlePressCard }>
-                            <View style={ Styles.card }>
-                            <LinearGradient
-                                // Background Linear Gradient
-                                colors={['transparent', 'rgb(0, 0, 0)' ]}
-                                style={[ Styles.background, {zIndex: 1} ]}/>
-                                <Image 
-                                    source={{ uri: 'https://f.nooncdn.com/p/pzsku/Z793E91EB8BAF6238E67BZ/45/_/1742369807/8d6d5983-30a1-42c0-80b8-e30872675981.jpg'}} 
-                                    resizeMode="cover" style={ Styles.cardImage } />
-                            </View>
-                        </TouchableHighlight>
-                    </TinderCard> */}
-
-                    {/* ------------------------------- */}
-
-                    {/* { remainingProfiles.map( (item, key) => 
-                        <Card key={ key } profile={item} likeOpacity={0} nopeOpacity={0} />
-                    )}
-
-                    <GestureHandlerRootView>
-                        <GestureDetector gesture={dragGesture}>
-                            <Animated.View style={[ animatedStyles, {
-                                position: 'absolute', 
-                                width: '100%', 
-                                height: '100%', 
-                                backgroundColor: '#fff',
-                                borderRadius: 10,
-                                overflow: 'hidden'
-                            }]}>
-                            <Card profile={ lastProfile } likeOpacity={ likeOpacity } nopeOpacity={nopeOpacity} />
-                            </Animated.View>
-                        </GestureDetector>
-                    </GestureHandlerRootView> */}
-
-                    {/* ------------------------------- */}
+                <View style={ Styles.bodyContainer }>
 
                     <Swiper
                         ref={swiperRef}
@@ -275,9 +229,9 @@ export default function Dashboard() {
                         renderCard={(card: dataTypes ) => {
                             return (
                                 <View style={ Styles.card}>
-                                    <LinearGradient
-                                        colors={['transparent', 'transparent', 'transparent', 'rgb(28, 26, 26)' ]}
-                                        style={[ Styles.background, {zIndex: 1} ]}/>
+                                    {/* <LinearGradient
+                                        colors={['transparent', 'transparent', 'transparent', 'rgb(53, 52, 52)' ]}
+                                        style={[ Styles.background, {zIndex: 1} ]}/> */}
                                         <Image resizeMode="cover" source={{ uri: card.image }} style={ Styles.cardImage } />
                                 </View>
                             )
@@ -317,12 +271,12 @@ export default function Dashboard() {
                         verticalSwipe={false}
                         showSecondCard={true}
                         stackSize={3}
-                        infinite={false}
+                        infinite={true}
                         
                         // Styles
                         backgroundColor={'transparent'}
-                        cardVerticalMargin={10}
-                        cardHorizontalMargin={5}
+                        cardVerticalMargin={20}
+                        cardHorizontalMargin={20}
 
                         // OverLap content and styles
                         overlayLabels={{
@@ -372,59 +326,60 @@ export default function Dashboard() {
                                 }
                             }
                         }}
-                        />
+                    />
 
+                    <View style={ Styles.menuContainer }>
+                        
+                        <View style={ Styles.buttonWrap }>
+                            <TouchableOpacity onPress={ handleSwipeLeft } activeOpacity={0.7}>
+                                <Animated.View style={[ Styles.buttonItem, Styles.buttonItemShadow, {  width:likeButtonWith, height: likeButtonHeight }, { opacity: nopeOpacity } ]}>
+                                    {/* <Ionicons name="close" style={{ transitionDuration: '2s' }} size={ ( likeOpacity ) ? 30 : 50 } color="red" /> */}
+                                    <Image style={{ width: '60%', height: '60%' }} source={ require('@/assets/images/close.png')} resizeMode='contain' />
+                                </Animated.View>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={ handleSwipeRight } activeOpacity={0.7}>
+                                <Animated.View style={[ Styles.buttonItem, Styles.buttonItemShadow, {  width:likeButtonWith, height: likeButtonHeight }, { opacity: likeOpacity } ]}>
+                                    <Image style={{ width: '100%', height: '100%' }} source={ require('@/assets/images/heart.png')} resizeMode='contain' />
+                                    {/* <Ionicons name="heart" style={{ transitionDuration: '2s' }} size={( nopeOpacity ) ? 30 : 50 } color="green" /> */}
+                                </Animated.View>
+                            </TouchableOpacity>
+                        </View>
 
-                </View>
-                <View style={ Styles.menuContainer }>
+                        <Modal
+                            animationType="slide"
+                            transparent={true}
+                            visible={modalVisible}
+                            onRequestClose={() => {
+                                setModalVisible(!modalVisible);
+                            }}>
+                            
+                            <TouchableWithoutFeedback onPress={ ()=>setModalVisible(!modalVisible) }>
+                                <View style={{
+                                    position: 'absolute',
+                                    top: 0,
+                                    bottom: 0,
+                                    left: 0,
+                                    right: 0,
+                                    // backgroundColor: 'rgba(0,0,0,0.5)'
+                                }}></View>
+                            </TouchableWithoutFeedback>
 
-                    <View style={ Styles.buttonWrap }>
-                        <TouchableOpacity onPress={ handleSwipeLeft } activeOpacity={0.7}>
-                            <Animated.View style={[ Styles.buttonItem, Styles.buttonItemShadow, {  width:likeButtonWith, height: likeButtonHeight }, { opacity: nopeOpacity } ]}>
-                                {/* <Ionicons name="close" style={{ transitionDuration: '2s' }} size={ ( likeOpacity ) ? 30 : 50 } color="red" /> */}
-                                <Image style={{ width: '60%', height: '60%' }} source={ require('@/assets/images/close.png')} resizeMode='contain' />
-                            </Animated.View>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={ handleSwipeRight } activeOpacity={0.7}>
-                            <Animated.View style={[ Styles.buttonItem, Styles.buttonItemShadow, {  width:likeButtonWith, height: likeButtonHeight }, { opacity: likeOpacity } ]}>
-                                <Image style={{ width: '100%', height: '100%' }} source={ require('@/assets/images/heart.png')} resizeMode='contain' />
-                                {/* <Ionicons name="heart" style={{ transitionDuration: '2s' }} size={( nopeOpacity ) ? 30 : 50 } color="green" /> */}
-                            </Animated.View>
-                        </TouchableOpacity>
+                            <View style={Styles.centeredView}>
+                                <View style={Styles.modalView}>
+                                    <Text style={{ fontFamily: 'Montserrat-Medium', fontSize: 24 }}>AED 1276.98</Text>
+                                    <Spacer gap={20}/>
+                                    <Text style={Styles.modalText}>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ad ut dolore dicta! Assumenda, neque veniam consequatur dolor porro, tempore totam inventore voluptates obcaecati architecto optio officia similique eos numquam!
+                                    </Text>
+                                    <Button title="Buy now" />
+                                </View>
+                            </View>
+                        </Modal>
+
                     </View>
 
-                    <Modal
-                        animationType="slide"
-                        transparent={true}
-                        visible={modalVisible}
-                        onRequestClose={() => {
-                            setModalVisible(!modalVisible);
-                        }}>
-                        
-                        <TouchableWithoutFeedback onPress={ ()=>setModalVisible(!modalVisible) }>
-                            <View style={{
-                                position: 'absolute',
-                                top: 0,
-                                bottom: 0,
-                                left: 0,
-                                right: 0,
-                                // backgroundColor: 'rgba(0,0,0,0.5)'
-                            }}></View>
-                        </TouchableWithoutFeedback>
-
-                        <View style={Styles.centeredView}>
-                            <View style={Styles.modalView}>
-                                <Text style={{ fontFamily: 'Montserrat-Medium', fontSize: 24 }}>AED 1276.98</Text>
-                                <Spacer gap={20}/>
-                                <Text style={Styles.modalText}>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ad ut dolore dicta! Assumenda, neque veniam consequatur dolor porro, tempore totam inventore voluptates obcaecati architecto optio officia similique eos numquam!
-                                </Text>
-                                <Button title="Buy now" />
-                            </View>
-                        </View>
-                    </Modal>
-
                 </View>
+
             </View>
         </SafeAreaView>
     )
@@ -442,20 +397,37 @@ const Styles = StyleSheet.create({
         flex: 1,
         width: '100%',
         height: '100%',
-        overflow: 'hidden'
-        // position: 'relative'
+        overflow: 'hidden',
     },
     safearea: {
         flex: 1,
         height: '100%',
-        backgroundColor: 'rgb(23, 37, 56)',
+        backgroundColor: '#fff',
     },
+    headerContainer: {
+        height: 40,
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+    },
+    searchContainer: {
+        height: 50,
+        flexWrap: 'wrap',
+        backgroundColor: '#fff',
+    },
+    bodyContainer: {
+        flex: 1,
+        flexWrap: 'wrap',
+        backgroundColor: 'rgb(245 244 240)',
+        overflow: 'hidden'
+    },
+
+
     topMenuContainer:{
         flex: 1,
         flexWrap: 'wrap',
     },
     cardContainer: {
-        flex: 10,
+        // flex: 10,
         height: '100%',
         position: 'relative',
         // overflow: 'hidden',
@@ -473,16 +445,11 @@ const Styles = StyleSheet.create({
         height: '71.5%',
         borderRadius: 10,
         overflow: 'hidden',
-        // borderColor: '#999',
-        // borderWidth: 1,
+        borderColor: '#999',
+        borderWidth: 1,
         // justifyContent: 'flex-start',
         // alignItems: 'flex-start',
         // zIndex: 9999,
-        shadowColor: 'rgb(121, 12, 12)',
-        shadowOffset: {
-            width: 0,
-            height: 0,
-        },
         shadowOpacity: 0.5,
         shadowRadius: 20,
         elevation: 5,

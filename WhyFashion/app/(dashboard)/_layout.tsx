@@ -15,15 +15,15 @@ export default function DashboardLayout() {
     return (
         <Tabs
             screenOptions={{
-                tabBarActiveTintColor: "#FFA001",
-                tabBarInactiveTintColor: "#CDCDE0",
+                // tabBarActiveTintColor: "#FFF",
+                // tabBarInactiveTintColor: "#FFF",
                 tabBarShowLabel: false,
                 tabBarStyle: {
-                    backgroundColor: "rgb(27, 27, 27)",
-                    borderTopWidth: 1,
-                    borderTopColor: 'rgb(57, 57, 57)',
+                    backgroundColor: "rgb(255, 255, 255)",
+                    borderTopWidth: 5,
+                    borderTopColor: 'rgb(255, 255, 255)',
                     height: 80,
-                    paddingTop: 10
+                    paddingTop: 5
                 },
             }}>
             <Tabs.Screen name="dashboard"
