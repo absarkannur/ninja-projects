@@ -24,7 +24,19 @@ const Item = ({ item, onPress, id, active, title, logo }: ItemProps) => (
         <View style={[ Styles.brand ]}>
             <Image style={{ width: 100, height: 100, resizeMode: 'contain' }} source={{ uri: logo }} />
             {
-                ( active) ? <View style={{ position: 'absolute', top: 0, left: 0, height: 100, width: 100, backgroundColor: 'gray', opacity: 0.5 }}></View> : '' 
+                ( active) ? <View style={
+                    { 
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        height: 98,
+                        width: 98,
+                        backgroundColor: 'gray',
+                        opacity: 0.5,
+                        borderColor: '#000',
+                        borderWidth: 2,
+                        borderRadius: 100
+                    }}></View> : '' 
             }
         </View>
     </TouchableOpacity>
@@ -101,7 +113,7 @@ export default function BrandsScreen() {
 
                 <View style={ Styles.header_container }>
                     <Text style={ Styles.header }>What's your favourite brands</Text>
-                    <Text>Let us know about your self</Text>
+                    {/* <Text>Let us know about your self</Text> */}
                 </View>
 
                 <View style={ Styles.body_container }>

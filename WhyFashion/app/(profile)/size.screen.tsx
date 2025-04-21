@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity, Modal, TouchableWithoutFeedback } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, Modal, TouchableWithoutFeedback, Alert } from 'react-native'
 import React, { useState } from 'react'
 import AppWrapper from '@/components/AppWrapper'
 import { router, Redirect } from 'expo-router'
@@ -35,7 +35,7 @@ export default function SizeScreen() {
                 
                 <View style={ Styles.header_container }>
                     <Text style={ Styles.header }>What's your clothes size</Text>
-                    <Text style={ Styles.subHeader }>Let us know about your self</Text>
+                    {/* <Text style={ Styles.subHeader }>Let us know about your self</Text> */}
                 </View>
 
                 <View style={ Styles.body_container }>
@@ -106,6 +106,18 @@ export default function SizeScreen() {
                                             <Picker.Item label="7XL" value="7XL" />
                                             <Picker.Item label="8XL" value="8XL" />
                                         </Picker>
+
+                                        <Button 
+                                            onPress={ () => {
+                                                if( topsize != '' ) {
+                                                    setModalTops(!modalTops);
+                                                } else {
+                                                    setTopsize('XXXS');
+                                                    setModalTops(!modalTops);
+                                                }
+                                                
+                                            }}
+                                            title="Done" />
                                         
                                     </View>
                                 </View>
@@ -181,6 +193,17 @@ export default function SizeScreen() {
                                             <Picker.Item label="7XL" value="7XL" />
                                             <Picker.Item label="8XL" value="8XL" />
                                         </Picker>
+
+                                        <Button 
+                                            onPress={ () => {
+                                                if( outerwear != '' ) {
+                                                    setModalOuterwear(!modalOuterwear);
+                                                } else {
+                                                    setOuterwear('XXXS');
+                                                    setModalOuterwear(!modalOuterwear);
+                                                }
+                                            }}
+                                            title="Done" />
                                         
                                     </View>
                                 </View>
@@ -257,6 +280,17 @@ export default function SizeScreen() {
                                             <Picker.Item label="7XL" value="7XL" />
                                             <Picker.Item label="8XL" value="8XL" />
                                         </Picker>
+
+                                        <Button 
+                                            onPress={ () => {
+                                                if( underwear != '' ) {
+                                                    setModalUnderwear(!modalUnderwear);
+                                                } else {
+                                                    setUnderwear('XXXS');
+                                                    setModalUnderwear(!modalUnderwear);
+                                                }
+                                            }}
+                                            title="Done" />
                                         
                                     </View>
                                 </View>
@@ -332,6 +366,17 @@ export default function SizeScreen() {
                                             <Picker.Item label="7XL" value="7XL" />
                                             <Picker.Item label="8XL" value="8XL" />
                                         </Picker>
+
+                                        <Button 
+                                            onPress={ () => {
+                                                if( suitsTailoring != '' ) {
+                                                    setModalSuitsTailoring(!modalSuitsTailoring);
+                                                } else {
+                                                    setSuitsTailoring('XXXS');
+                                                    setModalSuitsTailoring(!modalSuitsTailoring);
+                                                }
+                                            }}
+                                            title="Done" />
                                         
                                     </View>
                                 </View>
@@ -345,98 +390,6 @@ export default function SizeScreen() {
                         <Button title="Next" onPress={ handleNext} />
                     </View>
                 </View>
-
-                {/* 
-                <View style={ Styles.wrapper }>
-
-
-                    <View style={ Styles.sizeWraper }>
-
-                        <TouchableOpacity 
-                                onPress={ ()=> handleSize( 'XXXS' ) }
-                                activeOpacity={0.6}>
-                            <Text style={[ Styles.sizelist, ( size === 'XXXS' ) ?  Styles.sizeActive: '' ]}>
-                                XXXS
-                            </Text>
-                        </TouchableOpacity>
-                        
-                        <TouchableOpacity 
-                                onPress={ ()=> handleSize( 'XXS' ) }
-                                activeOpacity={0.6}>
-                            <Text style={[ Styles.sizelist, ( size === 'XXS' ) ?  Styles.sizeActive: '' ]}>
-                                XXS
-                            </Text>
-                        </TouchableOpacity>
-
-                        <TouchableOpacity 
-                                onPress={ ()=> handleSize( 'XS' ) }
-                                activeOpacity={0.6}>
-                            <Text style={[ Styles.sizelist, ( size === 'XS' ) ?  Styles.sizeActive: '' ]}>
-                                XS
-                            </Text>
-                        </TouchableOpacity>
-
-                        <TouchableOpacity 
-                                onPress={ ()=> handleSize( 'S' ) }
-                                activeOpacity={0.6}>
-                            <Text style={[ Styles.sizelist, ( size === 'S' ) ?  Styles.sizeActive: '' ]}>
-                                S
-                            </Text>
-                        </TouchableOpacity>
-
-                        <TouchableOpacity 
-                                onPress={ ()=> handleSize( 'M' ) }
-                                activeOpacity={0.6}>
-                            <Text style={[ Styles.sizelist, ( size === 'M' ) ?  Styles.sizeActive: '' ]}>
-                                M
-                            </Text>
-                        </TouchableOpacity>
-
-                        <TouchableOpacity 
-                                onPress={ ()=> handleSize( 'L' ) }
-                                activeOpacity={0.6}>
-                            <Text style={[ Styles.sizelist, ( size === 'L' ) ?  Styles.sizeActive: '' ]}>
-                                L
-                            </Text>
-                        </TouchableOpacity>
-
-                        <TouchableOpacity 
-                                onPress={ ()=> handleSize( 'XL' ) }
-                                activeOpacity={0.6}>
-                            <Text style={[ Styles.sizelist, ( size === 'XL' ) ?  Styles.sizeActive: '' ]}>
-                                XL
-                            </Text>
-                        </TouchableOpacity>
-
-                        <TouchableOpacity 
-                                onPress={ ()=> handleSize( 'XXL' ) }
-                                activeOpacity={0.6}>
-                            <Text style={[ Styles.sizelist, ( size === 'XXL' ) ?  Styles.sizeActive: '' ]}>
-                                XXL
-                            </Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity 
-                                onPress={ ()=> handleSize( 'XXXL' ) }
-                                activeOpacity={0.6}>
-                            <Text style={[ Styles.sizelist, ( size === 'XXXL' ) ?  Styles.sizeActive: '' ]}>
-                                XXXL
-                            </Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity 
-                                onPress={ ()=> handleSize( 'XXXXL' ) }
-                                activeOpacity={0.6}>
-                            <Text style={[ Styles.sizelist, ( size === 'XXXXL' ) ?  Styles.sizeActive: '' ]}>
-                                XXXXL
-                            </Text>
-                        </TouchableOpacity>
-
-                    </View>
-
-                </View>
-
-                <View style={ Styles.bottomWrapper }>
-                    <Button title="Next" onPress={ handleNext} />
-                </View> */}
 
             </View>
         </AppWrapper>
@@ -462,13 +415,11 @@ const Styles = StyleSheet.create({
     },
     contentWrapper: {
         flex: 4,
-        // backgroundColor: 'green'
     },
     buttonWrapper: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        // backgroundColor: 'red'
     },
     box: {
         width: '48%',
@@ -522,7 +473,6 @@ const Styles = StyleSheet.create({
         justifyContent: 'flex-end',
     },
     sizeWraper:{
-        // backgroundColor: 'red',
         flex: 1,
         flexWrap: 'wrap',
         flexDirection: 'row',

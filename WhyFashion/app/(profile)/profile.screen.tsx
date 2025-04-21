@@ -15,7 +15,7 @@ export default function ProfileScreen() {
     const [ marital, setMarital ] = useState( '' );
     const [ dob, setDob ] = useState<string>('');
 
-    const [date, setDate] = useState(new Date(1598051730000));
+    const [date, setDate] = useState(new Date());
     const [mode, setMode] = useState('date');
     const [show, setShow] = useState(false);
 
@@ -57,14 +57,34 @@ export default function ProfileScreen() {
 
     }
 
+    const setCurrentDate = () => {
+
+        const d1 = new Date();
+
+        let year = d1.getFullYear();
+        let month = Math.abs( d1.getMonth() + 1 ) .toLocaleString();
+        let date = d1.getDate().toLocaleString();
+
+        if ( month.length < 2 ) {
+            month = '0' + month;
+        }
+
+        if (date.length < 2 ) {
+            date = '0' + date;
+        }
+
+        setDob( date + '-' + month + '-' + year  );    
+
+    }
+
     return (
         <AppWrapper statusbarColor={'dark'}>
             
             <View style={ Styles.container }>
 
                 <View style={ Styles.header_container }>
-                    <Text style={ Styles.header }>What's your gender and age</Text>
-                    <Text style={ Styles.subHeader }>Let us know about your self</Text>
+                    <Text style={ Styles.header }>Let's Get to Know You Better 👀</Text>
+                    {/* <Text style={ Styles.subHeader }>Let us know about your self</Text> */}
                 </View>
                 <View style={ Styles.body_container }>
                     <View style={ Styles.contentWrapper }>
@@ -192,6 +212,16 @@ export default function ProfileScreen() {
                                             is24Hour={true}
                                             onChange={onChangeDatePick}
                                         />
+                                        <Button 
+                                            onPress={ () => {
+                                                if( dob != '' ) {
+                                                    setModalVisible(!modalVisible);
+                                                } else {
+                                                    setCurrentDate();
+                                                    setModalVisible(!modalVisible);
+                                                }
+                                            }}
+                                            title="Done" />
                                     </View>
                                 </View>
 
@@ -353,7 +383,7 @@ const Styles = StyleSheet.create({
     header: {
         width: '100%',
         fontFamily: 'Montserrat-Bold',
-        fontSize: 30,
+        fontSize: 28,
         marginBottom: 5,
         textAlign: 'center',
     },

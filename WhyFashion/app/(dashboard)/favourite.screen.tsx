@@ -16,9 +16,8 @@ export default function FavouriteScreen() {
     return (
         <AppWrapper>
             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                
+{/*                 
             <Spacer gap={40}/>
-
             <Animated.View
                 style={{
                     width,
@@ -26,10 +25,8 @@ export default function FavouriteScreen() {
                     backgroundColor: 'violet',
                 }}
             />
-
             <Spacer gap={40}/>
-
-            <Button title="Click Me" onPress={ handlePress } />
+            <Button title="Click Me" onPress={ handlePress } /> */}
 
             </View>
         </AppWrapper>
