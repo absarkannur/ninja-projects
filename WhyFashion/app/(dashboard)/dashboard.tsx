@@ -317,7 +317,7 @@ export default function Dashboard() {
                         verticalSwipe={false}
                         showSecondCard={true}
                         stackSize={3}
-                        infinite={true}
+                        infinite={false}
                         
                         // Styles
                         backgroundColor={'transparent'}
@@ -448,7 +448,7 @@ const Styles = StyleSheet.create({
     safearea: {
         flex: 1,
         height: '100%',
-        backgroundColor: 'rgb(0, 0, 0)',
+        backgroundColor: 'rgb(23, 37, 56)',
     },
     topMenuContainer:{
         flex: 1,

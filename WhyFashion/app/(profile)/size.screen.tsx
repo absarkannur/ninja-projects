@@ -34,7 +34,7 @@ export default function SizeScreen() {
             <View style={ Styles.container }>
                 
                 <View style={ Styles.header_container }>
-                    <Text style={ Styles.header }>What's your clothes size</Text>
+                    <Text style={ Styles.header }>Pick your perfect fit!</Text>
                     {/* <Text style={ Styles.subHeader }>Let us know about your self</Text> */}
                 </View>
 
@@ -132,7 +132,7 @@ export default function SizeScreen() {
 
                         <View style={{ width: '100%' }}>
                             <Text style={[ Styles.subHeader, { fontFamily: 'Montserrat-SemiBold', fontSize: 16, textAlign: 'center' } ]}>
-                                Outerwear
+                                Bottoms
                             </Text>
                         </View>
 
@@ -219,7 +219,7 @@ export default function SizeScreen() {
 
                         <View style={{ width: '100%' }}>
                             <Text style={[ Styles.subHeader, { fontFamily: 'Montserrat-SemiBold', fontSize: 16, textAlign: 'center' } ]}>
-                                Underwear
+                                Outerwear
                             </Text>
                         </View>
 
@@ -442,10 +442,12 @@ const Styles = StyleSheet.create({
 
     header: {
         width: '100%',
-        fontFamily: 'Montserrat-Bold',
-        fontSize: 30,
+        fontFamily: 'Raleway-SemiBold',
+        fontSize: 24,
         marginBottom: 5,
         textAlign: 'center',
+        // paddingLeft: 60,
+        // paddingRight: 60,
     },
     subHeader: {
         width: '100%',
@@ -454,7 +456,6 @@ const Styles = StyleSheet.create({
         textAlign: 'center',
         color: '#444'
     },
-
 
     topWrapper: {
         flex: 1,

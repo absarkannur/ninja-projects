@@ -382,10 +382,12 @@ const Styles = StyleSheet.create({
     },
     header: {
         width: '100%',
-        fontFamily: 'Montserrat-Bold',
-        fontSize: 28,
+        fontFamily: 'Raleway-SemiBold',
+        fontSize: 24,
         marginBottom: 5,
         textAlign: 'center',
+        // paddingLeft: 30,
+        // paddingRight: 30,
     },
     subHeader: {
         width: '100%',

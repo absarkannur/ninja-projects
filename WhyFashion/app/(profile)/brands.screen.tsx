@@ -112,7 +112,7 @@ export default function BrandsScreen() {
             <View style={ Styles.container }>
 
                 <View style={ Styles.header_container }>
-                    <Text style={ Styles.header }>What's your favourite brands</Text>
+                    <Text style={ Styles.header }>Pick your preferred brands</Text>
                     {/* <Text>Let us know about your self</Text> */}
                 </View>
 
@@ -186,8 +186,8 @@ const Styles = StyleSheet.create({
     },
     header: {
         width: '100%',
-        fontFamily: 'Montserrat-Bold',
-        fontSize: 30,
+        fontFamily: 'Raleway-SemiBold',
+        fontSize: 24,
         marginBottom: 5,
         textAlign: 'center',
     },
