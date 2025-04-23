@@ -35,6 +35,21 @@ export default function _layout() {
         "Raleway-Thin" : require('@/assets/fonts/Raleway-Thin.ttf'),
         "SpaceMono-Regular" : require('@/assets/fonts/SpaceMono-Regular.ttf'),
 
+
+        "Avenir-Black" : require('@/assets/fonts/Avenir-Black.otf'),
+        "Avenir-BlackOblique" : require('@/assets/fonts/Avenir-BlackOblique.otf'),
+        "Avenir-Book" : require('@/assets/fonts/Avenir-Book.otf'),
+        "Avenir-BookOblique" : require('@/assets/fonts/Avenir-BookOblique.otf'),
+        "Avenir-Heavy" : require('@/assets/fonts/Avenir-Heavy.otf'),
+        "Avenir-HeavyOblique" : require('@/assets/fonts/Avenir-HeavyOblique.otf'),
+        "Avenir-Light" : require('@/assets/fonts/Avenir-Light.otf'),
+        "Avenir-LightOblique" : require('@/assets/fonts/Avenir-LightOblique.otf'),
+        "Avenir-Medium" : require('@/assets/fonts/Avenir-Medium.otf'),
+        // "Avenir-MediumTT" : require('@/assets/fonts/Avenir-Medium.ttf'),
+        "Avenir-MediumOblique" : require('@/assets/fonts/Avenir-MediumOblique.otf'),
+        "Avenir-Oblique" : require('@/assets/fonts/Avenir-Oblique.otf'),
+        "Avenir-Roman" : require('@/assets/fonts/Avenir-Roman.otf'),
+
     });
 
     const [ appIsReady, setAppIsReady ] = useState(false);

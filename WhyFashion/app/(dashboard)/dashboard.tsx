@@ -34,15 +34,28 @@ import SearchBar from '@/components/SearchBar';
 // Data preach
 // 'https://codesandbox.io/p/sandbox/react-tinder-card-demo-8tzm6?file=%2Fsrc%2Fexamples%2FSimple.js%3A46%2C10-46%2C20'
 
-type dataTypes = { name: string, image: string };
+type dataTypes = { name: string, image?: string, brand?: string, price?: string };
 
 const db: dataTypes[] = [
-    { 'name': 'test1', 'image': 'https://f.nooncdn.com/p/pzsku/Z793E91EB8BAF6238E67BZ/45/_/1742369807/8d6d5983-30a1-42c0-80b8-e30872675981.jpg' },
-    { 'name': 'test2', 'image': 'https://f.nooncdn.com/p/pzsku/ZC2BD5620D54F3AD5D87FZ/45/_/1739138521/ec67f586-e2be-4f0c-9e6a-f28dda79a944.jpg' },
-    { 'name': 'test3', 'image': 'https://f.nooncdn.com/p/v1613829746/N26089509A_1.jpg' },
-    { 'name': 'test4', 'image': 'https://f.nooncdn.com/p/pnsku/N70106183V/45/_/1726043631/3064c465-3457-42ef-a234-0b6382365281.jpg' },
-    { 'name': 'test5', 'image': 'https://f.nooncdn.com/p/pzsku/ZE57C93631F62176AADD1Z/45/_/1741798933/5351a0a3-f1a7-4c16-b4da-6ecda79cf46d.jpg'},
-    { 'name': 'test6', 'image': 'https://f.nooncdn.com/p/pzsku/Z53B26E26C9F25605FE82Z/45/1741629998/b9500a15-7394-4041-995b-4558e82b702b.jpg' }
+
+    {
+        'name': 'Joy 70 sandal',
+        'image': 'https://assets.hermes.com/is/image/hermesproduct/joy-70-sandal--251036Z%20AY-worn-2-0-0-800-800_g.jpg',
+        'brand': 'Hermès',
+        'price': 'AED 7,320',
+    },
+    {
+        'name': 'FLORAL MINI CITY BAG',
+        'image': 'https://static.zara.net/assets/public/6539/effe/0e09492f9b31/b734d6b40a37/16802510302-p/16802510302-p.jpg',
+        'brand': 'ZARA',
+        'price': 'AED 249.00'
+    },
+    {
+        'name': 'MEXICO 66 DELUXE',
+        'image': 'https://asics.scene7.com/is/image/asics/1182A467_020_SB_FR_AJP?$otmag_zoom$&qlt=99,1',
+        'brand': 'Onitsuka Tiger',
+        'price': 'AED 2,000'
+    },
 ];
 
 function clamp(val:number, min:number, max:number) {
@@ -269,10 +282,24 @@ export default function Dashboard() {
                         renderCard={(card: dataTypes ) => {
                             return (
                                 <View style={ Styles.card}>
-                                    {/* <LinearGradient
-                                        colors={['transparent', 'transparent', 'transparent', 'rgb(53, 52, 52)' ]}
-                                        style={[ Styles.background, {zIndex: 1} ]}/> */}
-                                        <Image resizeMode="cover" source={{ uri: card.image }} style={ Styles.cardImage } />
+                                    <Image resizeMode="center" source={{ uri: card.image }} style={ Styles.cardImage } />
+                                    <View style={{ 
+                                        width: '75%',
+                                        // height: 100,
+                                        backgroundColor: 'rgba(0,0,0,0.6)',
+                                        position: 'absolute',
+                                        bottom: 0,
+                                        left: 0,
+                                        padding: 10,
+                                        paddingTop: 20,
+                                        paddingBottom: 20,
+                                    }}>
+                                        <Text style={{ color: '#fff', fontFamily: 'Avenir-Black', fontSize: 20 }}>{ card.name }</Text>
+                                        <Spacer gap={5}/>
+                                        <Text style={{ color: '#fff', fontFamily: 'Avenir-Black', fontSize: 17 }}>{ card.brand }</Text>
+                                        <Spacer gap={5}/>
+                                        <Text style={{ color: '#fff', fontFamily: 'Avenir-Black', fontSize: 17 }}>{ card.price }</Text>
+                                    </View>
                                 </View>
                             )
                         }}
@@ -443,7 +470,11 @@ export default function Dashboard() {
 
                                         <FlatList
                                             style={{ flex:1, padding: 10}}
-                                            data= { db }
+                                            data= { db.filter( item => {
+                                                if( item.name == 'test1' || item.name == 'test2' ){
+                                                    return item
+                                                }
+                                            }) }
                                             renderItem={({item}) => <NotifyItem name={ item.name } image={ item.image } />} />
 
                                     </View>
@@ -517,7 +548,7 @@ const Styles = StyleSheet.create({
         top: 0,
         left: 0,
         width: '100%',
-        height: '71.5%',
+        height: '60%',
         borderRadius: 10,
         overflow: 'hidden',
         borderColor: '#999',
@@ -531,7 +562,7 @@ const Styles = StyleSheet.create({
     },
     cardImage: {
         flex: 1,
-        backgroundColor: '#999',
+        backgroundColor: '#fff',
         borderRadius: 10
     },
     shadow: {
