@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, SafeAreaView, Image, Modal, TouchableWithoutFeedback, TouchableOpacity, Dimensions, FlatList, Alert } from 'react-native'
+import { View, Text, StyleSheet, SafeAreaView, Image, Modal, TouchableWithoutFeedback, TouchableOpacity, Dimensions, FlatList, Linking, Alert } from 'react-native'
 import React, { useState, useRef } from 'react'
 
 import { StatusBar } from 'expo-status-bar';
@@ -29,12 +29,13 @@ import Animated, {
 import Card from '@/components/Card';
 import { opacity } from 'react-native-reanimated/lib/typescript/Colors';
 import SearchBar from '@/components/SearchBar';
+import { router } from 'expo-router';
 
 
 // Data preach
 // 'https://codesandbox.io/p/sandbox/react-tinder-card-demo-8tzm6?file=%2Fsrc%2Fexamples%2FSimple.js%3A46%2C10-46%2C20'
 
-type dataTypes = { id?: number, name: string, image?: string, brand?: string, description?: string, price?: string, url?: string };
+type dataTypes = { id?: number, name: string, image?: string, brand?: string, description?: string, price?: string, url?: string, bg?: string };
 
 const db: dataTypes[] = [
     // Shoes & Sandal
@@ -45,7 +46,8 @@ const db: dataTypes[] = [
         'brand': 'Hermès',
         'price': 'SAR 5,105',
         'description': 'Sneaker in calfskin and suede goatskin. Light sole with contrasting design for a versatile and modern look.',
-        'url': 'https://www.hermes.com/ri/en/product/bouncing-sneaker-H242810ZH02390/'
+        'url': 'https://www.hermes.com/ri/en/product/bouncing-sneaker-H242810ZH02390/',
+        'bg': 'rgb(214, 210, 203)',
     },
     {
         'id': 2,
@@ -54,7 +56,8 @@ const db: dataTypes[] = [
         'brand': 'GUCCI',
         'price': 'SAR 5,500',
         'description': 'Elevated yet effortless, this women’s platform sandal pairs luxurious suede with the signature Horsebit detail. Set on a sculpted wood platform, the design merges heritage elegance with a bold, contemporary silhouette.',
-        'url': 'https://www.gucci.com/sa/en_gb/pr/women/shoes-for-women/sandals-for-women/high-heel-sandals-for-women/womens-platform-sandal-with-horsebit-p-834420AAEXM3706'
+        'url': 'https://www.gucci.com/sa/en_gb/pr/women/shoes-for-women/sandals-for-women/high-heel-sandals-for-women/womens-platform-sandal-with-horsebit-p-834420AAEXM3706',
+        'bg': 'rgb(234, 232, 231)',
     },
     {
         'id': 3,
@@ -63,7 +66,8 @@ const db: dataTypes[] = [
         'brand': 'Hermès',
         'price': 'SAR 6,350',
         'description': 'Mule in calfskin with "Tigre Royal" print and iconic palladium-plated Kelly buckle. For a chic and daring style.',
-        'url': 'https://www.hermes.com/ri/en/product/oz-mule-H222075Zv02350/'
+        'url': 'https://www.hermes.com/ri/en/product/oz-mule-H222075Zv02350/',
+        'bg': 'rgb(225, 220, 218)',
     },
     {
         'id': 4,
@@ -72,7 +76,8 @@ const db: dataTypes[] = [
         'brand': 'ZARA',
         'price': 'SAR 279.00',
         'description': 'Metallic sandals. Appliqué detail on the front. High stiletto heel. Thin front straps. Buckle fastening. Round toe.',
-        'url': 'http://zara.com/sa/en/metallic-effect-sandals-p13352510.html?v1=427879245&v2=2419173'
+        'url': 'http://zara.com/sa/en/metallic-effect-sandals-p13352510.html?v1=427879245&v2=2419173',
+        'bg': 'rgb(236, 236, 236)',
     },
     {
         'id': 5,
@@ -81,7 +86,8 @@ const db: dataTypes[] = [
         'brand': 'Hermès',
         'price': 'SAR 5,320',
         'description': 'High heel sandal in calfskin with thin adjustable ankle strap. A sleek design for a chic feminine look.',
-        'url': 'https://www.hermes.com/ri/en/product/joy-70-sandal-H242118Zv02360/'
+        'url': 'https://www.hermes.com/ri/en/product/joy-70-sandal-H242118Zv02360/',
+        'bg': 'rgb(235, 231, 220)',
     },
     {
         'id': 6,
@@ -90,7 +96,8 @@ const db: dataTypes[] = [
         'brand': 'Onitsuka Tiger',
         'price': 'AED 2,000',
         'description': 'The MEXICO 66 model combines the features of the original LIMBER-UP training shoe that debuted in 1961 and the design of Limber shoe debuted in 1966, as one of the first models that featured the iconic Onitsuka Tiger Stripes. With modern design elements, the MEXICO 66 model still retains the feel of the 1960s. The model remains an Onitsuka Tiger icon from when it first debuted. -Leather upper -OrthoLite inner sole for superior cushioning',
-        'url': 'https://www.onitsukatiger.com/jp/en-gl/product/mexico-66-deluxe/1182a467_020.html?glCountry=AE&glCurrency=AED'
+        'url': 'https://www.onitsukatiger.com/jp/en-gl/product/mexico-66-deluxe/1182a467_020.html?glCountry=AE&glCurrency=AED',
+        'bg': 'rgb(255, 255, 255)',
     },
     {
         'id': 7,
@@ -99,7 +106,8 @@ const db: dataTypes[] = [
         'brand': 'Hermès',
         'price': 'AED 7,320',
         'description': 'High heel sandal in suede goatskin with "Arcane" rhinestone motif. A sleek design for a chic and feminine evening look.',
-        'url': 'https://www.hermes.com/dh/en/product/joy-70-sandal-H251036ZvAY360/'
+        'url': 'https://www.hermes.com/dh/en/product/joy-70-sandal-H251036ZvAY360/',
+        'bg': 'rgb(234, 232, 231)',
     },
     // BAGS -------------
     {
@@ -109,7 +117,8 @@ const db: dataTypes[] = [
         'brand': 'CHANEL',
         'price': 'Price upon request',
         'description': 'The Spring-Summer 2025 Ready-to-Wear collection is an ode to movement and freedom. Boldly reinterpreted, the codes of the House are the signature of a free and confident allure.',
-        'url': 'https://www.chanel.com/sa-en/fashion/p/AP4323B1671794305/wallet-on-chain-lambskin-diamante-gold-metal/'
+        'url': 'https://www.chanel.com/sa-en/fashion/p/AP4323B1671794305/wallet-on-chain-lambskin-diamante-gold-metal/',
+        'bg': 'rgb(241, 241, 241)',
     },
     {
         'id': 9,
@@ -118,7 +127,8 @@ const db: dataTypes[] = [
         'brand': 'ZARA',
         'price': 'SAR 199.00',
         'description': 'Mini city bag with contrast topstitching detail. Top handle and detachable crossbody strap. Detachable inner pouch with zip closure.',
-        'url': 'https://www.zara.com/sa/en/mini-city-bag-with-topstitching-p16332510.html?v1=426592649'
+        'url': 'https://www.zara.com/sa/en/mini-city-bag-with-topstitching-p16332510.html?v1=426592649',
+        'bg': 'rgb(230, 230, 230)',
     },
     {
         'id': 10,
@@ -127,7 +137,8 @@ const db: dataTypes[] = [
         'brand': 'ZARA',
         'price': 'AED 249.00',
         'description': 'Mini city bag with a metallic finish. Flower detail on the front. Top handles and a crossbody strap. Inside purse with zip closure. Magnetic clasp closure.',
-        'url': 'https://www.zara.com/ae/en/floral-mini-city-bag-p16802510.html?v1=412072114&v2=2417728'
+        'url': 'https://www.zara.com/ae/en/floral-mini-city-bag-p16802510.html?v1=412072114&v2=2417728',
+        'bg': 'rgb(238, 238, 238)',
     },
     {
         'id': 11,
@@ -136,7 +147,8 @@ const db: dataTypes[] = [
         'brand': 'Hermès',
         'price': 'SAR 31,475',
         'description': 'Bag in H Plume canvas with "Dancefloor au Faubourg" motif and Negonda calfskin',
-        'url': 'https://www.hermes.com/ri/en/product/garden-party-voyage-49-bag-H085761CKAC/'
+        'url': 'https://www.hermes.com/ri/en/product/garden-party-voyage-49-bag-H085761CKAC/',
+        'bg': 'rgb(228, 224, 217)',
     },
     {
         'id': 12,
@@ -145,7 +157,8 @@ const db: dataTypes[] = [
         'brand': 'GUCCI',
         'price': 'SAR 13,900',
         'description': 'Combining recognisable elements of the House, the Gucci Diana is defined by its bamboo handles and Double G hardware. Crafted from blue leather, the mini-sized tote bag is further accentuated by two matching bands, a playful reference to the bands used to keep handles in shape.',
-        'url': 'https://www.gucci.com/sa/en_gb/pr/women/handbags/shoulder-bags-for-women/gucci-diana-mini-tote-bag-p-702732AAA5Y1060'
+        'url': 'https://www.gucci.com/sa/en_gb/pr/women/handbags/shoulder-bags-for-women/gucci-diana-mini-tote-bag-p-702732AAA5Y1060',
+        'bg': 'rgb(234, 234, 234)',
     },
     {
         'id': 13,
@@ -154,7 +167,8 @@ const db: dataTypes[] = [
         'brand': 'ZARA',
         'price': 'SAR 849.00',
         'description': 'Mini split suede handbag. Inside zip pocket. Top handle. Magnetic flap closure.',
-        'url': 'https://www.zara.com/sa/en/split-suede-mini-handbag-p16595510.html?v1=423477747'
+        'url': 'https://www.zara.com/sa/en/split-suede-mini-handbag-p16595510.html?v1=423477747',
+        'bg': 'rgb(240, 240, 240)',
     },
     {
         'id': 14,
@@ -163,7 +177,8 @@ const db: dataTypes[] = [
         'brand': 'GUCCI',
         'price': 'SAR 13,350',
         'description': 'The new Gucci Softbit shoulder bag reimagines the House’s signature hardware as an oversized half Horsebit. It is both aesthetic and functional as the magnetic closure of the relaxed silhouette, crafted from supple, grainy leather with a rich texture.',
-        'url': 'https://www.gucci.com/sa/en_gb/pr/women/handbags/shoulder-bags-for-women/half-moon-bags-for-women/gucci-softbit-maxi-shoulder-bag-p-837466AAEAO3332'
+        'url': 'https://www.gucci.com/sa/en_gb/pr/women/handbags/shoulder-bags-for-women/half-moon-bags-for-women/gucci-softbit-maxi-shoulder-bag-p-837466AAEAO3332',
+        'bg': 'rgb(230, 230, 230)',
     },
     // Dresses
     {
@@ -173,7 +188,8 @@ const db: dataTypes[] = [
         'brand': 'ZARA',
         'price': 'SAR 529.00',
         'description': "Long dress made of linen-blend yarn. Round neck and thin straps. Matching inner lining. Flared hem.",
-        'url': 'https://www.zara.com/sa/en/woman-dresses-l1066.html'
+        'url': 'https://www.zara.com/sa/en/woman-dresses-l1066.html',
+        'bg': 'rgb(220, 220, 220)',
     },
     {
         'id': 16,
@@ -182,7 +198,8 @@ const db: dataTypes[] = [
         'brand': 'GUCCI',
         'price': '$ 4,200',
         'description': 'In the Spring Summer 2025 collection, the GG motif is reinterpreted in vibrant shades. This straight fit jumpsuit is crafted in GG canvas and defined by a Horsebit detail across the pockets.',
-        'url': 'https://www.gucci.com/us/en/pr/women/ready-to-wear-for-women/dresses-and-jumpsuits-for-women/jumpsuits-for-women/gg-canvas-jumpsuit-with-horsebit-p-781457Z8BRZ3036'
+        'url': 'https://www.gucci.com/us/en/pr/women/ready-to-wear-for-women/dresses-and-jumpsuits-for-women/jumpsuits-for-women/gg-canvas-jumpsuit-with-horsebit-p-781457Z8BRZ3036',
+        'bg': 'rgb(255, 255, 255)',
     },
     {
         'id': 17,
@@ -191,25 +208,28 @@ const db: dataTypes[] = [
         'brand': 'Hermès',
         'price': 'SAR 20,885',
         'description': 'Caftan dress in macro silk twill (100% silk)',
-        'url': 'https://www.hermes.com/ri/en/product/caftan-dress-H5E0539DADE36/'
+        'url': 'https://www.hermes.com/ri/en/product/caftan-dress-H5E0539DADE36/',
+        'bg': 'rgb(226, 216, 206)',
     },
     {
         'id': 18,
         'name': 'CHAIN PRINT MIDI DRESS',
         'image': 'https://static.zara.net/assets/public/5c38/61e5/2c4e435bb7a4/22c8cd009b59/02333113330-p/02333113330-p.jpg',
         'brand': 'ZARA',
-        'price': '299.00 SAR',
+        'price': 'SAR 299.00',
         'description': 'Dress with a wide round neck and wide sleeves that fall below the elbow. Featuring a front knot detail, a front slit at the hem and a concealed zip and hidden button fastening at the back.',
-        'url': 'https://www.zara.com/sa/en/chain-print-midi-dress-p02333113.html?v1=425173630&v2=2420896'
+        'url': 'https://www.zara.com/sa/en/chain-print-midi-dress-p02333113.html?v1=425173630&v2=2420896',
+        'bg': 'rgb(255, 255, 255)',
     },
     {
         'id': 19,
         'name': 'GG crêpe silk wool double-breasted coat',
-        'image': 'https://media.gucci.com/style/DarkGray_Center_0_0_2400x2400_40/1740129323/828105_Z8BZX_2071_002_100_0000_Light-GG-crpe-silk-wool-double-breasted-coat.jpg',
+        'image': 'https://media.gucci.com/style/DarkGray_Center_0_0_2400x2400_40/1736273863/828105_Z8BZX_2071_005_100_0000_Light-GG-crpe-silk-wool-double-breasted-coat.jpg',
         'brand': 'GUCCI',
         'price': 'SAR 32,800',
         'description': 'In the Spring Summer 2025 collection, grand coats of the finest construction with a couture attitude are designed for the everyday. This long oversize coat has a petite fit with back slit, and is doubled with GG crêpe silk wool.',
-        'url': 'https://www.gucci.com/sa/en_gb/pr/women/ready-to-wear-for-women/coats-jackets-for-women/coats-for-women/gg-crepe-silk-wool-double-breasted-coat-p-828105Z8BZX2071'
+        'url': 'https://www.gucci.com/sa/en_gb/pr/women/ready-to-wear-for-women/coats-jackets-for-women/coats-for-women/gg-crepe-silk-wool-double-breasted-coat-p-828105Z8BZX2071',
+        'bg': 'rgb(255, 255, 255)',
     },
     // Accessories
     {
@@ -217,9 +237,10 @@ const db: dataTypes[] = [
         'name': 'DIOR ADDICT LIP GLOW',
         'image': 'https://shop-beauty.dior.sa/cdn/shop/files/Y0457000_E000000007_E01_GHC_1512x.jpg',
         'brand': 'DIOR',
-        'price': 'SRA 200.00',
+        'price': 'SAR 200.00',
         'description': 'Dior Addict Lip Glow is the Dior lip balm that is the perfect combination of lip care and makeup. Thanks to its unique¹ technology, the formula reacts with the pH level of lips to reveal a "custom" color that instantly enhances their glow.',
-        'url': 'https://shop-beauty.dior.sa/products/dior-addict-lip-glow'
+        'url': 'https://shop-beauty.dior.sa/products/dior-addict-lip-glow',
+        'bg': 'rgb(243, 243, 243)',
     },
     {
         'id': 21,
@@ -228,7 +249,8 @@ const db: dataTypes[] = [
         'brand': 'Hermès',
         'price': 'SAR 3,985',
         'description': 'Charm in polished Niloticus lizard, Butler calfskin and Hunter cowhide with "Hermès Paris" hot stamp',
-        'url': 'https://www.hermes.com/ri/en/product/oran-nano-charm-H080174CAAH/'
+        'url': 'https://www.hermes.com/ri/en/product/oran-nano-charm-H080174CAAH/',
+        'bg': 'rgb(231, 227, 216)',
     },
     {
         'id': 22,
@@ -237,7 +259,8 @@ const db: dataTypes[] = [
         'brand': 'Hermès',
         'price': 'SAR 1,425',
         'description': 'Passport holder in Epsom calfskin',
-        'url': 'https://www.hermes.com/ri/en/product/tarmac-passport-holder-H057946CK67/'
+        'url': 'https://www.hermes.com/ri/en/product/tarmac-passport-holder-H057946CK67/',
+        'bg': 'rgb(231, 227, 216)',
     },
     {
         'id': 23,
@@ -246,7 +269,8 @@ const db: dataTypes[] = [
         'brand': 'Hermès',
         'price': 'SAR 1,770',
         'description': 'Simple stud ring in Madame calfskin and metal. The Athena line celebrates our emblematic Medor signature, delicately reinterpreting the stud on a range of metal and leather jewelry. These new refined rings can be worn alone but are also perfect for stacking.',
-        'url': 'https://www.hermes.com/ri/en/product/athena-simple-stud-ring-H500347FD5553/'
+        'url': 'https://www.hermes.com/ri/en/product/athena-simple-stud-ring-H500347FD5553/',
+        'bg': 'rgb(231, 227, 216)',
     }
 ];
 
@@ -299,7 +323,7 @@ export default function Dashboard() {
     const [ notifyModalVisible, setNotifyModalVisible] = useState(false);
     const [ swipeData, setSwipeData ] = useState<any>([]);
 
-    const [ swipeIndex, setSwipeIndex ] = useState<string>('')
+    const [ swipeIndex, setSwipeIndex ] = useState<number>(0);
 
     const [ likeOpacity, setLikeOpacity ] = useState(1);
     const [ nopeOpacity, setNopeOpacity ] = useState(1);
@@ -440,6 +464,21 @@ export default function Dashboard() {
         swiperRef.current?.swipeRight();
     }
 
+    const handleBuy = async ( url: string ) => {
+
+        
+        const supported = await Linking.canOpenURL(url);
+        
+        console.log( supported )
+
+        if (supported) {
+            await Linking.openURL(url);
+        } else {
+            Alert.alert(`Don't know how to open this URL: ${url}`);
+        }
+
+    }
+
     return (
         <SafeAreaView style={ Styles.safearea }>
             <StatusBar style='dark' />
@@ -453,12 +492,11 @@ export default function Dashboard() {
                 <View style={ Styles.headerContainer }>
                     <TouchableOpacity 
                         onPress={ ()=> setNotifyModalVisible(!notifyModalVisible) }
-                        style={{ width: '20%', height: '100%', justifyContent: 'center', alignItems: 'flex-start', paddingLeft: 15 }}>
+                        style={{ position: 'relative', width: '20%', height: '100%', justifyContent: 'center', alignItems: 'flex-start', paddingLeft: 15 }}>
                         <MaterialIcons name="notifications-none" size={26} color="black" />
                     </TouchableOpacity>
                     <View style={{ width: '60%', height: '100%', alignItems: 'center', justifyContent: 'center' }}>
                         <Image style={{ width: 110, height: 80 }} resizeMode='contain' source={ require('@/assets/images/dashboard-logo.jpeg') }/>
-                        {/* <Text style={{ fontFamily: 'Montserrat-Black', fontSize: 28 }}>LYST</Text> */}
                     </View>
                     <TouchableOpacity style={{ width: '20%', height: '100%', justifyContent: 'center', alignItems: 'flex-end', paddingRight: 15 }}>
                         <Ionicons name="settings-outline" size={24} color="black" />
@@ -476,8 +514,8 @@ export default function Dashboard() {
                         cards={ db }
                         renderCard={(card: dataTypes ) => {
                             return (
-                                <View style={ Styles.card}>
-                                    <Image resizeMode="center" source={{ uri: card.image }} style={ Styles.cardImage } />
+                                <View style={[ Styles.card, { backgroundColor: card.bg } ]}>
+                                    <Image resizeMode="contain" source={{ uri: card.image }} style={ Styles.cardImage } />
                                     <View style={{ 
                                         width: '75%',
                                         // height: 100,
@@ -504,6 +542,13 @@ export default function Dashboard() {
                             setLikeOpacity(1);
                             likeButtonWith.value = withSpring( 50 );
                             likeButtonHeight.value = withSpring( 50 );
+
+                            if( db.length-1 === cardIndex ){
+                                setSwipeIndex( 0 );
+                            } else {
+                                setSwipeIndex( cardIndex + 1 );
+                            }
+                            
                         }}                        
                         onSwiping={(e) => {
                             if( e < 0 ){
@@ -529,10 +574,8 @@ export default function Dashboard() {
                         }}
                         onSwipedAll={() => {console.log('onSwipedAll')}}
                         onTapCard={ ( d ) => {
-
                             setSwipeData( db[d] );
                             setModalVisible(!modalVisible);
-
                         }}
 
                         cardIndex={0}
@@ -540,6 +583,7 @@ export default function Dashboard() {
                         showSecondCard={true}
                         stackSize={3}
                         infinite={true}
+                        // animateCardOpacity
                         
                         // Styles
                         backgroundColor={'transparent'}
@@ -557,8 +601,8 @@ export default function Dashboard() {
                             },
                             left: {
                                 element: <View style={{ backgroundColor: '#fff', borderWidth:1, borderColor: 'red', height: 45, width: 90, borderRadius: 10,  flexDirection: 'row', alignItems: 'center', justifyContent: 'center'  }}>
-                                    <AntDesign name="close" size={24} color="red" />
-                                    <Text style={{ fontSize: 20 }}>Nope</Text>
+                                    <AntDesign name="close" size={22} color="red" />
+                                    <Text style={{  marginLeft: 5, fontSize: 20 }}>Nope</Text>
                                 </View>, /* Optional */
                                 // title: 'NOPE',
                                 style: {
@@ -578,7 +622,10 @@ export default function Dashboard() {
                                 }
                             },
                             right: {
-                                element: <View></View>,
+                                element: <View style={{ backgroundColor: '#fff', borderWidth:1, borderColor: 'green', height: 45, width: 90, borderRadius: 10,  flexDirection: 'row', alignItems: 'center', justifyContent: 'center'  }}>
+                                    <AntDesign name="heart" size={22} color="green" />
+                                    <Text style={{ marginLeft: 5, fontSize: 20 }}>Like</Text>
+                                </View>,
                                 title: 'LIKE',
                                 style: {
                                     label: {
@@ -609,9 +656,9 @@ export default function Dashboard() {
                             </TouchableOpacity>
                             <TouchableOpacity onPress={ ()=> {
                                 
-                                let a = swiperRef.current?.state.firstCardIndex;
-
-                                setSwipeData( db[a] );
+                                // let a = swiperRef.current?.state.firstCardIndex;
+                                // Alert.alert(' - ' +  swipeIndex );
+                                setSwipeData( db[swipeIndex] );
                                 setModalVisible(!modalVisible);
 
                                 }}>
@@ -654,7 +701,7 @@ export default function Dashboard() {
                                     <Text style={Styles.modalText}>
                                         {  swipeData['description'] }
                                     </Text>
-                                    <Button title="Buy now" />
+                                    <Button title="Buy now" onPress={ () => handleBuy( swipeData['url'] ) }/>
                                 </View>
                             </View>
                         </Modal>
@@ -779,7 +826,7 @@ const Styles = StyleSheet.create({
     },
     cardImage: {
         flex: 1,
-        backgroundColor: '#fff',
+        // backgroundColor: '#fff',
         borderRadius: 10
     },
     shadow: {
