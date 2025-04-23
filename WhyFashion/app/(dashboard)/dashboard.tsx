@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, SafeAreaView, Image, Modal, TouchableWithoutFeedback, TouchableOpacity, Dimensions } from 'react-native'
+import { View, Text, StyleSheet, SafeAreaView, Image, Modal, TouchableWithoutFeedback, TouchableOpacity, Dimensions, FlatList } from 'react-native'
 import React, { useState, useRef } from 'react'
 
 import { StatusBar } from 'expo-status-bar';
@@ -43,11 +43,47 @@ const db: dataTypes[] = [
     { 'name': 'test4', 'image': 'https://f.nooncdn.com/p/pnsku/N70106183V/45/_/1726043631/3064c465-3457-42ef-a234-0b6382365281.jpg' },
     { 'name': 'test5', 'image': 'https://f.nooncdn.com/p/pzsku/ZE57C93631F62176AADD1Z/45/_/1741798933/5351a0a3-f1a7-4c16-b4da-6ecda79cf46d.jpg'},
     { 'name': 'test6', 'image': 'https://f.nooncdn.com/p/pzsku/Z53B26E26C9F25605FE82Z/45/1741629998/b9500a15-7394-4041-995b-4558e82b702b.jpg' }
-]
+];
 
 function clamp(val:number, min:number, max:number) {
     return Math.min(Math.max(val, min), max);
 }
+
+const NotifyItem = ({ name, image }: dataTypes) => (
+    <View style={{ 
+            backgroundColor: '#FFF', 
+            marginBottom: 20,
+            padding: 10,
+            shadowColor: 'rgb(175, 175, 175)',
+            shadowOffset: { width: 0, height: 2 },
+            shadowOpacity: 0.9,
+            shadowRadius: 4,
+            elevation: 5,
+            borderRadius: 8,
+            flexWrap: 'wrap',
+            flexDirection: 'row'
+        }}>
+        <View style={{ width: '30%' }}>
+            <Image source={{ uri: image }} style={{ width: 80, height: 100 }} resizeMode='contain' />
+        </View>
+        <View style={{ width: '70%' }}>
+            <Text style={{color: 'rgb(250, 109, 1)', fontFamily: 'Montserrat-Bold', fontSize: 10, marginBottom: 10 }}>DISCOUNT</Text>
+            <Text style={{ fontFamily: 'Montserrat-SemiBold', fontSize: 13 }}>AL BENT AL SHARQIEH women jalabiya , arabian traditional dress</Text>
+            
+            <View style={{ flexWrap: 'wrap', flexDirection: 'row', marginTop: 10 }}>
+                <View style={{ width: '50%', alignItems: 'flex-start', justifyContent: 'center' }}>
+                    <Text style={{ fontFamily: 'Montserrat-SemiBold', fontSize: 20 }}>AED 108</Text>
+                </View>
+                <View style={{ width: '50%', alignItems: 'flex-end' }}>
+                    <TouchableOpacity style={{ backgroundColor: '#000', height: 30, width: 50, alignItems: 'center', justifyContent: 'center', borderRadius: 5  }}>
+                        <Text style={{ color: '#fff', textAlign: 'center' }}>Visit</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
+
+        </View>
+    </View>
+);
 
 export default function Dashboard() {
 
@@ -55,6 +91,7 @@ export default function Dashboard() {
     const swiperRef = useRef<Swiper<any>>(null);
 
     const [modalVisible, setModalVisible] = useState(false);
+    const [ notifyModalVisible, setNotifyModalVisible] = useState(false);
 
     const [ likeOpacity, setLikeOpacity ] = useState(1);
     const [ nopeOpacity, setNopeOpacity ] = useState(1);
@@ -206,11 +243,14 @@ export default function Dashboard() {
             <View style={ Styles.container }>
                 
                 <View style={ Styles.headerContainer }>
-                    <TouchableOpacity style={{ width: '20%', height: '100%', justifyContent: 'center', alignItems: 'flex-start', paddingLeft: 15 }}>
-                            <MaterialIcons name="notifications-none" size={26} color="black" />
+                    <TouchableOpacity 
+                        onPress={ ()=> setNotifyModalVisible(!notifyModalVisible) }
+                        style={{ width: '20%', height: '100%', justifyContent: 'center', alignItems: 'flex-start', paddingLeft: 15 }}>
+                        <MaterialIcons name="notifications-none" size={26} color="black" />
                     </TouchableOpacity>
                     <View style={{ width: '60%', height: '100%', alignItems: 'center', justifyContent: 'center' }}>
                         <Image style={{ width: 100, height: 40 }} resizeMode='contain' source={ require('@/assets/images/splash-logo.png') }/>
+                        {/* <Text style={{ fontFamily: 'Montserrat-Black', fontSize: 28 }}>LYST</Text> */}
                     </View>
                     <TouchableOpacity style={{ width: '20%', height: '100%', justifyContent: 'center', alignItems: 'flex-end', paddingRight: 15 }}>
                         <Ionicons name="settings-outline" size={24} color="black" />
@@ -376,6 +416,41 @@ export default function Dashboard() {
                             </View>
                         </Modal>
 
+                        <Modal
+                            animationType="slide"
+                            transparent={true}
+                            visible={notifyModalVisible}
+                            onRequestClose={() => {
+                                setNotifyModalVisible(!notifyModalVisible);
+                            }}>
+                            <View style={{ flex: 1, padding: 10, backgroundColor: '#fff' }}>
+                                <SafeAreaView style={{ flex: 1 }}>
+                                    <View style={{ flexWrap: 'wrap', flexDirection: 'row' }}>
+                                        <View style={{ width: '33.33%' }}></View>
+                                        <View style={{ width: '33.33%', height:40, justifyContent: 'center' }}>
+                                            <Text style={{ fontFamily: 'Montserrat-SemiBold', fontSize: 18 }}>Notifications</Text>
+                                        </View>
+                                        <View style={{ width: '33.33%', alignItems: 'flex-end', justifyContent: 'center' }}>
+                                            <TouchableOpacity
+                                                onPress={ () => setNotifyModalVisible(!notifyModalVisible) }
+                                                style={{ width: 40, height: 40,backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center' }}>
+                                                <AntDesign name="close" size={24} color="black" />
+                                            </TouchableOpacity>
+                                        </View>
+                                    </View>
+                                    {/* <Spacer gap={10} /> */}
+                                    <View style={{ flex:1 }}>
+
+                                        <FlatList
+                                            style={{ flex:1, padding: 10}}
+                                            data= { db }
+                                            renderItem={({item}) => <NotifyItem name={ item.name } image={ item.image } />} />
+
+                                    </View>
+                                </SafeAreaView>
+                            </View>
+                        </Modal>
+
                     </View>
 
                 </View>
@@ -405,7 +480,7 @@ const Styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     headerContainer: {
-        height: 40,
+        height: 50,
         flexWrap: 'wrap',
         flexDirection: 'row',
     },
@@ -417,7 +492,7 @@ const Styles = StyleSheet.create({
     bodyContainer: {
         flex: 1,
         flexWrap: 'wrap',
-        backgroundColor: 'rgb(245 244 240)',
+        backgroundColor: 'rgb(245, 244, 240)',
         overflow: 'hidden'
     },
 
@@ -576,6 +651,6 @@ const Styles = StyleSheet.create({
         borderRadius: 100,
         backgroundColor: 'blue',
         alignSelf: 'center',
-    },
+    }
 
 });

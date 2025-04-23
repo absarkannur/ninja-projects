@@ -29,25 +29,25 @@ export default function DashboardLayout() {
             <Tabs.Screen name="dashboard"
                 options={{
                     headerShown: false,
-                    tabBarIcon: ({ color, focused }) =>  <MaterialCommunityIcons name="cards-playing" size={30} color="#999" />
+                    tabBarIcon: ({ color, focused }) =>  <MaterialCommunityIcons name="cards-variant" size={30} color="#666" />
                 }}
             />
             <Tabs.Screen name="search.screen"
                 options={{
                     headerShown: false,
-                    tabBarIcon: ({ color, focused }) => <MaterialCommunityIcons name="map-search" size={30} color="#999" />
+                    tabBarIcon: ({ color, focused }) => <Feather name="search" size={30} color="#666" />
                 }}
             />
             <Tabs.Screen name="favourite.screen"
                 options={{
                     headerShown: false,
-                    tabBarIcon: ({ color, focused }) => <Feather name="message-circle" size={30} color="#999" />
+                    tabBarIcon: ({ color, focused }) => <Feather name="message-circle" size={28} color="#666" />
                 }}
             />
             <Tabs.Screen name="profile.screen"
                 options={{
                     headerShown: false,
-                    tabBarIcon: ({ color, focused }) => <Feather name="menu" size={30} color="#999" />
+                    tabBarIcon: ({ color, focused }) => <Feather name="user" size={28} color="#666" />
                 }}
             />
         </Tabs>
