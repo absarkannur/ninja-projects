@@ -20,16 +20,10 @@ export default function SplashScreen() {
         player.loop = true;
         player.play();
     });
-
-    // useEffect(() => {
-    //     setTimeout(function(){
-    //         router.push('/(register)/register');
-    //     }, 5000);
-    // },[]);
-
+    
     const handleRegister =() => {
-        router.push('/(profile)/profile.screen');
-        // router.push('/(dashboard)/dashboard');
+        // router.push( '/(profile)/profile.screen' );
+        router.push( '/(dashboard)/dashboard' );
     }
 
     return (

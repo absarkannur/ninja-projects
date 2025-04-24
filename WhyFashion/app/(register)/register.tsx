@@ -16,18 +16,13 @@ export default function Register() {
 
     return (
         <SafeAreaView style={ Styles.safearea }>
-            <StatusBar style='light' />
-            
-            <LinearGradient
-                // Background Linear Gradient
-                colors={['rgb(23, 26, 33)', 'rgb(23, 37, 56)' ]}
-                style={ Styles.background } />
+            <StatusBar style='dark' />
                 
             <View style={ Styles.container }>
 
                 <View style={[ Styles.wrapper, { height: 200, justifyContent: 'center' } ]}>
                     <Image 
-                        source={ require('@/assets/images/splash-logo.png') }
+                        source={ require('@/assets/images/dashboard-logo.png') }
                         style={ Styles.logo_image } />
                 </View>
 
@@ -42,7 +37,7 @@ export default function Register() {
                     <Input placeholder="Confirm Password" secureTextEntry={true} />
 
                     <Button 
-                        background={'rgb(7, 92, 221)'}
+                        // background={'rgb(7, 92, 221)'}
                         title="Register" onPress={ handleRegister } />
 
                 </View>
@@ -56,7 +51,7 @@ const Styles = StyleSheet.create({
     safearea: {
         flex: 1,
         height: '100%',
-        backgroundColor: 'rgb(23, 37, 56)',
+        backgroundColor: 'rgb(255, 255, 255)',
     },
     background: {
         position: 'absolute',
@@ -78,7 +73,7 @@ const Styles = StyleSheet.create({
     header: {
         fontFamily: 'Montserrat-Medium',
         fontSize: 18,
-        color: "#fff",
+        color: "#111",
         marginBottom: 20,
         textAlign: 'center',
     },

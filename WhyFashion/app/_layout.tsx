@@ -71,7 +71,7 @@ export default function _layout() {
         <Stack
             screenOptions={{
                 headerStyle: {
-                    backgroundColor: 'rgb(23, 26, 33)',
+                    backgroundColor: 'rgb(255, 255, 255)',
                 },
                 headerTintColor: 'black',
                 headerTitleStyle: {
@@ -87,7 +87,7 @@ export default function _layout() {
                 title: 'Register',
                 gestureEnabled: false,
                 headerShown: true,
-                headerTintColor: 'white'
+                headerTintColor: '#000'
             }} />
             <Stack.Screen name="(signin)" options={{
                 gestureEnabled: false,

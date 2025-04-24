@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, SafeAreaView, Image, Modal, TouchableWithoutFeedback, TouchableOpacity, Dimensions, FlatList, Linking, Alert } from 'react-native'
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 
 import { StatusBar } from 'expo-status-bar';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -24,7 +24,9 @@ import Animated, {
   Extrapolation,
   withDecay,
   withClamp,
-  withSpring
+  withSpring,
+  Easing,
+  withDelay
 } from 'react-native-reanimated';
 import Card from '@/components/Card';
 import { opacity } from 'react-native-reanimated/lib/typescript/Colors';
@@ -330,7 +332,47 @@ export default function Dashboard() {
 
     const likeButtonWith = useSharedValue(50);
     const likeButtonHeight = useSharedValue(50);
+    
+    const cardRotateZ = useSharedValue(0);
+    const cardTranslateX = useSharedValue(0);
 
+    const cardRotateZ_2 = useSharedValue(0);
+    const cardTranslateX_2 = useSharedValue(0);
+
+    const cardScale = useSharedValue(1);
+    const cardTranslateYModel = useSharedValue(300);
+
+    const [ tip, setTip ] = useState<boolean>(true)
+
+    const [ card1, setCard1 ] = useState('Swipe Right');
+    const [ card2, setCard2 ] = useState('');
+    const [ card3, setCard3 ] = useState('');
+
+    const animatedCardOne = useAnimatedStyle(() => ({
+        transform: [
+          { translateX: cardTranslateX.value },
+          { rotate: `${cardRotateZ.value}deg`  }
+        ],
+    }));
+
+    const animatedCardTwo = useAnimatedStyle(() => ({
+        transform: [
+          { translateX: cardTranslateX_2.value },
+          { rotate: `${cardRotateZ_2.value}deg`  }
+        ],
+    }));
+
+    const animatedCardThree = useAnimatedStyle(() => ({
+        transform: [
+          { scale: cardScale.value }
+        ],
+    }));
+
+    const animatedCardModal = useAnimatedStyle(() => ({
+        transform: [
+            { translateY: cardTranslateYModel.value },
+          ],
+    }));
 
     // const [profile, setProfile] = useState(db);
     // const lastProfile = profile[profile.length - 1];
@@ -343,8 +385,6 @@ export default function Dashboard() {
     // const handlePressCard = () => {
     //     setModalVisible(true);
     // }
-
-    // const { width, height } = Dimensions.get('screen');
 
     // const translationX = useSharedValue(0);
     // const translationY = useSharedValue(0);
@@ -455,7 +495,6 @@ export default function Dashboard() {
     //     setProfile(profile.slice(0, -1)); // Remove the last profile
     // };
 
-    
     const handleSwipeLeft = () => {
         swiperRef.current?.swipeLeft();
     }
@@ -466,10 +505,7 @@ export default function Dashboard() {
 
     const handleBuy = async ( url: string ) => {
 
-        
         const supported = await Linking.canOpenURL(url);
-        
-        console.log( supported )
 
         if (supported) {
             await Linking.openURL(url);
@@ -479,14 +515,48 @@ export default function Dashboard() {
 
     }
 
+    const [ step, setStep ] = useState<number>(1);
+    const [ guidStep, setGuidStep ] = useState<boolean>(false);
+
+    const handleGuided = () => {
+
+        if( step === 1 ){
+
+            cardRotateZ.value =  withTiming( 40, { duration: 1000, easing: Easing.ease });
+            cardTranslateX.value= withTiming( 1200, { duration: 1000, easing: Easing.ease });
+
+            setCard2('Swipe Left');
+            setStep( 2 );
+
+        } else if( step === 2 ) {
+
+            cardRotateZ_2.value =  withTiming( -40, { duration: 1000, easing: Easing.ease });
+            cardTranslateX_2.value= withTiming( -1200, { duration: 1000, easing: Easing.ease });
+
+            setCard3('Tap On');
+            setStep( 3 );
+
+        } else if( step === 3 ) {
+
+            cardScale.value = withTiming( 1.04, { duration: 200, easing: Easing.ease });
+            cardTranslateYModel.value = withTiming( 0, { duration: 600, easing: Easing.ease });
+            setGuidStep( true );
+
+        }
+
+
+    }
+
     return (
         <SafeAreaView style={ Styles.safearea }>
+
             <StatusBar style='dark' />
             {/* <LinearGradient
                 // Background Linear Gradient
                 colors={['rgb(23, 26, 33)', 'rgb(23, 37, 56)' ]}
                 style={ Styles.background }
             /> */}
+
             <View style={ Styles.container }>
                 
                 <View style={ Styles.headerContainer }>
@@ -507,6 +577,94 @@ export default function Dashboard() {
                     <SearchBar />
                 </View>
 
+                <View style={{ display: ( tip ) ? 'flex': 'none' ,  position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0,0,0,0.5)', zIndex: 999 }}>
+                    
+                    {
+                        ( guidStep ) ? 
+                        <TouchableOpacity onPress={ () => setTip( false ) }>
+                            <Text style={{ position: 'absolute', right: 30, top: 30, color: '#fff', fontSize: 22 }}>Done</Text>
+                        </TouchableOpacity>
+                        :
+                        <TouchableOpacity onPress={ () => handleGuided() }>
+                            <Text style={{ position: 'absolute', right: 30, top: 30, color: '#fff', fontSize: 22 }}>Next</Text>
+                        </TouchableOpacity>
+                    }
+                    <TouchableOpacity onPress={ () => setTip( false ) }>
+                        <Text style={{ position: 'absolute', left: 30, top: 30, color: '#fff', fontSize: 22 }}>Skip</Text>
+                    </TouchableOpacity>
+                    
+
+                    <View style={{ marginTop: 100 }}>
+                        <Text style={{ fontSize: 30, textAlign: 'center', color: '#fff' }}>User Guided</Text>
+                    </View>
+
+                    <Animated.View style={[{ 
+                        position: 'absolute',
+                        top: 350/2,
+                        left: 250/3.5,
+                        height: 350, width: 250,
+                        borderWidth: 2,
+                        borderColor: '#fff', 
+                        borderRadius: 10, 
+                        borderStyle: 'dashed',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                     }, animatedCardOne]}>
+                        <MaterialIcons name="swipe-right" size={40} color="#fff" />
+                        <Text style={{ fontSize: 20, color: '#fff' }}>{ card1 }</Text>
+                    </Animated.View>
+
+                    <Animated.View style={[{ 
+                        position: 'absolute',
+                        top: 350/2,
+                        left: 250/3.5,
+                        height: 350, width: 250,
+                        borderWidth: 2,
+                        borderColor: '#fff', 
+                        borderRadius: 10, 
+                        borderStyle: 'dashed',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                     }, animatedCardTwo ]}>
+                        { (card2 !== '' ) ? <MaterialIcons name="swipe-left" size={40} color="#fff" /> : '' }
+                        <Text style={{ fontSize: 20, color: '#fff' }}>{ card2 }</Text>
+                    </Animated.View>
+
+                    <Animated.View style={[{ 
+                        position: 'absolute',
+                        top: 350/2,
+                        left: 250/3.5,
+                        height: 350, width: 250,
+                        borderWidth: 2,
+                        borderColor: '#fff', 
+                        borderRadius: 10, 
+                        borderStyle: 'dashed',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                     }, animatedCardThree ]}>
+                        { (card3 !== '' ) ? <MaterialIcons name="ads-click" size={40} color="#fff" /> : '' }
+                        <Text style={{ fontSize: 20, color: '#fff' }}>{ card3 }</Text>
+                    </Animated.View>
+
+                    <Animated.View style={[{
+                        position: 'absolute',
+                        left: '5%',
+                        bottom: 10,
+                        width: '90%',
+                        borderWidth: 2,
+                        borderRadius: 10, 
+                        borderColor: '#fff', 
+                        borderStyle: 'dashed',
+                        padding: 20,
+                        justifyContent:'flex-end',
+                        backgroundColor: 'rgba(0,0,0,0.4)'
+                    }, animatedCardModal ]}>
+                        <Text style={{color: '#fff', marginBottom: 10}}>Aliquam perferendis consequuntur ad dignissimos quasi, error reprehenderit molestias! Corporis expedita commodi officia!</Text>
+                        <View style={{ justifyContent:'center', backgroundColor: 'black', height: 40, width: '100%', borderRadius: 10 }}><Text style={{ color: '#fff', fontSize: 16, textAlign: 'center' }}>Buy Now</Text></View>
+                    </Animated.View>
+
+                </View>
+
                 <View style={ Styles.bodyContainer }>
 
                     <Swiper
@@ -514,7 +672,7 @@ export default function Dashboard() {
                         cards={ db }
                         renderCard={(card: dataTypes ) => {
                             return (
-                                <View style={[ Styles.card, { backgroundColor: card.bg } ]}>
+                                <View style={ [ Styles.card, { backgroundColor: card.bg } ]}>
                                     <Image resizeMode="contain" source={{ uri: card.image }} style={ Styles.cardImage } />
                                     <View style={{ 
                                         width: '75%',
@@ -583,12 +741,12 @@ export default function Dashboard() {
                         showSecondCard={true}
                         stackSize={3}
                         infinite={true}
-                        // animateCardOpacity
-                        
+
                         // Styles
                         backgroundColor={'transparent'}
                         cardVerticalMargin={20}
                         cardHorizontalMargin={20}
+                        overlayOpacityHorizontalThreshold={3}
 
                         // OverLap content and styles
                         overlayLabels={{
@@ -823,6 +981,7 @@ const Styles = StyleSheet.create({
         shadowOpacity: 0.5,
         shadowRadius: 20,
         elevation: 5,
+
     },
     cardImage: {
         flex: 1,

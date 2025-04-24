@@ -16,7 +16,18 @@ export default function FavouriteScreen() {
     return (
         <AppWrapper statusbarColor={'dark'}>
             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                
+{/*                 
+            <Spacer gap={40}/>
+            <Animated.View
+                style={{
+                    width,
+                    height: 100,
+                    backgroundColor: 'violet',
+                }}
+            />
+            <Spacer gap={40}/>
+            <Button title="Click Me" onPress={ handlePress } /> */}
+
             </View>
         </AppWrapper>
     )
