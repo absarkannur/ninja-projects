@@ -33,7 +33,7 @@ export default function FinishScreen() {
             
             <Ionicons name="checkmark-circle-outline" size={40} color="black" />
             <Spacer gap={10}/>
-            <Text style={ Styles.header }>Creating your perfect feed</Text>
+            <Text style={ Styles.header }>Creating your personalized feed</Text>
             <Spacer gap={20}/>
             <View style={ Styles.progressBody }>
                 <View style={[ Styles.progress, { width: progress } ]}></View>

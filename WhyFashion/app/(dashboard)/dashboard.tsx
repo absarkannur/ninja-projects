@@ -496,7 +496,7 @@ export default function Dashboard() {
                         <MaterialIcons name="notifications-none" size={26} color="black" />
                     </TouchableOpacity>
                     <View style={{ width: '60%', height: '100%', alignItems: 'center', justifyContent: 'center' }}>
-                        <Image style={{ width: 110, height: 80 }} resizeMode='contain' source={ require('@/assets/images/dashboard-logo.jpeg') }/>
+                        <Image style={{ width: 110, height: 80 }} resizeMode='contain' source={ require('@/assets/images/dashboard-logo.png') }/>
                     </View>
                     <TouchableOpacity style={{ width: '20%', height: '100%', justifyContent: 'center', alignItems: 'flex-end', paddingRight: 15 }}>
                         <Ionicons name="settings-outline" size={24} color="black" />

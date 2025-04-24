@@ -4,7 +4,7 @@ import AppWrapper from '@/components/AppWrapper'
 
 export default function ProfileScreen() {
     return (
-        <AppWrapper>
+        <AppWrapper statusbarColor={'dark'}>
             <View>
                 <Text></Text>
             </View>
