@@ -1,0 +1,46 @@
+
+.block{
+    display: block;
+}
+
+.flex{
+    display: flex;
+}
+
+.no-padding{
+    padding: 0 !important;
+}
+
+ul{
+    list-style: none;
+}
+
+.imagethmb {
+    display: table;
+    text-align: center;
+    width: 100%;
+    font-size: 0;
+}
+
+.imagethmb_inner {
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.imagethmb img {
+    max-width: 100%;
+    max-height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+.primary-button{
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    border: none;
+    background-color: var(--bg-primary-green);
+    color: var(--bg-primary-white);
+    font-weight: 500;
+}

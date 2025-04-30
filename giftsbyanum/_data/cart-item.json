@@ -1,0 +1,565 @@
+
+
+{
+  "taxes": null,
+  "tax_total": 0,
+  "tax_included_total": 0,
+  "sub_total": 83.97,
+  "shipping": {
+    "currency": "USD",
+    "price": null
+  },
+  "shipment_total": 0,
+  "shipment_rating": null,
+  "shipment_price": 0,
+  "shipment_discount": 0,
+  "shipment_delivery": true,
+  "promotion_ids": [],
+  "items": [
+    {
+      "variant_id": "6678efb69d66580012338ecd",
+      "tax_total": 0,
+      "tax_each": 0,
+      "shipment_weight": 1.8,
+      "quantity": 2,
+      "product_id": "6674d43a3e532d001391c2f7",
+      "price_total": 55.98,
+      "price": 27.99,
+      "orig_price": 27.99,
+      "options": [
+        {
+          "currency": "USD",
+          "id": "6678ef8cbd9f8ec158df3382",
+          "name": "Colour",
+          "value": "Diner",
+          "value_id": "6678efb5bd9f8ec158df338b",
+          "variant": true
+        }
+      ],
+      "id": "67f5283654e9dc001294441f",
+      "discount_total": 0,
+      "discount_each": 0,
+      "product": {
+        "stock_tracking": true,
+        "stock_purchasable": false,
+        "stock_level": 874,
+        "slug": "book-couch",
+        "sku": null,
+        "sale": false,
+        "price": 34.99,
+        "options": [
+          {
+            "id": "6678ef8cbd9f8ec158df3382",
+            "name": "Colour",
+            "values": [
+              {
+                "id": "6678efb5bd9f8ec158df3383",
+                "name": "Blue",
+                "price": null
+              },
+              {
+                "id": "6678efb5bd9f8ec158df3384",
+                "name": "Grey",
+                "price": null
+              },
+              {
+                "id": "6678efb5bd9f8ec158df3385",
+                "name": "Sloth",
+                "price": null
+              },
+              {
+                "id": "6678efb5bd9f8ec158df3386",
+                "name": "Black",
+                "price": null
+              },
+              {
+                "id": "6678efb5bd9f8ec158df3387",
+                "name": "Llama",
+                "price": null
+              },
+              {
+                "id": "6678efb5bd9f8ec158df3388",
+                "name": "Pink",
+                "price": null
+              },
+              {
+                "id": "6678efb5bd9f8ec158df3389",
+                "name": "Roses",
+                "price": null
+              },
+              {
+                "id": "6678efb5bd9f8ec158df338a",
+                "name": "Hot Lips",
+                "price": null
+              },
+              {
+                "id": "6678efb5bd9f8ec158df338b",
+                "name": "Diner",
+                "price": null
+              }
+            ],
+            "variant": true,
+            "input_type": "select",
+            "required": true,
+            "active": true,
+            "attribute_id": "colour",
+            "price": null
+          }
+        ],
+        "name": "Book Couch Tablet Stand & Book Holder",
+        "images": [
+          {
+            "file": {
+              "id": "6674d43237b6b000129eebf1",
+              "date_uploaded": "2024-06-21T01:15:30.611Z",
+              "length": 111492,
+              "md5": "a6d30597fb0c0d185f4a7d4bb8889e57",
+              "filename": "Book Couch.png",
+              "content_type": "image/png",
+              "url": "https://cdn.swell.store/thinking-gifts/6674d43237b6b000129eebf1/a6d30597fb0c0d185f4a7d4bb8889e57/Book%20Couch.png",
+              "width": 326,
+              "height": 408
+            },
+            "id": "6674d43a3e532d001391c2f9"
+          }
+        ],
+        "description": "A luxurious plush book, eReader and tablet holder for adults. Made with soft crystal velboa material, and able to accommodate most sizes of reading material. Perfect for reading in bed, or on the couch with one&#39;s own bookcouch!<br><br id=\"isPasted\">Here is why you will love it:&nbsp;<br><ul><li>Perfect for everyday use: the original book couch stand is ideal for people of all ages. With this unique gift you&rsquo;ll be devouring books in no time while enhancing your enjoyment and comfort for reading in bed. It&rsquo;s also great for ipad, tablets, ebook readers and even doubles as a travel pillow..</li><li>Designed for comfort: made with luxurious high quality materials and specially designed to promote good posture and prevent neck and backaches. This plush book holder makes a thoughtful gift for friends, family and loved ones whether its for birthdays or special occasions.</li><li>Securely holds books of all sizes: whether you are reading a paperback, hardcover, magazine or a textbook, this book couch will firmly hold your pages in place and your tablet secure so you can read for longer in complete comfort.</li><li>Easy to wash and clean - fully machine washable at low temperatures, you can easily clean your book couch, no matter how dirty it gets. Made with soft crystal velboa material, it holds its shape perfectly.</li></ul><br><em>*<span data-mce-fragment=\"1\">&nbsp;</span>Product size: 30 cm x 20 cm x 20 cm / 11.81&#39;&#39; x 7.87&#39;&#39; x 7.87&#39;&#39;</em>",
+        "attributes": {
+          "colour": [
+            "Blue",
+            "Grey",
+            "Sloth",
+            "Black",
+            "Llama",
+            "Pink",
+            "Roses",
+            "Hot Lips",
+            "Diner"
+          ]
+        },
+        "id": "6674d43a3e532d001391c2f7",
+        "sale_price": null,
+        "orig_price": null,
+        "compare_price": null
+      },
+      "variant": {
+        "stock_level": 100,
+        "sku": "DIC",
+        "name": "Diner",
+        "images": [
+          {
+            "file": {
+              "id": "6678f132adc8050012cbcc6f",
+              "date_uploaded": "2024-06-24T04:08:18.295Z",
+              "length": 261332,
+              "md5": "54ee76b6bafe6df24894b411f0d0d02f",
+              "filename": "Book Couch Hands Free Reading.jpg",
+              "content_type": "image/jpeg",
+              "url": "https://cdn.swell.store/thinking-gifts/6678f132adc8050012cbcc6f/54ee76b6bafe6df24894b411f0d0d02f/Book%20Couch%20Hands%20Free%20Reading.jpg",
+              "width": 2000,
+              "height": 2000
+            },
+            "id": "6678f137afcf7d00128f14d4"
+          },
+          {
+            "file": {
+              "id": "6678f1320cd6f4001212f5f5",
+              "date_uploaded": "2024-06-24T04:08:18.314Z",
+              "length": 452132,
+              "md5": "445f61f07004b437439d14d5dc006462",
+              "filename": "Book Couch Hands Free Reading (1).jpg",
+              "content_type": "image/jpeg",
+              "url": "https://cdn.swell.store/thinking-gifts/6678f1320cd6f4001212f5f5/445f61f07004b437439d14d5dc006462/Book%20Couch%20Hands%20Free%20Reading%20(1).jpg",
+              "width": 2000,
+              "height": 2000
+            },
+            "id": "6678f137afcf7d00128f14d5"
+          },
+          {
+            "file": {
+              "id": "6678f132e4b8d30012cad353",
+              "date_uploaded": "2024-06-24T04:08:18.288Z",
+              "length": 301536,
+              "md5": "52bba6e41f8e6b954d4f2ec021288ca4",
+              "filename": "Book Couch Hands Free.jpg",
+              "content_type": "image/jpeg",
+              "url": "https://cdn.swell.store/thinking-gifts/6678f132e4b8d30012cad353/52bba6e41f8e6b954d4f2ec021288ca4/Book%20Couch%20Hands%20Free.jpg",
+              "width": 2000,
+              "height": 2000
+            },
+            "id": "6678f137afcf7d00128f14d6"
+          },
+          {
+            "file": {
+              "id": "6678f132c54c8d0012e2f326",
+              "date_uploaded": "2024-06-24T04:08:18.510Z",
+              "length": 654080,
+              "md5": "1f6dd9f0d8f84f71fad2aa1e0e1b2f9d",
+              "filename": "Book Couch Hands Free Stand.jpg",
+              "content_type": "image/jpeg",
+              "url": "https://cdn.swell.store/thinking-gifts/6678f132c54c8d0012e2f326/1f6dd9f0d8f84f71fad2aa1e0e1b2f9d/Book%20Couch%20Hands%20Free%20Stand.jpg",
+              "width": 2000,
+              "height": 2000
+            },
+            "id": "6678f137afcf7d00128f14d7"
+          },
+          {
+            "file": {
+              "id": "6678f132e868cc0012868505",
+              "date_uploaded": "2024-06-24T04:08:18.489Z",
+              "length": 456660,
+              "md5": "fd943b844ec3ad60cf975bddba87ec06",
+              "filename": "Book Couch Hands Free (1).jpg",
+              "content_type": "image/jpeg",
+              "url": "https://cdn.swell.store/thinking-gifts/6678f132e868cc0012868505/fd943b844ec3ad60cf975bddba87ec06/Book%20Couch%20Hands%20Free%20(1).jpg",
+              "width": 2000,
+              "height": 2000
+            },
+            "id": "6678f137afcf7d00128f14d8"
+          },
+          {
+            "file": {
+              "id": "6678f13257512c001162dac3",
+              "date_uploaded": "2024-06-24T04:08:18.455Z",
+              "length": 229700,
+              "md5": "46bf1687fd02786925088a2cd6ad8acc",
+              "filename": "Book Couch Hands Free Stand (1).jpg",
+              "content_type": "image/jpeg",
+              "url": "https://cdn.swell.store/thinking-gifts/6678f13257512c001162dac3/46bf1687fd02786925088a2cd6ad8acc/Book%20Couch%20Hands%20Free%20Stand%20(1).jpg",
+              "width": 2000,
+              "height": 2000
+            },
+            "id": "6678f137afcf7d00128f14d9"
+          },
+          {
+            "file": {
+              "id": "6678f1320a5b1100121c5269",
+              "date_uploaded": "2024-06-24T04:08:18.654Z",
+              "length": 535300,
+              "md5": "749ef5b1dbd64b25f463a25575dfcedb",
+              "filename": "Book Couch Hands Free Reading (2).jpg",
+              "content_type": "image/jpeg",
+              "url": "https://cdn.swell.store/thinking-gifts/6678f1320a5b1100121c5269/749ef5b1dbd64b25f463a25575dfcedb/Book%20Couch%20Hands%20Free%20Reading%20(2).jpg",
+              "width": 2000,
+              "height": 2000
+            },
+            "id": "6678f137afcf7d00128f14da"
+          },
+          {
+            "file": {
+              "id": "66bdbbdcd691de00129ef29f",
+              "date_uploaded": "2024-08-15T08:27:09.469Z",
+              "length": 2324484,
+              "md5": "33f39b915902ec5ef9322d2aae4ad23c",
+              "filename": "Book Couch Blue.jpg",
+              "content_type": "image/jpeg",
+              "url": "https://cdn.swell.store/thinking-gifts/66bdbbdcd691de00129ef29f/33f39b915902ec5ef9322d2aae4ad23c/Book%20Couch%20Blue.jpg",
+              "width": 5228,
+              "height": 3735
+            },
+            "id": "66bdbbfe0474f2001290731b"
+          },
+          {
+            "file": {
+              "id": "66bdbbdd07636e0011c6198c",
+              "date_uploaded": "2024-08-15T08:27:09.570Z",
+              "length": 2933128,
+              "md5": "989b26d16314fb89d11c02b8e3a8daa5",
+              "filename": "SLB_Book Couch Sloth 2.jpg",
+              "content_type": "image/jpeg",
+              "url": "https://cdn.swell.store/thinking-gifts/66bdbbdd07636e0011c6198c/989b26d16314fb89d11c02b8e3a8daa5/SLB_Book%20Couch%20Sloth%202.jpg",
+              "width": 6016,
+              "height": 4000
+            },
+            "id": "66bdbbfe0474f2001290731c"
+          }
+        ],
+        "attributes": {},
+        "id": "6678efb69d66580012338ecd",
+        "price": null,
+        "sale_price": null,
+        "orig_price": null,
+        "compare_price": null
+      }
+    },
+    {
+      "variant_id": "6678efb69d66580012338ece",
+      "tax_total": 0,
+      "tax_each": 0,
+      "shipment_weight": 0.9,
+      "quantity": 1,
+      "product_id": "6674d43a3e532d001391c2f7",
+      "price_total": 27.99,
+      "price": 27.99,
+      "orig_price": 27.99,
+      "options": [
+        {
+          "id": "6678ef8cbd9f8ec158df3382",
+          "name": "Colour",
+          "value": "Hot Lips",
+          "value_id": "6678efb5bd9f8ec158df338a",
+          "variant": true,
+          "currency": "USD"
+        }
+      ],
+      "id": "67f5285dbf17930012244965",
+      "discount_total": 0,
+      "discount_each": 0,
+      "product": {
+        "stock_tracking": true,
+        "stock_purchasable": false,
+        "stock_level": 874,
+        "slug": "book-couch",
+        "sku": null,
+        "sale": false,
+        "price": 34.99,
+        "options": [
+          {
+            "id": "6678ef8cbd9f8ec158df3382",
+            "name": "Colour",
+            "values": [
+              {
+                "id": "6678efb5bd9f8ec158df3383",
+                "name": "Blue",
+                "price": null
+              },
+              {
+                "id": "6678efb5bd9f8ec158df3384",
+                "name": "Grey",
+                "price": null
+              },
+              {
+                "id": "6678efb5bd9f8ec158df3385",
+                "name": "Sloth",
+                "price": null
+              },
+              {
+                "id": "6678efb5bd9f8ec158df3386",
+                "name": "Black",
+                "price": null
+              },
+              {
+                "id": "6678efb5bd9f8ec158df3387",
+                "name": "Llama",
+                "price": null
+              },
+              {
+                "id": "6678efb5bd9f8ec158df3388",
+                "name": "Pink",
+                "price": null
+              },
+              {
+                "id": "6678efb5bd9f8ec158df3389",
+                "name": "Roses",
+                "price": null
+              },
+              {
+                "id": "6678efb5bd9f8ec158df338a",
+                "name": "Hot Lips",
+                "price": null
+              },
+              {
+                "id": "6678efb5bd9f8ec158df338b",
+                "name": "Diner",
+                "price": null
+              }
+            ],
+            "variant": true,
+            "input_type": "select",
+            "required": true,
+            "active": true,
+            "attribute_id": "colour",
+            "price": null
+          }
+        ],
+        "name": "Book Couch Tablet Stand & Book Holder",
+        "images": [
+          {
+            "file": {
+              "id": "6674d43237b6b000129eebf1",
+              "date_uploaded": "2024-06-21T01:15:30.611Z",
+              "length": 111492,
+              "md5": "a6d30597fb0c0d185f4a7d4bb8889e57",
+              "filename": "Book Couch.png",
+              "content_type": "image/png",
+              "url": "https://cdn.swell.store/thinking-gifts/6674d43237b6b000129eebf1/a6d30597fb0c0d185f4a7d4bb8889e57/Book%20Couch.png",
+              "width": 326,
+              "height": 408
+            },
+            "id": "6674d43a3e532d001391c2f9"
+          }
+        ],
+        "description": "A luxurious plush book, eReader and tablet holder for adults. Made with soft crystal velboa material, and able to accommodate most sizes of reading material. Perfect for reading in bed, or on the couch with one&#39;s own bookcouch!<br><br id=\"isPasted\">Here is why you will love it:&nbsp;<br><ul><li>Perfect for everyday use: the original book couch stand is ideal for people of all ages. With this unique gift you&rsquo;ll be devouring books in no time while enhancing your enjoyment and comfort for reading in bed. It&rsquo;s also great for ipad, tablets, ebook readers and even doubles as a travel pillow..</li><li>Designed for comfort: made with luxurious high quality materials and specially designed to promote good posture and prevent neck and backaches. This plush book holder makes a thoughtful gift for friends, family and loved ones whether its for birthdays or special occasions.</li><li>Securely holds books of all sizes: whether you are reading a paperback, hardcover, magazine or a textbook, this book couch will firmly hold your pages in place and your tablet secure so you can read for longer in complete comfort.</li><li>Easy to wash and clean - fully machine washable at low temperatures, you can easily clean your book couch, no matter how dirty it gets. Made with soft crystal velboa material, it holds its shape perfectly.</li></ul><br><em>*<span data-mce-fragment=\"1\">&nbsp;</span>Product size: 30 cm x 20 cm x 20 cm / 11.81&#39;&#39; x 7.87&#39;&#39; x 7.87&#39;&#39;</em>",
+        "attributes": {
+          "colour": [
+            "Blue",
+            "Grey",
+            "Sloth",
+            "Black",
+            "Llama",
+            "Pink",
+            "Roses",
+            "Hot Lips",
+            "Diner"
+          ]
+        },
+        "id": "6674d43a3e532d001391c2f7",
+        "sale_price": null,
+        "orig_price": null,
+        "compare_price": null
+      },
+      "variant": {
+        "stock_level": 99,
+        "sku": "HL",
+        "name": "Hot Lips",
+        "images": [
+          {
+            "file": {
+              "id": "6678f1c2efc5060012ddd223",
+              "date_uploaded": "2024-06-24T04:10:42.558Z",
+              "length": 313204,
+              "md5": "f7ef6247c547046f19729228f68ecc61",
+              "filename": "Book Couch Hot Lips.jpg",
+              "content_type": "image/jpeg",
+              "url": "https://cdn.swell.store/thinking-gifts/6678f1c2efc5060012ddd223/f7ef6247c547046f19729228f68ecc61/Book%20Couch%20Hot%20Lips.jpg",
+              "width": 2000,
+              "height": 2000
+            },
+            "id": "6678f1c655ebf000127e973b"
+          },
+          {
+            "file": {
+              "id": "6678f1c294074b0012619cef",
+              "date_uploaded": "2024-06-24T04:10:42.728Z",
+              "length": 515808,
+              "md5": "7fa83699f9a73fa03ec119c63759c1cc",
+              "filename": "Book Couch Hot Lips 2.jpg",
+              "content_type": "image/jpeg",
+              "url": "https://cdn.swell.store/thinking-gifts/6678f1c294074b0012619cef/7fa83699f9a73fa03ec119c63759c1cc/Book%20Couch%20Hot%20Lips%202.jpg",
+              "width": 2000,
+              "height": 2000
+            },
+            "id": "6678f1c655ebf000127e973c"
+          },
+          {
+            "file": {
+              "id": "6678f1c24815d900126d5707",
+              "date_uploaded": "2024-06-24T04:10:42.720Z",
+              "length": 322240,
+              "md5": "d4dd61a2fabfb0dc29af34facf39be50",
+              "filename": "Book Couch Hot Lips (1).jpg",
+              "content_type": "image/jpeg",
+              "url": "https://cdn.swell.store/thinking-gifts/6678f1c24815d900126d5707/d4dd61a2fabfb0dc29af34facf39be50/Book%20Couch%20Hot%20Lips%20(1).jpg",
+              "width": 2000,
+              "height": 2000
+            },
+            "id": "6678f1c655ebf000127e973d"
+          },
+          {
+            "file": {
+              "id": "6678f1c2ba51120012233bca",
+              "date_uploaded": "2024-06-24T04:10:42.892Z",
+              "length": 371432,
+              "md5": "97bc22112baefc3450ff501a0287458e",
+              "filename": "Book Couch Hot Lips (2).jpg",
+              "content_type": "image/jpeg",
+              "url": "https://cdn.swell.store/thinking-gifts/6678f1c2ba51120012233bca/97bc22112baefc3450ff501a0287458e/Book%20Couch%20Hot%20Lips%20(2).jpg",
+              "width": 2000,
+              "height": 2000
+            },
+            "id": "6678f1c655ebf000127e973e"
+          },
+          {
+            "file": {
+              "id": "6678f1c39d871b0012363252",
+              "date_uploaded": "2024-06-24T04:10:43.083Z",
+              "length": 598088,
+              "md5": "7b18936edcbd1e51ddc619eb910b769b",
+              "filename": "Book Couch Hot Lips 5.jpg",
+              "content_type": "image/jpeg",
+              "url": "https://cdn.swell.store/thinking-gifts/6678f1c39d871b0012363252/7b18936edcbd1e51ddc619eb910b769b/Book%20Couch%20Hot%20Lips%205.jpg",
+              "width": 2000,
+              "height": 2000
+            },
+            "id": "6678f1c655ebf000127e973f"
+          },
+          {
+            "file": {
+              "id": "6678f1c2a182d200120d37da",
+              "date_uploaded": "2024-06-24T04:10:42.899Z",
+              "length": 316296,
+              "md5": "787fd32a19c56de073ad42ce98c2bf0b",
+              "filename": "Book Couch Hot Lips 6.jpg",
+              "content_type": "image/jpeg",
+              "url": "https://cdn.swell.store/thinking-gifts/6678f1c2a182d200120d37da/787fd32a19c56de073ad42ce98c2bf0b/Book%20Couch%20Hot%20Lips%206.jpg",
+              "width": 2000,
+              "height": 2000
+            },
+            "id": "6678f1c655ebf000127e9740"
+          },
+          {
+            "file": {
+              "id": "66bdbc3969aa0400123a4e23",
+              "date_uploaded": "2024-08-15T08:28:41.888Z",
+              "length": 2324484,
+              "md5": "33f39b915902ec5ef9322d2aae4ad23c",
+              "filename": "Book Couch Blue.jpg",
+              "content_type": "image/jpeg",
+              "url": "https://cdn.swell.store/thinking-gifts/66bdbc3969aa0400123a4e23/33f39b915902ec5ef9322d2aae4ad23c/Book%20Couch%20Blue.jpg",
+              "width": 5228,
+              "height": 3735
+            },
+            "id": "6678f1c655ebf000127e9741"
+          },
+          {
+            "file": {
+              "id": "66bdbc399b01590012313208",
+              "date_uploaded": "2024-08-15T08:28:41.409Z",
+              "length": 2933128,
+              "md5": "989b26d16314fb89d11c02b8e3a8daa5",
+              "filename": "SLB_Book Couch Sloth 2.jpg",
+              "content_type": "image/jpeg",
+              "url": "https://cdn.swell.store/thinking-gifts/66bdbc399b01590012313208/989b26d16314fb89d11c02b8e3a8daa5/SLB_Book%20Couch%20Sloth%202.jpg",
+              "width": 6016,
+              "height": 4000
+            },
+            "id": "66bdbc46a6253d0012dbbc90"
+          }
+        ],
+        "attributes": {},
+        "id": "6678efb69d66580012338ece",
+        "price": null,
+        "sale_price": null,
+        "orig_price": null,
+        "compare_price": null
+      }
+    }
+  ],
+  "item_tax": 0,
+  "item_shipment_weight": 2.7,
+  "item_quantity": 3,
+  "item_discount": 0,
+  "guest": true,
+  "grand_total": 83.97,
+  "giftcard_total": 0,
+  "discounts": null,
+  "discount_total": 0,
+  "date_created": "2025-04-08T13:44:02.246Z",
+  "date_abandoned": "2025-04-08T16:45:02.016Z",
+  "currency": "USD",
+  "checkout_url": "https://thinking-gifts.swell.store/checkout/3487d2d9ee769fa89fc73617f9833f90",
+  "checkout_id": "3487d2d9ee769fa89fc73617f9833f90",
+  "capture_total": 83.97,
+  "billing": {},
+  "auth_total": 0,
+  "account_logged_in": null,
+  "id": "67f52822a2c75b0012610045",
+  "coupon": null,
+  "promotions": {
+    "page": 1,
+    "count": 0,
+    "results": [],
+    "page_count": 1,
+    "limit": 5
+  }
+}
