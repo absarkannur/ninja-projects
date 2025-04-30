@@ -6,17 +6,65 @@
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
                     <div class="banner-title-wrap">
                         <div class="content">
+                            <h4>10% OFF ON YOUR FIRST ORDER</h4>
                             <h1>Personalised gifts for kids</h1>
                             <button class="primary-button">Collections</button>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                    dsd
+                    <div class="slider-wrap">
+                        <div class="imagethmb">
+                            <div class="imagethmb_inner">
+                                <img src="{{ asset('front-end/images/h3-slider01.png') }}" alt="" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="home-page-categories">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <ul class="category">
+                        <li class="list">
+                            <img src="https://www.fnp.com/assets/images/custom/new-desk-home/hero-banners/Mothers_Day_Desk_14-04.jpg" alt="">
+                        </li>
+                        <li class="list">
+                            <img src="https://www.fnp.com/assets/images/custom/new-desk-home/hero-banners/Birthday_Desk-28-03.jpg" alt="">
+                        </li>
+                        <li class="list">
+                            <img src="https://www.fnp.com/assets/images/custom/new-desk-home/hero-banners/luxe_new_desk-09-02-2025.jpg" alt="">
+                        </li>
+                        <li class="list">
+                            <img src="https://www.fnp.com/assets/images/custom/new-desk-home/hero-banners/2hourdelivery_Squircle_41224.jpg" alt="">
+                        </li>
+                        <li class="list">
+                            <img src="https://www.fnp.com/assets/images/custom/new-desk-home/hero-banners/Hatke_gifts_Desk.jpg" alt="">
+                        </li>
+                        <li class="list">
+                            <img src="https://www.fnp.com/assets/images/custom/new-desk-home/hero-banners/Flowers_Squircle.jpg" alt="">
+                        </li>
+                        <li class="list">
+                            <img src="https://www.fnp.com/assets/images/custom/new-desk-home/hero-banners/Anniversary_desk_10-03-2025.jpg" alt="">
+                        </li>
+                        <li class="list">
+                            <img src="https://www.fnp.com/assets/images/custom/new-desk-home/hero-banners/Plants_Squircle-24-02-2025.jpg" alt="">
+                        </li>
+                        <li class="list">
+                            <img src="https://www.fnp.com/assets/images/custom/new-desk-home/hero-banners/Fashion_Squircle-23-04.jpg" alt="">
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     {{-- <div class="container">
         <div class="row">
