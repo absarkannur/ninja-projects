@@ -312,15 +312,42 @@ body{
 
 .home-page-categories .category .list{
     width: 170px;
-    height: 130px;
-    border-radius: 50%;
-    background-color: #444;
+    min-height: 130px;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 
-.home-page-categories .category .list img{
+.home-page-categories .category .list .image-thumb{
+    overflow: hidden;
+    display: block;
+    height: 130px;
+    width: 130px;
+    border-radius: 50%;
+}
+
+.home-page-categories .category .list .image-thumb img{
     width: 100%;
 }
+
+.home-page-categories .category .list .title{
+    display: block;
+    width: 170px;
+    height: 30px;
+    line-height: 30px;
+    color: var(--text-color);
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+
+}
+
+
+
+
 
 
 

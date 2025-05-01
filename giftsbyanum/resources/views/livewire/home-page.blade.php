@@ -32,31 +32,58 @@
 
                     <ul class="category">
                         <li class="list">
-                            <img src="https://www.fnp.com/assets/images/custom/new-desk-home/hero-banners/Mothers_Day_Desk_14-04.jpg" alt="">
+                            <span class="image-thumb">
+                                <img src="https://www.fnp.com/assets/images/custom/new-desk-home/hero-banners/Mothers_Day_Desk_14-04.jpg" alt="">
+                            </span>
+                            <span class="title">Test</span>
                         </li>
                         <li class="list">
-                            <img src="https://www.fnp.com/assets/images/custom/new-desk-home/hero-banners/Birthday_Desk-28-03.jpg" alt="">
+                            <span class="image-thumb">
+                                <img src="https://www.fnp.com/assets/images/custom/new-desk-home/hero-banners/Birthday_Desk-28-03.jpg" alt="">
+                            </span>
+                            <span class="title">Birthday</span>
                         </li>
                         <li class="list">
-                            <img src="https://www.fnp.com/assets/images/custom/new-desk-home/hero-banners/luxe_new_desk-09-02-2025.jpg" alt="">
+                            <span class="image-thumb">
+                                <img src="https://www.fnp.com/assets/images/custom/new-desk-home/hero-banners/luxe_new_desk-09-02-2025.jpg" alt="">
+                            </span>
+                            <span class="title">Test</span>
                         </li>
                         <li class="list">
-                            <img src="https://www.fnp.com/assets/images/custom/new-desk-home/hero-banners/2hourdelivery_Squircle_41224.jpg" alt="">
+                            <span class="image-thumb">
+                                <img src="https://www.fnp.com/assets/images/custom/new-desk-home/hero-banners/2hourdelivery_Squircle_41224.jpg" alt="">
+                            </span>
+                            <span class="title">Test</span>
                         </li>
                         <li class="list">
-                            <img src="https://www.fnp.com/assets/images/custom/new-desk-home/hero-banners/Hatke_gifts_Desk.jpg" alt="">
+                            <span class="image-thumb">
+                                <img src="https://www.fnp.com/assets/images/custom/new-desk-home/hero-banners/Hatke_gifts_Desk.jpg" alt="">
+                            </span>
+                            <span class="title">Test</span>
                         </li>
                         <li class="list">
-                            <img src="https://www.fnp.com/assets/images/custom/new-desk-home/hero-banners/Flowers_Squircle.jpg" alt="">
+                            <span class="image-thumb">
+                                <img src="https://www.fnp.com/assets/images/custom/new-desk-home/hero-banners/Flowers_Squircle.jpg" alt="">
+                            </span>
+                            <span class="title">Test</span>
                         </li>
                         <li class="list">
-                            <img src="https://www.fnp.com/assets/images/custom/new-desk-home/hero-banners/Anniversary_desk_10-03-2025.jpg" alt="">
+                            <span class="image-thumb">
+                                <img src="https://www.fnp.com/assets/images/custom/new-desk-home/hero-banners/Anniversary_desk_10-03-2025.jpg" alt="">
+                            </span>
+                            <span class="title">Test</span>
                         </li>
                         <li class="list">
-                            <img src="https://www.fnp.com/assets/images/custom/new-desk-home/hero-banners/Plants_Squircle-24-02-2025.jpg" alt="">
+                            <span class="image-thumb">
+                                <img src="https://www.fnp.com/assets/images/custom/new-desk-home/hero-banners/Plants_Squircle-24-02-2025.jpg" alt="">
+                            </span>
+                            <span class="title">Test</span>
                         </li>
                         <li class="list">
-                            <img src="https://www.fnp.com/assets/images/custom/new-desk-home/hero-banners/Fashion_Squircle-23-04.jpg" alt="">
+                            <span class="image-thumb">
+                                <img src="https://www.fnp.com/assets/images/custom/new-desk-home/hero-banners/Fashion_Squircle-23-04.jpg" alt="">
+                            </span>
+                            <span class="title">Test</span>
                         </li>
                     </ul>
 
