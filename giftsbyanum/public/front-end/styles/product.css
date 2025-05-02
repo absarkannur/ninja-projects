@@ -1,5 +1,93 @@
 
-.products-wrapper{
+.products{
+    clear: both;
+    overflow: hidden;
+    padding: 0;
+    margin: 0 -0.5%;
+}
+
+.products .product-list{
+    min-height: 100px;
+    padding: 20px;
+    border: solid 1px var(--border-light-color);
+    width: 24%;
+    float: left;
+    margin: 0 0.5%;
+    margin-bottom: 1%;
+}
+
+.products .product-list .category-wrap{
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.products .product-list .category-wrap .category-title{
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    color: var(--text-sub-color);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.products .product-list .category-wrap .product-offer-percent{
+    min-width: 40px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    background-color: rgb(192, 242, 192);
+    color: rgb(11, 102, 11);
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 0 5px;
+}
+
+.products .product-list .image-wrap{
+    height: 250px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.products .product-list .image-wrap .imagethmb,
+.products .product-list .image-wrap .imagethmb .imagethmb_inner{
+    height: 250px;
+}
+
+.products .product-list .title-wrap{
+    clear: both;
+    overflow: hidden;
+}
+
+.products .product-list .title-wrap .product-title{
+    font-size: 15px;
+    font-weight: 500;
+    height: 46px;
+    overflow: hidden;
+}
+
+.products .product-list .price-wrap{
+    height: 40px;
+    clear: both;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    /* background-color: rebeccapurple; */
+}
+
+.products .product-list .price-wrap .price{
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.products .product-list .price-wrap .price.ex{
+    color: var(--text-sub-color);
+    text-decoration: line-through;
+}
+
+/*.products-wrapper{
     clear: both;
     margin: 30px 0;
 }
@@ -141,8 +229,6 @@
 }
 
 
-/* Cart Page */
-
 .cart-list{
     list-style: none;
     padding: 0;
@@ -179,7 +265,6 @@
     width: 40px;
     height: 40px;
     cursor: pointer;
-    /* border: solid 1px var(--border-color); */
     border-radius: 10px;
     margin-right: 10px;
 }
@@ -194,4 +279,4 @@
     border: solid 1px var(--border-color);
     box-shadow: 0px 0px 3px #DDD;
     padding: 20px;
-}
+} */

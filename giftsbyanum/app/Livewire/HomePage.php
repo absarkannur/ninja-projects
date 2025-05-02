@@ -14,7 +14,7 @@ use Livewire\Component;
 class HomePage extends Component
 {
 
-    #[Title('Home | MyCart')]
+    #[Title('Gifts By Anum')]
 
     public $sessions;
     public $currency;
