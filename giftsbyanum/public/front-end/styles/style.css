@@ -440,10 +440,12 @@ body{
     clear: both;
     display: flex;
     justify-content: space-between;
+    padding: 0;
     gap: 20px;
 }
 
 .home-page-special-offer .spcial-offer-wrap .list{
+    position: relative;
     width: 100%;
     min-height: 500px;
     background-position: center;
@@ -456,14 +458,21 @@ body{
 }
 
 .home-page-special-offer .spcial-offer-wrap .list:hover{
-    background-size: 105% 105%;
+    background-size: 110% 110%;
 }
 
 .home-page-special-offer .spcial-offer-wrap .list .offer{
+    position: absolute;
     display: block;
-    font-weight: 900;
-    font-size: 40px;
+    font-weight: 600;
+    font-size: 74px;
+    color: var(--bg-primary-white);
+    writing-mode: vertical-lr;
+    transform: rotate(-180deg);
+    left: -30px;
 }
+
+
 
 
 /* div {

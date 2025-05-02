@@ -263,11 +263,11 @@
                         </li>
 
                         <li class="list" style="background-image: url('https://demo2.themelexus.com/flicko/wp-content/uploads/2023/12/H1-img-1.jpg')">
-                            <span class="offer">5% OFF</span>
+                            <span class="offer">25% OFF</span>
                         </li>
 
                         <li class="list" style="background-image: url('https://demo2.themelexus.com/flicko/wp-content/uploads/2023/12/H1-img-2.jpg')">
-                            <span class="offer">5% OFF</span>
+                            <span class="offer">10% OFF</span>
                         </li>
 
                     </ul>
