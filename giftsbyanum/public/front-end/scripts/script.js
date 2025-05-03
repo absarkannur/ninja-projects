@@ -57,6 +57,9 @@ $(document).ready(function()
         nav:false,
         dot: false,
         items: 3,
+        autoplay:true,
+        autoplayTimeout:2000,
+        autoplayHoverPause:false
     });
 
 
