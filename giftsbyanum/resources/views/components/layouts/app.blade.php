@@ -17,8 +17,9 @@
 
         <link rel="stylesheet" href="{{ asset('front-end/styles/init.css') }}" />
         <link rel="stylesheet" href="{{ asset('front-end/styles/product.css') }}" />
-        <link rel="stylesheet" href="{{ asset('front-end/styles/style.css') }}" />
         <link rel="stylesheet" href="{{ asset('front-end/styles/payments.css') }}" />
+        <link rel="stylesheet" href="{{ asset('front-end/styles/inner-styles.css') }}" />
+        <link rel="stylesheet" href="{{ asset('front-end/styles/style.css') }}" />
 
 
 

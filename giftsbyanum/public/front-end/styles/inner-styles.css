@@ -1,0 +1,69 @@
+
+
+.innerpage-wrapper{
+    overflow: hidden;
+    clear: both;
+}
+
+.innerpage-wrapper .breadcrumbs-wrap{
+    background-color: var(--bg-primary-white);
+}
+
+.innerpage-wrapper .breadcrumbs{
+    height: 40px;
+    overflow: hidden;
+    list-style: none;
+    border-bottom: solid 1px #eee;
+}
+
+.innerpage-wrapper .breadcrumbs .list{
+    height: 40px;
+    line-height: 40px;
+    color: var(--text-color);
+    font-size: 12px;
+    float: left;
+    padding-right: 10px;
+}
+
+/* --- */
+
+.innerpage-wrapper .product-image-slider-wrap,
+.innerpage-wrapper .product-info-wrap{
+    padding: 20px 0;
+}
+
+.innerpage-wrapper .product-info-wrap .header-content{
+    overflow: hidden;
+    clear: both;
+}
+
+.innerpage-wrapper .product-info-wrap .header-content h1{
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.innerpage-wrapper .product-info-wrap .header-content .price{
+    overflow: hidden;
+}
+
+.innerpage-wrapper .product-info-wrap .header-content .price .new-price,
+.innerpage-wrapper .product-info-wrap .header-content .price .old-price,
+.innerpage-wrapper .product-info-wrap .header-content .price .offer-percent{
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-right: 10px;
+}
+
+.innerpage-wrapper .product-info-wrap .header-content .price .new-price{
+    font-size: 20px;
+}
+.innerpage-wrapper .product-info-wrap .header-content .price .old-price{
+    text-decoration: line-through;
+    color: var(--text-sub-color);
+    font-size: 20px;
+}
+.innerpage-wrapper .product-info-wrap .header-content .price .offer-percent{
+    color: green;
+    font-size: 20px;
+}

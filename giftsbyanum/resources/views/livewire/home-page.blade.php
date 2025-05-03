@@ -361,6 +361,8 @@
                             <h2>Corporate Gifts</h2>
                             <p>Our curated selection of high-quality, customizable gifts is perfect for client
                                 appreciation, employee recognition, and milestone celebrations.</p>
+
+                            <button class="primary-invert-button">EXPLORE COLLECTION</button>
                         </div>
                     </div>
                 </div>

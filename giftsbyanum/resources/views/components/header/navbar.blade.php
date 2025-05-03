@@ -6,7 +6,7 @@
                     <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
 
                         <div class="logo-wrap">
-                            <div class="imagethmb">
+                            <div class="imagethmb" style="text-align: left">
                                 <div class="imagethmb_inner">
                                     <img src="{{ asset( 'front-end/images/logo.png' ) }}" alt="" />
                                 </div>
