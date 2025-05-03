@@ -79,7 +79,7 @@
     line-height: 40px;
     font-size: 16px;
     font-weight: 600;
-    color: var(--text-sub-color);
+    color: var(--text-light-color);
 }
 
 .innerpage-wrapper .product-info-wrap .about-product .accordion-button{
@@ -105,7 +105,7 @@
     line-height: 40px;
     font-size: 16px;
     font-weight: 600;
-    color: var(--text-sub-color);
+    color: var(--text-light-color);
 }
 
 
