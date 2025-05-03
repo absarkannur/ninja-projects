@@ -9,10 +9,9 @@ class ProductPage extends Component
 {
     #[Title('Gifts By Anum')]
 
-    public function render()
-    {
+    public $a = 'cake';
 
+    public function render() {
         return view('livewire.product-page');
-
     }
 }

@@ -1,8 +1,7 @@
-
-
 .innerpage-wrapper{
     overflow: hidden;
     clear: both;
+    background-color: var(--bg-primary-offwhite);
 }
 
 .innerpage-wrapper .breadcrumbs-wrap{
@@ -39,6 +38,7 @@
 
 .innerpage-wrapper .product-info-wrap .header-content h1{
     font-size: 30px;
+    font-weight: 600;
     margin-bottom: 10px;
 }
 
@@ -49,21 +49,134 @@
 .innerpage-wrapper .product-info-wrap .header-content .price .new-price,
 .innerpage-wrapper .product-info-wrap .header-content .price .old-price,
 .innerpage-wrapper .product-info-wrap .header-content .price .offer-percent{
-    font-size: 20px;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-color);
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 .innerpage-wrapper .product-info-wrap .header-content .price .new-price{
-    font-size: 20px;
+    font-size: 22px;
 }
 .innerpage-wrapper .product-info-wrap .header-content .price .old-price{
     text-decoration: line-through;
     color: var(--text-sub-color);
-    font-size: 20px;
+    font-size: 18px;
 }
 .innerpage-wrapper .product-info-wrap .header-content .price .offer-percent{
-    color: green;
-    font-size: 20px;
+    color: rgb(12, 151, 12);
+    font-size: 18px;
+}
+
+/* --- */
+
+.innerpage-wrapper .product-info-wrap .about-product{
+    clear: both;
+    margin: 20px 0;
+}
+
+.innerpage-wrapper .product-info-wrap .about-product .title{
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-sub-color);
+}
+
+.innerpage-wrapper .product-info-wrap .about-product .accordion-button{
+    font-weight: 600;
+}
+
+.innerpage-wrapper .product-info-wrap .about-product .accordion-button:not(.collapsed){
+    background-color: transparent;
+    color: var(--text-color);
+}
+
+.innerpage-wrapper .product-info-wrap .about-product .accordion-button:focus{
+    box-shadow: none;
+}
+
+.innerpage-wrapper .product-info-wrap .product-customize{
+    clear: both;
+    margin: 20px 0;
+}
+
+.innerpage-wrapper .product-info-wrap .product-customize .title{
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-sub-color);
+}
+
+
+/* ---- */
+
+.innerpage-wrapper .product-image-slider-wrap .slider-wrap{
+    height: 477px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.innerpage-wrapper .product-image-slider-wrap .slider-wrap .thumbs-view{
+    position: relative;
+    width: 25%;
+    height: 100%;
+    float: left;
+}
+.innerpage-wrapper .product-image-slider-wrap .slider-wrap .image-view{
+    width: 75%;
+    height: 100%;
+    float: left;
+}
+
+.innerpage-wrapper .product-image-slider-wrap .slider-wrap .image-view .imgae-wrap{
+    height: 477px;
+}
+.innerpage-wrapper .product-image-slider-wrap .slider-wrap .image-view .imgae-wrap .imagethmb,
+.innerpage-wrapper .product-image-slider-wrap .slider-wrap .image-view .imgae-wrap .imagethmb .imagethmb_inner{
+    height: 477px;
+}
+
+
+.innerpage-wrapper .product-image-slider-wrap .slider-wrap .thumbs-view .image-thumbs{
+    overflow: hidden;
+    margin: 0 auto;
+    width: 90%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.innerpage-wrapper .product-image-slider-wrap .slider-wrap .thumbs-view .image-thumbs .list{
+    height: 120px;
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: solid 1px var(--border-color);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.innerpage-wrapper .product-image-slider-wrap .slider-wrap .thumbs-view .scroll-up,
+.innerpage-wrapper .product-image-slider-wrap .slider-wrap .thumbs-view .scroll-down{
+    display: block;
+    position: absolute;
+    height: 25px;
+    line-height: 25px;
+    width: 100%;
+    background-color: rgba(0,0,0,0.2);
+    color: var(--bg-primary-white);
+    text-align: center;
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+.innerpage-wrapper .product-image-slider-wrap .slider-wrap .thumbs-view .scroll-up{
+    top: 0;
+    display: none;
+}
+
+.innerpage-wrapper .product-image-slider-wrap .slider-wrap .thumbs-view .scroll-down{
+    bottom: 0;
 }

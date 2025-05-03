@@ -113,6 +113,17 @@ ul{
     margin: auto;
 }
 
+/* Input */
+
+.primary-input{
+    height: 40px;
+    width: 100%;
+    border-radius: 4px;
+    border: solid 1px var(--border-color);
+    padding: 0 20px;
+    font-size: 14px;
+}
+
 /* Headers */
 
 .header-with-link{
