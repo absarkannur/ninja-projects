@@ -31,6 +31,8 @@
 
         {{ $slot }}
 
+        <x:footer.footer />
+
         <script src="{{ asset('front-end/scripts/jquery.min.js') }}"></script>
         <script src="{{ asset('front-end/scripts/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('front-end/scripts/owl.carousel.min.js') }}"></script>

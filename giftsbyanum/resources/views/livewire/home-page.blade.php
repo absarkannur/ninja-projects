@@ -207,7 +207,7 @@
 
                     <ul class="products">
 
-                        @foreach ( [1,2,3,4,5] as $f )
+                        @foreach ( [1,2,3,4,5,6,7,8] as $f )
                             <li class="product-list">
                                 <div class="category-wrap">
                                     <span class="block category-title">Accessories</span>
@@ -256,21 +256,173 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                    <ul class="spcial-offer-wrap">
+
+                    <ul class="spcial-offer-wrap owl-carousel owl-theme" id="js_special_offer">
 
                         <li class="list" style="background-image: url('https://demo2.themelexus.com/flicko/wp-content/uploads/2023/12/H1-img-3.jpg')">
                             <span class="offer">5% OFF</span>
+                            <span class="label"><em>Accessories</em></span>
                         </li>
 
                         <li class="list" style="background-image: url('https://demo2.themelexus.com/flicko/wp-content/uploads/2023/12/H1-img-1.jpg')">
                             <span class="offer">25% OFF</span>
+                            <span class="label"><em>Gift for him</em></span>
                         </li>
 
                         <li class="list" style="background-image: url('https://demo2.themelexus.com/flicko/wp-content/uploads/2023/12/H1-img-2.jpg')">
                             <span class="offer">10% OFF</span>
+                            <span class="label"><em>Gift for her</em></span>
                         </li>
 
                     </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="home-page-shop-by-relation">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <div class="header-default">
+                        <span class="title">Shop by Relation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+
+                    <ul class="category">
+                        <li class="list">
+                            <span class="image-thumb">
+                                <img src="https://www.fnp.com/assets/images/custom/new-home-2025/relationship/boyfriend_170125.jpg" alt="">
+                            </span>
+                            <span class="title">Boyfriend</span>
+                        </li>
+                        <li class="list">
+                            <span class="image-thumb">
+                                <img src="https://www.fnp.com/assets/images/custom/new-home-2025/relationship/girlfriend_170125.jpg" alt="">
+                            </span>
+                            <span class="title">Girlfriend</span>
+                        </li>
+                        <li class="list">
+                            <span class="image-thumb">
+                                <img src="https://www.fnp.com/assets/images/custom/new-home-2025/relationship/Kids_170125.jpg" alt="">
+                            </span>
+                            <span class="title">Kids</span>
+                        </li>
+                        <li class="list">
+                            <span class="image-thumb">
+                                <img src="https://www.fnp.com/assets/images/custom/new-home-2025/relationship/Friends_170125.jpg" alt="">
+                            </span>
+                            <span class="title">Friends</span>
+                        </li>
+                        <li class="list">
+                            <span class="image-thumb">
+                                <img src="https://www.fnp.com/assets/images/custom/new-desk-home/calendar/Mothers_Day_Upcoming_Occasion_Desk-09-03-2025.jpg" alt="">
+                            </span>
+                            <span class="title">Mother</span>
+                        </li>
+                        <li class="list">
+                            <span class="image-thumb">
+                                <img src="https://www.fnp.com/assets/images/custom/new-desk-home/hero-banners/Flowers_Squircle.jpg" alt="">
+                            </span>
+                            <span class="title">Teacher</span>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="home-page-corporate-gifts">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                    <div class="image-wrap">
+                        <div class="imagethmb">
+                            <div class="imagethmb_inner">
+                                <img src="{{ asset('front-end/images/corporate-banner.png') }}" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                    <div class="content-wrap">
+                        <div class="box">
+                            <h4>Premium Quality</h4>
+                            <h2>Corporate Gifts</h2>
+                            <p>Our curated selection of high-quality, customizable gifts is perfect for client
+                                appreciation, employee recognition, and milestone celebrations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="home-page-popular-categories">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <div class="header-default">
+                        <span class="title">Popular Categories</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
+                    <ul class="category">
+                        <li class="list">
+                            <span class="image-thumb">
+                                <img src="https://www.fnp.com/assets/images/custom/new-home-2025/personalise/New_arrivals_Personalise_your_Moments-25-02-2025.jpg" alt="">
+                            </span>
+                            <span class="title">Invitations</span>
+                        </li>
+                        <li class="list">
+                            <span class="image-thumb">
+                                <img src="https://www.fnp.com/assets/images/custom/new-home-2025/personalise/Cushions_170125.jpg" alt="">
+                            </span>
+                            <span class="title">Home Decor</span>
+                        </li>
+                        <li class="list">
+                            <span class="image-thumb">
+                                <img src="https://www.fnp.com/assets/images/custom/new-home-2025/elegance/BeautyHampers_170125.jpg" alt="">
+                            </span>
+                            <span class="title">Business Cards</span>
+                        </li>
+                        <li class="list">
+                            <span class="image-thumb">
+                                <img src="https://www.fnp.com/images/pr/l/v300/couple-neon-board-with-heart_2.jpg" alt="">
+                            </span>
+                            <span class="title">Wall Art</span>
+                        </li>
+                        <li class="list">
+                            <span class="image-thumb">
+                                <img src="https://www.fnp.com/assets/images/custom/new-home-2025/gifts-waiting/GWWF_Toys_170125.jpg" alt="">
+                            </span>
+                            <span class="title">Toys & Games</span>
+                        </li>
+                        <li class="list">
+                            <span class="image-thumb">
+                                <img src="https://m-i1.fnp.com/images/pr/l/v20241025173409/heartfelt-memories-frame_1.jpg" alt="">
+                            </span>
+                            <span class="title">Frames</span>
+                        </li>
+                    </ul>
+
                 </div>
             </div>
         </div>
