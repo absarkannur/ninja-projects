@@ -22,8 +22,8 @@ export default function SplashScreen() {
     });
     
     const handleRegister =() => {
-        // router.push( '/(profile)/profile.screen' );
-        router.push( '/(dashboard)/dashboard' );
+        router.push( '/(profile)/profile.screen' );
+        // router.push( '/(dashboard)/dashboard' );
     }
 
     return (

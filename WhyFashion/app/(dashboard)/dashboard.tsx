@@ -342,7 +342,7 @@ export default function Dashboard() {
     const cardScale = useSharedValue(1);
     const cardTranslateYModel = useSharedValue(300);
 
-    const [ tip, setTip ] = useState<boolean>(true)
+    const [ tip, setTip ] = useState<boolean>(false)
 
     const [ card1, setCard1 ] = useState('Swipe Right');
     const [ card2, setCard2 ] = useState('');
