@@ -11,7 +11,6 @@
 
 
         <link rel="stylesheet" href="{{ asset('front-end/styles/bootstrap.min.css') }}" />
-
         <link rel="stylesheet" href="{{ asset('front-end/styles/owl.carousel.min.css') }}">
         <link rel="stylesheet" href="{{ asset('front-end/styles/owl.theme.default.min.css') }}">
 
@@ -20,8 +19,6 @@
         <link rel="stylesheet" href="{{ asset('front-end/styles/payments.css') }}" />
         <link rel="stylesheet" href="{{ asset('front-end/styles/inner-styles.css') }}" />
         <link rel="stylesheet" href="{{ asset('front-end/styles/style.css') }}" />
-
-
 
         @livewireStyles
 

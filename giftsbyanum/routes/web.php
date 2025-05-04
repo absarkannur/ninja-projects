@@ -5,6 +5,7 @@ use App\Livewire\HomePage;
 use App\Livewire\Navbar;
 use App\Livewire\PaymentPage;
 use App\Livewire\ProductPage;
+use App\Livewire\ProductsPage;
 use App\Livewire\RegisterPage;
 use App\Livewire\SigninPage;
 use App\Models\Products;
@@ -30,12 +31,10 @@ use Illuminate\Http\Request;
 
 Route::get( '/', HomePage::class )->name('home');
 Route::get( '/product', ProductPage::class )->name('product');
-// Products
+Route::get( '/products/{slug}', ProductsPage::class )->name('products');
 
 Route::get( '/cart', CartPage::class )->name( 'cart' );
 Route::get( '/payment', PaymentPage::class )->name( 'payment' );
-// Products
-// ProductDetails
 
 Route::get( 'logout', function( Request $request ) {
     Auth::guard('customers')->logout();

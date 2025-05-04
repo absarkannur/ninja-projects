@@ -39,4 +39,5 @@ Route::middleware(['auth:customers'])->prefix('user')->group(function(){
     // CheckOut
     // Order Success
     // Order Cancel
+
 })->middleware('auth:customers');

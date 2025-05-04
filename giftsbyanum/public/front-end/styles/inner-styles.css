@@ -1,7 +1,7 @@
 .innerpage-wrapper{
     overflow: hidden;
     clear: both;
-    background-color: var(--bg-primary-offwhite);
+    background-color: var(--bg-primary-white);
 }
 
 .innerpage-wrapper .breadcrumbs-wrap{
@@ -12,7 +12,7 @@
     height: 40px;
     overflow: hidden;
     list-style: none;
-    border-bottom: solid 1px #eee;
+    /* border-top: solidlid 1px #eee; */
 }
 
 .innerpage-wrapper .breadcrumbs .list{
@@ -44,6 +44,8 @@
 
 .innerpage-wrapper .product-info-wrap .header-content .price{
     overflow: hidden;
+    display: flex;
+    align-items: center;
 }
 
 .innerpage-wrapper .product-info-wrap .header-content .price .new-price,
@@ -179,4 +181,31 @@
 
 .innerpage-wrapper .product-image-slider-wrap .slider-wrap .thumbs-view .scroll-down{
     bottom: 0;
+}
+
+
+/* Search Or Products Pages Styles */
+
+.innerpage-wrapper .filter-section{
+    width: 30%;
+    float: left;
+}
+
+.innerpage-wrapper .filter-section .filter-wrap{
+    clear: both;
+
+}
+
+.innerpage-wrapper .filter-section .filter-wrap .title{
+    height: 40px;
+    line-height: 40px;
+    color: black;
+    font-weight: 600;
+}
+
+
+.innerpage-wrapper .result-section{
+    background-color: rebeccapurple;
+    width: 70%;
+    float: left;
 }
