@@ -103,7 +103,6 @@ $(document).ready(function()
 
 
     // Product Filter
-
     $('.filter-accordion .accordion-item .accordion-header').click(function(){
         $(this).parent().find('.accordion-header').toggleClass('active');
         $(this).parent().find('.accordion-body').toggleClass('active');

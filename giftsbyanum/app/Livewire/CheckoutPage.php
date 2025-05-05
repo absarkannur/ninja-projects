@@ -2,9 +2,9 @@
 
 namespace App\Livewire;
 
+use Livewire\Component;
 use App\Helpers\CartManagement;
 use Livewire\Attributes\Title;
-use Livewire\Component;
 
 class CheckoutPage extends Component
 {

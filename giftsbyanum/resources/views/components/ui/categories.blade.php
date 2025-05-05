@@ -2,7 +2,12 @@
     <div class="container">
         <div class="row">
             <div class="col">
+
+                @if ($categories)
                 <ul class="categories">
+                    @foreach ( $categories as $category )
+                    <li><a href="{{ route( 'products', ['slug' => $category->category_slug ] ) }}">{{ $category->category_name }}</a></li>
+                    @endforeach
                     <li><a href="">Diwali</a></li>
                     <li><a href="">Birthday</a></li>
                     <li><a href="">Anniversary</a></li>
@@ -16,6 +21,8 @@
                     <li><a href="">Gifts</a></li>
                     <li><a href="">Premium Gifts</a></li>
                 </ul>
+                @endif
+
             </div>
         </div>
     </div>

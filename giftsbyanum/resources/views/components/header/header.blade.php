@@ -37,6 +37,6 @@
     {{-- Search Section --}}
     <livewire:navbar />
 
-    <x:ui.categories />
+    <livewire:categories />
 
 </header>

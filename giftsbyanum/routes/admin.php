@@ -7,6 +7,7 @@ use App\Livewire\OrdersPage;
 use App\Livewire\RegisterPage;
 use App\Livewire\ResetPasswordPage;
 use App\Livewire\SigninPage;
+use App\Livewire\WishPage;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,8 +31,11 @@ Route::prefix('gust')->group(function(){
 
 
 Route::middleware(['auth:customers'])->prefix('user')->group(function(){
+    Route::get( '/wish-list', WishPage::class )->name('wish-list');
     Route::get( '/orders', OrdersPage::class )->name( 'orders' );
     Route::get( '/checkout', CheckoutPage::class )->name( 'checkout' );
+
+    //wishlist
 
     // AddAddress
     // Track Orders

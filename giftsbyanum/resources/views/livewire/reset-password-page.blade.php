@@ -2,7 +2,7 @@
     <div class="container text-center">
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <!-- reset_wrapper -->
+
                 <form wire:submit.prevent="submit">
                     <div class="login_wrapper">
 
@@ -37,7 +37,6 @@
                         </div>
 
                         <div class="login_btn_wrapper">
-                            {{-- <a href="#" class="btn btn-primary login_btn"> Login </a> --}}
                             <button type="submit" style="width: 100%;height: 50px;" class="btn btn-primary login_btn">Login</button>
                         </div>
                         <div class="login_message">
@@ -46,8 +45,8 @@
 
                     </div>
                 </form>
-                <!-- /.reset_wrapper-->
             </div>
         </div>
     </div>
 </div>
+

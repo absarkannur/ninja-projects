@@ -5,9 +5,11 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Customers;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\Title;
 
 class RegisterPage extends Component
 {
+    #[Title('Gifts By Anum - Register')]
 
     public $name = '';
     public $email = '';

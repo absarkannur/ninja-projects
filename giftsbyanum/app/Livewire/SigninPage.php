@@ -5,10 +5,13 @@ namespace App\Livewire;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
 class SigninPage extends Component
 {
+
+    #[Title('Gifts By Anum - Login')]
 
     public $email = '';
     public $password = '';

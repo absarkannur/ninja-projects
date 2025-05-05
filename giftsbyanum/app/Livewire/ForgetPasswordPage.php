@@ -10,7 +10,7 @@ use Mockery\Generator\StringManipulation\Pass\Pass;
 class ForgetPasswordPage extends Component
 {
 
-    #[Title('Home | Forgot Password')]
+    #[Title('Gifts By Anum - Forgot Password')]
 
     public $email;
 

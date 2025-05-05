@@ -10,7 +10,7 @@ use Livewire\Component;
 class CartPage extends Component
 {
 
-    #[Title('Home | Cart')]
+    #[Title('Gifts By Anum - Cart')]
 
     protected $cart_items = [];
     protected $grand_total = 0;
