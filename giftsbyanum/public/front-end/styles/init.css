@@ -78,6 +78,11 @@ ul{
     border-radius: 5px;
 }
 
+.primary-button:active{
+    top: 1px;
+    background-color: #025451;
+}
+
 .primary-button::after{
     position: absolute;
     content: '›';
@@ -119,6 +124,11 @@ ul{
     position: relative;
     padding-left: 30px;
     border-radius: 5px;
+}
+
+.primary-invert-button:active{
+    top: 1px;
+    background-color: #025451;
 }
 
 .primary-invert-button::after{
@@ -256,7 +266,6 @@ ul{
 .pb25{padding-bottom: 25px;}
 .pb30{padding-bottom: 30px;}
 
-
 /* Margin */
 .mt5{margin-top: 5px;}
 .mt10{margin-top: 10px;}
@@ -285,7 +294,6 @@ ul{
 .mr20{margin-right: 20px;}
 .mr25{margin-right: 25px;}
 .mr30{margin-right: 30px;}
-
 
 .f10{font-size: 10px;}
 .f12{font-size: 12px;}

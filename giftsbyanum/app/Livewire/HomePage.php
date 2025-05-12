@@ -29,20 +29,12 @@ class HomePage extends Component
 
     }
 
-    public function addToCart( $product_id, $qty ){
-
-        $total_count =  CartManagement::addItemToCart( $product_id, $qty );
-        $this->dispatch( 'update-cart');
-
-        // $this->redirect('/');
-
-        // dd( CartManagement::getCartItemsFromCookie() );
-
-    }
-
     public function render() {
 
-        $products = Products::get();
+        $products = Products::leftJoin( 'offers', 'offers.id', 'products.offers_id' )
+                            ->leftJoin( 'sub_categories', 'sub_categories.id', 'products.sub_categories_id' )
+                            ->leftJoin( 'categories','categories.id', 'sub_categories.categories_id' )
+                            ->get();
 
         return view('livewire.home-page', [
             'products' => $products

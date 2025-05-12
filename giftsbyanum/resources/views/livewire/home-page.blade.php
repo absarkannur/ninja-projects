@@ -207,26 +207,34 @@
 
                     <ul class="products">
 
-                        @foreach ( [1,2,3,4,5,6,7,8] as $f )
+                        @foreach ( $products as $product )
+                            {{-- {{ dd( $product ) }} --}}
                             <li class="product-list">
-                                <div class="category-wrap">
-                                    <span class="block category-title">Accessories</span>
-                                    <span class="block product-offer-percent">-10%</span>
-                                </div>
-                                <div class="image-wrap">
-                                    <div class="imagethmb">
-                                        <div class="imagethmb_inner">
-                                            <img src="{{ asset('front-end/images/logo.png') }}" alt="" />
+                                <a href="{{ route( 'product', ['slug' => $product->product_slug ] ) }}">
+                                    <div class="category-wrap">
+                                        <span class="block category-title">{{ $product->category_name }}</span>
+                                        @if ( $product->offer_discount_percent )
+                                        <span class="block product-offer-percent">-{{ $product->offer_discount_percent }}%</span>
+                                        @endif
+                                    </div>
+                                    <div class="image-wrap">
+                                        <div class="imagethmb">
+                                            <div class="imagethmb_inner">
+                                                <img src="{{ asset( 'storage/' . $product->product_images[0] ) }}" alt="" />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="title-wrap">
-                                    <span class="block product-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto unde, accusantium dicta aliquam explicabo numquam recusandae voluptatibus dolorem tempora. Dolore rem maiores perspiciatis repellat quibusdam debitis asperiores, adipisci libero iusto.</span>
-                                </div>
-                                <div class="price-wrap">
-                                    <span class="block price">AED 20.25</span>
-                                    <span class="block price ex">AED 22.50</span>
-                                </div>
+                                    <div class="title-wrap">
+                                        <span class="block product-title">{{ $product->product_name }}</span>
+                                    </div>
+                                    <div class="price-wrap">
+                                        <span class="block price">{{ Number::currency( $product->product_sales_price, env('APP_CURRENCY') ) }}</span>
+
+                                        @if ( $product->offer_discount_percent )
+                                        <span class="block price ex">{{ Number::currency( $product->product_sales_price, env('APP_CURRENCY') ) }}</span>
+                                        @endif
+                                    </div>
+                                </a>
                             </li>
                         @endforeach
 

@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="{{ asset('front-end/styles/init.css') }}" />
         <link rel="stylesheet" href="{{ asset('front-end/styles/product.css') }}" />
         <link rel="stylesheet" href="{{ asset('front-end/styles/payments.css') }}" />
+        <link rel="stylesheet" href="{{ asset('front-end/styles/cart.css') }}" />
         <link rel="stylesheet" href="{{ asset('front-end/styles/inner-styles.css') }}" />
         <link rel="stylesheet" href="{{ asset('front-end/styles/style.css') }}" />
 
@@ -37,6 +38,7 @@
         <script src="{{ asset('front-end/scripts/script.js') }}"></script>
 
         @livewireScripts
+
 
     </body>
 </html>

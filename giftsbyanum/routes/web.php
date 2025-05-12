@@ -31,7 +31,7 @@ use Illuminate\Http\Request;
 // });
 
 Route::get( '/', HomePage::class )->name('home');
-Route::get( '/product', ProductPage::class )->name('product');
+Route::get( '/product/{slug}', ProductPage::class )->name('product');
 Route::get( '/products/{slug}', ProductsPage::class )->name('products');
 
 

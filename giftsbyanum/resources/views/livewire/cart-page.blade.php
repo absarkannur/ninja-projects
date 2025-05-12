@@ -8,11 +8,10 @@
 
                         @if ($cart_items)
 
-                            <li class="cart">
-                                <div class="image">&nbsp;</div>
+                            <li class="cart header">
                                 <div class="title">Name</div>
                                 <div class="sales_price">Price</div>
-                                <div class="quantity">&nbsp;</div>
+                                <div class="quantity">Qty</div>
                                 <div class="sales_price">Discount</div>
                                 <div class="total_price">Total</div>
                                 <div class="delete">&nbsp;</div>
@@ -27,7 +26,7 @@
                                     <div class="title">{{ $item['product_name'] }}</div>
                                     <div class="sales_price">{{ Number::currency( $item['product_price'], 'AED' ) }}</div>
                                     <div class="quantity">
-                                        <div class="product-qty">
+                                        <span class="product-qty">
                                             <button wire:click.prevent="decrementCart({{ $item['product_id'] }})" type="button" class="input-quantity-btn quantity-left-minus" data-type="minus">
                                                 <svg width="16" height="16"><use xlink:href="{{ asset('front-end/images/svg-sprint.svg#minus-thick') }}"></use></svg>
                                             </button>
@@ -35,7 +34,7 @@
                                             <button wire:click.prevent="incrementCart({{ $item['product_id'] }})" type="button" class="input-quantity-btn quantity-right-plus" data-type="plus">
                                                 <svg width="16" height="16"><use xlink:href="{{ asset('front-end/images/svg-sprint.svg#plus-thick') }}"></use></svg>
                                             </button>
-                                        </div>
+                                        </span>
                                     </div>
                                     <div class="sales_price">{{ Number::currency( $item['product_total_discount_amount'], 'AED' ) }}</div>
 

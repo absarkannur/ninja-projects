@@ -1,11 +1,45 @@
 
-$(document).ready(function()
-{
+$(document).ready(function() {
+
 	"use strict";
+
+    // Home Page Special Offer Slider
+
+    var owl_special_offer = $('#js_special_offer').owlCarousel({
+        loop:true,
+        margin:20,
+        nav:false,
+        dot: false,
+        items: 3,
+        autoplay:true,
+        autoplayTimeout:2000,
+        autoplayHoverPause:false
+    });
+
+    //
+
+    $('.js_click_down').click(function(){
+        var currentScroll = $('#js_thumb').scrollTop();
+        $('#js_thumb').animate({ scrollTop: currentScroll+130 },100);
+        $('.js_click_up').show();
+    });
+
+    $('.js_click_up').click(function(){
+        var currentScroll = $('#js_thumb').scrollTop();
+        $('#js_thumb').animate({ scrollTop: currentScroll-130 },100);
+        if( currentScroll < 100 ){
+            $('.js_click_up').hide();
+        }
+    });
+
+    // Product Filter
+    $('.filter-accordion .accordion-item .accordion-header').click(function(){
+        $(this).parent().find('.accordion-header').toggleClass('active');
+        $(this).parent().find('.accordion-body').toggleClass('active');
+    });
 
     // Product to item
     $('.product-qty').each(function(){
-
         var $el_product = $(this);
         var quantity = 1;
 
@@ -48,65 +82,5 @@ $(document).ready(function()
         });
 
     });
-
-
-    // Home Page Special Offer Slider
-
-    var owl_special_offer = $('#js_special_offer').owlCarousel({
-        loop:true,
-        margin:20,
-        nav:false,
-        dot: false,
-        items: 3,
-        autoplay:true,
-        autoplayTimeout:2000,
-        autoplayHoverPause:false
-    });
-
-    // Product Detail Page
-
-    var owl_product_slider = $('#js_product_slider').owlCarousel({
-        loop:true,
-        margin:20,
-        nav:false,
-        dots: false,
-        items: 1
-    });
-
-    //
-
-    $('.js_click_down').click(function(){
-
-        var currentScroll = $('#js_thumb').scrollTop();
-        $('#js_thumb').animate({ scrollTop: currentScroll+130 },100);
-        $('.js_click_up').show();
-
-    });
-
-    $('.js_click_up').click(function(){
-        var currentScroll = $('#js_thumb').scrollTop();
-        $('#js_thumb').animate({ scrollTop: currentScroll-130 },100);
-
-        if( currentScroll < 100 ){
-            $('.js_click_up').hide();
-        }
-
-    });
-
-    $('#js_thumb .list').click(function(){
-
-        var index = $(this).index();
-
-        owl_product_slider.trigger('to.owl.carousel', [ index, 500 ]);
-
-    });
-
-
-    // Product Filter
-    $('.filter-accordion .accordion-item .accordion-header').click(function(){
-        $(this).parent().find('.accordion-header').toggleClass('active');
-        $(this).parent().find('.accordion-body').toggleClass('active');
-    });
-
 
 });
