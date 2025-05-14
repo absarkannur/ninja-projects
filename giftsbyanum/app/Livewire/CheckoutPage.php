@@ -12,10 +12,10 @@ use App\Models\Orders;
 use App\Models\PaymentInformations;
 use App\Models\PaymentsTransaction;
 use App\Models\PaymentTypes;
+use App\Models\Countries;
 
 class CheckoutPage extends Component
 {
-
 
     #[Title('Gifts By Anum - Checkout')]
 
@@ -26,6 +26,21 @@ class CheckoutPage extends Component
     public $payment_card;
 
     public $item;
+
+    
+    // New Address
+    public $full_name = '';
+    public $address_1 = '';
+    public $address_2 = '';
+    public $country = '';
+    public $city = '';
+    public $postal_code = '';
+    public $phone_number = '';
+
+
+
+    // Options
+    public $option_address = false;
 
     public function mount(){
 
@@ -45,12 +60,19 @@ class CheckoutPage extends Component
         
     }
 
+    public function newAddress(){
+        $this->option_address = true;
+    }
+
     public function fn_checkout(){
 
     }
 
     public function render()
     {
+
+        // Get all counties
+        $countries = Countries::where('active',1)->get();
 
         $address = Addresses::select( 'addresses.*', 'countries.country_name' )
             ->where( 'customers_id', '=' , $this->current_session['id'] )
@@ -62,7 +84,8 @@ class CheckoutPage extends Component
         return view('livewire.checkout-page', [
             'current_session' => $this->current_session,
             'payment_methods' => $payment_methods,
-            'address' => $address
+            'address' => $address,
+            'countries' => $countries
         ]);
     }
 }

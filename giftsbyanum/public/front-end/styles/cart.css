@@ -196,7 +196,9 @@
 .innerpage-wrapper .checkout-wrap .payment-wrap .payment-fieldset legend .url{
     font-size: 12px;
     font-weight: normal;
-    color: red;
+    color: var(--bg-primary-green);
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 .innerpage-wrapper .checkout-wrap .payment-wrap .payment-fieldset .fieldset-body{
@@ -214,6 +216,21 @@
     border: solid 1px #ddd;
     border-radius: 10px;
     padding: 10px;
-    width: 50%;
     float: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.innerpage-wrapper .checkout-wrap .payment-wrap .payment-fieldset .fieldset-body .address-list .address div{
+    padding: 0 10px;
+}
+
+.innerpage-wrapper .checkout-wrap .payment-wrap .payment-fieldset .fieldset-body .address-list .address input[type='radio']{
+    width: 20px;
+    height: 20px;
+}
+
+.innerpage-wrapper .checkout-wrap .payment-wrap .payment-fieldset .fieldset-body .address-list .address address > span{
+    display: block;
 }

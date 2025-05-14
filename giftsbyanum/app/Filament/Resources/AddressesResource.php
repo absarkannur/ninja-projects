@@ -39,6 +39,7 @@ class AddressesResource extends Resource
                         ->searchable(false)
                         ->columnSpanFull()
                         ->required(),
+                    TextInput::make('full_name')->columnSpanFull(),
                     Textarea::make('address_line_1'),
                     Textarea::make('address_line_2'),
                     Select::make('countries_id')

@@ -14,6 +14,7 @@ class Addresses extends Model
     protected $fillable = [
         'customers_id',
         'countries_id',
+        'full_name',
         'address_line_1',
         'address_line_2',
         'country',
