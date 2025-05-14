@@ -37,7 +37,6 @@
                                         </span>
                                     </div>
                                     <div class="sales_price">{{ Number::currency( $item['product_total_discount_amount'], 'AED' ) }}</div>
-
                                     <div class="total_price">{{ Number::currency( $item['product_total_amount'], 'AED' ) }}</div>
                                     <div class="delete" wire:click.prevent="removeCart({{ $item['product_id'] }})">
                                         <svg width="16" height="16"><use xlink:href="{{ asset('front-end/images/svg-sprint.svg#bin-thick-shape') }}"></use></svg>
