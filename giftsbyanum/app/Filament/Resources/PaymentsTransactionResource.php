@@ -10,6 +10,7 @@ use Filament\Forms;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ToggleButtons;
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -41,10 +42,10 @@ class PaymentsTransactionResource extends Resource
                     ->label('Payment Types')
                     ->searchable(false)
                     ->required(),
-                Select::make('payment_informations_id')
-                    ->relationship( 'payment_informations', 'provider' )
-                    ->label('Payment Informations')
-                    ->searchable(false),
+                TextInput::make('transaction_amount')->numeric()->required(),
+                DatePicker::make('transaction_date')
+                        ->required()
+                        ->label('Transaction Date'),
                 ToggleButtons::make('payment_status')
                     ->inline()
                     ->options( PaymentStatus::class )
@@ -57,7 +58,6 @@ class PaymentsTransactionResource extends Resource
             ->columns([
                 TextColumn::make('orders.order_number'),
                 TextColumn::make('payment_types.payment_type'),
-                TextColumn::make('payment_informations.provider'),
                 TextColumn::make('payment_status')->badge()
             ])
             ->filters([

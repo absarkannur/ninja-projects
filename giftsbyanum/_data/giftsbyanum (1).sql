@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 15, 2025 at 07:33 AM
+-- Generation Time: May 15, 2025 at 07:05 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.3.1
 
@@ -51,7 +51,8 @@ INSERT INTO `addresses` (`id`, `customers_id`, `countries_id`, `full_name`, `add
 (3, 1, 398, NULL, 'Media City, GBS Building, 101, 102', 'GBS Building, 101, 102', 'Dubai', '000001', 'Costa Cafe , GBS Building', '0562364538', 0, '2025-04-03 23:47:04', '2025-04-06 10:44:00'),
 (4, 6, 398, 'Emin Omer', 'Media City, GBS Building, 101, 102', 'GBS Building, 101, 102', 'Dubai', '870304', 'Costa Cafe , GBS Building', '0562364538', 0, '2025-04-04 13:41:50', '2025-05-14 14:31:33'),
 (6, 6, 398, 'Emin Absar', 'Seevayi House, Mottambram', 'P.O Madayi, Kannur, Kerala', 'Dubai', '670304', 'Noor Masjid', '971 562364538', 0, '2025-05-15 00:54:29', '2025-05-15 00:54:29'),
-(7, 6, 398, 'Muhammed Absar', 'asas', 'asas', 'Dubai', '', '', '0562364538', 0, '2025-05-15 01:07:51', '2025-05-15 01:07:51');
+(7, 6, 398, 'Muhammed Absar', 'asas', 'asas', 'Dubai', '', '', '0562364538', 0, '2025-05-15 01:07:51', '2025-05-15 01:07:51'),
+(8, 6, 398, 'Emin Omer', 'Media City, GBS Building, 101, 102', 'GBS Building, 101, 102', 'Dubai', '', '', '0562364538', 0, '2025-05-15 12:09:40', '2025-05-15 12:09:40');
 
 -- --------------------------------------------------------
 
@@ -441,7 +442,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (29, '2025_03_23_061259_create_shipping_methods_table', 20),
 (32, '2025_03_21_105717_create_orders_table', 23),
 (33, '2025_03_22_121743_create_order_items_table', 24),
-(34, '2025_03_25_090407_create_payments_transactions_table', 25);
+(36, '2025_03_25_090407_create_payments_transactions_table', 25);
 
 -- --------------------------------------------------------
 
@@ -525,9 +526,11 @@ CREATE TABLE `password_reset_tokens` (
 
 CREATE TABLE `payments_transactions` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `transaction_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `orders_id` bigint(20) UNSIGNED NOT NULL,
   `payment_types_id` bigint(20) UNSIGNED NOT NULL,
-  `payment_informations_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `transaction_amount` double NOT NULL DEFAULT '0',
+  `transaction_date` date NOT NULL,
   `payment_status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -552,14 +555,6 @@ CREATE TABLE `payment_informations` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `payment_informations`
---
-
-INSERT INTO `payment_informations` (`id`, `customers_id`, `payment_types_id`, `provider`, `card_holder_name`, `card_type`, `card_no`, `expiry_month`, `expiry_year`, `created_at`, `updated_at`) VALUES
-(2, 1, 4, 'Federal Bank PVT LTD', 'MUHAMMED ABSAR SEEVAY', 'Master', '4242-4242-4242-4242', '02', '29', '2025-04-03 22:27:48', '2025-04-04 13:40:38'),
-(3, 6, 4, 'HSBC Bank LTD', 'EMIN OMER', 'Master', '3457-3452-2343-3343', '04', '25', '2025-04-04 13:35:08', '2025-04-04 13:41:17');
 
 -- --------------------------------------------------------
 
@@ -820,8 +815,7 @@ ALTER TABLE `password_reset_tokens`
 ALTER TABLE `payments_transactions`
   ADD PRIMARY KEY (`id`),
   ADD KEY `payments_transactions_orders_id_foreign` (`orders_id`),
-  ADD KEY `payments_transactions_payment_types_id_foreign` (`payment_types_id`),
-  ADD KEY `payments_transactions_payment_informations_id_foreign` (`payment_informations_id`);
+  ADD KEY `payments_transactions_payment_types_id_foreign` (`payment_types_id`);
 
 --
 -- Indexes for table `payment_informations`
@@ -889,7 +883,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `addresses`
 --
 ALTER TABLE `addresses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `brands`
@@ -925,7 +919,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `offers`
@@ -1031,7 +1025,6 @@ ALTER TABLE `order_items`
 --
 ALTER TABLE `payments_transactions`
   ADD CONSTRAINT `payments_transactions_orders_id_foreign` FOREIGN KEY (`orders_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `payments_transactions_payment_informations_id_foreign` FOREIGN KEY (`payment_informations_id`) REFERENCES `payment_informations` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `payments_transactions_payment_types_id_foreign` FOREIGN KEY (`payment_types_id`) REFERENCES `payment_types` (`id`) ON DELETE CASCADE;
 
 --

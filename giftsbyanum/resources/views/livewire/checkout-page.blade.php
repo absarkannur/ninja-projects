@@ -54,7 +54,85 @@
                                 
                                 @if( $payment_option === 'CCD' )
                                 <div class="card-details">
-                                    Hello Absar
+
+                                    <label class="input-label">Name on Card</label>
+                                    <input class="primary-input" 
+                                        placeholder="Cardholder Name"
+                                        maxlength="26"
+                                        type="text"
+                                        wire:model="card_name" />
+                                    @error('card_name')
+                                        <span class="input-error">{{ $message }}</span>
+                                    @enderror
+
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                            <label class="input-label">Card Number</label>
+                                            <input class="primary-input cc_number" 
+                                                placeholder="0000 0000 0000 0000"
+                                                x-mask="9999-9999-9999-9999"
+                                                wire:model="card_number" />
+                                            @error('card_number')
+                                                <span class="input-error">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                        <div class="col-sm-12 col-md-12 col-lg-2 col-xl-2">
+                                            <label class="input-label">Expiry</label>
+                                            <select class="primary-input" 
+                                                placeholder="MM"
+                                                wire:model="card_month">
+                                                <option value="01">01</option>
+                                                <option value="02">02</option>
+                                                <option value="03">03</option>
+                                                <option value="04">04</option>
+                                                <option value="05">05</option>
+                                                <option value="06">06</option>
+                                                <option value="07">07</option>
+                                                <option value="08">08</option>
+                                                <option value="09">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>
+
+                                            @error('card_month')
+                                                <span class="input-error">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                        <div class="col-sm-12 col-md-12 col-lg-2 col-xl-2">
+                                            <label class="input-label">&nbsp;</label>
+                                            <select class="primary-input" 
+                                                placeholder="YYYY"
+                                                wire:model="card_year">
+
+                                                @foreach ($card_years as $year)   
+                                                <option value="{{ $year }}">{{ $year }}</option>
+                                                @endforeach
+
+                                            </select>
+
+                                            @error('card_year')
+                                                <span class="input-error">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                        <div class="col-sm-12 col-md-12 col-lg-2 col-xl-2">
+                                            <label class="input-label">CVV</label>
+                                            <input class="primary-input" maxlength="4" placeholder="CVV" type="text" wire:model="card_cvv" />
+                                            @error('card_cvv')
+                                                <span class="input-error">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <label class="input-label" style="font-size: 14px;margin-top: 10px;" for="save_payment_details">
+                                                <input type="checkbox" id="save_payment_details" wire:model="save_payment_details" >
+                                                Save my payment details for future purchases
+                                            </label>
+                                        </div>
+                                    </div>
+
                                 </div>
                                 @endif
 
@@ -80,16 +158,20 @@
                                     <span class="input-error">{{ $message }}</span>
                                 @enderror
                                 
-
-                                <label class="input-label">Address 1</label>
-                                <textarea class="primary-textarea" rows="3" wire:model="address_1"></textarea>
-                                @error('address_1')
-                                    <span class="input-error">{{ $message }}</span>
-                                @enderror
-
-                                <label class="input-label">Address 1</label>
-                                <textarea class="primary-textarea" rows="3" wire:model="address_2"></textarea>
-
+                                <div class="row">
+                                    <div class="col">
+                                        <label class="input-label">Address 1</label>
+                                        <textarea class="primary-textarea" rows="3" wire:model="address_1"></textarea>
+                                        @error('address_1')
+                                            <span class="input-error">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="col">
+                                        <label class="input-label">Address 1</label>
+                                        <textarea class="primary-textarea" rows="3" wire:model="address_2"></textarea>
+                                    </div>
+                                </div>
+                                
                                 <div class="row">
                                     <div class="col">
                                         <label class="input-label">Country</label>

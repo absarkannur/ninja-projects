@@ -22,9 +22,11 @@ class CheckoutPage extends Component
     public $current_session;
     public $payment_option = 'COD';
     public $payment_card;
+    public $card_years = array();
 
     // Options
     public $option_address = false;
+    public $save_payment_details;
 
     
     // New Address
@@ -46,6 +48,7 @@ class CheckoutPage extends Component
     public $card_year = '';
     public $card_month = '';
     public $card_cvv = '';
+    public $total_amount = 0;
 
     
     public function mount(){
@@ -56,14 +59,18 @@ class CheckoutPage extends Component
             return redirect('/gust/login');
         }
 
+        // Generate Year
+        $this->generate_year();
+
         $this->current_session = Session()->get('users_session');
         $this->cart_items = CartManagement::getCartItemsFromCookie();
         $this->grand_total = CartManagement::calculateGrandTotal( $this->cart_items );
+        $this->full_name = $this->current_session['customer_name'];
 
         if( count( $this->cart_items ) === 0 ){
             return redirect('/');
         }
-        
+
     }
 
     public function newAddress(){
@@ -72,7 +79,8 @@ class CheckoutPage extends Component
 
     public function fn_checkout(){
 
-        dd( $this->shipping_address );
+        dd( $this );
+        // save_payment_details If True
 
     }
 
@@ -111,8 +119,13 @@ class CheckoutPage extends Component
 
     }
 
-    public function render()
-    {
+    public function fn_saveCard(){
+        
+        dd($this);
+
+    }
+
+    public function render() {
 
         // Get all counties
         $countries = Countries::where('active',1)->get();
@@ -125,6 +138,8 @@ class CheckoutPage extends Component
 
         $payment_methods = PaymentTypes::where( 'payment_type_visible', 1 )->get();
 
+        // Payment Info
+
         return view('livewire.checkout-page', [
             'current_session' => $this->current_session,
             'payment_methods' => $payment_methods,
@@ -132,4 +147,29 @@ class CheckoutPage extends Component
             'countries' => $countries
         ]);
     }
+
+    private function generate_year(){
+        
+
+        $this->card_years = array(
+            '2020',
+            '2021',
+            '2022',
+            '2023',
+            '2024',
+            '2025',
+            '2026',
+            '2027',
+            '2028',
+            '2029',
+            '2030',
+            '2031',
+            '2032',
+            '2033',
+            '2034',
+            '2035',
+        );
+
+    }
+
 }

@@ -314,3 +314,15 @@
     margin-top: 20px;
     border-radius: 8px;
 }
+
+.innerpage-wrapper .checkout-wrap .payment-wrap .payment-fieldset .card-details .save_card{
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    float: right;
+    text-decoration: underline;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 10px 0;
+    cursor: pointer;
+}
