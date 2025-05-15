@@ -164,12 +164,6 @@
     padding: 30px 0;
 }
 
-.innerpage-wrapper .checkout-wrap .header{
-    font-size: 26px;
-    height: 50px;
-    line-height: 50px;
-}
-
 .innerpage-wrapper .checkout-wrap .payment-wrap,
 .innerpage-wrapper .checkout-wrap .summary-wrap{
     clear: both;
@@ -179,13 +173,14 @@
     border: solid 1px #ddd;
     border-radius: 10px;
     overflow: hidden;
+    margin-bottom: 20px;
 }
 
 .innerpage-wrapper .checkout-wrap .payment-wrap .payment-fieldset legend{
     height: 50px;
     line-height: 50px;
     padding: 0 20px;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     background-color: #efefef;
     display: flex;
@@ -209,6 +204,10 @@
 .innerpage-wrapper .checkout-wrap .payment-wrap .payment-fieldset .fieldset-body .address-list{
     list-style: none;
     overflow: hidden;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 
 .innerpage-wrapper .checkout-wrap .payment-wrap .payment-fieldset .fieldset-body .address-list .address{
@@ -216,7 +215,7 @@
     border: solid 1px #ddd;
     border-radius: 10px;
     padding: 10px;
-    float: left;
+    width: calc( 50% - 20px );
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -233,4 +232,85 @@
 
 .innerpage-wrapper .checkout-wrap .payment-wrap .payment-fieldset .fieldset-body .address-list .address address > span{
     display: block;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+
+.innerpage-wrapper .checkout-wrap .payment-wrap .payment-fieldset .payment-methods-list{
+    clear: both;
+    list-style: none;
+}
+
+.innerpage-wrapper .checkout-wrap .payment-wrap .payment-fieldset .payment-methods-list .list{
+    height: 60px;
+    width: 100%;
+    background-color: #fff;
+    border: solid 1px var(--fd-border-color);
+    border-radius: 6px;
+    box-shadow: 0 0 5px var(--fd-border-color);
+    margin-bottom: 15px;
+}
+
+.innerpage-wrapper .checkout-wrap .payment-wrap .payment-fieldset .payment-methods-list .list:hover{
+    background-color: #f6f6f6;
+}
+
+.innerpage-wrapper .checkout-wrap .payment-wrap .payment-fieldset .payment-methods-list .list:last-child{
+    margin-bottom: 0;
+}
+
+.innerpage-wrapper .checkout-wrap .payment-wrap .payment-fieldset .payment-methods-list .list label{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.innerpage-wrapper .checkout-wrap .payment-wrap .payment-fieldset .payment-methods-list .list span{
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    height: 100%;
+}
+
+.innerpage-wrapper .checkout-wrap .payment-wrap .payment-fieldset .payment-methods-list .list span input{
+    height: 18px;
+    width: 18px;
+}
+
+.innerpage-wrapper .checkout-wrap .payment-wrap .payment-fieldset .payment-methods-list .list span label{
+    margin: 0;
+}
+
+.innerpage-wrapper .checkout-wrap .payment-wrap .payment-fieldset .payment-methods-list .list span.title{
+    width: 100%;
+    font-size: 20px;
+    padding: 0px;
+}
+
+.innerpage-wrapper .checkout-wrap .payment-wrap .payment-fieldset .payment-methods-list .list span.cards{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.innerpage-wrapper .checkout-wrap .payment-wrap .payment-fieldset .payment-methods-list .list span.cards img{
+    width: 50px;
+}
+
+.innerpage-wrapper .checkout-wrap .payment-wrap .payment-fieldset .payment-methods-list .list span.cards img[data-width="35"] {
+    width: 35px;
+}
+.innerpage-wrapper .checkout-wrap .payment-wrap .payment-fieldset .payment-methods-list .list span.cards img[data-width="70"] {
+    width: 70px;
+}
+
+.innerpage-wrapper .checkout-wrap .payment-wrap .payment-fieldset .card-details{
+    border: solid 1px #ddd;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 8px;
 }

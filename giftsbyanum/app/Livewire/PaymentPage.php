@@ -204,8 +204,6 @@ class PaymentPage extends Component
         $payment_methods = PaymentTypes::where( 'payment_type_visible', 1 )->get();
         $payment_info = PaymentInformations::where( 'customers_id', '=' , $this->current_session['id'] )->get();
 
-        // dd( $payment_info );
-
         return view('livewire.payment-page', [
             'current_session' => $this->current_session,
             'cart_items' => $this->cart_items,

@@ -20,12 +20,11 @@ class CheckoutPage extends Component
     #[Title('Gifts By Anum - Checkout')]
 
     public $current_session;
-
     public $payment_option = 'COD';
-    public $shipping_address;
     public $payment_card;
 
-    public $item;
+    // Options
+    public $option_address = false;
 
     
     // New Address
@@ -35,13 +34,20 @@ class CheckoutPage extends Component
     public $country = '';
     public $city = '';
     public $postal_code = '';
+    public $landmark = '';
     public $phone_number = '';
 
 
+    // Check out Data
+    public $shipping_address;
 
-    // Options
-    public $option_address = false;
+    public $card_name = '';
+    public $card_number = '';
+    public $card_year = '';
+    public $card_month = '';
+    public $card_cvv = '';
 
+    
     public function mount(){
 
         $this->currency = env('APP_CURRENCY');
@@ -66,6 +72,43 @@ class CheckoutPage extends Component
 
     public function fn_checkout(){
 
+        dd( $this->shipping_address );
+
+    }
+
+    public function fn_saveAddress(){
+
+        $this->validate([
+            'full_name' => 'required',
+            'address_1' => 'required',
+            'country' => 'required',
+            'city' => 'required',
+            'phone_number' => 'required',
+        ]);
+
+        $address = new Addresses();
+
+        $address->customers_id = $this->current_session['id'];
+        $address->countries_id = $this->country;
+        $address->full_name = $this->full_name;
+        $address->address_line_1 = $this->address_1;
+        $address->address_line_2 = $this->address_2;
+        $address->city = $this->city;
+        $address->postal_code = $this->postal_code;
+        $address->landmark = $this->landmark;
+        $address->phone_number = $this->phone_number;
+
+        $address->save();
+
+        $this->option_address = false;
+        $address->full_name = '';
+        $address->address_line_1 = '';
+        $address->address_line_2 = '';
+        $address->city = '';
+        $address->postal_code = '';
+        $address->landmark = '';
+        $address->phone_number = '';
+
     }
 
     public function render()
@@ -77,6 +120,7 @@ class CheckoutPage extends Component
         $address = Addresses::select( 'addresses.*', 'countries.country_name' )
             ->where( 'customers_id', '=' , $this->current_session['id'] )
             ->leftJoin( 'countries', 'countries.id' , 'addresses.countries_id' )
+            ->orderBy('id', 'DESC')
             ->get();
 
         $payment_methods = PaymentTypes::where( 'payment_type_visible', 1 )->get();
