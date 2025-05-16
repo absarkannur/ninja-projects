@@ -217,6 +217,12 @@
                             </div>
                             @endif
 
+                            @error('shipping_address')
+                            <div style="padding: 20px">
+                                <div class="fl-left input-error">{{ $message }}</div>
+                            </div>
+                            @enderror
+
                             <div class="fieldset-body">
                                 <ul class="address-list">
                                     @foreach ( $address as $item )
@@ -241,11 +247,6 @@
                                     @endforeach
                                 </ul>
 
-                                @error('shipping_address')
-                                    <br/>
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-
                             </div>
 
                         </fieldset>
@@ -254,7 +255,31 @@
                 </div>
                 <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
                     <div class="summary-wrap">
-                        <button class="primary-button full-width no-arrow" wire:click="fn_checkout">Submit</button>
+
+                        <div class="summary">
+                            <div class="head-wrap">
+                                <span>Total</span>
+                                <span class="value">{{ Number::currency( $grand_total, $currency ) }}</span>
+                            </div>
+                            <div class="price-wrap">
+                                <span>Discount</span>
+                                <span class="value">{{ Number::currency( 0, $currency ) }}</span>
+                            </div>
+                            <div class="price-wrap">
+                                <span>TAX</span>
+                                <span class="value">{{ Number::currency( 0, $currency ) }}</span>
+                            </div>
+                            <div class="price-wrap">
+                                <span>Shipping</span>
+                                <span class="value">{{ Number::currency( 0, $currency ) }}</span>
+                            </div>
+                            <div class="head-wrap">
+                                <span>Grand Total</span>
+                                <span class="value">{{ Number::currency( $grand_total, $currency ) }}</span>
+                            </div>
+                        </div>
+
+                        <button class="primary-button full-width no-arrow" wire:click="fn_checkout">Pay Now</button>
                     </div>
                 </div>
             </div>

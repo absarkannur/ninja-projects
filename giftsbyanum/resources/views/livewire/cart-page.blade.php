@@ -12,7 +12,6 @@
                                 <div class="title">Name</div>
                                 <div class="sales_price">Price</div>
                                 <div class="quantity">Qty</div>
-                                <div class="sales_price">Discount</div>
                                 <div class="total_price">Total</div>
                                 <div class="delete">&nbsp;</div>
                             </li>
@@ -36,7 +35,6 @@
                                             </button>
                                         </span>
                                     </div>
-                                    <div class="sales_price">{{ Number::currency( $item['product_total_discount_amount'], 'AED' ) }}</div>
                                     <div class="total_price">{{ Number::currency( $item['product_total_amount'], 'AED' ) }}</div>
                                     <div class="delete" wire:click.prevent="removeCart({{ $item['product_id'] }})">
                                         <svg width="16" height="16"><use xlink:href="{{ asset('front-end/images/svg-sprint.svg#bin-thick-shape') }}"></use></svg>
@@ -55,23 +53,29 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="cart-summary">
-                        <h4 class="title">Summary</h4>
 
-                        <div class="total-summary">
-                            <span class="total-field f16">Total Price</span>
-                            <span class="total-field f16">{{ Number::currency( $grand_discount_total, env('APP_CURRENCY') ) }}</span>
+                        <div class="summary">
+                            <div class="head-wrap">
+                                <span>Total</span>
+                                <span class="value">{{ Number::currency( $grand_total, $currency ) }}</span>
+                            </div>
+                            <div class="price-wrap">
+                                <span>Discount</span>
+                                <span class="value">{{ Number::currency( 0, $currency ) }}</span>
+                            </div>
+                            <div class="price-wrap">
+                                <span>TAX</span>
+                                <span class="value">{{ Number::currency( 0, $currency ) }}</span>
+                            </div>
+                            <div class="price-wrap">
+                                <span>Shipping</span>
+                                <span class="value">{{ Number::currency( 0, $currency ) }}</span>
+                            </div>
+                            <div class="head-wrap">
+                                <span>Grand Total</span>
+                                <span class="value">{{ Number::currency( $grand_total, $currency ) }}</span>
+                            </div>
                         </div>
-                        <div class="total-summary">
-                            <span class="total-field f16">Discount</span>
-                            <span class="total-field f16">{{ Number::currency( $grand_discount_total, env('APP_CURRENCY') ) }}</span>
-                        </div>
-
-                        <div class="total-summary">
-                            <span class="total-field f20">Grand Total</span>
-                            <span class="total-field f20">{{ Number::currency( $grand_total, env('APP_CURRENCY') ) }}</span>
-                        </div>
-
-                        <br />
 
                         <a href="{{ route('checkout') }}">
                             <button class="full-width primary-button no-arrow" style="width: 100%">Checkout</button>

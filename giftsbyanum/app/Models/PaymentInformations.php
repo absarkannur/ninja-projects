@@ -13,7 +13,6 @@ class PaymentInformations extends Model
     protected $fillable = [
         'customers_id',
         'payment_types_id',
-        'provider',
         'card_holder_name',
         'card_type',
         'card_no',

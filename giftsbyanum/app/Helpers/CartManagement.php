@@ -24,7 +24,7 @@ class CartManagement {
 
             $cart_items[$existing_item]['product_qty'] = $cart_items[$existing_item]['product_qty'] + $qty;
             $cart_items[$existing_item]['product_total_amount'] = $cart_items[$existing_item]['product_qty'] * $cart_items[$existing_item]['product_sales_price'];
-            $cart_items[$existing_item]['product_total_discount_amount'] = $cart_items[$existing_item]['product_qty'] * $cart_items[$existing_item]['product_sales_discount'];
+            // $cart_items[$existing_item]['product_total_discount_amount'] = $cart_items[$existing_item]['product_qty'] * $cart_items[$existing_item]['product_sales_discount'];
 
 
         } else {
@@ -70,11 +70,11 @@ class CartManagement {
                     'product_qty' => $qty,
                     'product_price' => floatval($price),
 
-                    'product_sales_price' => floatval($price)-floatval( $after_discount ),
-                    'product_sales_discount' => floatval( $after_discount ),
+                    // 'product_sales_price' => floatval($price)-floatval( $after_discount ),
+                    // 'product_sales_discount' => floatval( $after_discount ),
 
-                    'product_total_amount' => $qty*floatval($price)-floatval( $after_discount ),
-                    'product_total_discount_amount' => $qty*floatval($after_discount),
+                    'product_total_amount' => $qty*floatval($price),
+                    // 'product_total_discount_amount' => $qty*floatval($after_discount),
 
                     'options' => array(
                         'product_qty_in_stock' => $product->product_qty_in_stock,
@@ -144,8 +144,8 @@ class CartManagement {
                 if( $cart_items[$key]['product_qty'] < $product_qty->product_qty_in_stock ){
 
                     $cart_items[$key]['product_qty']++;
-                    $cart_items[$key]['product_total_amount'] = $cart_items[$key]['product_qty'] * $cart_items[$key]['product_sales_price'];
-                    $cart_items[$key]['product_total_discount_amount'] = $cart_items[$key]['product_qty'] * $cart_items[$key]['product_sales_discount'];
+                    $cart_items[$key]['product_total_amount'] = $cart_items[$key]['product_qty'] * $cart_items[$key]['product_price'];
+                    // $cart_items[$key]['product_total_discount_amount'] = $cart_items[$key]['product_qty'] * $cart_items[$key]['product_sales_discount'];
 
                 }
             }
@@ -165,8 +165,8 @@ class CartManagement {
                 if( $cart_items[$key]['product_qty'] > 1 ){
 
                     $cart_items[$key]['product_qty']--;
-                    $cart_items[$key]['product_total_amount'] = $cart_items[$key]['product_qty'] * $cart_items[$key]['product_sales_price'];
-                    $cart_items[$key]['product_total_discount_amount'] = $cart_items[$key]['product_qty'] * $cart_items[$key]['product_sales_discount'];
+                    $cart_items[$key]['product_total_amount'] = $cart_items[$key]['product_qty'] * $cart_items[$key]['product_price'];
+                    // $cart_items[$key]['product_total_discount_amount'] = $cart_items[$key]['product_qty'] * $cart_items[$key]['product_sales_discount'];
 
                 }
             }

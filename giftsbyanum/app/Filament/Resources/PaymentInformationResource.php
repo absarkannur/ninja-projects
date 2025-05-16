@@ -41,7 +41,6 @@ class PaymentInformationResource extends Resource
                     ->label('Payment Type')
                     ->searchable(false)
                     ->required(),
-                TextInput::make('provider'),
                 TextInput::make('card_holder_name'),
                 TextInput::make('card_type'),
                 TextInput::make('card_no'),
@@ -57,7 +56,7 @@ class PaymentInformationResource extends Resource
                 TextColumn::make('customers.customer_name'),
                 TextColumn::make('payment_types.payment_type'),
                 TextColumn::make('card_type'),
-                TextColumn::make('provider'),
+                TextColumn::make('card_no'),
             ])
             ->filters([
                 //

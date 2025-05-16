@@ -42,6 +42,9 @@ ul{
     margin: 0;
 }
 
+.fl-left{float: left !important;}
+.fl-right{float: right !important;}
+
 .imagethmb {
     display: table;
     text-align: center;
