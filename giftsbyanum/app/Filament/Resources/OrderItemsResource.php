@@ -45,6 +45,7 @@ class OrderItemsResource extends Resource
                 Section::make('')->schema([
                     TextInput::make('order_qty')->numeric()->required(),
                     TextInput::make('order_price')->numeric()->required(),
+                    TextInput::make('order_price_total')->numeric()->required(),
                     TextInput::make('order_discount_percent')->numeric()->required(),
                     TextInput::make('order_tax_percent')->numeric()->required()
                 ])->columns(2)
@@ -69,6 +70,12 @@ class OrderItemsResource extends Resource
                         Sum::make()->money(env('APP_CURRENCY'))->label('')
                     ])
                     ->label('Price'),
+                TextColumn::make('order_price_total')
+                    ->money(env('APP_CURRENCY'))
+                    ->summarize([
+                        Sum::make()->money(env('APP_CURRENCY'))->label('')
+                    ])
+                    ->label('Total'),
                 TextColumn::make('order_discount_percent')
                     ->money(env('APP_CURRENCY'))
                     ->summarize([
@@ -80,7 +87,13 @@ class OrderItemsResource extends Resource
                     ->summarize([
                         Sum::make()->money(env('APP_CURRENCY'))->label('')
                     ])
-                    ->label('Tax')
+                    ->label('Tax'),
+                TextColumn::make('order_shipping_charge')
+                    ->money(env('APP_CURRENCY'))
+                    ->summarize([
+                        Sum::make()->money(env('APP_CURRENCY'))->label('')
+                    ])
+                    ->label('Shipping Charge')
             ])
             // ->defaultSort('orders_id', 'desc')
             ->filters([

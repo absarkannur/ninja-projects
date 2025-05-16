@@ -14,8 +14,10 @@ class OrderItems extends Model
         'products_id',
         'order_qty',
         'order_price',
+        'order_price_total',
         'order_discount_percent',
-        'order_tax_percent'
+        'order_tax_percent',
+        'order_shipping_charge'
     ];
 
     public function orders(){

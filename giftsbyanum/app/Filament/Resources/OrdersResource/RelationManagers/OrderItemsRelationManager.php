@@ -46,6 +46,12 @@ class OrderItemsRelationManager extends RelationManager
                         Sum::make()->money( env('APP_CURRENCY') )->label('')
                     ])
                     ->label('Price'),
+                TextColumn::make('order_price_total')
+                    ->money( env('APP_CURRENCY') )
+                    ->summarize([
+                        Sum::make()->money( env('APP_CURRENCY') )->label('')
+                    ])
+                    ->label('Total'),
                 TextColumn::make('order_discount_percent')
                     ->money( env('APP_CURRENCY') )
                     ->summarize([
@@ -57,7 +63,13 @@ class OrderItemsRelationManager extends RelationManager
                     ->summarize([
                         Sum::make()->money( env('APP_CURRENCY') )->label('')
                     ])
-                    ->label('TAX'),
+                    ->label('Tax'),
+                TextColumn::make('order_shipping_charge')
+                    ->money( env('APP_CURRENCY') )
+                    ->summarize([
+                        Sum::make()->money( env('APP_CURRENCY') )->label('')
+                    ])
+                    ->label('Shipping Charge'),
             ])
             ->paginated(false)
             ->filters([

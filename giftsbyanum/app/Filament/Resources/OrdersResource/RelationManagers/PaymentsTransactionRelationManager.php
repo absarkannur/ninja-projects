@@ -4,11 +4,13 @@ namespace App\Filament\Resources\OrdersResource\RelationManagers;
 
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\Components\ToggleButtons;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Enums\PaymentStatus;
 
 class PaymentsTransactionRelationManager extends RelationManager
 {
@@ -18,9 +20,9 @@ class PaymentsTransactionRelationManager extends RelationManager
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('payment_status')
-                    ->required()
-                    ->maxLength(255),
+                ToggleButtons::make('payment_status')
+                    ->inline()
+                    ->options( PaymentStatus::class )
             ]);
     }
 
@@ -30,8 +32,8 @@ class PaymentsTransactionRelationManager extends RelationManager
             ->recordTitleAttribute('payment_status')
             ->columns([
                 Tables\Columns\TextColumn::make('payment_types.payment_type'),
-                Tables\Columns\TextColumn::make('payment_informations.provider'),
-                Tables\Columns\TextColumn::make('payment_status')
+                Tables\Columns\TextColumn::make('payment_status'),
+                Tables\Columns\TextColumn::make('transaction_amount')->money(env('APP_CURRENCY')),
             ])
             ->paginated(false)
             ->filters([
@@ -41,7 +43,7 @@ class PaymentsTransactionRelationManager extends RelationManager
                 // Tables\Actions\CreateAction::make(),
             ])
             ->actions([
-                // Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make(),
                 // Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([

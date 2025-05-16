@@ -52,6 +52,8 @@ class CheckoutPage extends Component
     public $card_cvv = '';
     public $grand_total = 0;
 
+    public $cart_items;
+
     
     public function mount(){
 
@@ -163,7 +165,46 @@ class CheckoutPage extends Component
 
         }
 
-        dd('Card Saved ' .  $save_payment_details );
+        // Order Placed
+        $order = new Orders();
+        $order->order_number = $order_number;
+        $order->customers_id = $customers_id;
+        $order->payment_types_id = $payment_types_id->id;
+        $order->addresses_id = $addresses_id;
+        $order->grand_total = $this->grand_total;
+        $order->order_status = $order_status;
+        $order->order_date = $order_date;
+        $order->save();
+
+        // Order Item
+        foreach ( $this->cart_items  as $key => $product ) {
+            $order_item = new OrderItems();
+            $order_item->orders_id = $order->id;
+            $order_item->products_id = $product['product_id'];
+            $order_item->order_qty = $product['product_qty'];
+            $order_item->order_price = $product['product_price']; 
+            $order_item->order_price_total = $product['product_total_amount'];
+            $order_item->order_discount_percent = 0;
+            $order_item->order_tax_percent = 0;
+            $order_item->order_shipping_charge = 0;
+            $order_item->save();
+        }
+
+        // Transaction
+        $payments_transactions = new PaymentsTransaction();
+        $payments_transactions->transaction_id = 'TN-'. random_int(100000, 999999);
+        $payments_transactions->orders_id = $order->id;
+        $payments_transactions->payment_types_id = $payment_types_id['id'];
+        $payments_transactions->transaction_amount = $this->grand_total;
+        $payments_transactions->transaction_date = $order_date;
+        $payments_transactions->payment_status = $pay_status;
+        $payments_transactions->save();
+        
+        // Clear Cart
+        CartManagement::clearCartItems();
+
+        // Redirect to home
+        redirect('/');
 
     }
 
