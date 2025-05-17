@@ -9,6 +9,8 @@ use App\Livewire\ResetPasswordPage;
 use App\Livewire\SigninPage;
 use App\Livewire\WishPage;
 use App\Livewire\AddressPage;
+use App\Livewire\SuccessPage;
+use App\Livewire\CancelPage;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,20 +32,16 @@ Route::prefix('gust')->group(function(){
     Route::get( '/reset/{token}', ResetPasswordPage::class )->name( 'password.reset' );
 });
 
-
 Route::middleware(['auth:customers'])->prefix('user')->group(function(){
+    Route::get( '/checkout', CheckoutPage::class )->name( 'checkout' );
     Route::get( '/wish-list', WishPage::class )->name('wish-list');
     Route::get( '/orders', OrdersPage::class )->name( 'orders' );
-    Route::get( '/checkout', CheckoutPage::class )->name( 'checkout' );
-    Route::get( '/address', AddressPage::class )->name( 'address' );
-
-    //wishlist
-
-    // AddAddress
-    // Track Orders
     // Order View Details
-    // CheckOut
-    // Order Success
-    // Order Cancel
+    Route::get( '/address', AddressPage::class )->name( 'address' );
+    Route::get( '/success', SuccessPage::class )->name('success');
+    Route::get( '/cancel', CancelPage::class )->name('cancel');
+
+    // Track Orders
+    // 
 
 })->middleware('auth:customers');

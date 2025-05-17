@@ -21,6 +21,8 @@
         <link rel="stylesheet" href="{{ asset('front-end/styles/inner-styles.css') }}" />
         <link rel="stylesheet" href="{{ asset('front-end/styles/style.css') }}" />
 
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
         @livewireStyles
 
     </head>

@@ -9,7 +9,6 @@ use App\Livewire\ProductsPage;
 use App\Livewire\RegisterPage;
 use App\Livewire\SigninPage;
 use App\Livewire\WishPage;
-use App\Models\Products;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
@@ -33,8 +32,6 @@ use Illuminate\Http\Request;
 Route::get( '/', HomePage::class )->name('home');
 Route::get( '/product/{slug}', ProductPage::class )->name('product');
 Route::get( '/products/{slug}', ProductsPage::class )->name('products');
-
-
 Route::get( '/cart', CartPage::class )->name( 'cart' );
 Route::get( '/payment', PaymentPage::class )->name( 'payment' );
 

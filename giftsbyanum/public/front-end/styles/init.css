@@ -325,3 +325,8 @@ ul{
 .f24{font-size: 24px;}
 .f26{font-size: 26px;}
 .f28{font-size: 28px;}
+
+.divider{
+    margin: 10px 0;
+    border-bottom: solid 1px var(--border-light-color);
+}
