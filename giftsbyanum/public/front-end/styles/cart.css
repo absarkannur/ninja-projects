@@ -391,6 +391,14 @@
     font-size: 24px;
 }
 
+.after-checkout-wrap .payment-cancel{
+    height: 50px;
+    line-height: 50px;
+    font-size: 24px;
+    color: red;
+    margin: 0;
+}
+
 .after-checkout-wrap address{
     margin: 0;
 }
@@ -416,10 +424,73 @@
     font-weight: bold;
     font-size: 14px;
     height: 30px;
-    lilne-height: 30px;
+    line-height: 30px;
 }
 
 .after-checkout-wrap .orders-list .list .content{
     display: block;
+    font-size: 14px;
+}
+
+.after-checkout-wrap .orders-list .list .content.price{
+    color: #155dfc;
+    font-weight: 600;
+}
+
+.after-checkout-wrap .order-details{
+    overflow: hidden;
+}
+
+.after-checkout-wrap .order-details .list{
+    display: flex;
+    justify-content: space-between;
+}
+
+.after-checkout-wrap .order-details .list .title,
+.after-checkout-wrap .order-details .list .content{
+    display: block;
+    height: 25px;
+    line-height: 25px;
+}
+
+.after-checkout-wrap .order-details .list .title{
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.after-checkout-wrap .order-details .list .content{
+    font-size: 14px;
+}
+
+
+
+.after-checkout-wrap .shipping-details{
+    overflow: hidden;
+}
+
+.after-checkout-wrap .shipping-details .list{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.after-checkout-wrap .shipping-details .list .title,
+.after-checkout-wrap .shipping-details .list .content{
+    display: block;
+}
+
+.after-checkout-wrap .shipping-details .list .title{
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.after-checkout-wrap .shipping-details .list .title em{
+    display: block;
+    font-size: 11px;
+    font-style: normal;
+    color: var(--text-sub-color);
+}
+
+.after-checkout-wrap .shipping-details .list .content{
     font-size: 14px;
 }

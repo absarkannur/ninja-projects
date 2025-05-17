@@ -110,13 +110,16 @@ class CheckoutPage extends Component
                 'card_cvv' => 'required',
             ]);
 
-            $this->generateOrder( 'complete' );
+
+            dd( 'Strip' );
+
+            // $this->generateOrder( 'complete' );
 
 
         } else if( $this->payment_option === 'COD' ) {
             
             // Cash On Delivery
-            $this->generateOrder( 'pending' );
+            // $this->generateOrder( 'pending' );
 
         }
         

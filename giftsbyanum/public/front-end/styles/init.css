@@ -129,6 +129,11 @@ ul{
     border-radius: 5px;
 }
 
+.primary-invert-button.dark{
+    color: var(--bg-primary-green);
+    border: solid 1px var(--bg-primary-green);
+}
+
 .primary-invert-button:active{
     top: 1px;
     background-color: #025451;
@@ -147,6 +152,14 @@ ul{
     bottom: 0;
     left: 10px;
     margin: auto;
+}
+
+.primary-invert-button.no-arrow{
+    padding-left: 20px;
+}
+
+.primary-invert-button.no-arrow::after{
+    display: none;
 }
 
 /* Input */
