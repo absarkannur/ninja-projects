@@ -80,6 +80,13 @@
     float: left;
 }
 
+.innerpage-wrapper .cart-wrap .cart-list .cart.header .tax{
+    padding: 0 10px;
+    width: 15%;
+    float: left;
+}
+
+
 .innerpage-wrapper .cart-wrap .cart-list .cart.header .delete{
     padding: 0 10px;
     width: 5%;
@@ -155,6 +162,12 @@
     border: solid 1px var(--border-color);
     text-align: center;
     font-size: 12px;
+}
+
+.innerpage-wrapper .cart-wrap .cart-list .cart .tax{
+    padding: 0 10px;
+    width: 15%;
+    float: left;
 }
 
 .innerpage-wrapper .cart-wrap .cart-list .cart .total_price{

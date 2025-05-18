@@ -15,9 +15,32 @@ class ProductPage extends Component
 
     public function mount( $slug ){
 
-        $this->product = Products::select('products.id', 'products.*', 'offers.*' )
-                            ->where( 'product_slug', $slug )
-                            ->leftJoin( 'offers', 'offers.id', 'products.offers_id' )->first();
+        $this->product = Products::select( 
+                            'products.id',
+                            'products.brands_id',
+                            'products.sub_categories_id',
+                            'products.offers_id',
+                            'products.taxes_id',
+                            'products.product_name',
+                            'products.product_slug',
+                            'products.product_description',
+                            'products.product_content',
+                            'products.product_images',
+                            'products.product_original_price',
+                            'products.product_sales_price',
+                            'products.product_discount_price',
+                            'products.product_tax_price',
+                            'products.product_qty_in_stock',
+                            'products.product_sku',
+                            'products.product_status',
+                            'offers.offer_name',
+                            'offers.offer_description',
+                            'offers.offer_discount_percent',
+                            'offers.offer_end_date',
+                            'offers.offer_status'
+                        )
+                        ->where( 'product_slug', $slug )
+                        ->leftJoin( 'offers', 'offers.id', 'products.offers_id' )->first();  
 
     }
 
@@ -25,7 +48,6 @@ class ProductPage extends Component
 
         $total_count =  CartManagement::addItemToCart( $product_id, $qty );
         $this->dispatch('update-cart');
-
 
     }
 

@@ -252,7 +252,12 @@ class ProductsResource extends Resource
             $taxes = Tax::select('tax_percent')->find( $taxes_id );
             $tax = $taxes['tax_percent'];
             $sales_price = $get( 'product_sales_price' );
-            $price = $sales_price*$tax/100;
+            $discount_price = $get( 'product_discount_price' );
+
+            $after_tax_price = $sales_price-$discount_price;
+            
+            $price = $after_tax_price*$tax/100;
+
             $set( 'product_tax_price', $price );
         } else {
             $set( 'product_tax_price', 0 );

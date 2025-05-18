@@ -9,6 +9,7 @@ class CartManagement {
 
     // Add item to cart
     static public function addItemToCart( $product_id, $qty ){
+
         $cart_items = self::getCartItemsFromCookie();
 
         $existing_item = null;
@@ -23,44 +24,51 @@ class CartManagement {
         if( $existing_item !== null ){
 
             $cart_items[$existing_item]['product_qty'] = $cart_items[$existing_item]['product_qty'] + $qty;
-            $cart_items[$existing_item]['product_total_amount'] = $cart_items[$existing_item]['product_qty'] * $cart_items[$existing_item]['product_sales_price'];
-            // $cart_items[$existing_item]['product_total_discount_amount'] = $cart_items[$existing_item]['product_qty'] * $cart_items[$existing_item]['product_sales_discount'];
+
+            // // $cart_items[$existing_item]['product_total_amount'] = $cart_items[$existing_item]['product_qty'] * $cart_items[$existing_item]['product_sales_price'];
+            // // $cart_items[$existing_item]['product_total_discount_amount'] = $cart_items[$existing_item]['product_qty'] * $cart_items[$existing_item]['product_sales_discount'];
+
+
+            $cart_items[$existing_item]['product_total_amount'] = $cart_items[$existing_item]['product_qty'] * $cart_items[$existing_item]['product_price']+$cart_items[$existing_item]['product_tax'] * $cart_items[$existing_item]['product_qty'];
+            $cart_items[$existing_item]['product_total_tax'] =  $cart_items[$existing_item]['product_tax'] * $cart_items[$existing_item]['product_qty'];
+            $cart_items[$existing_item]['product_total_discount'] =  $cart_items[$existing_item]['product_discount'] * $cart_items[$existing_item]['product_qty'];
 
 
         } else {
 
             $product = Products::where( 'products.id', $product_id )
-                                ->leftJoin( 'offers', 'offers.id', 'products.offers_id' )
-                                ->first(['products.id',
-                                        'products.product_name',
-                                        'products.product_sales_price',
-                                        'products.product_images',
-                                        'products.product_qty_in_stock',
-                                        'offers.offer_discount_percent',
-                                        'offers.offer_status',
-                                        'offers.offer_end_date',
-                                    ]);
-
-            // dd( $product );
+                        ->leftJoin( 'offers', 'offers.id', 'products.offers_id' )
+                        ->first(['products.id',
+                                'products.product_name',
+                                'products.product_images',
+                                'products.product_sales_price',
+                                'products.product_discount_price',
+                                'products.product_tax_price',
+                                'products.product_qty_in_stock',
+                                'offers.offer_discount_percent',
+                                'offers.offer_status',
+                                'offers.offer_end_date',
+                            ]);
 
             if( $product ){
 
-                $expire = date('Y-m-d', strtotime('0 days'));
+                // $expire = date('Y-m-d', strtotime('0 days'));
 
                 $price = $product->product_sales_price;
-                $discount = $product->offer_discount_percent;
+                $discount = $product->product_discount_price;
+                $tax = $product->product_tax_price;
+                // Calc sales price
+                $sales_price = floatval($price)-floatval($discount);
 
-                // Offer end with status check
-                if( $product->offer_status == 'inactive' ){
-                    $discount = 0;
-                }
+                // // Offer end with status check
+                // if( $product->offer_status == 'inactive' ){
+                //     $discount = 0;
+                // }
 
-                // Offer End with date
-                if (strtotime( $product->offer_end_date ) <= strtotime($expire)) {
-                    $discount = 0;
-                }
-
-                $after_discount = $price*$discount/100;
+                // // Offer End with date
+                // if (strtotime( $product->offer_end_date ) <= strtotime($expire)) {
+                //     $discount = 0;
+                // }
 
                 $cart_items[] = [
                     'product_id' => $product->id,
@@ -68,19 +76,21 @@ class CartManagement {
                     'product_images' => $product->product_images,
 
                     'product_qty' => $qty,
-                    'product_price' => floatval($price),
+                    'product_price' => floatval( $sales_price ),
+                    'product_discount' => floatval( $discount ),
+                    'product_tax' => floatval($tax)*floatval($qty),
 
-                    // 'product_sales_price' => floatval($price)-floatval( $after_discount ),
-                    // 'product_sales_discount' => floatval( $after_discount ),
-
-                    'product_total_amount' => $qty*floatval($price),
-                    // 'product_total_discount_amount' => $qty*floatval($after_discount),
+                    'product_sub_total' => floatval($qty)*floatval($sales_price),
+                    'product_total_amount' => floatval($qty)*floatval($sales_price)+floatval($tax)*floatval($qty),
+                    'product_total_tax' => floatval($tax)*floatval($qty),
+                    'product_total_discount' => floatval( $discount )*floatval($qty),
 
                     'options' => array(
                         'product_qty_in_stock' => $product->product_qty_in_stock,
                         'offer_discount_percent' => $product->offer_discount_percent,
                     )
                 ];
+
             }
 
         }
@@ -144,8 +154,10 @@ class CartManagement {
                 if( $cart_items[$key]['product_qty'] < $product_qty->product_qty_in_stock ){
 
                     $cart_items[$key]['product_qty']++;
-                    $cart_items[$key]['product_total_amount'] = $cart_items[$key]['product_qty'] * $cart_items[$key]['product_price'];
-                    // $cart_items[$key]['product_total_discount_amount'] = $cart_items[$key]['product_qty'] * $cart_items[$key]['product_sales_discount'];
+
+                    $cart_items[$key]['product_total_amount'] = $cart_items[$key]['product_qty'] * $cart_items[$key]['product_price']+$cart_items[$key]['product_tax'] * $cart_items[$key]['product_qty'];
+                    $cart_items[$key]['product_total_tax'] =  $cart_items[$key]['product_tax'] * $cart_items[$key]['product_qty'];
+                    $cart_items[$key]['product_total_discount'] =  $cart_items[$key]['product_discount'] * $cart_items[$key]['product_qty'];
 
                 }
             }
@@ -165,8 +177,10 @@ class CartManagement {
                 if( $cart_items[$key]['product_qty'] > 1 ){
 
                     $cart_items[$key]['product_qty']--;
-                    $cart_items[$key]['product_total_amount'] = $cart_items[$key]['product_qty'] * $cart_items[$key]['product_price'];
-                    // $cart_items[$key]['product_total_discount_amount'] = $cart_items[$key]['product_qty'] * $cart_items[$key]['product_sales_discount'];
+
+                    $cart_items[$key]['product_total_amount'] = $cart_items[$key]['product_qty'] * $cart_items[$key]['product_price']+$cart_items[$key]['product_tax'] * $cart_items[$key]['product_qty'];
+                    $cart_items[$key]['product_total_tax'] =  $cart_items[$key]['product_tax'] * $cart_items[$key]['product_qty'];
+                    $cart_items[$key]['product_total_discount'] =  $cart_items[$key]['product_discount'] * $cart_items[$key]['product_qty'];
 
                 }
             }
@@ -177,14 +191,25 @@ class CartManagement {
 
     }
 
+    // Calc Sub Totla
+    static public function calculateGrandSubTotal( $items ){
+        return array_sum( array_column( $items, 'product_sub_total' ) );
+    }
+
     // Calculate grand total
     static public function calculateGrandTotal( $items ){
         return array_sum( array_column( $items, 'product_total_amount' ) );
     }
 
-    // Calculate grand discount total
+    // Calculate grand tax
+    static public function calculateGrandTaxTotal( $items ){
+        return array_sum( array_column( $items, 'product_total_tax' ) );
+    }
+    
+    // Calculate grand tax
     static public function calculateGrandDiscountTotal( $items ){
-        return array_sum( array_column( $items, 'product_total_discount_amount' ) );
+        return array_sum( array_column( $items, 'product_total_discount' ) );
     }
 
+    
 };

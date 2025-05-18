@@ -97,8 +97,8 @@
                             <span class="new-price">{{ Number::currency( $product->product_sales_price-$product->product_discount_price, env('APP_CURRENCY') ) }}</span>
 
                             @if( $product->offer_discount_percent )
-                            <span class="old-price">{{ Number::currency( $product->product_sales_price, env('APP_CURRENCY') ) }}</span>
-                            <span class="offer-percent">{{ $product->offer_discount_percent }}% Off</span>
+                                <span class="old-price">{{ Number::currency( $product->product_sales_price, env('APP_CURRENCY') ) }}</span>
+                                <span class="offer-percent">{{ $product->offer_discount_percent }}% Off</span>
                             @endif
                             
                         </span>
