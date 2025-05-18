@@ -14,6 +14,9 @@ use App\Models\PaymentsTransaction;
 use App\Models\PaymentTypes;
 use App\Models\Countries;
 
+use Stripe\Checkout\Session;
+use Stripe\Stripe;
+
 class CheckoutPage extends Component
 {
 
@@ -53,7 +56,6 @@ class CheckoutPage extends Component
     public $grand_total = 0;
 
     public $cart_items;
-
     
     public function mount(){
 
@@ -110,8 +112,24 @@ class CheckoutPage extends Component
                 'card_cvv' => 'required',
             ]);
 
+            dd( 'Stripe Gateway' );
 
-            dd( 'Strip' );
+            // Product Line Item
+
+            // $line_items = array();
+
+            // $stripe = new \Stripe\StripeClient( env('STRIPE_SECRET') );
+
+            // $payment_intent = $stripe->paymentIntents->create([
+            //     'amount' => 2,
+            //     'currency' => 'usd',
+            //     'description' => 'My first payment',
+            // ]);
+
+            // $payment_intent->confirm([
+            //     'payment_method' => 'pm_card_mastercard',
+            // ]);
+
 
             // $this->generateOrder( 'complete' );
 

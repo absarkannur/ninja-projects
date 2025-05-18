@@ -228,7 +228,10 @@
                                         <span class="block product-title">{{ $product->product_name }}</span>
                                     </div>
                                     <div class="price-wrap">
-                                        <span class="block price">{{ Number::currency( $product->product_sales_price, env('APP_CURRENCY') ) }}</span>
+
+                                        <span class="block price">
+                                            {{ Number::currency( $product->product_sales_price-$product->product_discount_price, env('APP_CURRENCY') ) }}
+                                        </span>
 
                                         @if ( $product->offer_discount_percent )
                                         <span class="block price ex">{{ Number::currency( $product->product_sales_price, env('APP_CURRENCY') ) }}</span>

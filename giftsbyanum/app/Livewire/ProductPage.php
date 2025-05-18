@@ -15,7 +15,7 @@ class ProductPage extends Component
 
     public function mount( $slug ){
 
-        $this->product = Products::select('products.id', 'products.*' )
+        $this->product = Products::select('products.id', 'products.*', 'offers.*' )
                             ->where( 'product_slug', $slug )
                             ->leftJoin( 'offers', 'offers.id', 'products.offers_id' )->first();
 

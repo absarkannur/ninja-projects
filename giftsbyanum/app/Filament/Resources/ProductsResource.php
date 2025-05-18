@@ -28,7 +28,12 @@ use Illuminate\Support\Str;
 
 use App\Models\Brands;
 use App\Models\SubCategories;
+use App\Models\Offers;
+use App\Models\Tax;
 use Filament\Tables\Columns\ImageColumn;
+
+use Filament\Forms\Get;
+use Filament\Forms\Set;
 
 class ProductsResource extends Resource
 {
@@ -100,9 +105,19 @@ class ProductsResource extends Resource
                     ]),
 
                     Section::make('Pricing')->schema([
-                        TextInput::make('product_original_price')->numeric()->required(),
-                        TextInput::make('product_sales_price')->numeric()->required(),
-                        TextInput::make('product_qty_in_stock')->numeric()->required(),
+                        
+                        TextInput::make('product_original_price')->label('Cost Price')->numeric()->required(),
+                        TextInput::make('product_sales_price')
+                            ->live(onBlur:true)
+                            ->afterStateUpdated(function( string $operation, string $state, Forms\Set $set, Forms\Get $get ){
+                                static::calcPrice( $get, $set );
+                            })
+                            ->label('Sales Price')->numeric()->required(),
+
+                        TextInput::make('product_discount_price')->label('Discounted Price')->readonly()->numeric()->required(),
+                        TextInput::make('product_tax_price')->label('Tax Price')->readonly()->numeric()->required(),
+                        TextInput::make('product_qty_in_stock')->label('Qty in stock')->numeric()->required(),
+
                     ])->columns(2),
 
                     Section::make('Inventory')->schema([
@@ -142,11 +157,19 @@ class ProductsResource extends Resource
                         ->columnSpanFull()
                         ->required(),
                     Select::make('offers_id')
+                        ->live(onBlur:true)
+                        ->afterStateUpdated(function( string $operation, ?string $state, Forms\Set $set, Forms\Get $get ){
+                            static::calcPrice( $get, $set );
+                        })
                         ->relationship( 'offers', 'offer_name' )
                         ->label('Offer')
                         ->searchable(false)
                         ->columnSpanFull(),
                     Select::make('taxes_id')
+                        ->live(onBlur:true)
+                        ->afterStateUpdated(function( string $operation, ?string $state, Forms\Set $set, Forms\Get $get ){
+                            static::calcPrice( $get, $set );
+                        })
                         ->relationship( 'taxes', 'tax_title' )
                         ->label('Tax')
                         ->searchable(false)
@@ -210,5 +233,31 @@ class ProductsResource extends Resource
         ];
     }
 
+    private static function calcPrice( $get, $set ){
+
+        $offer_id = $get('offers_id');
+        $taxes_id = $get('taxes_id');
+        
+        if( $offer_id ){
+            $offer = Offers::select('offer_discount_percent')->find( $offer_id );
+            $off = $offer['offer_discount_percent'];
+            $sales_price = $get( 'product_sales_price' );
+            $price = $sales_price*$off/100;
+            $set( 'product_discount_price', $price );
+        } else {
+            $set( 'product_discount_price', 0 );
+        }
+
+        if( $taxes_id ){
+            $taxes = Tax::select('tax_percent')->find( $taxes_id );
+            $tax = $taxes['tax_percent'];
+            $sales_price = $get( 'product_sales_price' );
+            $price = $sales_price*$tax/100;
+            $set( 'product_tax_price', $price );
+        } else {
+            $set( 'product_tax_price', 0 );
+        }
+
+    }
 
 }

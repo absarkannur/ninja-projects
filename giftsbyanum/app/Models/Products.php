@@ -25,6 +25,8 @@ class Products extends Model
         'product_images',
         'product_original_price',
         'product_sales_price',
+        'product_discount_price',
+        'product_tax_price',
         'product_qty_in_stock',
         'product_sku',
         'product_status'
