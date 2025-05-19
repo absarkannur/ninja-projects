@@ -13,6 +13,8 @@
         <link rel="stylesheet" href="{{ asset('front-end/styles/bootstrap.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('front-end/styles/owl.carousel.min.css') }}">
         <link rel="stylesheet" href="{{ asset('front-end/styles/owl.theme.default.min.css') }}">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.16.1/sweetalert2.css"/>
 
         <link rel="stylesheet" href="{{ asset('front-end/styles/init.css') }}" />
         <link rel="stylesheet" href="{{ asset('front-end/styles/product.css') }}" />
@@ -31,6 +33,7 @@
         {{ $slot }}
 
         <x:footer.footer />
+
 
         <script src="{{ asset('front-end/scripts/jquery.min.js') }}"></script>
         <script src="{{ asset('front-end/scripts/bootstrap.bundle.min.js') }}"></script>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 18, 2025 at 09:28 PM
+-- Generation Time: May 19, 2025 at 07:12 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.3.1
 
@@ -640,11 +640,10 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `brands_id`, `sub_categories_id`, `offers_id`, `taxes_id`, `product_name`, `product_slug`, `product_description`, `product_content`, `product_images`, `product_original_price`, `product_sales_price`, `product_discount_price`, `product_tax_price`, `product_qty_in_stock`, `product_sku`, `product_status`, `created_at`, `updated_at`) VALUES
-(1, 3, 3, NULL, 1, 'Product 1', 'product-1', 'Nulla tincidunt erat lacus, a tempor est semper in. Proin ut ligula nulla.', NULL, '[\"cdn-products\\/01JV5H64R6SK1NKX7XN2QBHPPN.png\"]', 100, 160, 0, 8, 4, 'SKU-GBA-CK-1', 1, '2025-03-23 03:58:37', '2025-05-18 12:25:18'),
-(2, 3, 2, 2, 1, 'Product 2', 'product-2', 'Test', NULL, '[\"cdn-products\\/01JV5H8WM1CJW28G09B6PAFJF4.jpg\"]', 290, 450, 225, 22.5, 10, 'SKU-GBA-CK-2', 0, '2025-03-24 04:11:12', '2025-05-18 00:39:15'),
-(3, 3, 4, 1, 1, 'Product 3', 'product-3', 'Chees Cake', NULL, '[\"cdn-products\\/01JV5HBSKY938EB42NDTST6ZD9.png\"]', 230, 410, 49.2, 18.04, 10, 'SKU-GBA-CK-3', 1, '2025-03-28 23:31:17', '2025-05-18 13:58:48'),
-(4, 3, 4, 2, 1, 'Product 4', 'product-4', 'Blueberry Lemon Cake', NULL, '[\"cdn-products\\/01JV5HCMZYT1H5KPW43F36F1M9.png\"]', 300, 600, 300, 30, 3, 'SKU-GBA-CK-4', 1, '2025-03-28 23:34:32', '2025-05-17 21:45:53'),
-(5, 3, 2, 1, 1, 'werty', 'werty', 'wert', NULL, '[\"cdn-products\\/01JVJMNVPG2XG866E39W4DVQXP.png\"]', 100, 150, 18, 6.6, 96, 'SKU-GBA-CK-5', 0, '2025-05-18 15:56:29', '2025-05-18 15:56:58');
+(1, 3, 3, NULL, 1, 'Product 1', 'product-1', 'Nulla tincidunt erat lacus, a tempor est semper in. Proin ut ligula nulla.', NULL, '[\"cdn-products\\/01JV5H64R6SK1NKX7XN2QBHPPN.png\"]', 100, 160, 0, 8, 10, 'SKU-GBA-CK-1', 1, '2025-03-23 03:58:37', '2025-05-19 00:47:26'),
+(2, 3, 2, 2, 1, 'Product 2', 'product-2', 'Test', NULL, '[\"cdn-products\\/01JV5H8WM1CJW28G09B6PAFJF4.jpg\"]', 290, 450, 225, 11.25, 10, 'SKU-GBA-CK-2', 0, '2025-03-24 04:11:12', '2025-05-19 00:48:00'),
+(3, 3, 4, 1, 1, 'Product 3', 'product-3', 'Chees Cake', NULL, '[\"cdn-products\\/01JV5HBSKY938EB42NDTST6ZD9.png\"]', 230, 410, 49.2, 18.04, 10, 'SKU-GBA-CK-3', 1, '2025-03-28 23:31:17', '2025-05-19 01:19:39'),
+(4, 3, 4, 2, 1, 'Product 4', 'product-4', 'Blueberry Lemon Cake', NULL, '[\"cdn-products\\/01JV5HCMZYT1H5KPW43F36F1M9.png\"]', 300, 600, 300, 30, 3, 'SKU-GBA-CK-4', 1, '2025-03-28 23:34:32', '2025-05-17 21:45:53');
 
 -- --------------------------------------------------------
 
@@ -979,7 +978,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `shipping_methods`

@@ -112,7 +112,7 @@ class CheckoutPage extends Component
                 'card_cvv' => 'required',
             ]);
 
-            dd( 'Stripe Gateway' );
+            dd( 'Decrease Stock count' );
 
             // Product Line Item
 
@@ -183,8 +183,11 @@ class CheckoutPage extends Component
             } else {
                 $pay_info->save();
             }
-
+            
         }
+
+        // Decrease Stock Count
+        // +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         // Order Placed
         $order = new Orders();
@@ -213,7 +216,7 @@ class CheckoutPage extends Component
 
         // Transaction
         $payments_transactions = new PaymentsTransaction();
-        $payments_transactions->transaction_id = 'TN-'. random_int(10000, 9999) . time();
+        $payments_transactions->transaction_id = 'TN-'. random_int(10000, 99999) . time();
         $payments_transactions->orders_id = $order->id;
         $payments_transactions->payment_types_id = $payment_types_id['id'];
         $payments_transactions->transaction_amount = $this->grand_total;

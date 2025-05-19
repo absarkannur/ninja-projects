@@ -7,6 +7,7 @@ use App\Models\Products;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
+
 class ProductPage extends Component
 {
     #[Title('Gifts By Anum')]
@@ -48,6 +49,8 @@ class ProductPage extends Component
 
         $total_count =  CartManagement::addItemToCart( $product_id, $qty );
         $this->dispatch('update-cart');
+
+        session()->flash('info','Your product in cart');
 
     }
 

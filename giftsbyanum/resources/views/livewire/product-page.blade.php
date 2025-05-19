@@ -117,6 +117,7 @@
 
                     <br/>
 
+                    @if( $product->product_qty_in_stock !== 0 )
                     <div class="button-wrap">
                         <div class="flex product-qty">
                             <button type="button" class="input-quantity-btn quantity-left-minus" data-type="minus">
@@ -134,6 +135,11 @@
                             wire:click.prevent="addToCart({{ $product->id }},1)"
                             class="primary-button no-arrow">ADD TO CART</button>
                     </div>
+                    @else
+                    <div class="button-wrap">
+                        <span class="out-of-stock">Out of stock</span>
+                    </div>
+                    @endif
 
                     <br/>
 

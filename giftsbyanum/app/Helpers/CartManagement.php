@@ -24,11 +24,6 @@ class CartManagement {
         if( $existing_item !== null ){
 
             $cart_items[$existing_item]['product_qty'] = $cart_items[$existing_item]['product_qty'] + $qty;
-
-            // // $cart_items[$existing_item]['product_total_amount'] = $cart_items[$existing_item]['product_qty'] * $cart_items[$existing_item]['product_sales_price'];
-            // // $cart_items[$existing_item]['product_total_discount_amount'] = $cart_items[$existing_item]['product_qty'] * $cart_items[$existing_item]['product_sales_discount'];
-
-
             $cart_items[$existing_item]['product_total_amount'] = $cart_items[$existing_item]['product_qty'] * $cart_items[$existing_item]['product_price']+$cart_items[$existing_item]['product_tax'] * $cart_items[$existing_item]['product_qty'];
             $cart_items[$existing_item]['product_total_tax'] =  $cart_items[$existing_item]['product_tax'] * $cart_items[$existing_item]['product_qty'];
             $cart_items[$existing_item]['product_total_discount'] =  $cart_items[$existing_item]['product_discount'] * $cart_items[$existing_item]['product_qty'];
