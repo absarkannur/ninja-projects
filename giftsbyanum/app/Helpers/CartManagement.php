@@ -21,13 +21,22 @@ class CartManagement {
             }
         }
 
+        // Check Product stock
+        $stock_check = Products::select('product_qty_in_stock')->where( 'products.id', $product_id )->first();
+
         if( $existing_item !== null ){
 
-            $cart_items[$existing_item]['product_qty'] = $cart_items[$existing_item]['product_qty'] + $qty;
-            $cart_items[$existing_item]['product_total_amount'] = $cart_items[$existing_item]['product_qty'] * $cart_items[$existing_item]['product_price']+$cart_items[$existing_item]['product_tax'] * $cart_items[$existing_item]['product_qty'];
-            $cart_items[$existing_item]['product_total_tax'] =  $cart_items[$existing_item]['product_tax'] * $cart_items[$existing_item]['product_qty'];
-            $cart_items[$existing_item]['product_total_discount'] =  $cart_items[$existing_item]['product_discount'] * $cart_items[$existing_item]['product_qty'];
+            if( $cart_items[$existing_item]['product_qty'] < $stock_check['product_qty_in_stock']){
 
+                $cart_items[$existing_item]['product_qty'] = $cart_items[$existing_item]['product_qty'] + $qty;
+                $cart_items[$existing_item]['product_total_amount'] = $cart_items[$existing_item]['product_qty'] * $cart_items[$existing_item]['product_price']+$cart_items[$existing_item]['product_tax'] * $cart_items[$existing_item]['product_qty'];
+                $cart_items[$existing_item]['product_total_tax'] =  $cart_items[$existing_item]['product_tax'] * $cart_items[$existing_item]['product_qty'];
+                $cart_items[$existing_item]['product_total_discount'] =  $cart_items[$existing_item]['product_discount'] * $cart_items[$existing_item]['product_qty'];
+
+            } else {
+                toastr()->error('Stock Limit exceeded');
+                return false;
+            }
 
         } else {
 
@@ -47,23 +56,23 @@ class CartManagement {
 
             if( $product ){
 
-                // $expire = date('Y-m-d', strtotime('0 days'));
-
+                $expire = date('Y-m-d', strtotime('0 days'));
                 $price = $product->product_sales_price;
                 $discount = $product->product_discount_price;
                 $tax = $product->product_tax_price;
+
+                // Offer end with status check
+                if( $product->offer_status == 'inactive' ){
+                    $discount = 0;
+                }
+
+                // Offer End with date
+                if (strtotime( $product->offer_end_date ) <= strtotime($expire)) {
+                    $discount = 0;
+                }
+
                 // Calc sales price
                 $sales_price = floatval($price)-floatval($discount);
-
-                // // Offer end with status check
-                // if( $product->offer_status == 'inactive' ){
-                //     $discount = 0;
-                // }
-
-                // // Offer End with date
-                // if (strtotime( $product->offer_end_date ) <= strtotime($expire)) {
-                //     $discount = 0;
-                // }
 
                 $cart_items[] = [
                     'product_id' => $product->id,
@@ -73,9 +82,8 @@ class CartManagement {
                     'product_qty' => $qty,
                     'product_price' => floatval( $sales_price ),
                     'product_discount' => floatval( $discount ),
-                    'product_tax' => floatval($tax)*floatval($qty),
+                    'product_tax' => floatval($tax),
 
-                    'product_sub_total' => floatval($qty)*floatval($sales_price),
                     'product_total_amount' => floatval($qty)*floatval($sales_price)+floatval($tax)*floatval($qty),
                     'product_total_tax' => floatval($tax)*floatval($qty),
                     'product_total_discount' => floatval( $discount )*floatval($qty),
@@ -138,23 +146,15 @@ class CartManagement {
     static public function incrementQuantityToCartItem( $product_id ){
         $cart_items = self::getCartItemsFromCookie();
 
-        // Get Product QTY
-        $product_qty = Products::where( 'id', $product_id )->first('product_qty_in_stock');
-
-        // dd( $product_qty );
-
-
         foreach ($cart_items as $key => $item) {
             if( $item['product_id'] == $product_id ){
-                if( $cart_items[$key]['product_qty'] < $product_qty->product_qty_in_stock ){
 
-                    $cart_items[$key]['product_qty']++;
+                $cart_items[$key]['product_qty']++;
 
-                    $cart_items[$key]['product_total_amount'] = $cart_items[$key]['product_qty'] * $cart_items[$key]['product_price']+$cart_items[$key]['product_tax'] * $cart_items[$key]['product_qty'];
-                    $cart_items[$key]['product_total_tax'] =  $cart_items[$key]['product_tax'] * $cart_items[$key]['product_qty'];
-                    $cart_items[$key]['product_total_discount'] =  $cart_items[$key]['product_discount'] * $cart_items[$key]['product_qty'];
+                $cart_items[$key]['product_total_amount'] = $cart_items[$key]['product_qty'] * $cart_items[$key]['product_price']+$cart_items[$key]['product_tax'] * $cart_items[$key]['product_qty'];
+                $cart_items[$key]['product_total_tax'] =  $cart_items[$key]['product_tax'] * $cart_items[$key]['product_qty'];
+                $cart_items[$key]['product_total_discount'] =  $cart_items[$key]['product_discount'] * $cart_items[$key]['product_qty'];
 
-                }
             }
         }
 
@@ -186,11 +186,6 @@ class CartManagement {
 
     }
 
-    // Calc Sub Totla
-    static public function calculateGrandSubTotal( $items ){
-        return array_sum( array_column( $items, 'product_sub_total' ) );
-    }
-
     // Calculate grand total
     static public function calculateGrandTotal( $items ){
         return array_sum( array_column( $items, 'product_total_amount' ) );
@@ -200,11 +195,11 @@ class CartManagement {
     static public function calculateGrandTaxTotal( $items ){
         return array_sum( array_column( $items, 'product_total_tax' ) );
     }
-    
+
     // Calculate grand tax
     static public function calculateGrandDiscountTotal( $items ){
         return array_sum( array_column( $items, 'product_total_discount' ) );
     }
 
-    
+
 };

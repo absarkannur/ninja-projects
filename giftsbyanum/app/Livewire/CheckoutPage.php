@@ -13,7 +13,7 @@ use App\Models\PaymentInformations;
 use App\Models\PaymentsTransaction;
 use App\Models\PaymentTypes;
 use App\Models\Countries;
-
+use App\Models\Products;
 use Stripe\Checkout\Session;
 use Stripe\Stripe;
 
@@ -32,7 +32,7 @@ class CheckoutPage extends Component
     public $option_address = false;
     public $save_payment_details;
 
-    
+
     // New Address
     public $full_name = '';
     public $address_1 = '';
@@ -53,11 +53,78 @@ class CheckoutPage extends Component
     public $card_year = '';
     public $card_month = '';
     public $card_cvv = '';
-    public $grand_total = 0;
-
     public $cart_items;
-    
+
+    // Price
+    public $grand_price_total = 0;
+    public $grand_discount_total = 0;
+    public $grand_tax_total = 0;
+    public $shipping_charge = 0;
+
+    public function wrapCart(){
+
+        $cart_item = CartManagement::getCartItemsFromCookie();
+
+        foreach ($cart_item as $key => $cart ) {
+
+            $product = Products::where( 'products.id', $cart['product_id'] )
+                        ->leftJoin( 'offers', 'offers.id', 'products.offers_id' )
+                        ->first(['products.id',
+                                'products.product_name',
+                                'products.product_images',
+                                'products.product_sales_price',
+                                'products.product_discount_price',
+                                'products.product_tax_price',
+                                'products.product_qty_in_stock',
+                                'offers.offer_discount_percent',
+                                'offers.offer_status',
+                                'offers.offer_end_date',
+                            ]);
+
+            if( $product ){
+
+                $expire = date('Y-m-d', strtotime('0 days'));
+                $price = $product->product_sales_price;
+                $discount = $product->product_discount_price;
+                $tax = $product->product_tax_price;
+
+                // Offer end with status check
+                if( $product->offer_status == 'inactive' ){
+                    $discount = 0;
+                }
+
+                // Offer End with date
+                if (strtotime( $product->offer_end_date ) <= strtotime($expire)) {
+                    $discount = 0;
+                }
+
+                // Calc sales price
+                $sales_price = floatval($price)-floatval($discount);
+                $qty = $cart['product_qty'];
+
+                $cart_item[$key]['product_qty'] = floatval( $qty );
+                $cart_item[$key]['product_price'] = floatval( $sales_price );
+                $cart_item[$key]['product_discount'] = floatval( $discount );
+                $cart_item[$key]['product_tax'] = floatval($tax);
+
+                $cart_item[$key]['product_total_amount'] = floatval($qty)*floatval($sales_price)+floatval($tax)*floatval($qty);
+                $cart_item[$key]['product_total_tax'] = floatval($tax)*floatval($qty);
+                $cart_item[$key]['product_total_discount'] = floatval( $discount )*floatval($qty);
+
+            }
+        }
+
+        CartManagement::addCartItemsToCookie( $cart_item );
+
+        $this->cart_items = CartManagement::getCartItemsFromCookie();
+        $this->grand_price_total = CartManagement::calculateGrandTotal( $cart_item );
+
+    }
+
     public function mount(){
+
+        // car recheck the offer price and all
+        $this->wrapCart();
 
         $this->currency = env('APP_CURRENCY');
 
@@ -70,10 +137,9 @@ class CheckoutPage extends Component
 
         $this->current_session = Session()->get('users_session');
         $this->full_name = $this->current_session['customer_name'];
-        
 
         $this->cart_items = CartManagement::getCartItemsFromCookie();
-        $this->grand_total = CartManagement::calculateGrandTotal( $this->cart_items );
+        // $this->grand_price_total = CartManagement::calculateGrandTotal( $this->cart_items );
 
         $pay_info = PaymentInformations::where('customers_id', $this->current_session['id'] )->first();
 
@@ -89,7 +155,6 @@ class CheckoutPage extends Component
             return redirect('/');
         }
 
-
     }
 
     public function newAddress(){
@@ -104,15 +169,15 @@ class CheckoutPage extends Component
 
         if( $this->payment_option === 'CCD' ){
 
-            $this->validate([
-                'card_name' => 'required',
-                'card_number' => 'required',
-                'card_year' => 'required',
-                'card_month' => 'required',
-                'card_cvv' => 'required',
-            ]);
+            // $this->validate([
+            //     'card_name' => 'required',
+            //     'card_number' => 'required',
+            //     'card_year' => 'required',
+            //     'card_month' => 'required',
+            //     'card_cvv' => 'required',
+            // ]);
 
-            dd( 'Decrease Stock count' );
+            // dd( 'Decrease Stock count' );
 
             // Product Line Item
 
@@ -135,17 +200,17 @@ class CheckoutPage extends Component
 
 
         } else if( $this->payment_option === 'COD' ) {
-            
+
             // Cash On Delivery
             // $this->generateOrder( 'pending' );
 
         }
-        
-        
+
+
     }
-    
+
     public function generateOrder( $pay_status = 'pending' ) {
-        
+
         $order_number = $this->generateOrderNumber();
         $customers_id = $this->current_session['id'];
         $payment_types_id = PaymentTypes::where('payment_type_short', $this->payment_option)->first('id');
@@ -183,7 +248,7 @@ class CheckoutPage extends Component
             } else {
                 $pay_info->save();
             }
-            
+
         }
 
         // Decrease Stock Count
@@ -195,7 +260,7 @@ class CheckoutPage extends Component
         $order->customers_id = $customers_id;
         $order->payment_types_id = $payment_types_id->id;
         $order->addresses_id = $addresses_id;
-        $order->grand_total = $this->grand_total;
+        $order->grand_total = $this->grand_price_total;
         $order->order_status = $order_status;
         $order->order_date = $order_date;
         $order->save();
@@ -206,7 +271,7 @@ class CheckoutPage extends Component
             $order_item->orders_id = $order->id;
             $order_item->products_id = $product['product_id'];
             $order_item->order_qty = $product['product_qty'];
-            $order_item->order_price = $product['product_price']; 
+            $order_item->order_price = $product['product_price'];
             $order_item->order_price_total = $product['product_total_amount'];
             $order_item->order_discount_percent = 0;
             $order_item->order_tax_percent = 0;
@@ -219,11 +284,11 @@ class CheckoutPage extends Component
         $payments_transactions->transaction_id = 'TN-'. random_int(10000, 99999) . time();
         $payments_transactions->orders_id = $order->id;
         $payments_transactions->payment_types_id = $payment_types_id['id'];
-        $payments_transactions->transaction_amount = $this->grand_total;
+        $payments_transactions->transaction_amount = $this->grand_price_total;
         $payments_transactions->transaction_date = $order_date;
         $payments_transactions->payment_status = $pay_status;
         $payments_transactions->save();
-        
+
         // Clear Cart
         CartManagement::clearCartItems();
 
@@ -291,7 +356,13 @@ class CheckoutPage extends Component
             'current_session' => $this->current_session,
             'payment_methods' => $payment_methods,
             'address' => $address,
-            'countries' => $countries
+            'countries' => $countries,
+
+            'grand_price_total' => $this->grand_price_total,
+            'grand_discount_total' => $this->grand_discount_total,
+            'grand_tax_total' => $this->grand_tax_total,
+            'shipping_charge' => $this->shipping_charge,
+
         ]);
     }
 
@@ -317,7 +388,6 @@ class CheckoutPage extends Component
 
     }
 
-    
     public function generateOrderNumber(){
 
         $lastOrder = Orders::latest()->first();
@@ -355,7 +425,7 @@ class CheckoutPage extends Component
         } else {
             return 'UNKNOW';
         }
-        
+
     }
 
 }

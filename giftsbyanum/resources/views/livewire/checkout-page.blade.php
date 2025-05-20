@@ -24,7 +24,7 @@
                             </legend>
 
                             <div class="fieldset-body">
-                                
+
                                 <div>
                                     <ul class="payment-methods-list">
                                         @foreach ( $payment_methods as $methods )
@@ -51,12 +51,12 @@
                                         @endforeach
                                     </ul>
                                 </div>
-                                
+
                                 @if( $payment_option === 'CCD' )
                                 <div class="card-details">
 
                                     <label class="input-label">Name on Card</label>
-                                    <input class="primary-input" 
+                                    <input class="primary-input"
                                         placeholder="Cardholder Name"
                                         maxlength="26"
                                         type="text"
@@ -68,7 +68,7 @@
                                     <div class="row">
                                         <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
                                             <label class="input-label">Card Number</label>
-                                            <input class="primary-input cc_number" 
+                                            <input class="primary-input cc_number"
                                                 placeholder="0000 0000 0000 0000"
                                                 x-mask="9999-9999-9999-9999"
                                                 wire:model="card_number" />
@@ -78,7 +78,7 @@
                                         </div>
                                         <div class="col-sm-12 col-md-12 col-lg-2 col-xl-2">
                                             <label class="input-label">Expiry</label>
-                                            <select class="primary-input" 
+                                            <select class="primary-input"
                                                 placeholder="MM"
                                                 wire:model="card_month">
                                                 <option value="01">01</option>
@@ -101,11 +101,11 @@
                                         </div>
                                         <div class="col-sm-12 col-md-12 col-lg-2 col-xl-2">
                                             <label class="input-label">&nbsp;</label>
-                                            <select class="primary-input" 
+                                            <select class="primary-input"
                                                 placeholder="YYYY"
                                                 wire:model="card_year">
 
-                                                @foreach ($card_years as $year)   
+                                                @foreach ($card_years as $year)
                                                 <option value="{{ $year }}">{{ $year }}</option>
                                                 @endforeach
 
@@ -139,7 +139,7 @@
                             </div>
 
                         </fieldset>
-                        
+
                         <fieldset class="payment-fieldset">
 
                             <legend>
@@ -151,13 +151,13 @@
 
                             @if ( $option_address )
                             <div class="fieldset-body" style="border-bottom: solid 1px #ddd;">
-                                
+
                                 <label class="input-label">Full Name</label>
                                 <input class="primary-input" type="text" wire:model="full_name" />
                                 @error('full_name')
                                     <span class="input-error">{{ $message }}</span>
                                 @enderror
-                                
+
                                 <div class="row">
                                     <div class="col">
                                         <label class="input-label">Address 1</label>
@@ -171,7 +171,7 @@
                                         <textarea class="primary-textarea" rows="3" wire:model="address_2"></textarea>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row">
                                     <div class="col">
                                         <label class="input-label">Country</label>
@@ -259,23 +259,23 @@
                         <div class="summary">
                             <div class="head-wrap">
                                 <span>Total</span>
-                                <span class="value">{{ Number::currency( $grand_total, $currency ) }}</span>
+                                <span class="value">{{ Number::currency( $grand_price_total, $currency ) }}</span>
                             </div>
                             <div class="price-wrap">
                                 <span>Discount</span>
-                                <span class="value">{{ Number::currency( 0, $currency ) }}</span>
+                                <span class="value">{{ Number::currency( $grand_discount_total, $currency ) }}</span>
                             </div>
                             <div class="price-wrap">
                                 <span>TAX</span>
-                                <span class="value">{{ Number::currency( 0, $currency ) }}</span>
+                                <span class="value">{{ Number::currency( $grand_tax_total, $currency ) }}</span>
                             </div>
                             <div class="price-wrap">
                                 <span>Shipping</span>
-                                <span class="value">{{ Number::currency( 0, $currency ) }}</span>
+                                <span class="value">{{ Number::currency( $shipping_charge, $currency ) }}</span>
                             </div>
                             <div class="head-wrap">
                                 <span>Grand Total</span>
-                                <span class="value">{{ Number::currency( $grand_total, $currency ) }}</span>
+                                <span class="value">{{ Number::currency( $grand_price_total, $currency ) }}</span>
                             </div>
                         </div>
 

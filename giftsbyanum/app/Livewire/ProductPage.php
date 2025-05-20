@@ -13,35 +13,15 @@ class ProductPage extends Component
     #[Title('Gifts By Anum')]
 
     public $product;
+    public $product_qty = 1;
+    public $product_stock = 0;
+    public $slug = '';
 
     public function mount( $slug ){
 
-        $this->product = Products::select( 
-                            'products.id',
-                            'products.brands_id',
-                            'products.sub_categories_id',
-                            'products.offers_id',
-                            'products.taxes_id',
-                            'products.product_name',
-                            'products.product_slug',
-                            'products.product_description',
-                            'products.product_content',
-                            'products.product_images',
-                            'products.product_original_price',
-                            'products.product_sales_price',
-                            'products.product_discount_price',
-                            'products.product_tax_price',
-                            'products.product_qty_in_stock',
-                            'products.product_sku',
-                            'products.product_status',
-                            'offers.offer_name',
-                            'offers.offer_description',
-                            'offers.offer_discount_percent',
-                            'offers.offer_end_date',
-                            'offers.offer_status'
-                        )
-                        ->where( 'product_slug', $slug )
-                        ->leftJoin( 'offers', 'offers.id', 'products.offers_id' )->first();  
+        $this->slug = $slug;
+        $this->product = static::getProduct( $slug );
+        $this->product_stock = $this->product['product_qty_in_stock'];
 
     }
 
@@ -50,11 +30,64 @@ class ProductPage extends Component
         $total_count =  CartManagement::addItemToCart( $product_id, $qty );
         $this->dispatch('update-cart');
 
-        session()->flash('info','Your product in cart');
+        if( $total_count != false ){
+            toastr()->success('Product successfully added to your cart.');
+        }
+
+        $this->product_qty = 1;
 
     }
 
+    public function incrementCart(){
+
+        if( $this->product_stock !== $this->product_qty ) {
+            $this->product_qty++;
+        }
+
+    }
+
+    public function decrementCart(){
+        if( $this->product_qty > 1 ) {
+            $this->product_qty--;
+        }
+    }
+
+    public function getProduct( $slug ){
+        $data = Products::select(
+            'products.id',
+            'products.brands_id',
+            'products.sub_categories_id',
+            'products.offers_id',
+            'products.taxes_id',
+            'products.product_name',
+            'products.product_slug',
+            'products.product_description',
+            'products.product_content',
+            'products.product_images',
+            'products.product_original_price',
+            'products.product_sales_price',
+            'products.product_discount_price',
+            'products.product_tax_price',
+            'products.product_qty_in_stock',
+            'products.product_sku',
+            'products.product_status',
+            'offers.offer_name',
+            'offers.offer_description',
+            'offers.offer_discount_percent',
+            'offers.offer_end_date',
+            'offers.offer_status'
+        )
+        ->where( 'product_slug', $slug )
+        ->leftJoin( 'offers', 'offers.id', 'products.offers_id' )
+        ->first();
+
+        return $data;
+    }
+
     public function render() {
+
+        $this->product = static::getProduct( $this->slug );
+
         return view('livewire.product-page', [
             "product" => $this->product
         ]);

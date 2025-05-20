@@ -94,13 +94,13 @@
                     <div class="header-content">
                         <h1>{{ $product->product_name }}</h1>
                         <span class="price">
-                            <span class="new-price">{{ Number::currency( $product->product_sales_price-$product->product_discount_price, env('APP_CURRENCY') ) }}</span>
 
+                            <span class="new-price">{{ Number::currency( $product->product_sales_price-$product->product_discount_price, env('APP_CURRENCY') ) }}</span>
                             @if( $product->offer_discount_percent )
                                 <span class="old-price">{{ Number::currency( $product->product_sales_price, env('APP_CURRENCY') ) }}</span>
-                                <span class="offer-percent">{{ $product->offer_discount_percent }}% Off</span>
+                                <span class="offer-percent">{{ $product->offer_discount_percent . '% Off' }}</span>
                             @endif
-                            
+
                         </span>
                     </div>
 
@@ -120,11 +120,15 @@
                     @if( $product->product_qty_in_stock !== 0 )
                     <div class="button-wrap">
                         <div class="flex product-qty">
-                            <button type="button" class="input-quantity-btn quantity-left-minus" data-type="minus">
+                            <button
+                                wire:click.prevent="decrementCart()"
+                                type="button" class="input-quantity-btn quantity-left-minus" data-type="minus">
                                 <svg width="16" height="16"><use xlink:href="{{ asset('front-end/images/svg-sprint.svg#minus-thick') }}"></use></svg>
                             </button>
-                            <input min="1" max="{{ $product->product_qty_in_stock }}" readonly type="text" id="quantity" name="quantity" class="input-quantity" value="1">
-                            <button type="button" class="input-quantity-btn quantity-right-plus" data-type="plus">
+                            <input min="1" max="{{ $product->product_qty_in_stock }}" readonly type="text" id="quantity" name="quantity" class="input-quantity" value={{ $product_qty }}>
+                            <button
+                                wire:click.prevent="incrementCart()"
+                                type="button" class="input-quantity-btn quantity-right-plus" data-type="plus">
                                 <svg width="16" height="16"><use xlink:href="{{ asset('front-end/images/svg-sprint.svg#plus-thick') }}"></use></svg>
                             </button>
                         </div>
@@ -132,7 +136,7 @@
                             type="button"
                             id="addtocart"
                             product-id={{ $product->id }}
-                            wire:click.prevent="addToCart({{ $product->id }},1)"
+                            wire:click.prevent="addToCart({{ $product->id }}, {{ $product_qty }} )"
                             class="primary-button no-arrow">ADD TO CART</button>
                     </div>
                     @else
