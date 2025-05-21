@@ -56,6 +56,7 @@ class CheckoutPage extends Component
     public $cart_items;
 
     // Price
+    public $grand_sub_price_total = 0;
     public $grand_price_total = 0;
     public $grand_discount_total = 0;
     public $grand_tax_total = 0;
@@ -111,6 +112,7 @@ class CheckoutPage extends Component
                 $cart_item[$key]['product_discount'] = floatval( $discount );
                 $cart_item[$key]['product_tax'] = floatval($tax);
 
+                $cart_item[$key]['product_sub_total_amount'] = floatval($qty)*floatval($sales_price);
                 $cart_item[$key]['product_total_amount'] = floatval($qty)*floatval($sales_price)+floatval($tax)*floatval($qty);
                 $cart_item[$key]['product_total_tax'] = floatval($tax)*floatval($qty);
                 $cart_item[$key]['product_total_discount'] = floatval( $discount )*floatval($qty);
@@ -121,14 +123,23 @@ class CheckoutPage extends Component
         CartManagement::addCartItemsToCookie( $cart_item );
 
         $this->cart_items = CartManagement::getCartItemsFromCookie();
+        $this->grand_sub_price_total = CartManagement::calculateGrandSubTotal( $cart_item );
         $this->grand_price_total = CartManagement::calculateGrandTotal( $cart_item );
+        $this->grand_discount_total = CartManagement::calculateGrandDiscountTotal( $cart_item );
+        $this->grand_tax_total = CartManagement::calculateGrandTaxTotal( $cart_item );
 
+    }
+
+    public function setAllCharges(){
+        $this->shipping_charge = 100;
+        $this->grand_price_total = $this->grand_price_total+$this->shipping_charge;
     }
 
     public function mount(){
 
         // car recheck the offer price and all
         $this->wrapCart();
+        $this->setAllCharges();
 
         $this->currency = env('APP_CURRENCY');
 
@@ -143,7 +154,7 @@ class CheckoutPage extends Component
         $this->full_name = $this->current_session['customer_name'];
 
         $this->cart_items = CartManagement::getCartItemsFromCookie();
-        // $this->grand_price_total = CartManagement::calculateGrandTotal( $this->cart_items );
+
 
         $pay_info = PaymentInformations::where('customers_id', $this->current_session['id'] )->first();
 
@@ -362,6 +373,7 @@ class CheckoutPage extends Component
             'address' => $address,
             'countries' => $countries,
 
+            'grand_sub_price_total' => $this->grand_sub_price_total,
             'grand_price_total' => $this->grand_price_total,
             'grand_discount_total' => $this->grand_discount_total,
             'grand_tax_total' => $this->grand_tax_total,

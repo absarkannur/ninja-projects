@@ -57,16 +57,16 @@
                     <div class="cart-summary">
 
                         <div class="summary">
-                            {{-- <div class="price-wrap">
-                                <span>Sub Total</span>
-                                <span class="value">{{ Number::currency( $grand_sub_total, $currency ) }}</span>
-                            </div> --}}
                             <div class="price-wrap">
+                                <span><b>Sub Total</b></span>
+                                <span class="value"><b>{{ Number::currency( $grand_sub_total, $currency ) }}</b></span>
+                            </div>
+                            {{-- <div class="price-wrap">
                                 <span>Discount</span>
                                 <span class="value">- {{ Number::currency( $grand_discount_total, $currency ) }}</span>
-                            </div>
+                            </div> --}}
                             <div class="price-wrap">
-                                <span>TAX</span>
+                                <span>Tax</span>
                                 <span class="value">{{ Number::currency( $grand_tax_total, $currency ) }}</span>
                             </div>
                             <div class="head-wrap">

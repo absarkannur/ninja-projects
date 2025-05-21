@@ -258,13 +258,13 @@
 
                         <div class="summary">
                             <div class="head-wrap">
-                                <span>Total</span>
-                                <span class="value">{{ Number::currency( $grand_price_total, $currency ) }}</span>
+                                <span>Sub Total</span>
+                                <span class="value">{{ Number::currency( $grand_sub_price_total, $currency ) }}</span>
                             </div>
-                            <div class="price-wrap">
+                            {{-- <div class="price-wrap">
                                 <span>Discount</span>
                                 <span class="value">{{ Number::currency( $grand_discount_total, $currency ) }}</span>
-                            </div>
+                            </div> --}}
                             <div class="price-wrap">
                                 <span>TAX</span>
                                 <span class="value">{{ Number::currency( $grand_tax_total, $currency ) }}</span>

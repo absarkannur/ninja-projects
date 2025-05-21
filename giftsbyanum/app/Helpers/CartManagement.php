@@ -29,6 +29,7 @@ class CartManagement {
             if( $cart_items[$existing_item]['product_qty'] < $stock_check['product_qty_in_stock']){
 
                 $cart_items[$existing_item]['product_qty'] = $cart_items[$existing_item]['product_qty'] + $qty;
+                $cart_items[$existing_item]['product_sub_total_amount'] = $cart_items[$existing_item]['product_qty'] * $cart_items[$existing_item]['product_price'];
                 $cart_items[$existing_item]['product_total_amount'] = $cart_items[$existing_item]['product_qty'] * $cart_items[$existing_item]['product_price']+$cart_items[$existing_item]['product_tax'] * $cart_items[$existing_item]['product_qty'];
                 $cart_items[$existing_item]['product_total_tax'] =  $cart_items[$existing_item]['product_tax'] * $cart_items[$existing_item]['product_qty'];
                 $cart_items[$existing_item]['product_total_discount'] =  $cart_items[$existing_item]['product_discount'] * $cart_items[$existing_item]['product_qty'];
@@ -88,6 +89,7 @@ class CartManagement {
                     'product_discount' => floatval( $discount ),
                     'product_tax' => floatval($tax),
 
+                    'product_sub_total_amount' => floatval($qty)*floatval($sales_price),
                     'product_total_amount' => floatval($qty)*floatval($sales_price)+floatval($tax)*floatval($qty),
                     'product_total_tax' => floatval($tax)*floatval($qty),
                     'product_total_discount' => floatval( $discount )*floatval($qty),
@@ -156,6 +158,7 @@ class CartManagement {
 
                 $cart_items[$key]['product_qty']++;
 
+                $cart_items[$key]['product_sub_total_amount'] = $cart_items[$key]['product_qty'] * $cart_items[$key]['product_price'];
                 $cart_items[$key]['product_total_amount'] = $cart_items[$key]['product_qty'] * $cart_items[$key]['product_price']+$cart_items[$key]['product_tax'] * $cart_items[$key]['product_qty'];
                 $cart_items[$key]['product_total_tax'] =  $cart_items[$key]['product_tax'] * $cart_items[$key]['product_qty'];
                 $cart_items[$key]['product_total_discount'] =  $cart_items[$key]['product_discount'] * $cart_items[$key]['product_qty'];
@@ -178,6 +181,7 @@ class CartManagement {
 
                     $cart_items[$key]['product_qty']--;
 
+                    $cart_items[$key]['product_sub_total_amount'] = $cart_items[$key]['product_qty'] * $cart_items[$key]['product_price'];
                     $cart_items[$key]['product_total_amount'] = $cart_items[$key]['product_qty'] * $cart_items[$key]['product_price']+$cart_items[$key]['product_tax'] * $cart_items[$key]['product_qty'];
                     $cart_items[$key]['product_total_tax'] =  $cart_items[$key]['product_tax'] * $cart_items[$key]['product_qty'];
                     $cart_items[$key]['product_total_discount'] =  $cart_items[$key]['product_discount'] * $cart_items[$key]['product_qty'];
@@ -189,6 +193,11 @@ class CartManagement {
         self::addCartItemsToCookie( $cart_items );
         return $cart_items;
 
+    }
+
+    // Calculate grand total
+    static public function calculateGrandSubTotal( $items ){
+        return array_sum( array_column( $items, 'product_sub_total_amount' ) );
     }
 
     // Calculate grand total

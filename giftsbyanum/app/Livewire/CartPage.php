@@ -13,6 +13,7 @@ class CartPage extends Component
     #[Title('Gifts By Anum - Cart')]
 
     protected $cart_items = [];
+    protected $grand_sub_total = 0;
     protected $grand_total = 0;
     protected $grand_tax_total = 0;
     protected $grand_discount_total = 0;
@@ -24,6 +25,7 @@ class CartPage extends Component
         $this->currency = env('APP_CURRENCY');
 
         $this->cart_items = CartManagement::getCartItemsFromCookie();
+        $this->grand_sub_total = CartManagement::calculateGrandSubTotal( $this->cart_items );
         $this->grand_total = CartManagement::calculateGrandTotal( $this->cart_items );
         $this->grand_tax_total = CartManagement::calculateGrandTaxTotal( $this->cart_items );
         $this->grand_discount_total = CartManagement::calculateGrandDiscountTotal( $this->cart_items );
@@ -32,6 +34,7 @@ class CartPage extends Component
 
     public function removeCart( $product_id ){
         $this->cart_items = CartManagement::removeCartItem( $product_id );
+        $this->grand_sub_total = CartManagement::calculateGrandSubTotal( $this->cart_items );
         $this->grand_total = CartManagement::calculateGrandTotal( $this->cart_items );
         $this->grand_tax_total = CartManagement::calculateGrandTaxTotal( $this->cart_items );
         $this->grand_discount_total = CartManagement::calculateGrandDiscountTotal( $this->cart_items );
@@ -40,6 +43,7 @@ class CartPage extends Component
 
     public function incrementCart( $product_id ){
         $this->cart_items = CartManagement::incrementQuantityToCartItem( $product_id );
+        $this->grand_sub_total = CartManagement::calculateGrandSubTotal( $this->cart_items );
         $this->grand_total = CartManagement::calculateGrandTotal( $this->cart_items );
         $this->grand_tax_total = CartManagement::calculateGrandTaxTotal( $this->cart_items );
         $this->grand_discount_total = CartManagement::calculateGrandDiscountTotal( $this->cart_items );
@@ -48,6 +52,7 @@ class CartPage extends Component
 
     public function decrementCart( $product_id ){
         $this->cart_items = CartManagement::decrementQuantityToCartItem( $product_id );
+        $this->grand_sub_total = CartManagement::calculateGrandSubTotal( $this->cart_items );
         $this->grand_total = CartManagement::calculateGrandTotal( $this->cart_items );
         $this->grand_tax_total = CartManagement::calculateGrandTaxTotal( $this->cart_items );
         $this->grand_discount_total = CartManagement::calculateGrandDiscountTotal( $this->cart_items );
@@ -58,6 +63,7 @@ class CartPage extends Component
     {
         return view('livewire.cart-page', [
             'cart_items' => $this->cart_items,
+            'grand_sub_total' => $this->grand_sub_total,
             'grand_total' => $this->grand_total,
             'grand_tax_total' => $this->grand_tax_total,
             'grand_discount_total' => $this->grand_discount_total
