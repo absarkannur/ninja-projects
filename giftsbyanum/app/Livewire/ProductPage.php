@@ -16,12 +16,25 @@ class ProductPage extends Component
     public $product_qty = 1;
     public $product_stock = 0;
     public $slug = '';
+    public $offer_ended;
+
+    // Price
+    public $sale_price = 0;
 
     public function mount( $slug ){
 
         $this->slug = $slug;
         $this->product = static::getProduct( $slug );
         $this->product_stock = $this->product['product_qty_in_stock'];
+
+
+        $expire = date('Y-m-d', strtotime('0 days'));
+        if (strtotime( $this->product->offer_end_date ) <= strtotime($expire)) {
+            $this->offer_ended = 1;
+            $this->sale_price = floatval($this->product['product_sales_price']);
+        } else {
+            $this->sale_price = floatval($this->product['product_sales_price'])-floatval($this->product['product_discount_price']);
+        }
 
     }
 
@@ -89,7 +102,9 @@ class ProductPage extends Component
         $this->product = static::getProduct( $this->slug );
 
         return view('livewire.product-page', [
-            "product" => $this->product
+            "product" => $this->product,
+            "offer_ended" => $this->offer_ended,
+            'sale_price' => $this->sale_price
         ]);
     }
 }

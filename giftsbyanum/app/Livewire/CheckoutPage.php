@@ -69,6 +69,7 @@ class CheckoutPage extends Component
 
             $product = Products::where( 'products.id', $cart['product_id'] )
                         ->leftJoin( 'offers', 'offers.id', 'products.offers_id' )
+                        ->leftJoin( 'taxes', 'taxes.id', 'products.taxes_id' )
                         ->first(['products.id',
                                 'products.product_name',
                                 'products.product_images',
@@ -76,6 +77,7 @@ class CheckoutPage extends Component
                                 'products.product_discount_price',
                                 'products.product_tax_price',
                                 'products.product_qty_in_stock',
+                                'taxes.tax_percent',
                                 'offers.offer_discount_percent',
                                 'offers.offer_status',
                                 'offers.offer_end_date',
@@ -91,11 +93,13 @@ class CheckoutPage extends Component
                 // Offer end with status check
                 if( $product->offer_status == 'inactive' ){
                     $discount = 0;
+                    $tax = floatval($price)*floatval($product->tax_percent)/100;
                 }
 
                 // Offer End with date
                 if (strtotime( $product->offer_end_date ) <= strtotime($expire)) {
                     $discount = 0;
+                    $tax = floatval($price)*floatval($product->tax_percent)/100;
                 }
 
                 // Calc sales price
