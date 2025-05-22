@@ -210,31 +210,31 @@
                         @foreach ( $products as $product )
                             {{-- {{ dd( $product ) }} --}}
                             <li class="product-list">
-                                <a href="{{ route( 'product', ['slug' => $product->product_slug ] ) }}">
+                                <a href="{{ route( 'product', ['slug' => $product['product_slug'] ] ) }}">
                                     <div class="category-wrap">
-                                        <span class="block category-title">{{ $product->category_name }}</span>
-                                        @if ( $product->offer_discount_percent )
-                                        <span class="block product-offer-percent">-{{ $product->offer_discount_percent }}%</span>
+                                        <span class="block category-title">{{ $product['category_name'] }}</span>
+                                        @if ( $product['offer_discount_percent'] )
+                                        <span class="block product-offer-percent">-{{ $product['offer_discount_percent'] }}%</span>
                                         @endif
                                     </div>
                                     <div class="image-wrap">
                                         <div class="imagethmb">
                                             <div class="imagethmb_inner">
-                                                <img src="{{ asset( 'storage/' . $product->product_images[0] ) }}" alt="" />
+                                                <img src="{{ asset( 'storage/' . $product['product_images'][0] ) }}" alt="" />
                                             </div>
                                         </div>
                                     </div>
                                     <div class="title-wrap">
-                                        <span class="block product-title">{{ $product->product_name }}</span>
+                                        <span class="block product-title">{{ $product['product_name'] }}</span>
                                     </div>
                                     <div class="price-wrap">
 
                                         <span class="block price">
-                                            {{ Number::currency( $product->product_sales_price-$product->product_discount_price, env('APP_CURRENCY') ) }}
+                                            {{ Number::currency( $product['product_sales_price']-$product['product_discount_price'], env('APP_CURRENCY') ) }}
                                         </span>
 
-                                        @if ( $product->offer_discount_percent )
-                                        <span class="block price ex">{{ Number::currency( $product->product_sales_price, env('APP_CURRENCY') ) }}</span>
+                                        @if ( $product['offer_discount_percent'] )
+                                        <span class="block price ex">{{ Number::currency( $product['product_sales_price'], env('APP_CURRENCY') ) }}</span>
                                         @endif
                                     </div>
                                 </a>

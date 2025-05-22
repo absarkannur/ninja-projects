@@ -127,19 +127,18 @@ class CartManagement {
 
     // Add cart items to Cookie
     static public function addCartItemsToCookie( $cart_items ) {
-        Cookie::queue( 'cart_items', json_encode( $cart_items ), time() - 3600 );
-        // Cookie::queue( 'cart_items', json_encode( $cart_items ), 60*24*30 );
+        Cookie::queue( 'gfanum', json_encode( $cart_items ), 60*24*1 ); // One Day
     }
 
     // Clear cart items from Cookie
     static public function clearCartItems() {
-        Cookie::queue( Cookie::forget('cart_items') );
+        Cookie::queue( Cookie::forget('gfanum') );
     }
 
     // Get all cart items from Cookie
     static public function getCartItemsFromCookie(){
 
-        $cart_items = json_decode( Cookie::get('cart_items'), true);
+        $cart_items = json_decode( Cookie::get('gfanum'), true);
 
         if( !$cart_items ) {
             $cart_items = [];

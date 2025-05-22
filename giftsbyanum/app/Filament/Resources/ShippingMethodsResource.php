@@ -29,8 +29,9 @@ class ShippingMethodsResource extends Resource
         return $form
             ->schema([
                 TextInput::make('shipping_title')->required(),
+                TextInput::make('shipping_condition')->required(),
                 TextInput::make('shipping_charge')->numeric()->required(),
-                Textarea::make('shipping_description')
+                Textarea::make('shipping_description')->columnSpanFull()
             ]);
     }
 
@@ -39,6 +40,7 @@ class ShippingMethodsResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('shipping_title'),
+                TextColumn::make('shipping_condition'),
                 TextColumn::make('shipping_charge')
                     ->money( env('APP_CURRENCY') )
             ])

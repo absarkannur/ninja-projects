@@ -14,6 +14,7 @@ use App\Models\PaymentsTransaction;
 use App\Models\PaymentTypes;
 use App\Models\Countries;
 use App\Models\Products;
+use App\Models\ShippingMethods;
 use Stripe\Checkout\Session;
 use Stripe\Stripe;
 
@@ -122,7 +123,8 @@ class CheckoutPage extends Component
 
         CartManagement::addCartItemsToCookie( $cart_item );
 
-        $this->cart_items = CartManagement::getCartItemsFromCookie();
+        // $this->cart_items = CartManagement::getCartItemsFromCookie();
+        $this->cart_items = $cart_item;
         $this->grand_sub_price_total = CartManagement::calculateGrandSubTotal( $cart_item );
         $this->grand_price_total = CartManagement::calculateGrandTotal( $cart_item );
         $this->grand_discount_total = CartManagement::calculateGrandDiscountTotal( $cart_item );
@@ -131,8 +133,19 @@ class CheckoutPage extends Component
     }
 
     public function setAllCharges(){
-        $this->shipping_charge = 100;
-        $this->grand_price_total = $this->grand_price_total+$this->shipping_charge;
+
+        $grant_amount = $this->grand_price_total;
+
+        if( $grant_amount > 200 ){
+
+            $shipping_methods_charge = ShippingMethods::where( 'shipping_condition','OVER_200' )->first('shipping_charge');
+            $this->shipping_charge = $shipping_methods_charge['shipping_charge'];
+            $this->grand_price_total = intval( $grant_amount )+ intval( $shipping_methods_charge['shipping_charge'] );
+
+        }
+
+        $this->grand_price_total = $grant_amount;
+
     }
 
     public function mount(){
