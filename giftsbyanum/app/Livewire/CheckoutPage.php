@@ -135,16 +135,24 @@ class CheckoutPage extends Component
     public function setAllCharges(){
 
         $grant_amount = $this->grand_price_total;
+        $shipping_methods = ShippingMethods::get();
 
-        if( $grant_amount > 200 ){
+        foreach ( $shipping_methods as $key => $methods ) {
 
-            $shipping_methods_charge = ShippingMethods::where( 'shipping_condition','OVER_200' )->first('shipping_charge');
-            $this->shipping_charge = $shipping_methods_charge['shipping_charge'];
-            $this->grand_price_total = intval( $grant_amount )+ intval( $shipping_methods_charge['shipping_charge'] );
+            if( $methods['shipping_condition'] === 'ABOVE_200' ) {
+
+            }
 
         }
 
-        $this->grand_price_total = $grant_amount;
+        // if( $grant_amount > 400 ){
+
+            // $this->shipping_charge = $shipping_methods_charge['shipping_charge'];
+            // $this->grand_price_total = intval( $grant_amount )+intval( $shipping_methods_charge['shipping_charge'] );
+
+        // }
+
+        // $this->grand_price_total = $grant_amount+100;
 
     }
 

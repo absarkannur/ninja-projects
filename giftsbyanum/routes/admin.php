@@ -42,6 +42,6 @@ Route::middleware(['auth:customers'])->prefix('user')->group(function(){
     Route::get( '/cancel', CancelPage::class )->name('cancel');
 
     // Track Orders
-    // 
+    //
 
 })->middleware('auth:customers');
