@@ -9843,7 +9843,7 @@ a.header__search.header-search-btn p {
 .common-hero {
   min-height: 400px;
   display: flex;
-  padding-top: 90px;
+  margin-top: 90px;
   align-items: center;
   position: relative;
   z-index: -2;
@@ -9851,15 +9851,16 @@ a.header__search.header-search-btn p {
   background: #E7EAF3;
   background-position: top center;
   background-size: cover;
-  
+  background-repeat: no-repeat;
 }
 .common-hero .layer{
   display: block;
   position: absolute;
   height: 100%;
   width: 100%;
-  background-color: #ffd3d3;
+  background-color: #585858;
   opacity: 0.5;
+  z-index: -1;
 }
 .common-hero .main-heading span.span {
   display: inline-block;
@@ -16289,6 +16290,10 @@ a.header__search.header-search-btn p {
   padding-right: 70px;
 }
 
+.footer-logo-area .footer-logo img{
+    width: 70%;
+}
+
 .footer2 {
   padding-top: 100px;
 }
@@ -16310,6 +16315,10 @@ a.header__search.header-search-btn p {
     margin-bottom: 16px;
     margin-top: 30px;
   }
+  .footer-logo-area .footer-logo img{
+    width: 70%;
+  }
+
 }
 .footer2 .single-footer-items .social-icon {
   padding-top: 24px;
@@ -21272,6 +21281,11 @@ li.has-dropdown1 span {
   margin-top: -40px;
   margin-bottom: 30px;
 }
+
+.mobile-sidebar .logo-m img{
+  width: 50%;
+}
+
 .mobile-sidebar .mobile-button a {
   width: 100%;
   text-align: center;
