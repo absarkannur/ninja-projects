@@ -14,9 +14,12 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Str;
+use FilamentTiptapEditor\TiptapEditor;
 
 class ProductsResource extends Resource
 {
@@ -40,13 +43,19 @@ class ProductsResource extends Resource
                     ->label('Categories')
                     ->searchable(false)
                     ->required(),
-                TextInput::make('product_name')->required(),
+                TextInput::make('product_name')
+                    ->required()
+                    ->live(onBlur:true)
+                    ->afterStateUpdated(function( string $operation, ?string $state, Forms\Set $set){
+                        $set( 'product_slug', Str::slug($state) );
+                    }),
+                TextInput::make('product_slug')->required()->readOnly(),
                 TextInput::make('product_item_code'),
                 TextInput::make('product_model_number'),
                 FileUpload::make('product_image')->columnSpanFull(),
                 Textarea::make('product_short_descriptions')->columnSpanFull(),
                 RichEditor::make('product_descriptions')->columnSpanFull(),
-                RichEditor::make('product_html')->columnSpanFull()
+                TiptapEditor::make('product_content')->columnSpanFull()
 
             ]);
     }
@@ -55,7 +64,9 @@ class ProductsResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('product_name'),
+                TextColumn::make('product_item_code'),
+                TextColumn::make('product_model_number'),
             ])
             ->filters([
                 //

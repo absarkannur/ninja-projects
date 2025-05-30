@@ -1,5 +1,12 @@
 <?php
 
+use App\Livewire\AboutPage;
+use App\Livewire\ContactPage;
+use App\Livewire\HomePage;
+use App\Livewire\ProductPage;
+use App\Livewire\ProductsPage;
+use App\Livewire\ServicePage;
+use App\Livewire\ServicesPage;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +20,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', HomePage::class )->name('home');
+Route::get('/about-us', AboutPage::class )->name('about');
+Route::get('/services', ServicesPage::class )->name('services');
+Route::get('/service/{slug}', ServicePage::class )->name('service');
+Route::get('/products', ProductsPage::class )->name('products');
+Route::get('/products/{slug}', ProductPage::class )->name('product');
+Route::get('/contact-us', ContactPage::class )->name('contact');
+

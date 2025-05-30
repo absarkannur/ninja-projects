@@ -13,11 +13,12 @@ class Products extends Model
         'brands_id',
         'sub_categories_id',
         'product_name',
+        'product_slug',
         'product_item_code',
         'product_model_number',
         'product_short_descriptions',
         'product_descriptions',
-        'product_html',
+        'product_content',
         'product_image',
     ];
 

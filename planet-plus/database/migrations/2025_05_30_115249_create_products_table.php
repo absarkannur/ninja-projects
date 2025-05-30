@@ -16,11 +16,12 @@ return new class extends Migration
             $table->foreignId('brands_id')->constrained()->cascadeOnDelete();
             $table->foreignId('sub_categories_id')->constrained()->cascadeOnDelete();
             $table->string('product_name');
+            $table->string('product_slug');
             $table->string('product_item_code')->nullable();
             $table->string('product_model_number')->nullable();
             $table->longText('product_short_descriptions')->nullable();
             $table->longText('product_descriptions')->nullable();
-            $table->longText('product_html')->nullable();
+            $table->longText('product_content')->nullable();
             $table->string('product_image')->nullable();
             $table->timestamps();
         });
