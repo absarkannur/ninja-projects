@@ -100,6 +100,11 @@ ul{
   justify-content: space-around;
 }
 
+.default-btn.full-width{
+  justify-content: center;
+  width: 100%;
+}
+
 .default-btn.dark{
     color: #333;
     border: #333 2px solid; 
@@ -136,9 +141,72 @@ ul{
 }
 
 .default-btn .text {
-  margin: 0 0.5em
+  margin: 0 0.9em
 }
 
+.default-label{
+  height: 20px;
+  line-height: 20px;
+  font-size: 11px;
+}
+
+.default-label.dark{
+  color: #1f1f1f;
+}
+
+.default-label.light{
+  color: #f1f1f1;
+}
+
+.default-input{
+  height: 2.9em;
+  border-radius: 11px;
+  padding: 0 10px;
+  font-size: 13px;
+  background-color: #fff;
+  color: #111;
+  border: solid 1px #111;
+  margin-bottom: 10px;
+}
+
+.default-input.full-width{
+  width: 100%;
+}
+
+.default-textarea{
+  border-radius: 11px;
+  font-size: 13px;
+  padding: 10px;
+  background-color: #fff;
+  color: #111;
+  border: solid 1px #111;
+  margin-bottom: 10px;
+}
+
+.default-textarea.full-width{
+  width: 100%;
+}
+
+.space5{height: 5px;}
+.space10{height: 10px;}
+.space15{height: 15px;}
+.space20{height: 20px;}
+.space25{height: 25px;}
+.space30{height: 30px;}
+.space35{height: 35px;}
+.space40{height: 40px;}
+.space45{height: 45px;}
+.space50{height: 50px;}
+.space55{height: 55px;}
+.space60{height: 60px;}
+.space65{height: 65px;}
+.space70{height: 70px;}
+.space75{height: 75px;}
+.space80{height: 80px;}
+.space85{height: 85px;}
+.space90{height: 90px;}
+.space95{height: 95px;}
+.space100{height: 100px;}
 
 /* Media Query  */
 

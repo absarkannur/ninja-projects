@@ -257,8 +257,9 @@
 }
 
 .section-home-latest-project .property-info-wrap .title{
+    font-family: "Libre Baskerville", serif;
     color: #fff;
-    font-size: 60px;
+    font-size:54px;
     margin-bottom: 20px;
 }
 
@@ -338,7 +339,154 @@
 
 .section-home-about-us{
     clear: both;
-    background-color: red;
+    /* background-image: radial-gradient(circle at 94.35384114583333% 89.61588541666666%, #000000 0%, 20%, rgba(0,0,0,0) 40%), radial-gradient(circle at 6.503906249999999% 88.037109375%, rgba(65,65,65,0.99) 0%, 25%, rgba(65,65,65,0) 50%), radial-gradient(circle at 6.165364583333333% 12.617187499999998%, #000000 0%, 42%, rgba(0,0,0,0) 70%), radial-gradient(circle at 93.6865234375% 11.42578125%, #414141 0%, 42%, rgba(65,65,65,0) 70%), radial-gradient(circle at 48.9013671875% 49.521484375%, #FFFFFF 0%, 100%, rgba(255,255,255,0) 100%); */
+    background-color: #333;
+    position: relative;
+    padding-bottom: 150px;
+}
+
+.section-home-about-us .about-bg-banner{
+    width: 800px;
+    height: 400px;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    z-index: 9;
+}
+
+.section-home-about-us .about-bg-banner img{
+    width: 100%;
+}
+
+.section-home-about-us .about-info-wrap{
+    padding: 50px;
+    background-color: #fff;
+    margin-top: 60px;
+    position: relative;
+    z-index: 99;
+}
+
+.section-home-about-us .about-info-wrap .title{
+    font-family: "Libre Baskerville", serif;
+    color: #333;
+    font-size: 54px;
+    margin-bottom: 20px;
+}
+
+.section-home-about-us .about-info-wrap .description{
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+/* Home Page Invest */
+
+.section-home-invest{
+    height: 300px;
+    position: relative;
+}
+
+.section-home-invest .parallax-window {
+    min-height: 300px;
+    background-size: contain;
+    background-repeat: no-repeat;
+	background: transparent;
+}
+
+.section-home-invest .header-wrap{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 100px;
+    width: 100%;
+    z-index: 999;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-home-invest .header-wrap .title{
+    font-family: "Libre Baskerville", serif;
+    font-size: 40px;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 0 3px #6e6e6e;
+}
+
+.section-home-invest .header-wrap .description{
+    width: 50%;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    text-shadow: 0 0 3px #6e6e6e;
+}
+
+/* Home Page Contact Us */
+
+.section-home-contact{
+    background-color: #2b2b2b;
+    overflow: hidden;
+}
+
+.section-home-contact .bg-image{
+    width: 50%;
+    height: 720px;
+    float: left;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.section-home-contact .contact-wrap{
+    padding: 150px 0 100px 50px;
+}
+
+.section-home-contact .contact-wrap .title{
+    font-family: "Libre Baskerville", serif;
+    color: #fff;
+    font-size: 54px;
+    margin-bottom: 20px;
+}
+
+.section-home-contact .contact-wrap .description{
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Home Page Google Map */
+.section-home-google-map{
+    height: 350px;
+    background-color: #333;
+}
+
+
+/* Social Links Sticky*/
+
+.social-icons{
+    height: 100px;
+    width: 25px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 20px;
+    z-index: 9999;
+    margin: auto;
+}
+
+.social-icons .icons{
+    list-style: none;
+    overflow: hidden;
+}
+
+.social-icons .icons .social-link{
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    color: #999;
 }
 
 /* Footer */

@@ -1,3 +1,5 @@
+jQuery(window).trigger("resize").trigger("scroll");
+
 $(function () {
   $(".vertical_tabs .tab-wrap").click(function () {
     var index = $(this).index();

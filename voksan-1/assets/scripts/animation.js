@@ -102,6 +102,13 @@ jQuery(document).ready(function ($) {
   // Window Scrol
   $(window).scroll(function () {
     var scroll = $(this).scrollTop();
+    var firstTop = $(".banner-wrapper").offset().top;
+
+    var shiftDistance = firstTop * 0.5;
+    $(".banner-wrapper").css(
+      "transform",
+      "translateY(-" + shiftDistance + "px)"
+    );
 
     if (scroll > 100) {
       $(".header-wrapper .navbar").addClass("gray");
