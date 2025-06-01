@@ -145,15 +145,201 @@
 }
 
 .banner-content .sub-title{
+    width: 35%;
     font-size: 18px;
+    font-weight: 200;
     color: #fff;
     text-align: center;
     margin-bottom: 20px;
 }
 
+/* Home about section */
+
+.section-home-about{
+    background-image: radial-gradient(circle at 10% 18.333333333333332%, #000000 0%, 20%, rgba(0,0,0,0) 40%), radial-gradient(circle at 10% 86.66666666666667%, rgba(51,51,51,0.99) 0%, 25%, rgba(51,51,51,0) 50%), radial-gradient(circle at 91.66666666666666% 85%, #000000 0%, 42%, rgba(0,0,0,0) 70%), radial-gradient(circle at 88.33333333333333% 15%, #333333 0%, 42%, rgba(51,51,51,0) 70%), radial-gradient(circle at 48.9013671875% 49.521484375%, #FFFFFF 0%, 100%, rgba(255,255,255,0) 100%);
+    /* background-color: #333; */
+    clear: both;
+    position: relative;
+}
+
+.section-home-about .about-content{
+    width: 70%;
+    margin: 0 auto;
+}
+
+.section-home-about .about-content .title{
+    font-family: "Libre Baskerville", serif;
+    font-size: 40px;
+    color: #fff;
+    text-align: center;
+}
+
+.section-home-about .about-content .sub-title{
+    font-size: 24px;
+    font-weight: 200;
+    color: #fff;
+    text-align: center;
+}
+
+.section-home-about  .about-numbers{
+    clear: both;
+    margin: 50px 0;
+}
+
+.section-home-about  .about-numbers .number-list{
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+.section-home-about  .about-numbers .number-list .list{
+    height: 200px;
+    width: 200px;
+}
+
+.section-home-about  .about-numbers .number-list .list .value{
+    display: block;
+    height: 155px;
+    line-height: 200px;
+    width: 200px;
+    font-size: 90px;
+    font-weight: 100;
+    text-align: center;
+    color: #fff;
+    position: relative;
+}
+
+.section-home-about  .about-numbers .number-list .list .value::after{
+    content: '';
+    width: 200px;
+    height: 200px;
+    border-top: solid 2px #be936b;
+    border-left: solid 2px #be936b;
+    border-right: solid 2px #be936b;
+    border-bottom: solid 2px transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 50%;
+}
+
+.section-home-about  .about-numbers .number-list .list .title{
+    font-weight: 600;
+    font-size: 14px;
+    display: block;
+    height: 45px;
+    line-height: 60px;
+    width: 200px;
+    text-align: center;
+    color: #fff;
+}
+
+/* home Latest Project */
+
+.section-home-latest-project{
+    clear: both;
+    overflow: hidden;
+    background-color: #2b2b2b;
+}
+
+.section-home-latest-project .property-info-wrap{
+    background-color: #2b2b2b;
+    overflow: hidden;
+    width: 40%;
+    float: left;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: 100px;
+    padding-right: 50px;
+}
+
+.section-home-latest-project .property-info-wrap .title{
+    color: #fff;
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.section-home-latest-project .property-info-wrap .sub-title{
+    color: #fff;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.section-home-latest-project .property-info-wrap  .description{
+    color: #fff;
+    font-size: 14px;
+    font-weight: 200;
+}
+
+.section-home-latest-project .property-info-wrap .amenities_list{
+    clear: both;
+    overflow: hidden;
+    margin: 50px 0;
+}
+
+.section-home-latest-project .property-info-wrap .amenities_list .list{
+    width: 25%;
+    float: left;
+    text-align: center;
+}
+
+.section-home-latest-project .property-info-wrap .amenities_list .list img{
+    width: 50px;
+}
+
+.section-home-latest-project .property-info-wrap .amenities_list .list .title{
+    color: #fff;
+    width: 100%;
+    font-size: 12px;
+    display: block;
+    height: 40px;
+    margin-top: 10px;
+}
+
+.section-home-latest-project .property-info-wrap .button-wrap{
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.section-home-latest-project .property-slider-wrap{
+    overflow: hidden;
+    width: 60%;
+    float: left;
+    position: relative;
+}
+
+.section-home-latest-project .property-slider-wrap .next,
+.section-home-latest-project .property-slider-wrap .prev{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    
+    width: 50px;
+    height: 30px;
+    color: #fff;
+    z-index: 9999;
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+}
+.section-home-latest-project .property-slider-wrap .next{
+    right: 10px;
+}
+.section-home-latest-project .property-slider-wrap .prev{
+    left: 10px;
+}
 
 
+/* Home About Us */
 
+.section-home-about-us{
+    clear: both;
+    background-color: red;
+}
 
 /* Footer */
 
@@ -198,7 +384,6 @@
 }
 
 /* Media Query  */
-
 
 /* Desktop */
 @media only screen and (min-width: 768px) and (max-width: 991px) {

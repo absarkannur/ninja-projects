@@ -29,14 +29,15 @@
 html,body{width: 100%;height: 100%;}
 html {scroll-behavior: smooth;}
 body{
-    font-family: "Raleway", sans-serif;
-    background-color: var(--background-color);
+  font-family: "Raleway", sans-serif;
+  background-color: var(--background-color);
+  font-variant-numeric: lining-nums;
 }
 
 a{
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 a:hover{color: inherit;}
@@ -83,8 +84,8 @@ ul{
 }
 
 .section{
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 .default-btn{
@@ -136,4 +137,25 @@ ul{
 
 .default-btn .text {
   margin: 0 0.5em
+}
+
+
+/* Media Query  */
+
+/* Desktop */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .section{
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
+
+/* Mobile Small Screen */
+@media (max-width: 415px) {
+
 }
