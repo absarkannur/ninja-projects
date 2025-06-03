@@ -4,10 +4,11 @@ namespace App\Livewire;
 
 use Livewire\Attributes\Title;
 use Illuminate\Support\Facades\Mail;
-use Livewire\Component;
 use App\Mail\ContactEmail;
+use Livewire\Component;
 
-class Contact extends Component {
+class Contact extends Component
+{
 
     public $name = '';
     public $phone = '';
@@ -20,7 +21,8 @@ class Contact extends Component {
         'email' => 'required|email',
     ];
 
-    public function submit() {
+    public function submit()
+    {
 
         $this->validate();
 
@@ -36,13 +38,13 @@ class Contact extends Component {
 
         Mail::to('absarkannur@gmail.com')->send(new ContactEmail($mailData));
 
-        session()->flash( 'success', 'Our Team will contact you shortly' );
+        session()->flash('success', 'Our Team will contact you shortly');
 
         $this->redirect('/contact-us');
-
     }
 
-    public function render() {
+    public function render()
+    {
         return view('livewire.contact');
     }
 }

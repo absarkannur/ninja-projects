@@ -1685,7 +1685,7 @@ a.header__search.header-search-btn p {
 * A jQuery menu plugin
 * @version 3.0.6
 * @author Osman Nuri Okumus <onokumus@gmail.com> (https://github.com/onokumus)
-* @license: MIT 
+* @license: MIT
 */
 .metismenu .arrow {
   float: right;
@@ -8457,6 +8457,7 @@ a.header__search.header-search-btn p {
 }
 .contact-page .contact-boxs .contact-box .heading {
   padding-left: 16px;
+  width: 80%;
 }
 .contact-page .contact-boxs .contact-box .heading h5 {
   font-size: var(--f-fs-font-fs20);
@@ -8482,6 +8483,9 @@ a.header__search.header-search-btn p {
   }
 }
 @media (max-width: 767px) {
+    .contact-page .contact-boxs .contact-box .heading{
+
+    }
   .contact-page .contact-form-details {
     margin-top: 40px;
   }
@@ -11716,7 +11720,7 @@ a.header__search.header-search-btn p {
 }
 
 /*===================
- PRRELOADER AREA CSS 
+ PRRELOADER AREA CSS
  ========================
 */
 /* Preloader */
@@ -17562,7 +17566,7 @@ a.header__search.header-search-btn p {
   display: block;
 }
 
-/* 
+/*
 ++++++++++++++++++++++++++++++++++
 =========nav menu all ==========
 +++++++++++++++++++++++++++++++++
@@ -20243,12 +20247,12 @@ li.has-dropdown1 span {
   animation-fill-mode: forwards;
 }
 
-/* 
+/*
 ++++++++++++++++++++++++++++++++++
 ==== =====nav menu all ====== ======
 +++++++++++++++++++++++++++++++++
 */
-/* 
+/*
 ++++++++++++++++++++++++++++++++++
 ==== =====nav menu all 2 ====== ======
 +++++++++++++++++++++++++++++++++
@@ -20683,12 +20687,12 @@ li.has-dropdown1 span {
   transform: scale(1) translateY(-30px);
 }
 
-/* 
+/*
 ++++++++++++++++++++++++++++++++++
 ==== =====nav menu all 1 ====== ======
 +++++++++++++++++++++++++++++++++
 */
-/* 
+/*
 ++++++++++++++++++++++++++++++++++
 ==== =====nav menu all 2 ====== ======
 +++++++++++++++++++++++++++++++++
@@ -21280,7 +21284,7 @@ li.has-dropdown1 span {
   margin-top: 3px;
 }
 
-/* 
+/*
 ++++++++++++++++++++++++++++++++
 ========nav menu all 2 ======
 ++++++++++++++++++++++++++++++++

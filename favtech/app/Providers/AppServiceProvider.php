@@ -37,8 +37,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         // View
-        View::composer( '*', HeaderComposer::class );
-        View::composer( '*', StructuredData::class );
-
+        View::composer('*', HeaderComposer::class);
+        View::composer('*', StructuredData::class);
     }
 }

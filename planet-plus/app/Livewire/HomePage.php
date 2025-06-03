@@ -2,9 +2,11 @@
 
 namespace App\Livewire;
 
+use App\Models\BannerWidgets;
 use App\Models\Brands;
 use App\Models\Products;
 use App\Models\Services;
+use App\Models\WhoweareWidgets;
 use Livewire\Component;
 
 class HomePage extends Component
@@ -22,10 +24,16 @@ class HomePage extends Component
 
     public function render()
     {
+
+        $banner = BannerWidgets::first();
+        $whoarewe = WhoweareWidgets::first();
+
         return view('livewire.home-page', [
             'brands' => $this->brands,
             'products' => $this->products,
-            'services' => $this->services
+            'services' => $this->services,
+            'banner' => $banner,
+            'whoarewe' => $whoarewe
         ]);
     }
 }

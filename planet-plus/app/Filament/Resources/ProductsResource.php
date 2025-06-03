@@ -25,9 +25,9 @@ class ProductsResource extends Resource
 {
     protected static ?string $model = Products::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-view-columns';
     protected static ?string $navigationGroup = 'Products Section';
-    protected static ?int $navigationSort = 5;
+    protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {
@@ -41,6 +41,12 @@ class ProductsResource extends Resource
                 Select::make('sub_categories_id')
                     ->relationship( 'sub_categories', 'sub_category_name' )
                     ->label('Categories')
+                    ->searchable(false)
+                    ->required(),
+                Select::make('supports_id')
+                    ->multiple()
+                    ->relationship( 'supports', 'support_name' )
+                    ->label('Support With')
                     ->searchable(false)
                     ->required(),
                 TextInput::make('product_name')

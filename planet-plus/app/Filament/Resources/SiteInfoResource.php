@@ -18,6 +18,8 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\FileUpload;
 
+use function Laravel\Prompts\textarea;
+
 class SiteInfoResource extends Resource
 {
     protected static ?string $model = SiteInfo::class;
@@ -37,6 +39,7 @@ class SiteInfoResource extends Resource
                         TextInput::make('compnay_email')->email(),
                         TextInput::make('compnay_phone1')->label('Phone #1'),
                         TextInput::make('compnay_phone2')->label('Phone #2'),
+                        TextInput::make('company_whatsapp')->label('Whatsapp'),
 
                     ]),
                 Fieldset::make('Compnay Info')
@@ -59,6 +62,10 @@ class SiteInfoResource extends Resource
                         FileUpload::make('header_logo'),
                         FileUpload::make('mobile_header_logo'),
                         FileUpload::make('footer_logo'),
+                    ]),
+                Fieldset::make('Goolge Map')
+                    ->schema([
+                        Textarea::make('google_map')->rows(4)->columnSpanFull(),
                     ])
             ]);
     }
@@ -71,6 +78,7 @@ class SiteInfoResource extends Resource
                 TextColumn::make('compnay_email'),
                 TextColumn::make('compnay_phone1'),
                 TextColumn::make('compnay_phone2'),
+                TextColumn::make('company_whatsapp'),
             ])
             ->filters([
                 //

@@ -8,8 +8,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="pera">
-                    <p style="text-align: right;">Shop No#29, Abdul Wahed Fikree, Near Al Ghubaiba Bus Station, Bur
-                        dubai-UAE.</p>
+                    <p style="text-align: right;">{{ $site_data->compnay_address }}</p>
                 </div>
             </div>
         </div>

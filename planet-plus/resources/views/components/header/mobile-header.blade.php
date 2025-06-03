@@ -3,7 +3,7 @@
         <div class="col-12">
             <div class="mobile-header-elements">
                 <div class="mobile-logo">
-                    <a href="index.html"><img src="{{ asset('planet-assets/img/logo/header-logo1.png') }}" alt=""></a>
+                    <a href="index.html"><img src="{{ asset( 'storage/' . $site_data->header_logo ) }}" alt=""></a>
                 </div>
                 <div class="mobile-nav-icon">
                     <i class="fa-duotone fa-bars-staggered"></i>

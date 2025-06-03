@@ -7,7 +7,7 @@
 
                         <div class="site-logo">
                             <a href="{{ route('home') }}">
-                                <img src="{{ asset('planet-assets/img/logo/header-logo1.png') }}" alt="">
+                                <img src="{{ asset( 'storage/' . $site_data->header_logo ) }}" alt="">
                             </a>
                         </div>
 
@@ -38,11 +38,11 @@
                                 </div>
                                 <div class="headding">
                                     <p>Make a Call</p>
-                                    <a href="tel:+971562364538">+971 562364538</a>
+                                    <a href="tel:{{ $site_data->compnay_phone1 }}">{{ $site_data->compnay_phone1 }}</a>
                                 </div>
                             </div>
                             <div class="button">
-                                <a class="theme-btn1" href="contact.html">
+                                <a class="theme-btn1" href="{{ route('contact') }}">
                                     Get A Quote
                                     <span><i class="fa-solid fa-arrow-right"></i></span>
                                 </a>

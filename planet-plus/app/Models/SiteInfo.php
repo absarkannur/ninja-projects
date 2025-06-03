@@ -14,6 +14,7 @@ class SiteInfo extends Model
         'compnay_email',
         'compnay_phone1',
         'compnay_phone2',
+        'company_whatsapp',
         'year_experience',
         'customers',
         'client_satisfaction',
@@ -25,6 +26,7 @@ class SiteInfo extends Model
         'header_logo',
         'mobile_header_logo',
         'footer_logo',
+        'google_map'
     ];
 
 }

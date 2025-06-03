@@ -29,6 +29,6 @@ Route::get('/about-us', AboutPage::class )->name('about');
 Route::get('/services', ServicesPage::class )->name('services');
 Route::get('/service/{slug}', ServicePage::class )->name('service');
 Route::get('/products', ProductsPage::class )->name('products');
-Route::get('/products/{slug}', ProductPage::class )->name('product');
+Route::get('/product/{slug}', ProductPage::class )->name('product');
 Route::get('/contact-us', ContactPage::class )->name('contact');
 

@@ -38,70 +38,82 @@
             <div class="row">
 
                 <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 product-filter-section">
+
                     <div class="heading4">
-                        <h5>Shop By Category</h5>
+                        <h5>Shop By Brands</h5>
                     </div>
                     <div class="space20"></div>
 
-                    <div class="accordion" id="accordionExample">
+                    <div class="accordion" id="accordionBrand">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Networking & Connectivity
+                                    data-bs-target="#brands" aria-expanded="true" aria-controls="brands">
+                                    Brands
                                 </button>
                             </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show"
-                                data-bs-parent="#accordionExample">
+                            <div id="brands" class="accordion-collapse collapse show"
+                                data-bs-parent="#accordionBrand">
                                 <div class="accordion-body">
                                     <ul class="product-filters">
                                         <li>
-                                            <label for="Patch Cords">
-                                                <input type="checkbox" id="Patch Cords" />
-                                                <span>Patch Cords</span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label for="HDMI Cables">
-                                                <input type="checkbox" id="HDMI Cables" />
-                                                <span>HDMI Cables</span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label for="UTP Cat6 + Cable Box (305m)">
-                                                <input type="checkbox" id="UTP Cat6 + Cable Box (305m)" />
-                                                <span>UTP Cat6 + Cable Box (305m)</span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label for="Cat6 24 Ports Patch Panel">
-                                                <input type="checkbox" id="Cat6 24 Ports Patch Panel" />
-                                                <span>Cat6 24 Ports Patch Panel</span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label for="Access Points & Cloud Controllers">
-                                                <input type="checkbox" id="Access Points & Cloud Controllers" />
-                                                <span>Access Points & Cloud Controllers</span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label for="Routers & Firewalls">
-                                                <input type="checkbox" id="Routers & Firewalls" />
-                                                <span>Routers & Firewalls</span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label for="NAS Storage">
-                                                <input type="checkbox" id="NAS Storage" />
-                                                <span>NAS Storage</span>
-                                            </label>
+                                            @if( $brands )
+                                                @foreach ( $brands as $brand )
+                                                    <label for="{{ $brand->brand_slug }}">
+                                                        <input type="checkbox" wire:model.live="brand" value="{{ $brand->id }}" id="{{ $brand->brand_slug }}" />
+                                                        <span>{{ $brand->brand_name }}</span>
+                                                    </label>
+                                                @endforeach
+                                            @endif
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item">
+                    </div>
+
+                    <div class="space20"></div>
+
+                    <div class="heading4">
+                        <h5>Shop By Category</h5>
+                    </div>
+                    <div class="space20"></div>
+
+                    <div class="accordion" id="accordionCategories">
+
+                        @if($categories)
+
+                            @foreach ( $categories as $key => $category )
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#{{ $category['category_slug'] }}" aria-expanded="true" aria-controls="{{ $category['category_slug'] }}">
+                                            {{ $category['category_name'] }}
+                                        </button>
+                                    </h2>
+                                    <div id="{{ $category['category_slug'] }}" class="accordion-collapse collapse {{ ( $key === 0 ) ? 'show': '' }}"
+                                        data-bs-parent="#accordionCategories">
+                                        <div class="accordion-body">
+                                            <ul class="product-filters">
+                                                @if( $category['sub_categories'] )
+                                                    @foreach ( $category['sub_categories'] as $sub_categories )
+                                                        <li>
+                                                            <label for="{{ $sub_categories['sub_category_slug'] }}">
+                                                                <input type="checkbox" wire:model.live="cat" value="{{ $sub_categories['sub_category_id'] }}" id="{{ $sub_categories['sub_category_slug'] }}" />
+                                                                <span>{{ $sub_categories['sub_category_name'] }}</span>
+                                                            </label>
+                                                        </li>
+                                                    @endforeach
+                                                @endif
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+
+                        @endif
+
+                        {{-- <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -233,7 +245,7 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
 
@@ -255,7 +267,7 @@
                                         </div>
                                     </a>
                                     <div class="button-wrap">
-                                        <a href="https://api.whatsapp.com/send/?phone=971562364538&text=Hello&type=phone_number&app_absent=0"
+                                        <a target="__blank" href="https://api.whatsapp.com/send/?phone={{ $site_data->company_whatsapp }}&text=I am interested with {{ $product->product_name }}&type=phone_number&app_absent=0"
                                             class="btn">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                                 class="bi bi-whatsapp" viewBox="0 0 16 16">

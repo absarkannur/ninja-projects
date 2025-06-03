@@ -23,6 +23,7 @@ return new class extends Migration
             $table->longText('product_descriptions')->nullable();
             $table->longText('product_content')->nullable();
             $table->string('product_image')->nullable();
+            $table->string('supports_id')->nullable();
             $table->timestamps();
         });
     }

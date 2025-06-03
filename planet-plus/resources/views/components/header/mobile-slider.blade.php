@@ -1,6 +1,6 @@
 <div class="mobile-sidebar d-block d-lg-none">
     <div class="logo-m">
-        <a href="{{ route('home') }}"><img src="{{ asset('planet-assets/img/logo/header3-logo.png') }}" alt=""></a>
+        <a href="{{ route('home') }}"><img src="{{ asset( 'storage/' . $site_data->mobile_header_logo ) }}" alt=""></a>
     </div>
     <div class="menu-close">
         <i class="fa-solid fa-xmark"></i>
@@ -23,7 +23,7 @@
                     <img src="{{ asset('planet-assets/img/icons/footer1-icon1.png') }}" alt="">
                 </div>
                 <div class="pera">
-                    <a href="tel:+97142227845">+971 4 222 78 45</a>
+                    <a href="tel:{{ $site_data->compnay_phone1 }}">{{ $site_data->compnay_phone1 }}</a>
                 </div>
             </div>
 
@@ -32,7 +32,7 @@
                     <img src="{{ asset('planet-assets/img/icons/footer1-icon2.png') }}" alt="">
                 </div>
                 <div class="pera">
-                    <a href="tel:+971507924946">+971 50 792 4946</a>
+                    <a href="tel:{{ $site_data->compnay_phone2 }}">{{ $site_data->compnay_phone2 }}</a>
                 </div>
             </div>
 
@@ -41,7 +41,7 @@
                     <img src="{{ asset('planet-assets/img/icons/footer1-icon3.png') }}" alt="">
                 </div>
                 <div class="pera">
-                    <a href="mailto:shafeeque@planetplusme.com">shafeeque@planetplusme.com</a>
+                    <a href="mailto:{{ $site_data->compnay_email }}">{{ $site_data->compnay_email }}</a>
                 </div>
             </div>
         </div>
@@ -49,10 +49,12 @@
         <div class="contact-infos">
             <h3>Our Location</h3>
             <ul class="social-icon">
-                <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+
+                <li><a href="{{ $site_data->compnay_linkd }}"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                <li><a href="{{ $site_data->compnay_x }}"><i class="fa-brands fa-x-twitter"></i></a></li>
+                <li><a href="{{ $site_data->compnay_fb }}"><i class="fa-brands fa-facebook"></i></a></li>
+                <li><a href="{{ $site_data->compnay_insta }}"><i class="fa-brands fa-instagram"></i></a></li>
+
             </ul>
         </div>
 

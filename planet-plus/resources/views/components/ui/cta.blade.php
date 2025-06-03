@@ -18,7 +18,7 @@
 
             <div class="col-lg-5">
                 <div class="buttons">
-                    <a class="cta-btn1" href="service.html">Request a Consultaion <span><i
+                    <a class="cta-btn1" href="{{ route('contact') }}">Request a Consultaion <span><i
                                 class="fa-solid fa-arrow-right"></i></span></a>
                 </div>
             </div>

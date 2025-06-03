@@ -6,22 +6,19 @@
             <div class="row">
                 <div class="col-lg-5">
                     <div class="main-headding">
-                        <span class="span" data-aos="zoom-in-left" data-aos-duration="700">
-                            Your Trusted Partner for IT Products & Solutions in the UAE
+                        <span class="span">
+                            {{ $banner->banner_slogan }}
                         </span>
                         <h1 class="title tg-element-title">
-                            Empowering Your Digital World with High-Quality
-                            <span class="after">IT Solutions</span>
+                            {{ $banner->banner_title }}
                         </h1>
                         <div class="space16"></div>
                         <p>
-                            Welcome to Planet Plus Computer Trading L.L.C, your partner for IT products and solutions.
-                            We specialize in empowering businesses like yours to streamline operations and drive growth
-                            through expertly crafted IT strategies.
+                            {{ $banner->banner_description }}
                         </p>
                         <div class="space30"></div>
                         <div class="buttons">
-                            <a class="theme-btn1" href="contact.html">
+                            <a class="theme-btn1" href="{{ route('contact') }}">
                                 Get Started Now
                                 <span>
                                     <i class="fa-solid fa-arrow-right"></i>
@@ -57,7 +54,7 @@
                             <img src="{{ asset('planet-assets/img/icons/hero-bottom-icon2.png') }}" alt="">
                         </div>
                         <div class="headding">
-                            <h5>22+ Years</h5>
+                            <h5>{{ $site_data->year_experience }} Years</h5>
                             <p>Field Experience</p>
                         </div>
                     </div>
@@ -69,7 +66,7 @@
                             <img src="{{ asset('planet-assets/img/icons/costumer.png') }}" alt="">
                         </div>
                         <div class="headding">
-                            <h5>390 k+</h5>
+                            <h5>{{ $site_data->customers }}</h5>
                             <p>Happy Customers</p>
                         </div>
                     </div>
@@ -81,7 +78,7 @@
                             <img src="{{ asset('planet-assets/img/icons/user.png') }}" alt="">
                         </div>
                         <div class="headding">
-                            <h5>100%</h5>
+                            <h5>{{ $site_data->client_satisfaction }}</h5>
                             <p>Client Satisfaction</p>
                         </div>
                     </div>
@@ -93,7 +90,7 @@
                             <img src="{{ asset('planet-assets/img/icons/hero-bottom-icon4.png') }}" alt="">
                         </div>
                         <div class="headding">
-                            <h5>2015</h5>
+                            <h5>{{ $site_data->established }}</h5>
                             <p>We Established On</p>
                         </div>
                     </div>
@@ -102,11 +99,9 @@
             </div>
         </div>
     </div>
-
     <!--HERO BOTTOM AREA END-->
 
     <!--ABOUT AREA START-->
-
     <div class="about1 sp">
         <div class="container">
             <div class="row align-items-center">
@@ -127,35 +122,15 @@
                 <div class="col-lg-6">
                     <div class="heading1">
                         <span class="span" data-aos="zoom-in-left" data-aos-duration="700">Who We Are:</span>
-                        <h2 class="title tg-element-title">The Power of Partnership: Driving Innovation Forward</h2>
+                        <h2 class="title tg-element-title">{{ $whoarewe->title }}</h2>
                         <div class="space16"></div>
-                        <p data-aos="fade-left" data-aos-duration="800">
-                            Planet Plus Computer Trading L.L.C. is a leading provider of high-quality IT products and
-                            solutions. We specialize in offering cutting-edge technology for businesses and individuals,
-                            ensuring top performance, reliability, and innovation.
-                        </p>
-
-                        <ul class="list" data-aos="fade-left" data-aos-duration="1100">
-                            <li>
-                                <span><i class="fa-solid fa-check"></i></span>
-                                <div>Planet Plus Computer Trading L.L.C. is a
-                                    prominent supplier of IT products and solutions.</div>
-                            </li>
-                            <li>
-                                <span><i class="fa-solid fa-check"></i></span>
-                                <div>We focus on providing advanced
-                                    technology to both businesses and individual customers.</div>
-                            </li>
-                            <li>
-                                <span><i class="fa-solid fa-check"></i></span>
-                                <div>We offering characterized by high
-                                    performance, reliability, and innovation.</div>
-                            </li>
-                        </ul>
+                        <div>
+                            {!! $whoarewe->content !!}
+                        </div>
 
                         <div class="space30"></div>
                         <div class="" data-aos="fade-left" data-aos-duration="900">
-                            <a class="theme-btn1" href="about.html">Learn More <span><i
+                            <a class="theme-btn1" href="{{ route('about') }}">Learn More <span><i
                                         class="fa-solid fa-arrow-right"></i></span></a>
                         </div>
                     </div>
@@ -234,10 +209,12 @@
             <div class="row">
                 <div class="col">
                     <ul class="brands-list">
-
+{{-- <a href="{{ route( 'product', ['slug' => $product->product_slug ] ) }}"> --}}
                         @if( $brands )
                             @foreach ( $brands as $brand )
-                            <li class="list" style="background-image: url('{{ asset( 'storage/' . $brand['brand_logo'] ) }}');"></li>
+                            <a href="{{ route('products', [ 'brand[0]' => $brand['id'] ] ) }}">
+                                <li class="list" style="background-image: url('{{ asset( 'storage/' . $brand['brand_logo'] ) }}');"></li>
+                            </a>
                             @endforeach
                         @endif
 
@@ -272,6 +249,7 @@
                         @if( $products )
                             @foreach ( $products as $product )
                             <li class="product">
+                                <a href="{{ route( 'product', ['slug' => $product->product_slug ] ) }}">
                                 <div class="image-wrap">
                                     <div class="imagethmb">
                                         <div class="imagethmb_inner">
@@ -282,8 +260,9 @@
                                 <div class="title-wrap">
                                     <span class="title">{{ $product['product_name'] }}</span>
                                 </div>
+                                </a>
                                 <div class="button-wrap">
-                                    <a href="https://api.whatsapp.com/send/?phone=971562364538&text=Hello&type=phone_number&app_absent=0"
+                                    <a target="__blank" href="https://api.whatsapp.com/send/?phone={{ $site_data->company_whatsapp }}&text=I am interested with {{ $product['product_name'] }}&type=phone_number&app_absent=0"
                                         class="btn">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                             class="bi bi-whatsapp" viewBox="0 0 16 16">

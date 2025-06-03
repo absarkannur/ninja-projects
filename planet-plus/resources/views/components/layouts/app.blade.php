@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planet Plus Computer Trading L.L.C & It Solution</title>
+    <meta name="description" content="{{ $site_header->description }}"/>
+    <meta name="keywords" content="{{ $site_header->keywords }}"/>
+
+    <title>{{ $site_header->page_title }}</title>
 
     <!--CSS-->
     <link rel="stylesheet" href="{{ asset('planet-assets/css/bootstrap.min.css') }}" />
