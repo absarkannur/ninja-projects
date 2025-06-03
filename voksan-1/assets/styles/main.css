@@ -10,15 +10,25 @@
     height: 100px;
 }
 
+.header-wrapper .navbar .offcanvas.offcanvas-end{
+    height: 100vh !important;
+    background-color: #212529b3 !important;
+}
+
 .header-wrapper .navbar .burger-menu{
     background-color: transparent;
     border: none;
 }
 
 .header-wrapper .navbar .search-burger-wrap{
+    width: 33.33%;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
+}
+
+.header-wrapper .navbar .header-compnay-year-logo img{
+    height: 80px;
 }
 
 .header-wrapper .navbar .offcanvas-header .btn-close{
@@ -26,7 +36,7 @@
 }
 
 .header-wrapper .navbar .search-burger-wrap .search-input{
-    margin: 0 50px;
+    margin: 0 20px;
     height: 35px;
     width: 250px;
     padding: 0 30px 0 15px;
@@ -48,12 +58,22 @@
 
 .header-wrapper .navbar-brand{
     position: relative;
+    width: 33.33%;
+    margin: 0;
 }
 
-.header-wrapper .navbar-brand::after{
+.header-wrapper .header-compnay-year-logo{
+    width: 33.33%;
+    margin: 0;
+    text-align: center;
+}
+
+
+
+/* .header-wrapper .navbar-brand::after{
     content: '';
     position: absolute;
-    bottom: -100px;
+    bottom: -120px;
     left: 0;
     right: 0;
     width: 100px;
@@ -63,10 +83,10 @@
     background-repeat: no-repeat;
     background-size: contain;
     margin: auto;
-}
+} */
 
 .header-wrapper .navbar-brand img{
-    height: 45px;
+    height: 60px;
 }
 
 .header-wrapper .navbar .nav-link{
@@ -107,9 +127,29 @@
     transition: transform 0.4scubic-bezier(0.85, 0.26, 0.17, 1); */
 }
 
+.header-wrapper .navbar .address{
+    padding: 20px 0;
+}
+
+.header-wrapper .navbar .address .address-wrap{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.header-wrapper .navbar .address p{
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+
+/* --------------- */
+
 /* Banner Section */
 .banner-wrapper{
-    height: 800px;
+    height: 100vh;
     width: 100%;
     position: fixed;
     top: 0;
@@ -157,9 +197,9 @@
 
 .section-home-about{
     background-image: radial-gradient(circle at 10% 18.333333333333332%, #000000 0%, 20%, rgba(0,0,0,0) 40%), radial-gradient(circle at 10% 86.66666666666667%, rgba(51,51,51,0.99) 0%, 25%, rgba(51,51,51,0) 50%), radial-gradient(circle at 91.66666666666666% 85%, #000000 0%, 42%, rgba(0,0,0,0) 70%), radial-gradient(circle at 88.33333333333333% 15%, #333333 0%, 42%, rgba(51,51,51,0) 70%), radial-gradient(circle at 48.9013671875% 49.521484375%, #FFFFFF 0%, 100%, rgba(255,255,255,0) 100%);
-    /* background-color: #333; */
     clear: both;
     position: relative;
+    margin-top: 100vh;
 }
 
 .section-home-about .about-content{
@@ -472,7 +512,7 @@
     top: 0;
     bottom: 0;
     right: 20px;
-    z-index: 9999;
+    z-index: 998;
     margin: auto;
 }
 
@@ -486,7 +526,7 @@
     width: 25px;
     cursor: pointer;
     margin-bottom: 10px;
-    color: #999;
+    color: #d6d6d6;
 }
 
 /* Footer */
@@ -540,6 +580,146 @@
 
 /* Mobile */
 @media (max-width: 767px) {
+
+    .header-wrapper .navbar .header-compnay-year-logo{
+        display: none;
+    }
+
+    .banner-content .title{
+        font-size: 30px;
+    }
+
+    .banner-content .sub-title{
+        width: 75%;
+    }
+
+    .header-wrapper .navbar .header-compnay-year-logo img,
+    .header-wrapper .navbar-brand img{
+        height: 45px;
+    }
+
+    .header-wrapper .navbar .search-burger-wrap .search-input{
+        display: none;
+    }
+
+    .section-home-about .about-content{
+        width: 100%;
+    }
+
+    .section-home-about .about-content .title{
+        font-size: 32px;
+    }
+
+    .section-home-about .about-numbers .number-list{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .section-home-about .about-numbers .number-list .list{
+        height: 125px;
+        width: 100px;
+    }
+
+    .section-home-about .about-numbers .number-list .list .value{
+        width: 100px;
+        height: 85px;
+        line-height: 100px;
+        font-size: 44px;
+    }
+
+    .section-home-about .about-numbers .number-list .list .title{
+        height: 45px;
+        width: 100px;
+        font-size: 10px;
+        line-height: 16px;
+    }
+
+    .section-home-about .about-numbers .number-list .list .value::after{
+        width: 100px;
+        height: 100px;
+    }
+
+    .section-home-latest-project .property-slider-wrap,
+    .section-home-latest-project .property-info-wrap{
+        width: 100%;
+    }
+
+    .section-home-latest-project .property-info-wrap{
+        padding: 80px 30px;
+    }
+
+    .section-home-latest-project .property-info-wrap .title{
+        font-size: 40px;
+    }
+
+    .section-home-latest-project .property-info-wrap .amenities_list .list{
+        width: 50%;
+    }
+
+    .section-home-latest-project .property-info-wrap .amenities_list .list .title{
+        font-size: 14px;
+    }
+
+    .section-home-latest-project .property-info-wrap .button-wrap{
+        display: block;
+    }
+
+    .section-home-latest-project .property-info-wrap .button-wrap .default-btn{
+        margin-bottom: 10px;
+    }
+
+    .section-home-about-us .about-bg-banner{
+        position: unset;
+    }
+
+    .section-home-about-us .about-bg-banner{
+        width: 100%;
+        height: auto;
+    }
+
+    .section-home-about-us .about-info-wrap{
+        margin-top: 0px;
+    }
+
+    .section-home-about-us .about-info-wrap .title{
+        font-size: 40px;
+    }
+
+    .section-home-invest .header-wrap{
+        height: 200px;
+    }
+
+    .section-home-invest .header-wrap .title{
+        font-size: 25px;
+    }
+    
+    .section-home-about-us{
+        padding-bottom: 50px;
+    }
+
+    .section-home-contact .bg-image{
+        height: 420px;
+    }
+
+    .section-home-invest .header-wrap .description{
+        width: 80%;
+        font-size: 13px;
+    }
+
+    .section-home-contact .bg-image{
+        width: 100%;
+    }
+
+    .section-home-contact .contact-wrap {
+        padding: 80px 30px;
+    }
+
+    .section-home-contact .contact-wrap .title{
+        font-size: 44px
+    }
 
 }
 
