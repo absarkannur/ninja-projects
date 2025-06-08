@@ -15,8 +15,11 @@ use App\Models\PaymentTypes;
 use App\Models\Countries;
 use App\Models\Products;
 use App\Models\ShippingMethods;
+use App\Models\Sites;
 use Stripe\Checkout\Session;
 use Stripe\Stripe;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderPlaced;
 
 class CheckoutPage extends Component
 {
@@ -36,6 +39,7 @@ class CheckoutPage extends Component
 
     // New Address
     public $full_name = '';
+    public $email_address = '';
     public $address_1 = '';
     public $address_2 = '';
     public $country = '';
@@ -135,24 +139,13 @@ class CheckoutPage extends Component
     public function setAllCharges(){
 
         $grant_amount = $this->grand_price_total;
-        $shipping_methods = ShippingMethods::get();
+        $shipping_settings = Sites::first();
 
-        foreach ( $shipping_methods as $key => $methods ) {
-
-            if( $methods['shipping_condition'] === 'ABOVE_200' ) {
-
-            }
-
+        // Shipping Charge added
+        if( $shipping_settings->delivery_condition > $this->grand_sub_price_total ) {
+            $this->grand_price_total = intval( $grant_amount )+intval( $shipping_settings->default_delivery_charge );
+            $this->shipping_charge = intval( $shipping_settings->default_delivery_charge );
         }
-
-        // if( $grant_amount > 400 ){
-
-            // $this->shipping_charge = $shipping_methods_charge['shipping_charge'];
-            // $this->grand_price_total = intval( $grant_amount )+intval( $shipping_methods_charge['shipping_charge'] );
-
-        // }
-
-        // $this->grand_price_total = $grant_amount+100;
 
     }
 
@@ -173,9 +166,10 @@ class CheckoutPage extends Component
 
         $this->current_session = Session()->get('users_session');
         $this->full_name = $this->current_session['customer_name'];
+        $this->email_address = $this->current_session['customer_email'];
 
+        // Cart Items
         $this->cart_items = CartManagement::getCartItemsFromCookie();
-
 
         $pay_info = PaymentInformations::where('customers_id', $this->current_session['id'] )->first();
 
@@ -238,7 +232,7 @@ class CheckoutPage extends Component
         } else if( $this->payment_option === 'COD' ) {
 
             // Cash On Delivery
-            // $this->generateOrder( 'pending' );
+            $this->generateOrder( 'pending' );
 
         }
 
@@ -255,40 +249,39 @@ class CheckoutPage extends Component
         $order_date = date('Y-m-d');
 
         // save_payment_details If True
-        $save_payment_details = $this->save_payment_details;
+        // $save_payment_details = $this->save_payment_details;
 
-        if( $save_payment_details == true ) {
+        // if( $save_payment_details == true ) {
 
-            $card_name = $this->card_name;
-            $card_number = $this->card_number;
-            $card_year = $this->card_year;
-            $card_month = $this->card_month;
-            $card_cvv = $this->card_cvv;
+        //     $card_name = $this->card_name;
+        //     $card_number = $this->card_number;
+        //     $card_year = $this->card_year;
+        //     $card_month = $this->card_month;
+        //     $card_cvv = $this->card_cvv;
 
-            if( $this->card_id !== '' ){
-                $pay_info = PaymentInformations::find( $this->card_id );
-            } else {
-                $pay_info = new PaymentInformations();
-            }
+        //     if( $this->card_id !== '' ){
+        //         $pay_info = PaymentInformations::find( $this->card_id );
+        //     } else {
+        //         $pay_info = new PaymentInformations();
+        //     }
 
-            $pay_info->customers_id = $customers_id;
-            $pay_info->payment_types_id = $payment_types_id['id'];
-            $pay_info->card_holder_name = $card_name;
-            $pay_info->card_no = $card_number;
-            $pay_info->card_type = $this->detectCardType( $card_number );
-            $pay_info->expiry_month = $card_month;
-            $pay_info->expiry_year = $card_year;
+        //     $pay_info->customers_id = $customers_id;
+        //     $pay_info->payment_types_id = $payment_types_id['id'];
+        //     $pay_info->card_holder_name = $card_name;
+        //     $pay_info->card_no = $card_number;
+        //     $pay_info->card_type = $this->detectCardType( $card_number );
+        //     $pay_info->expiry_month = $card_month;
+        //     $pay_info->expiry_year = $card_year;
 
-            if( $this->card_id !== '' ){
-                $pay_info->update();
-            } else {
-                $pay_info->save();
-            }
+        //     if( $this->card_id !== '' ){
+        //         $pay_info->update();
+        //     } else {
+        //         $pay_info->save();
+        //     }
 
-        }
+        // }
 
         // Decrease Stock Count
-        // +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         // Order Placed
         $order = new Orders();
@@ -296,13 +289,20 @@ class CheckoutPage extends Component
         $order->customers_id = $customers_id;
         $order->payment_types_id = $payment_types_id->id;
         $order->addresses_id = $addresses_id;
-        $order->grand_total = $this->grand_price_total;
+
+        $order->sub_total_amount = $this->grand_sub_price_total;
+        $order->tax_total_amount = $this->grand_tax_total;
+        $order->shipping_charge = $this->shipping_charge;
+        $order->grand_total_amount = $this->grand_price_total;
+
         $order->order_status = $order_status;
         $order->order_date = $order_date;
         $order->save();
 
+
         // Order Item
         foreach ( $this->cart_items  as $key => $product ) {
+
             $order_item = new OrderItems();
             $order_item->orders_id = $order->id;
             $order_item->products_id = $product['product_id'];
@@ -311,8 +311,15 @@ class CheckoutPage extends Component
             $order_item->order_price_total = $product['product_total_amount'];
             $order_item->order_discount_percent = 0;
             $order_item->order_tax_percent = 0;
-            $order_item->order_shipping_charge = 0;
             $order_item->save();
+
+            // Decrese Order Quantity
+            $current_product = Products::find( $product['product_id'] );
+            $current_qty = $current_product->product_qty_in_stock;
+            $current_product->product_qty_in_stock = intval($current_qty)-intval($product['product_qty']);
+            $current_product->update();
+            // End
+
         }
 
         // Transaction
@@ -328,8 +335,22 @@ class CheckoutPage extends Component
         // Clear Cart
         CartManagement::clearCartItems();
 
+        // Send Email Confirmation With Order Number
+        $email = $this->email_address;
+
+        $mailData = [
+            'subject' => 'Thank you. Your order has been received.',
+            // 'name' => $this->name,
+            // 'phone' => $this->phone,
+            // 'email' => $this->email,
+            // 'message' => $this->message,
+        ];
+
+        Mail::to( $email )->send(new OrderPlaced($mailData));
+
+
         // Redirect to home
-        redirect('/');
+        return redirect()->route('success', ['order_number' => $order_number ]);
 
     }
 

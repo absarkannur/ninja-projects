@@ -3,6 +3,7 @@
 namespace App\Filament\Pages;
 
 use Filament\Pages\Page;
+use Filament\Notifications\Notification;
 use App\Models\Sites;
 use Illuminate\Contracts\View\View;
 
@@ -33,6 +34,11 @@ class SiteSettings extends Page
         $site_settings->default_delivery_charge = intval($this->delivery_charge);
         $site_settings->delivery_condition = intval($this->delivery_condition);
         $site_settings->update();
+
+        Notification::make()
+            ->title('Saved successfully')
+            ->success()
+            ->send();
 
     }
 

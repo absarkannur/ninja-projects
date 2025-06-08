@@ -96,11 +96,21 @@ class OrdersResource extends Resource
                     ->sortable(),
                 TextColumn::make('customers.customer_name')
                     ->searchable(),
-                TextColumn::make('grand_total')
+                TextColumn::make('sub_total_amount')
+                    ->money(env('APP_CURRENCY'))
+                    ->summarize([
+                        Sum::make()->money(env('APP_CURRENCY'))->label('Sub Total')
+                    ]),
+                TextColumn::make('tax_total_amount')
+                    ->money(env('APP_CURRENCY')),
+                TextColumn::make('shipping_charge')
+                    ->money(env('APP_CURRENCY')),
+                TextColumn::make('grand_total_amount')
                     ->money(env('APP_CURRENCY'))
                     ->summarize([
                         Sum::make()->money(env('APP_CURRENCY'))->label('Grand Total')
                     ]),
+
                 TextColumn::make('order_status')->badge(),
                 TextColumn::make('order_date')
                     ->date()

@@ -1,6 +1,44 @@
 jQuery(window).trigger("resize").trigger("scroll");
 
 $(function () {
+  // ------------------
+  $(".nav-link.dropdown-toggle").mouseover(function () {
+    $(this)
+      .parent()
+      .find(".cu-dropdown")
+      .find(".image-section")
+      .find(".image")
+      .removeClass("active");
+
+    $(this)
+      .parent()
+      .find(".cu-dropdown")
+      .find(".image-section")
+      .find(".image")
+      .eq(0)
+      .addClass("active");
+  });
+
+  $(".nav-list .nav").mouseover(function () {
+    var index = $(this).index();
+    $(this)
+      .parent()
+      .parent()
+      .parent()
+      .find(".image-section .image")
+      .removeClass("active");
+    $(this)
+      .parent()
+      .parent()
+      .parent()
+      .find(".image-section")
+      .find(".image")
+      .eq(index)
+      .addClass("active");
+  });
+
+  // ------------------
+
   $(".vertical_tabs .tab-wrap").click(function () {
     var index = $(this).index();
 

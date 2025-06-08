@@ -64,12 +64,6 @@ class OrderItemsRelationManager extends RelationManager
                         Sum::make()->money( env('APP_CURRENCY') )->label('')
                     ])
                     ->label('Tax'),
-                TextColumn::make('order_shipping_charge')
-                    ->money( env('APP_CURRENCY') )
-                    ->summarize([
-                        Sum::make()->money( env('APP_CURRENCY') )->label('')
-                    ])
-                    ->label('Shipping Charge'),
             ])
             ->paginated(false)
             ->filters([

@@ -23,6 +23,38 @@ jQuery(document).ready(function ($) {
     }
   }
 
+  // Latest Project Zoom Style ---------------
+  TweenMax.set("#project_1 #bg_layer", { backgroundSize: "125% 125%" });
+
+  var zoomTween = TweenMax.to("#project_1 #bg_layer", 0.5, {
+    backgroundSize: "100% 100%",
+    ease: Linear.easeNone,
+  });
+
+  var scene = new ScrollMagic.Scene({
+    triggerElement: "#project_1",
+    duration: 400,
+  })
+    .setTween(zoomTween)
+    .addTo(controller);
+
+  // ------------------
+
+  // Latest Project Zoom Style ---------------
+  TweenMax.set("#project_2 #bg_layer", { backgroundSize: "125% 125%" });
+
+  var zoomTween = TweenMax.to("#project_2 #bg_layer", 0.5, {
+    backgroundSize: "100% 100%",
+    ease: Linear.easeNone,
+  });
+
+  var scene = new ScrollMagic.Scene({
+    triggerElement: "#project_2",
+    duration: 400,
+  })
+    .setTween(zoomTween)
+    .addTo(controller);
+
   // ------------------
 
   // Window Scroll animation
