@@ -55,15 +55,17 @@ $(function () {
 
   // Home Page slider
 
-  var home_owl = $(".home-slider").owlCarousel({
+  var home_owl = $(".journey-slider").owlCarousel({
+    autoWidth: true,
     loop: true,
-    margin: 0,
+    margin: 20,
     nav: false,
     dots: false,
-    items: 1,
     autoplay: true,
-    autoplayTimeout: 2000,
-    autoplayHoverPause: false,
+    autoplayTimeout: 4000,
+    autoplayHoverPause: true,
+    slideTransition: "linear",
+    // smartSpeed: 3000,
   });
 
   $(".js_next").click(function () {
