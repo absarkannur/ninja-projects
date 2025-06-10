@@ -86,8 +86,8 @@ ul{
 }
 
 .section{
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 80px;
+    padding-bottom: 80px;
 }
 
 .default-btn{
@@ -166,7 +166,7 @@ ul{
 }
 
 .default-input{
-  height: 3.5em;
+  height: 3.2em;
   border-radius: 11px;
   padding: 0 10px;
   font-size: 13px;
