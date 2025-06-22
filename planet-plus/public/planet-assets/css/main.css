@@ -4888,7 +4888,8 @@ a.header__search.header-search-btn p {
   transition: all 0.4s;
   color: var(--ztc-bg-color-w);
 }
-.servcie2.service-page-sec .servcie2-box:hover .heading1 p {
+.servcie2.service-page-sec .servcie2-box:hover .heading1 p,
+.servcie2.service-page-sec .servcie2-box:hover .heading1 .learn {
   color: #fff;
   transition: all 0.4s;
 }

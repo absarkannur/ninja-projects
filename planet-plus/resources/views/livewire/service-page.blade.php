@@ -32,7 +32,7 @@
                 <div class="col-lg-8 details-right-space">
                     <div class="service-details-post">
                         <article>
-                            <div class="details-post-area">
+                            <div class="details-post-area tiptap">
                                 {!! tiptap_converter()->asHTML($service->service_content) !!}
                             </div>
                         </article>

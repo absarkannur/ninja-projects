@@ -7,6 +7,7 @@ use App\Livewire\ProductPage;
 use App\Livewire\ProductsPage;
 use App\Livewire\ServicePage;
 use App\Livewire\ServicesPage;
+use App\Livewire\ComingSoonPage;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +25,9 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', HomePage::class )->name('home');
+
+Route::get('/', ComingSoonPage::class )->name('home');
+Route::get('/home', HomePage::class )->name('home');
 Route::get('/about-us', AboutPage::class )->name('about');
 Route::get('/services', ServicesPage::class )->name('services');
 Route::get('/service/{slug}', ServicePage::class )->name('service');
