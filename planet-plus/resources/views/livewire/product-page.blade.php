@@ -92,6 +92,16 @@
         </div>
     </div>
 
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="tiptap">
+                    {!! tiptap_converter()->asHTML($product->product_content) !!}
+                </div>
+            </div>
+        </div>
+    </div>
+
     <x:ui.cta />
 
 </div>

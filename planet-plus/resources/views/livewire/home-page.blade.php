@@ -138,11 +138,9 @@
             </div>
         </div>
     </div>
-
     <!--ABOUT AREA END-->
 
     <!--SERVICE AREA START-->
-
     <div class="service sp">
         <div class="container">
 
@@ -209,7 +207,7 @@
             <div class="row">
                 <div class="col">
                     <ul class="brands-list">
-{{-- <a href="{{ route( 'product', ['slug' => $product->product_slug ] ) }}"> --}}
+
                         @if( $brands )
                             @foreach ( $brands as $brand )
                             <a href="{{ route('products', [ 'brand[0]' => $brand['id'] ] ) }}">

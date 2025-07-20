@@ -20,7 +20,7 @@
                                     <a href="{{ route('about') }}">About Us</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('products') }}">Products</a>
+                                    <a href="{{ route('categories') }}">Products</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('services') }}">Our Services</a>

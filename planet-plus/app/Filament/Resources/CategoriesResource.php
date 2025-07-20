@@ -6,6 +6,7 @@ use App\Filament\Resources\CategoriesResource\Pages;
 use App\Filament\Resources\CategoriesResource\RelationManagers;
 use App\Models\Categories;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -34,6 +35,7 @@ class CategoriesResource extends Resource
                         $set( 'category_slug', Str::slug($state) );
                     }),
                 TextInput::make('category_slug')->readOnly(),
+                FileUpload::make('category_image')
             ]);
     }
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\AboutPage;
+use App\Livewire\CategoriesPage;
 use App\Livewire\ContactPage;
 use App\Livewire\HomePage;
 use App\Livewire\ProductPage;
@@ -26,12 +27,14 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::get('/', ComingSoonPage::class )->name('home');
-Route::get('/home', HomePage::class )->name('home');
+// Route::get('/', ComingSoonPage::class )->name('home');
+Route::get('/', HomePage::class )->name('home');
 Route::get('/about-us', AboutPage::class )->name('about');
 Route::get('/services', ServicesPage::class )->name('services');
 Route::get('/service/{slug}', ServicePage::class )->name('service');
 Route::get('/products', ProductsPage::class )->name('products');
 Route::get('/product/{slug}', ProductPage::class )->name('product');
 Route::get('/contact-us', ContactPage::class )->name('contact');
+Route::get('/categories', CategoriesPage::class )->name('categories');
+
 

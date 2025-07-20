@@ -24,10 +24,11 @@
                     <h3>Service We Offer</h3>
 
                     <ul class="menu-list">
-                        <li><a href="#">IT Hardware & Accessories</a></li>
+                        <li><a href="https://planetplusme.com/service/it-hardware-accessories">IT Hardware & Accessories</a></li>
                         <li><a href="#">Networking Solutions</a></li>
                         <li><a href="#">Power Solutions</a></li>
                         <li><a href="#">Printing & Office Solutions</a></li>
+                        <li><a href="#">Annual Maintenance Contract (AMC)</a></li>
                     </ul>
                 </div>
             </div>
@@ -38,7 +39,7 @@
 
                     <ul class="menu-list">
                         <li><a href="{{ route('about') }}">About Us</a></li>
-                        <li><a href="{{ route('products') }}">Products</a></li>
+                        <li><a href="{{ route('categories') }}">Products</a></li>
                         <li><a href="{{ route('services') }}">Our Services</a></li>
                         <li><a href="{{ route('contact') }}">Contact Us</a></li>
                     </ul>
