@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 flex">
                     <div class="flex">
-                        <p class="content">{{ $profile_data->description }}</p>
+                        <p class="content">{!! $profile_data->description !!}</p>
                     </div>
                 </div>
             </div>

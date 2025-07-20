@@ -20,8 +20,8 @@ class UsersResource extends Resource
     protected static ?string $model = User::class;
 
     protected static ?string $navigationGroup = 'Admin';
-    protected static ?string $navigationIcon = 'heroicon-o-users';
-    protected static ?int $navigationSort = 15;
+    protected static ?string $navigationIcon = 'heroicon-o-home';
+    protected static ?int $navigationSort = 16;
 
     public static function form(Form $form): Form
     {

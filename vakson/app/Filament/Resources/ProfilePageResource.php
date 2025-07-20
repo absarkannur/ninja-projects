@@ -15,6 +15,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -37,13 +38,13 @@ class ProfilePageResource extends Resource
                     FileUpload::make('banner_video_poster')->directory('public'),
                 ]),
                 Section::make('Overview')->schema([
-                    RichEditor::make('description')
+                    Textarea::make('description')
                 ]),
                 Section::make('Vision')->schema([
-                    RichEditor::make('vision')
+                    Textarea::make('vision')
                 ]),
                 Section::make('Mission')->schema([
-                    RichEditor::make('mission')
+                    Textarea::make('mission')
                 ]),
                 Section::make('Core Values')->schema([
                     Repeater::make('core_values')->schema([
@@ -59,7 +60,7 @@ class ProfilePageResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('description')
             ])
             ->filters([
                 //
