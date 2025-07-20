@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('profile_pages', function (Blueprint $table) {
+        Schema::create('journey_pages', function (Blueprint $table) {
             $table->id();
             $table->string('banner_video')->nullable();
             $table->string('banner_video_poster')->nullable();
-            $table->longText('description')->nullable();
-            $table->longText('vision')->nullable();
-            $table->longText('mission')->nullable();
-            $table->longText('core_values')->nullable();
+            $table->string('banner_title')->nullable();
+            $table->string('banner_sub_title')->nullable();
+            $table->string('excellence_title')->nullable();
+            $table->longText('excellence_desc')->nullable();
+            $table->longText('excellence')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('profile_pages');
+        Schema::dropIfExists('journey_pages');
     }
 };

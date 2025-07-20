@@ -2,13 +2,12 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ProfilePageResource\Pages;
-use App\Filament\Resources\ProfilePageResource\RelationManagers;
-use App\Models\ProfilePage;
+use App\Filament\Resources\JourneyPageResource\Pages;
+use App\Filament\Resources\JourneyPageResource\RelationManagers;
+use App\Models\JourneyPage;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
-use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -19,14 +18,14 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class ProfilePageResource extends Resource
+class JourneyPageResource extends Resource
 {
-    protected static ?string $model = ProfilePage::class;
+    protected static ?string $model = JourneyPage::class;
 
     protected static ?string $navigationGroup = 'Pages';
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationLabel = 'Profile';
-    protected static ?int $navigationSort = 2;
+    protected static ?string $navigationLabel = 'Journey';
+    protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
     {
@@ -35,23 +34,19 @@ class ProfilePageResource extends Resource
                 Section::make('Banner Section')->schema([
                     FileUpload::make('banner_video')->directory('public'),
                     FileUpload::make('banner_video_poster')->directory('public'),
+                    TextInput::make('banner_title'),
+                    TextInput::make('banner_sub_title')
                 ]),
-                Section::make('Overview')->schema([
-                    RichEditor::make('description')
+                Section::make('Descriptions Section')->schema([
+                    TextInput::make('excellence_title'),
+                    Textarea::make('excellence_desc'),
                 ]),
-                Section::make('Vision')->schema([
-                    RichEditor::make('vision')
-                ]),
-                Section::make('Mission')->schema([
-                    RichEditor::make('mission')
-                ]),
-                Section::make('Core Values')->schema([
-                    Repeater::make('core_values')->schema([
+                Section::make('Excellence Section')->schema([
+                    Repeater::make('excellence')->schema([
                         TextInput::make('title'),
-                        Textarea::make('desc')
+                        FileUpload::make('image')->directory('public')
                     ])->columns(2)
                 ]),
-
             ]);
     }
 
@@ -84,9 +79,9 @@ class ProfilePageResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListProfilePages::route('/'),
-            'create' => Pages\CreateProfilePage::route('/create'),
-            'edit' => Pages\EditProfilePage::route('/{record}/edit'),
+            'index' => Pages\ListJourneyPages::route('/'),
+            'create' => Pages\CreateJourneyPage::route('/create'),
+            'edit' => Pages\EditJourneyPage::route('/{record}/edit'),
         ];
     }
 }

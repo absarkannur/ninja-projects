@@ -1166,9 +1166,20 @@
     color: #fff;
 }
 
+.section-inner-expertise .expertise-ul-list {
+    clear: both;
+}
+
 .section-inner-expertise .experties-list {
     overflow: hidden;
     margin-bottom: 100px;
+    width: 50%;
+    float: left;
+}
+
+.section-inner-expertise .experties-list:nth-child(5),
+.section-inner-expertise .experties-list:nth-child(6) {
+    margin-bottom: 0;
 }
 
 .section-inner-expertise .experties-list .image-wrap {

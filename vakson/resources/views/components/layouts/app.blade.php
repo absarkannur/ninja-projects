@@ -23,6 +23,9 @@
         <link rel="stylesheet" href="{{ asset('vakson-assets/styles/global.css') }}" />
         <link rel="stylesheet" href="{{ asset('vakson-assets/styles/main.css') }}" />
 
+        <script src="{{ asset( 'vakson-assets/scripts/jquery.min.js' ) }}"></script>
+        <script src="{{ asset( 'vakson-assets/scripts/parallax.min.js' ) }}"></script>
+
     </head>
     <body>
 
@@ -34,7 +37,7 @@
 
         <x:widgets.social_icon />
 
-        <script src="{{ asset( 'vakson-assets/scripts/jquery.min.js' ) }}"></script>
+
         <script src="{{ asset('vakson-assets/scripts/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('vakson-assets/scripts/owl.carousel.min.js') }}"></script>
 

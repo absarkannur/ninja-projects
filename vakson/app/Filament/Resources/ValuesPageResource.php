@@ -2,13 +2,12 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ProfilePageResource\Pages;
-use App\Filament\Resources\ProfilePageResource\RelationManagers;
-use App\Models\ProfilePage;
+use App\Filament\Resources\ValuesPageResource\Pages;
+use App\Filament\Resources\ValuesPageResource\RelationManagers;
+use App\Models\ValuesPage;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
-use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -19,39 +18,31 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class ProfilePageResource extends Resource
+class ValuesPageResource extends Resource
 {
-    protected static ?string $model = ProfilePage::class;
+    protected static ?string $model = ValuesPage::class;
 
     protected static ?string $navigationGroup = 'Pages';
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationLabel = 'Profile';
-    protected static ?int $navigationSort = 2;
+    protected static ?string $navigationLabel = 'Values';
+    protected static ?int $navigationSort = 4;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Section::make('Banner Section')->schema([
-                    FileUpload::make('banner_video')->directory('public'),
-                    FileUpload::make('banner_video_poster')->directory('public'),
+                Section::make('Banner Sections')->schema([
+                    FileUpload::make('banner_image')->directory('public'),
+                    TextInput::make('banner_title'),
+                    Textarea::make('banner_sub_title'),
                 ]),
-                Section::make('Overview')->schema([
-                    RichEditor::make('description')
-                ]),
-                Section::make('Vision')->schema([
-                    RichEditor::make('vision')
-                ]),
-                Section::make('Mission')->schema([
-                    RichEditor::make('mission')
-                ]),
-                Section::make('Core Values')->schema([
-                    Repeater::make('core_values')->schema([
+                Section::make()->schema([
+                    Repeater::make('values')->schema([
+                        FileUpload::make('image')->directory('icons'),
                         TextInput::make('title'),
-                        Textarea::make('desc')
-                    ])->columns(2)
-                ]),
-
+                        TextInput::make('desc'),
+                    ])->columns(3)
+                ])
             ]);
     }
 
@@ -84,9 +75,9 @@ class ProfilePageResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListProfilePages::route('/'),
-            'create' => Pages\CreateProfilePage::route('/create'),
-            'edit' => Pages\EditProfilePage::route('/{record}/edit'),
+            'index' => Pages\ListValuesPages::route('/'),
+            'create' => Pages\CreateValuesPage::route('/create'),
+            'edit' => Pages\EditValuesPage::route('/{record}/edit'),
         ];
     }
 }
