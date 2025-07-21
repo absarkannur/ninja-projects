@@ -8,7 +8,9 @@ use App\Models\PropertiesList;
 use Filament\Forms;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Split;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -44,16 +46,29 @@ class PropertiesListResource extends Resource
                         }),
                     TextInput::make('slug')->readOnly(),
                     TextInput::make('sub_title')->columnSpanFull(),
-                    Textarea::make('description')->columnSpanFull()
+                    Textarea::make('description')->rows(4)->columnSpanFull(),
+                    FileUpload::make("thumbnail")->directory('thumbnail')
 
                 ])->columns(2)->columnSpan(2),
 
                 Section::make([
 
-                    // Types
-                    // Status
+                    //
+                    Select::make('types')
+                        ->options([
+                            'lease' => 'Lease',
+                            'sale' => 'Sale'
+                        ]),
+
+                    Select::make('status')
+                        ->options([
+                            'available' => 'Available',
+                            'leased' => 'Leased',
+                            'sold' => 'Sold',
+                        ]),
 
                     Checkbox::make('latest')
+
                 ])->columnSpan(1),
 
                 Section::make([
@@ -64,15 +79,70 @@ class PropertiesListResource extends Resource
                 Section::make([
                     FileUpload::make('video')->label('Property Video')->directory('public'),
                     FileUpload::make('floor_paln_pdf')->directory('download'),
-                    ])->columns(2)->columnSpan(2),
+                ])->columns(2)->columnSpan(2),
 
-                    Section::make([
-                        TextInput::make('location_name'),
-                        FileUpload::make('location_image')->directory('public'),
-                        Textarea::make('location_description'),
+                Section::make([
+                    TextInput::make('location_name'),
+                    FileUpload::make('location_image')->directory('public'),
+                    Textarea::make('location_description'),
+                    Textarea::make('location_google_map'),
                 ])->columns(1)->columnSpan(2),
 
-                Section::make([])->columns(2)->columnSpan(2),
+                Section::make([
+
+                    Repeater::make('amenities')->schema([
+                        TextInput::make('title'),
+                        FileUpload::make('icon')->directory('icons')->previewable(false)
+                    ])->columns(2)
+
+                ])->columns(1)->columnSpan(2),
+
+                Section::make([
+
+                    Repeater::make('image_slider')->schema([
+                        FileUpload::make('image')->directory('carousel')
+                    ])->label('Property Carousel')
+
+                ])->columns(1)->columnSpan(2),
+
+
+                Section::make([
+
+                    Repeater::make('convenient_location_distance')
+                        ->schema([
+                            TextInput::make('title'),
+                            TextInput::make('value'),
+                            TextInput::make('suffix'),
+                        ])->columns(3),
+
+                ])->columns(1)->columnSpan(2),
+
+                Section::make([
+                    Repeater::make('floor_plans')
+                        ->schema([
+
+                            TextInput::make('tab_header'),
+                            Repeater::make('plan_image')->schema([
+                                FileUpload::make('p_image')->label('Image')->directory('floor_plans')
+                            ])
+
+                        ]),
+
+                ])->columns(1)->columnSpan(2),
+
+
+                Section::make([
+                    Repeater::make('gallery')
+                        ->schema([
+
+                            TextInput::make('tab_header'),
+                            Repeater::make('gallery_image')->schema([
+                                FileUpload::make('g_image')->label('Image')->directory('gallery')
+                            ])
+
+                        ]),
+                ])->columns(1)->columnSpan(2),
+
 
             ])->columns(3);
     }

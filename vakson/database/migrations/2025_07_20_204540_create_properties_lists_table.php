@@ -19,19 +19,21 @@ return new class extends Migration
             $table->string('slug')->nullable();
             $table->string('sub_title')->nullable();
             $table->longText('description')->nullable();
+            $table->string('thumbnail')->nullable();
             $table->longText('amenities')->nullable();
             $table->string('video')->nullable();
             $table->string('floor_paln_pdf')->nullable();
             $table->longText('image_slider')->nullable();
             $table->string('location_name')->nullable();
             $table->string('location_image')->nullable();
-            $table->string('location_description')->nullable();
+            $table->longText('location_description')->nullable();
+            $table->longText('location_google_map')->nullable();
             $table->longText('convenient_location_distance')->nullable();
             $table->longText('floor_plans')->nullable();
             $table->longText('gallery')->nullable();
             $table->string('status')->nullable();
             $table->boolean('latest')->nullable();
-            $table->string('type')->nullable();
+            $table->string('types')->nullable();
             $table->timestamps();
         });
     }
