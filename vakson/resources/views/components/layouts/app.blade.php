@@ -3,12 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description"
-        content="Vakson Development is a leading real estate developer in Dubai, specialising in luxury residential and commercial properties. Explore our latest projects today!">
-        <meta name="keywords"
-        content="real estate developer, luxury properties, Dubai real estate, residential projects, commercial properties, Vakson Development, new construction Dubai">
+        <meta name="description" content="{{ $site_header->description }}" />
+        <meta name="keywords" content="{{ $site_header->keywords }}" />
 
-        <title>{{ $title ?? 'Vakson Development | Premier Real Estate Developer in Dubai' }}</title>
+        <title>{{ $site_header->page_title }}</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,6 +24,8 @@
         <script src="{{ asset( 'vakson-assets/scripts/jquery.min.js' ) }}"></script>
         <script src="{{ asset( 'vakson-assets/scripts/parallax.min.js' ) }}"></script>
 
+        {!! $site_header->scripts !!}
+
     </head>
     <body>
 
@@ -36,7 +36,6 @@
         <x:footer.footer/>
 
         <x:widgets.social_icon />
-
 
         <script src="{{ asset('vakson-assets/scripts/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('vakson-assets/scripts/owl.carousel.min.js') }}"></script>

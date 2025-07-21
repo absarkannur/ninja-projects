@@ -15,12 +15,11 @@ class HeaderComposer {
 
     public function __construct() {
         $this->site_data = SiteInfo::first();
-        // $this->site_header = HeaderScripts::first();
+        $this->site_header = HeaderScripts::first();
     }
 
     public function compose(View $view) {
         $view->with('site_data', $this->site_data );
-        // $view->with('site_header', $this->site_header );
-
+        $view->with('site_header', $this->site_header );
     }
 }

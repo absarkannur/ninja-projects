@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\JourneySlider;
 use App\Models\PropertiesList;
 use Livewire\Component;
 
@@ -12,10 +13,12 @@ class PropertiesPage extends Component
 
         $lease_properties = PropertiesList::where('types','lease')->orderBy( 'id', 'desc')->get();
         $sale_properties = PropertiesList::where('types','sale')->orderBy( 'id', 'desc')->get();
+        $journy_list = JourneySlider::get();
 
         return view('livewire.properties-page', [
             'lease_properties' => $lease_properties,
             'sale_properties' => $sale_properties,
+            'journy_list' => $journy_list
         ]);
     }
 }

@@ -71,34 +71,34 @@
                                         </div>
                                         <div class="sub-image-section">
                                             <div class="sub-image active"
-                                                style="background-image: url('./vakson-assets/images/nav/properties.jpg');">
+                                                style="background-image: url('{{ asset('vakson-assets/images/nav/properties.jpg') }}');">
                                             </div>
                                             <div class="sub-image"
-                                                style="background-image: url('./vakson-assets/images/nav/properties.jpg');">
+                                                style="background-image: url('{{ asset('vakson-assets/images/nav/properties.jpg') }}');">
                                             </div>
                                             <div class="sub-image"
-                                                style="background-image: url('./vakson-assets/images/nav/properties.jpg');">
+                                                style="background-image: url('{{ asset('vakson-assets/images/nav/properties.jpg') }}');">
                                             </div>
                                             <div class="sub-image"
-                                                style="background-image: url('./vakson-assets/images/nav/properties.jpg');">
+                                                style="background-image: url('{{ asset('vakson-assets/images/nav/properties.jpg') }}');">
                                             </div>
                                             <div class="sub-image"
-                                                style="background-image: url('./vakson-assets/images/nav/properties.jpg');">
+                                                style="background-image: url('{{ asset('vakson-assets/images/nav/properties.jpg') }}');">
                                             </div>
                                             <div class="sub-image"
-                                                style="background-image: url('./vakson-assets/images/nav/properties.jpg');">
+                                                style="background-image: url('{{ asset('vakson-assets/images/nav/properties.jpg') }}');">
                                             </div>
                                             <div class="sub-image"
-                                                style="background-image: url('./vakson-assets/images/nav/properties.jpg');">
+                                                style="background-image: url('{{ asset('vakson-assets/images/nav/properties.jpg') }}');">
                                             </div>
                                             <div class="sub-image"
-                                                style="background-image: url('./vakson-assets/images/nav/properties.jpg');">
+                                                style="background-image: url('{{ asset('vakson-assets/images/nav/properties.jpg') }}');">
                                             </div>
                                             <div class="sub-image"
-                                                style="background-image: url('./vakson-assets/images/nav/properties.jpg');">
+                                                style="background-image: url('{{ asset('vakson-assets/images/nav/properties.jpg') }}');">
                                             </div>
                                             <div class="sub-image"
-                                                style="background-image: url('./vakson-assets/images/nav/properties.jpg');">
+                                                style="background-image: url('{{ asset('vakson-assets/images/nav/properties.jpg') }}');">
                                             </div>
                                         </div>
                                     </div>
@@ -118,10 +118,10 @@
                                         </div>
                                         <div class="sub-image-section">
                                             <div class="sub-image active"
-                                                style="background-image: url('./vakson-assets/images/nav/four-pearls.jpg');">
+                                                style="background-image: url('{{ asset('vakson-assets/images/nav/four-pearls.jpg') }}');">
                                             </div>
                                             <div class="sub-image"
-                                                style="background-image: url('./vakson-assets/images/nav/riva.jpg');">
+                                                style="background-image: url('{{ asset('vakson-assets/images/nav/riva.jpg') }}');">
                                             </div>
                                         </div>
                                     </div>
@@ -138,7 +138,7 @@
                                         </div>
                                         <div class="sub-image-section">
                                             <div class="sub-image active"
-                                                style="background-image: url('./vakson-assets/images/nav/comingsoon.png');">
+                                                style="background-image: url('{{ asset('vakson-assets/images/nav/comingsoon.png') }}');">
                                             </div>
                                         </div>
                                     </div>

@@ -10,13 +10,7 @@
                     </li>
                     <li class="item">
                         <label for="">Subscribe to our newsletter</label>
-                        <div class="form">
-                            <input class="default-input" type="email" placeholder="Email Address" required />
-                            <button class="default-btn darker">&nbsp;&nbsp;Subscribe&nbsp;&nbsp;</button>
-                        </div>
-                        <label class="label" for="">
-                            <input type="checkbox" /> &nbsp;I want to subscribe to your mailing list.
-                        </label>
+                        <livewire:subscribe-component />
                     </li>
                 </ul>
             </div>
