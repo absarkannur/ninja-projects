@@ -47,6 +47,7 @@ class HomePageResource extends Resource
                     Repeater::make('about_numbers')->schema([
                         TextInput::make('title')->required(),
                         TextInput::make('value')->required(),
+                        TextInput::make('suffix'),
                         FileUpload::make('icon')->directory('icons')->previewable(false)->required()
                     ])->label('Count')->columns(3)
                 ]),

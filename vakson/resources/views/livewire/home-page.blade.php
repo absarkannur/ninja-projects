@@ -51,7 +51,7 @@
                                         <span class="icon">
                                             <img src="{{ asset( 'storage/' . $numbers['icon'] ) }}" alt=""/>
                                         </span>
-                                        <span class="value" id="num{{ $key+1 }}" data-value="{{ $numbers['value'] }}">0</span>
+                                        <span class="value"><span id="num{{ $key+1 }}" data-value="{{ $numbers['value'] }}">0</span>{{ $numbers['suffix'] }}</span>
                                         <span class="title">{{ $numbers['title'] }}</span>
                                     </li>
                                 @endforeach

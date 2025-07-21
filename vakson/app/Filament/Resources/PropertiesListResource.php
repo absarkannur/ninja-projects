@@ -67,7 +67,8 @@ class PropertiesListResource extends Resource
                             'sold' => 'Sold',
                         ]),
 
-                    Checkbox::make('latest')
+                    Checkbox::make('latest'),
+                    Checkbox::make('template')->label('New Template'),
 
                 ])->columnSpan(1),
 

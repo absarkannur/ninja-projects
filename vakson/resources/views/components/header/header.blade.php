@@ -8,8 +8,8 @@
                 </div>
             </div>
 
-            <a class="navbar-brand" href="./index.php">
-                <img src="{{ asset( 'vakson-assets/icons/logo.png' ) }}" alt="Vakson Development LLC" />
+            <a class="navbar-brand" href="{{ route('home') }}">
+                <img src="{{ asset( 'storage/' . $site_data->logo ) }}" alt="Vakson Development LLC" />
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -27,7 +27,7 @@
                         <div class="cu-dropdown">
                             <div class="nav-section">
                                 <ul class="nav-list">
-                                    <li class="nav active"><a href="./all-properties.php">All Properties</a></li>
+                                    <li class="nav active"><a href="{{ route('properties') }}">All Properties</a></li>
                                     <li class="nav">Current Projects</li>
                                     <li class="nav">Upcoming Projects</li>
                                 </ul>
@@ -38,34 +38,34 @@
                                         <div class="sub-nav-section">
                                             <ul class="sub-nav-list">
                                                 <li class="nav">
-                                                    <a href="#">Hessa Views</a>
+                                                    <a href="{{ route('property', ['slug' => 'hessa-views-jumeirah-village-circle']) }}">Hessa Views</a>
                                                 </li>
                                                 <li class="nav">
-                                                    <a href="#">Commercial Building</a>
+                                                    <a href="{{ route('property', ['slug' => 'commercial-building-umm-al-sheif']) }}">Commercial Building</a>
                                                 </li>
                                                 <li class="nav">
-                                                    <a href="#">Emirates Crown</a>
+                                                    <a href="{{ route('property', ['slug' => 'emirates-crown-dubai-marina']) }}">Emirates Crown</a>
                                                 </li>
                                                 <li class="nav">
-                                                    <a href="#">Marina Crown</a>
+                                                    <a href="{{ route('property', ['slug' => 'marina-crown-dubai-marina']) }}">Marina Crown</a>
                                                 </li>
                                                 <li class="nav">
-                                                    <a href="#">Emerald Residence</a>
+                                                    <a href="{{ route('property', ['slug' => 'emerald-residence-dubai-marina']) }}">Emerald Residence</a>
                                                 </li>
                                                 <li class="nav">
-                                                    <a href="#">Jash Hamad</a>
+                                                    <a href="{{ route('property', ['slug' => 'jash-hamad-palm-jumeirah']) }}">Jash Hamad</a>
                                                 </li>
                                                 <li class="nav">
-                                                    <a href="#">Icon Tower I & II</a>
+                                                    <a href="{{ route('property', ['slug' => 'icon-tower-i-ii-jumeirah-lake-towers']) }}">Icon Tower I & II</a>
                                                 </li>
                                                 <li class="nav">
-                                                    <a href="#">02 Residence</a>
+                                                    <a href="{{ route('property', ['slug' => 'o2-residence-jumeirah-lake-towers']) }}">02 Residence</a>
                                                 </li>
                                                 <li class="nav">
-                                                    <a href="#">University View</a>
+                                                    <a href="{{ route('property', ['slug' => 'university-view-dubai-silicon-oasis']) }}">University View</a>
                                                 </li>
                                                 <li class="nav">
-                                                    <a href="#">England Cluster</a>
+                                                    <a href="{{ route('property', ['slug' => 'england-cluster-international-city']) }}">England Cluster</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -109,10 +109,10 @@
                                         <div class="sub-nav-section">
                                             <ul class="sub-nav-list">
                                                 <li class="nav">
-                                                    <a href="./pearl-property.php">Four Pearls</a>
+                                                    <a href="{{ route('property', ['slug' => 'four-pearls-palm-jumeirah']) }}">Four Pearls</a>
                                                 </li>
                                                 <li class="nav">
-                                                    <a href="./riva-property.php">Riva Residence</a>
+                                                    <a href="{{ route('property', ['slug' => 'riva-residence']) }}">Riva Residence</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -155,8 +155,8 @@
                         <div class="cu-dropdown">
                             <div class="nav-section">
                                 <ul class="nav-list">
-                                    <li class="nav active"><a href="./profile.php">Company Profile</a></li>
-                                    <li class="nav"><a href="./journey.php">Our Journey</a></li>
+                                    <li class="nav active"><a href="{{ route('profile') }}">Company Profile</a></li>
+                                    <li class="nav"><a href="{{ route('journey') }}">Our Journey</a></li>
                                 </ul>
                             </div>
                             <div class="image-section">
@@ -169,13 +169,10 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./values.php">Values</a>
+                        <a class="nav-link" href="{{ route('values') }}">Values</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="./news.php">News</a>
-                    </li> -->
                     <li class="nav-item">
-                        <a class="nav-link" href="./contact.php">Contact</a>
+                        <a class="nav-link" href="{{ route('contact') }}">Contact</a>
                     </li>
                 </ul>
             </div>

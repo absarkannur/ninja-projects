@@ -34,6 +34,7 @@ return new class extends Migration
             $table->string('status')->nullable();
             $table->boolean('latest')->nullable();
             $table->string('types')->nullable();
+            $table->boolean('template')->nullable();
             $table->timestamps();
         });
     }
