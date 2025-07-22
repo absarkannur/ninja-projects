@@ -118,7 +118,7 @@ jQuery(document).ready(function ($) {
     if (scroll > 100) {
       $(".header-wrapper .navbar").addClass("gray");
     } else {
-      $(".header-wrapper .navbar").removeClass("gray");
+    //   $(".header-wrapper .navbar").removeClass("gray");
     }
   });
 

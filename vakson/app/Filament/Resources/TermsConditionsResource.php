@@ -2,11 +2,11 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\MailSubscribeResource\Pages;
-use App\Filament\Resources\MailSubscribeResource\RelationManagers;
-use App\Models\MailSubscribe;
+use App\Filament\Resources\TermsConditionsResource\Pages;
+use App\Filament\Resources\TermsConditionsResource\RelationManagers;
+use App\Models\TermsConditions;
 use Filament\Forms;
-use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -15,20 +15,19 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class MailSubscribeResource extends Resource
+class TermsConditionsResource extends Resource
 {
-    protected static ?string $model = MailSubscribe::class;
+    protected static ?string $model = TermsConditions::class;
 
-    protected static ?string $navigationGroup = 'Admin';
-    protected static ?string $navigationLabel = 'Mail Subscribers';
+    protected static ?string $navigationGroup = 'Pages';
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?int $navigationSort = 19;
+    protected static ?int $navigationSort = 6;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                TextInput::make('email')
+                MarkdownEditor::make('content')->columnSpanFull()
             ]);
     }
 
@@ -36,7 +35,7 @@ class MailSubscribeResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('email'),
+                TextColumn::make('content')
             ])
             ->filters([
                 //
@@ -61,9 +60,9 @@ class MailSubscribeResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListMailSubscribes::route('/'),
-            'create' => Pages\CreateMailSubscribe::route('/create'),
-            'edit' => Pages\EditMailSubscribe::route('/{record}/edit'),
+            'index' => Pages\ListTermsConditions::route('/'),
+            'create' => Pages\CreateTermsConditions::route('/create'),
+            'edit' => Pages\EditTermsConditions::route('/{record}/edit'),
         ];
     }
 }

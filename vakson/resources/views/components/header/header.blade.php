@@ -1,4 +1,5 @@
 <header class="header-wrapper">
+
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
         <div class="container-fluid">
 
@@ -37,69 +38,25 @@
                                     <div class="cu-dropdown-sub">
                                         <div class="sub-nav-section">
                                             <ul class="sub-nav-list">
-                                                <li class="nav">
-                                                    <a href="{{ route('property', ['slug' => 'hessa-views-jumeirah-village-circle']) }}">Hessa Views</a>
-                                                </li>
-                                                <li class="nav">
-                                                    <a href="{{ route('property', ['slug' => 'commercial-building-umm-al-sheif']) }}">Commercial Building</a>
-                                                </li>
-                                                <li class="nav">
-                                                    <a href="{{ route('property', ['slug' => 'emirates-crown-dubai-marina']) }}">Emirates Crown</a>
-                                                </li>
-                                                <li class="nav">
-                                                    <a href="{{ route('property', ['slug' => 'marina-crown-dubai-marina']) }}">Marina Crown</a>
-                                                </li>
-                                                <li class="nav">
-                                                    <a href="{{ route('property', ['slug' => 'emerald-residence-dubai-marina']) }}">Emerald Residence</a>
-                                                </li>
-                                                <li class="nav">
-                                                    <a href="{{ route('property', ['slug' => 'jash-hamad-palm-jumeirah']) }}">Jash Hamad</a>
-                                                </li>
-                                                <li class="nav">
-                                                    <a href="{{ route('property', ['slug' => 'icon-tower-i-ii-jumeirah-lake-towers']) }}">Icon Tower I & II</a>
-                                                </li>
-                                                <li class="nav">
-                                                    <a href="{{ route('property', ['slug' => 'o2-residence-jumeirah-lake-towers']) }}">02 Residence</a>
-                                                </li>
-                                                <li class="nav">
-                                                    <a href="{{ route('property', ['slug' => 'university-view-dubai-silicon-oasis']) }}">University View</a>
-                                                </li>
-                                                <li class="nav">
-                                                    <a href="{{ route('property', ['slug' => 'england-cluster-international-city']) }}">England Cluster</a>
-                                                </li>
+                                                @foreach ( $site_nav as $nav )
+                                                    <li class="nav">
+                                                        <a href="{{ route('property', ['slug' => $nav['slug'] ]) }}">{{ $nav['nav_title'] }}</a>
+                                                    </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                         <div class="sub-image-section">
-                                            <div class="sub-image active"
-                                                style="background-image: url('{{ asset('vakson-assets/images/nav/properties.jpg') }}');">
-                                            </div>
-                                            <div class="sub-image"
-                                                style="background-image: url('{{ asset('vakson-assets/images/nav/properties.jpg') }}');">
-                                            </div>
-                                            <div class="sub-image"
-                                                style="background-image: url('{{ asset('vakson-assets/images/nav/properties.jpg') }}');">
-                                            </div>
-                                            <div class="sub-image"
-                                                style="background-image: url('{{ asset('vakson-assets/images/nav/properties.jpg') }}');">
-                                            </div>
-                                            <div class="sub-image"
-                                                style="background-image: url('{{ asset('vakson-assets/images/nav/properties.jpg') }}');">
-                                            </div>
-                                            <div class="sub-image"
-                                                style="background-image: url('{{ asset('vakson-assets/images/nav/properties.jpg') }}');">
-                                            </div>
-                                            <div class="sub-image"
-                                                style="background-image: url('{{ asset('vakson-assets/images/nav/properties.jpg') }}');">
-                                            </div>
-                                            <div class="sub-image"
-                                                style="background-image: url('{{ asset('vakson-assets/images/nav/properties.jpg') }}');">
-                                            </div>
-                                            <div class="sub-image"
-                                                style="background-image: url('{{ asset('vakson-assets/images/nav/properties.jpg') }}');">
-                                            </div>
-                                            <div class="sub-image"
-                                                style="background-image: url('{{ asset('vakson-assets/images/nav/properties.jpg') }}');">
-                                            </div>
+                                            @foreach ( $site_nav as $nav )
+                                                @if( !empty($nav['nav_image']) )
+                                                    <div class="sub-image active"
+                                                        style="background-image: url('{{ asset( 'storage/' . $nav['nav_image'] ) }}');">
+                                                    </div>
+                                                @else
+                                                    <div class="sub-image active"
+                                                        style="background-image: url('{{ asset('vakson-assets/images/nav/properties.jpg') }}');">
+                                                    </div>
+                                                @endif
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -108,21 +65,19 @@
                                     <div class="cu-dropdown-sub">
                                         <div class="sub-nav-section">
                                             <ul class="sub-nav-list">
-                                                <li class="nav">
-                                                    <a href="{{ route('property', ['slug' => 'four-pearls-palm-jumeirah']) }}">Four Pearls</a>
-                                                </li>
-                                                <li class="nav">
-                                                    <a href="{{ route('property', ['slug' => 'riva-residence']) }}">Riva Residence</a>
-                                                </li>
+                                                @foreach ( $site_nav_latest as $nav )
+                                                    <li class="nav">
+                                                        <a href="{{ route('property', ['slug' => $nav['slug'] ]) }}">{{ $nav['nav_title'] }}</a>
+                                                    </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                         <div class="sub-image-section">
-                                            <div class="sub-image active"
-                                                style="background-image: url('{{ asset('vakson-assets/images/nav/four-pearls.jpg') }}');">
-                                            </div>
-                                            <div class="sub-image"
-                                                style="background-image: url('{{ asset('vakson-assets/images/nav/riva.jpg') }}');">
-                                            </div>
+                                            @foreach ( $site_nav_latest as $nav )
+                                                <div class="sub-image active"
+                                                    style="background-image: url('{{ asset( 'storage/' . $nav['nav_image'] ) }}');">
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -161,9 +116,9 @@
                             </div>
                             <div class="image-section">
                                 <div class="image active"
-                                    style="background-image: url('./vakson-assets/images/nav/profile.jpg');"></div>
+                                    style="background-image: url('{{ asset('vakson-assets/images/nav/profile.jpg') }}');"></div>
                                 <div class="image"
-                                    style="background-image: url('./vakson-assets/images/nav/our_journey.jpg');">
+                                    style="background-image: url('{{ asset('vakson-assets/images/nav/our_journey.jpg') }}');">
                                 </div>
                             </div>
                         </div>
@@ -179,4 +134,5 @@
 
         </div>
     </nav>
+
 </header>

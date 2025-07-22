@@ -1,7 +1,7 @@
 <div>
 
     <section class="inner-page-banner vide-banner">
-        <video class="our-jounery-video" id="video" poster="{{ asset( 'storage/' . $journey_data->banner_video_poster ) }}" muted autoplay loop>
+        <video class="our-jounery-video" id="video" poster="{{ asset( 'storage/' . $journey_data->banner_video_poster ) }}" playsinline muted autoplay loop>
             <source src="{{ asset( 'storage/' . $journey_data->banner_video ) }}" type="video/mp4">
             Your browser does not support the video tag.
         </video>

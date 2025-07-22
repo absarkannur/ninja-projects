@@ -52,30 +52,30 @@ class PropertiesListResource extends Resource
                 ])->columns(2)->columnSpan(2),
 
                 Section::make([
-
-                    //
                     Select::make('types')
                         ->options([
                             'lease' => 'Lease',
                             'sale' => 'Sale'
                         ]),
-
                     Select::make('status')
                         ->options([
                             'available' => 'Available',
                             'leased' => 'Leased',
                             'sold' => 'Sold',
                         ]),
-
                     Checkbox::make('latest'),
                     Checkbox::make('template')->label('New Template'),
-
                 ])->columnSpan(1),
 
                 Section::make([
                     FileUpload::make('banner_video')->directory('public'),
                     FileUpload::make('banner_video_poster')->directory('public'),
                 ])->columns(2)->columnSpan(2),
+
+                Section::make([
+                    TextInput::make('nav_title'),
+                    FileUpload::make('nav_image')->directory('navbar'),
+                ])->columnSpan(1),
 
                 Section::make([
                     FileUpload::make('video')->label('Property Video')->directory('public'),

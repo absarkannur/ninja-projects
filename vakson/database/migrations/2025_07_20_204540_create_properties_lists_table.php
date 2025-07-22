@@ -35,6 +35,8 @@ return new class extends Migration
             $table->boolean('latest')->nullable();
             $table->string('types')->nullable();
             $table->boolean('template')->nullable();
+            $table->string('nav_title')->nullable();
+            $table->string('nav_image')->nullable();
             $table->timestamps();
         });
     }

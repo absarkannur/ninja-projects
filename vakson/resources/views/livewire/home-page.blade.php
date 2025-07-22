@@ -108,7 +108,7 @@
                         <div class="property-video-model" id="js_property_video_model">
                             <div class="video-wrap">
                                 <span class="close">x</span>
-                                <video class="property-video" id="video" controls muted autoplay loop>
+                                <video class="property-video" id="video" playsinline controls muted autoplay loop>
                                     <source src="{{ asset( 'storage/' . $properties['video'] ) }}" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -236,7 +236,7 @@
     </section>
 
     <div class="section-home-footer-video" id="footer_video">
-        <video class="footer-video" id="video" poster="{{ asset('storage/' . $home_data->footer_video_poster ) }}" muted autoplay loop>
+        <video class="footer-video" id="video" poster="{{ asset('storage/' . $home_data->footer_video_poster ) }}" playsinline muted autoplay loop>
             <source src="{{ asset('storage/' . $home_data->footer_video ) }}" type="video/mp4">
             Your browser does not support the video tag.
         </video>

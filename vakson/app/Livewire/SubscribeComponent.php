@@ -20,14 +20,14 @@ class SubscribeComponent extends Component
 
         $this->validate();
 
-        if( $this->checkbox === true ) {
+        // if( $this->checkbox === true ) {
             $mail = new MailSubscribe();
             $mail->email = $this->email;
             $mail->save();
 
             $this->email = '';
             $this->message = 'Successfully added';
-        }
+        // }
 
     }
 

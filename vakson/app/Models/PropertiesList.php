@@ -31,7 +31,9 @@ class PropertiesList extends Model
         'status',
         'latest',
         'types',
-        'template'
+        'template',
+        'nav_title',
+        'nav_image',
     ];
 
     protected $casts = [

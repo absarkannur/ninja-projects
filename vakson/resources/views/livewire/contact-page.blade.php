@@ -79,28 +79,47 @@
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 contact-wrap">
                     <h2 class="title">{{ $contact_data->contact_title }}</h2>
                     <p class="description">{{ $contact_data->contact_description }}</p>
-                    <form action="">
-                        <label for="" class="default-label light">Full Name</label>
-                        <input class="default-input full-width" type="text" />
 
+                    <form wire:submit="submit">
+
+                        <label for="" class="default-label light">Full Name</label>
+                        <input wire:model="name" class="default-input full-width" type="text" />
+                        @error('name')
+                            <span style="display: block;position: relative;color: red;margin-top: -5px;font-size: 11px;">{{ $message }}</span>
+                        @enderror
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
                                 <label for="" class="default-label light">Email</label>
-                                <input class="default-input full-width" type="text" />
+                                <input wire:model="email" class="default-input full-width" type="text" />
+                                @error('email')
+                                <span style="display: block;position: relative;color: red;margin-top: -5px;font-size: 11px;">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
                                 <label for="" class="default-label light">Phone</label>
-                                <input class="default-input full-width" type="text" placeholder="e.g.: 04 303 9222" />
+                                <input wire:model="phone" class="default-input full-width" type="text" placeholder="e.g.: 04 303 9222" />
+                                @error('phone')
+                                <span style="display: block;position: relative;color: red;margin-top: -5px;font-size: 11px;">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
 
                         <label for="" class="default-label light">Message</label>
-                        <textarea class="default-textarea full-width" name="" placeholder="Message"></textarea>
+                        <textarea class="default-textarea full-width" wire:model="message" placeholder="Message"></textarea>
+
                         <div class="space20"></div>
+
                         <button class="default-btn light full-width">
                             <div class="text">Send</div>
                         </button>
+
                     </form>
+                    @if (session()->has('success'))
+                        <br/>
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

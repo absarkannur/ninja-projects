@@ -292,8 +292,8 @@
     @endif
 
 
-    <x:widgets.property_contact_footer />
-    <x:widgets.property_contact_modal />
+    <x:widgets.property_contact_footer project="{{$property_data->title}}" />
+    <x:widgets.property_contact_modal project="{{$property_data->title}}" />
 
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/prism.min.js"></script>

@@ -17,17 +17,30 @@
             <div class="col-sm-12 col-md-12 col-lg-2 col-xl-2">
                 <ul class="footer-nav">
                     <li class="item title">Quick Links</li>
-                    <li class="item">About Us</li>
-                    <li class="item">Properties</li>
-                    <li class="item">Expertise</li>
-                    <li class="item">News</li>
+                    <a href="{{ route('profile') }}">
+                        <li class="item">Company Profile</li>
+                    </a>
+                    <a href="{{ route('journey') }}">
+                        <li class="item">Our Journey</li>
+                    </a>
+                    <a href="{{ route('properties') }}">
+                        <li class="item">Properties</li>
+                    </a>
+                    <a href="{{ route('values') }}">
+                        <li class="item">Values</li>
+                    </a>
                 </ul>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-2 col-xl-2">
                 <ul class="footer-nav">
                     <li class="item title">Properties</li>
-                    <li class="item">Riva Residence</li>
-                    <li class="item">Four Pearls</li>
+
+                    @foreach ( $site_nav_latest as $nav )
+                        <a href="{{ route('property', ['slug' => $nav['slug'] ]) }}">
+                            <li class="item">{{ $nav['nav_title'] }}</li>
+                        </a>
+                    @endforeach
+
                 </ul>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-2 col-xl-2">
@@ -107,12 +120,16 @@
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
                         <ul class="footer-nav" style="text-align: center;">
-                            <li class="item">Privacy Policies</li>
+                            <a href="{{route('privacy')}}">
+                                <li class="item">Privacy Policies</li>
+                            </a>
                         </ul>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
                         <ul class="footer-nav" style="text-align: center;">
-                            <li class="item">Terms & Conditions</li>
+                            <a href="{{ route('terms') }}">
+                                <li class="item">Terms & Conditions</li>
+                            </a>
                         </ul>
                     </div>
                 </div>

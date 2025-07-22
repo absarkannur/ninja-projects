@@ -2,11 +2,11 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\MailSubscribeResource\Pages;
-use App\Filament\Resources\MailSubscribeResource\RelationManagers;
-use App\Models\MailSubscribe;
+use App\Filament\Resources\PrivacyPoliciesResource\Pages;
+use App\Filament\Resources\PrivacyPoliciesResource\RelationManagers;
+use App\Models\PrivacyPolicies;
 use Filament\Forms;
-use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -15,20 +15,20 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class MailSubscribeResource extends Resource
+class PrivacyPoliciesResource extends Resource
 {
-    protected static ?string $model = MailSubscribe::class;
+    protected static ?string $model = PrivacyPolicies::class;
 
-    protected static ?string $navigationGroup = 'Admin';
-    protected static ?string $navigationLabel = 'Mail Subscribers';
+    protected static ?string $navigationGroup = 'Pages';
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?int $navigationSort = 19;
+    protected static ?int $navigationSort = 7;
+
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                TextInput::make('email')
+                MarkdownEditor::make('content')->columnSpanFull()
             ]);
     }
 
@@ -36,7 +36,7 @@ class MailSubscribeResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('email'),
+                TextColumn::make('content')
             ])
             ->filters([
                 //
@@ -61,9 +61,9 @@ class MailSubscribeResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListMailSubscribes::route('/'),
-            'create' => Pages\CreateMailSubscribe::route('/create'),
-            'edit' => Pages\EditMailSubscribe::route('/{record}/edit'),
+            'index' => Pages\ListPrivacyPolicies::route('/'),
+            'create' => Pages\CreatePrivacyPolicies::route('/create'),
+            'edit' => Pages\EditPrivacyPolicies::route('/{record}/edit'),
         ];
     }
 }
